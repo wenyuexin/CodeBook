@@ -1,17 +1,27 @@
 package javabasic.collection;
 
 import java.util.List;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class TestLinkedList {
 	public static void main(String[] args) {
-		//测试ArrayList
-		//MyArrayList ta = new MyArrayList();//ArrayList extends AbstractList
+		//娴嬭瘯LinkedList
+		Mylist mylist = new Mylist();//ArrayList extends AbstractList
 		
-		//ta.test(); //两个ArrayList的相关函数
+		mylist.test(); 
 		//ta.test2();
 	}
 }
+
+class Mylist {
+
+	public void test() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
 
 
 
