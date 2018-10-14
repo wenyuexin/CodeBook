@@ -17,6 +17,11 @@ class Mylist {
 
 	public void test() {
 		// TODO Auto-generated method stub
+		LinkedList<String> mylist = new LinkedList<String>();
+		mylist.add("aaa");
+		mylist.add("bbb");
+		
+		System.out.println(mylist);
 		
 	}
 	
