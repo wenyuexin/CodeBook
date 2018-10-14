@@ -7,14 +7,15 @@ public class TestLinkedList {
 		// 测试LinkedList
 		Mylist mylist = new Mylist();
 		
-		mylist.test(); 
-		//ta.test2();
+		mylist.test1(); 
+		mylist.test2();
+		mylist.test3();
 	}
 }
 
 class Mylist {
 
-	public void test() {
+	public void test1() {
 		/**
 		 * LinkedList extends AbstractSequentialList<E>
 		 * Constructors: 
@@ -23,6 +24,7 @@ class Mylist {
 		 * By comparison, we can construct ArrayList in this way:
 		 * - ArrayList​(int initialCapacity)
 		 */
+		System.out.println("=== test1 ===");
 		LinkedList<String> llist = new LinkedList<String>(); 
 		
 		// 增加和移除元素
@@ -49,11 +51,43 @@ class Mylist {
 		 * - boolean remove​(Object o)
 		 ** 那么是否存在冲突？其实方法2中的o必须是对象，所以不影响
 		 */
+		System.out.println("=== test2 ===");
 		
 		//LinkedList<int> llist2 = new LinkedList<int>(); 
 		// 注意：这里不能使用基本数据类型
 	}
 	
+	public void test3() {
+		System.out.println("=== test3 ===");
+		
+		LinkedList<Integer> llist = new LinkedList<Integer>();
+		llist.offer(Integer.valueOf(11)); //作为Queue使用时的方法，对应的有offer/poll/take
+		llist.offer(Integer.valueOf(22));
+		llist.offer(Integer.valueOf(33));
+		llist.offer(Integer.valueOf(2));
+		llist.offer(Integer.valueOf(22)); //55
+		llist.offer(Integer.valueOf(44));
+		System.out.println(llist);
+		
+		int index22 = llist.indexOf(Integer.valueOf("22"));
+		System.out.println(index22);
+		System.out.println(llist.lastIndexOf(Integer.valueOf("22")));
+		
+		llist.set(4, Integer.valueOf("55"));
+		System.out.println(llist);
+		
+		// 转为数组
+		//Integer[] intArr = llist.toArray(); //返回的是Object类
+		Object[] objArr = llist.toArray();
+		System.out.println(objArr);
+		for(Object val: objArr) {
+			System.out.print(val+" ");
+		}
+		System.out.println();
+		
+		//Integer[] intArr = (Integer[])objArr; //不能这样转
+		//System.out.println(intArr);
+	}
 }
 
 

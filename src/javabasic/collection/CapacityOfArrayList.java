@@ -3,16 +3,14 @@ package javabasic.collection;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-/*
- * ArrayList��û�п���ֱ�ӻ�ȡcapacity��Ϣ�ĳ�Ա
- * ����ʹ�÷����ȡArrayList��capacityֵ
+/**
+ ** 获取ArrayList的capacityֵ
  */
 public class CapacityOfArrayList {
 	public static void main(String[] args) {
 		ArrayList<Integer> arrayList = new ArrayList<>();
         System.out.println(getArrayListCapacity(arrayList));
  
-        //����Ԫ�أ�ʹ������
         arrayList.add(0);
         System.out.println(getArrayListCapacity(arrayList));
  
@@ -40,6 +38,14 @@ public class CapacityOfArrayList {
             e.printStackTrace();
             return -1;
         }
+    }
+    
+    /*
+     * size
+     */
+    public static int getCapacity(ArrayList<?> arrayList) {
+    	Object[] a = arrayList.toArray();
+    	return a.length;
     }
 }
 
