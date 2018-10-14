@@ -1,4 +1,4 @@
 /*
-* book01 - ¡¶Java´ÓÈëÃÅµ½¾«Í¨£¨µÚ4°æ£©¡· 2016ÄêÓÉÇå»ª´óÑ§³ö°æÉç³ö°æ
-* exercises.book01 - ¶ÔÕâ±¾ÊéÁ·Ï°ÌâµÄÊµ¼ù½á¹û
+* book01 - ã€ŠJavaä»Žå…¥é—¨åˆ°ç²¾é€šï¼ˆç¬¬4ç‰ˆï¼‰ã€‹ æ¸…åŽå¤§å­¦å‡ºç‰ˆç¤¾2016å¹´å‡ºç‰ˆ
+* exercises.book01 - æœ¬åŒ…ç¨‹åºä¸ºå„ç« èŠ‚è¯¾åŽä¹ é¢˜
 */
