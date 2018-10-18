@@ -4,7 +4,9 @@ import java.util.HashSet;
 
 /**
  * 测试HashSet
- * @author Administrator
+ * @author Apollo4634
+ * 说明：
+ *  HashSet内部由HashMap实现，每个值都作为map的key
  */
 public class TestHashSet {
 	public static void main(String[] args) {
@@ -51,6 +53,11 @@ class MyHashSet {
 		//移除
 		hset.remove("bbb");
 		hset.add("eee");
+		System.out.println(hset);
+		
+		//NULL
+		hset.add(null);
+		System.out.println(hset.size());
 		System.out.println(hset);
 		
 	}
