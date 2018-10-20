@@ -5,8 +5,7 @@ public class Ch12Task01 {
 		Student student = new Student();
 		try {
 			student.speak(1200);
-		}catch (MyException e) {
-			// TODO: handle exception
+		} catch (MyException e) {
 			e.printStackTrace();
 		}
 	}
@@ -15,15 +14,12 @@ public class Ch12Task01 {
 class Student {
 	void speak(int m) throws MyException {
 		if(m > 1000) {
-			throw new MyException("大于1000");
+			throw new MyException("澶т簬1000");
 		}		
 	}
 }
 
 class MyException extends Exception {
-	/**
-	 * serialVersionUID 用于和其他语言进行交互
-	 */
 	private static final long serialVersionUID = 7454612752238585499L;
 
 	MyException(String msg){

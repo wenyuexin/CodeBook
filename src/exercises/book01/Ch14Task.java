@@ -59,6 +59,14 @@ public class Ch14Task {
 			super();
 			this.id = id;
 			this.name = name;
+		}		
+
+		public String getId() {
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
 		}
 
 		@Override
@@ -78,7 +86,7 @@ public class Ch14Task {
 		//添加元素
 		HashMap<String, Emp_t3> empMap = new HashMap<>();
 		for(Emp_t3 emp: empArr) {
-			empMap.put(emp.id, emp);
+			empMap.put(emp.getId(), emp); 
 		}
 		System.out.println(empMap);
 		
@@ -87,7 +95,9 @@ public class Ch14Task {
 		System.out.println(empMap);
 	}
 	
-	
+	/**
+	 * Chapter14 Collection
+	 */
 	public static void main(String[] args) {
 		task1();
 		task2();
