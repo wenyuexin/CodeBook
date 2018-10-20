@@ -3,7 +3,8 @@ package exercises.book01;
 import java.util.Arrays;
 
 public class Ch06Task {
-	static void test1() {
+	private static void task1() {
+		System.out.println("=== task1 ===");
 		int arr1[] = {11,22,33,44,55};
 		//int arr2[];
 		
@@ -13,7 +14,8 @@ public class Ch06Task {
 		}
 	}
 	
-	static void test2() {
+	private static void task2() {
+		System.out.println("=== task2 ===");
 		int arr[] = {99,55,0,5,4,54,86,4,5,54};
 		int arr2[] = arr;
 		Arrays.sort(arr);
@@ -21,7 +23,8 @@ public class Ch06Task {
 		System.out.println(arr2[0]);
 	}
 	
-	static void test3() {
+	private static void task3() {
+		System.out.println("=== task3 ===");
 		String arr[] = {"a","","dds","ee"};
 		
 		for(String x: arr) {
@@ -36,7 +39,8 @@ public class Ch06Task {
 
 	}
 	
-	static void test4() {
+	private static void task4() {
+		System.out.println("=== task4 ===");
 		int arr[][] = {{1,2,3},{4,5,6},{7,8,9}};
 		int arr2[][] = arr.clone();
 		for(int i=0; i<3; i++) {
@@ -54,6 +58,9 @@ public class Ch06Task {
 	}
 	
 	public static void main(String[] args) {
-		test4();
+		task1();
+		task2();
+		task3();
+		task4();
 	}
 }
