@@ -1,6 +1,6 @@
 package javabasic.reflection;
 
-import java.lang.reflect.Constructor;
+//import java.lang.reflect.Constructor;
 
 /**
  * Class类和Java反射
