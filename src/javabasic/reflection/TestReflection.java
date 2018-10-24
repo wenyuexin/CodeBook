@@ -1,6 +1,7 @@
 package javabasic.reflection;
 
-//import java.lang.reflect.Constructor;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * Class类和Java反射
@@ -40,46 +41,20 @@ public class TestReflection {
 		stu2.setId(2000);
 		System.out.println(stu2.getId());
 		
-		//Constructor<Stu>[] constructor = class_stu.getConstructors();
+		@SuppressWarnings("unchecked")
+		Constructor<Stu>[] constructors = class_stu.getDeclaredConstructors();
+		Stu stu3 = null;
+		try {
+			stu3 = constructors[1].newInstance(4004,"ddd",20);
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
 		
+		stu3.setId(4005);
+		System.out.println(stu3.getId());
 	}
 }
 
-/**
- * 用于测试的学生类
- */
-class Stu {
-	private int id;
-	private String name;
-	private int age;
-	
-	public Stu() {
-	}
-	
-	public Stu(int id, String name, int age) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.age = age;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	
-}
+
