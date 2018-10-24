@@ -41,6 +41,7 @@ public class TestReflection {
 		stu2.setId(2000);
 		System.out.println(stu2.getId());
 		
+		System.out.println("==========");
 		@SuppressWarnings("unchecked")
 		Constructor<Stu>[] constructors = class_stu.getDeclaredConstructors();
 		Stu stu3 = null;
@@ -53,7 +54,7 @@ public class TestReflection {
 		}
 		
 		stu3.setId(4005);
-		System.out.println(stu3.getId());
+		System.out.println(stu3);
 	}
 }
 
