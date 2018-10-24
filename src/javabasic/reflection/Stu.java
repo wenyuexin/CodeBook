@@ -3,7 +3,7 @@ package javabasic.reflection;
 /**
  * 用于测试的学生类
  */
-class Stu {
+final class Stu {
 	private int id;
 	private String name;
 	private int age;
