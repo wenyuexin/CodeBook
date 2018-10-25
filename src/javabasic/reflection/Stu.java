@@ -3,7 +3,7 @@ package javabasic.reflection;
 /**
  * 用于测试的学生类
  */
-final class Stu {
+class Stu {
 	private int id;
 	private String name;
 	private int age;
@@ -14,6 +14,13 @@ final class Stu {
 		this.age = -1;
 	}
 	
+	Stu(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = -1;
+	}
+	
 	public Stu(int id, String name, int age) {
 		super();
 		this.id = id;
@@ -21,7 +28,10 @@ final class Stu {
 		this.age = age;
 	}
 	
-
+	protected boolean isAdult() {
+		return id>=18;
+	}
+	
 	@Override
 	public String toString() {
 		return "[id=" + id + ", name=" + name + ", age=" + age + "]";

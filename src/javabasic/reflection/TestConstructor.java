@@ -8,7 +8,7 @@ import java.lang.reflect.Modifier;
  * 
  */
 
-public class TestReflection2 {
+public class TestConstructor {
 	public static void main(String[] args) {
 		Class<Stu> c = Stu.class;
 		String modifier = "";
