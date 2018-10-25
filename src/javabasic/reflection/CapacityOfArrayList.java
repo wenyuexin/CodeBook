@@ -1,10 +1,10 @@
-package javabasic.collection;
+package javabasic.reflection;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
- ** 获取ArrayList的capacityֵ
+ ** 通过反射获取ArrayList的capacityֵ
  */
 public class CapacityOfArrayList {
 	public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class CapacityOfArrayList {
             Field field = arrayListClass.getDeclaredField("elementData");
             field.setAccessible(true);
             Object[] objects = (Object[])field.get(arrayList);
-           return objects.length;
+            return objects.length;
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
             return -1;
@@ -38,14 +38,6 @@ public class CapacityOfArrayList {
             e.printStackTrace();
             return -1;
         }
-    }
-    
-    /*
-     * size
-     */
-    public static int getCapacity(ArrayList<?> arrayList) {
-    	Object[] a = arrayList.toArray();
-    	return a.length;
     }
 }
 
