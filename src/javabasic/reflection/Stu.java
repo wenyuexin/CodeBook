@@ -7,6 +7,7 @@ class Stu {
 	private int id;
 	private String name;
 	private int age;
+	final public String school = "ABC High School";
 	
 	public Stu() {
 		this.id = -1;
