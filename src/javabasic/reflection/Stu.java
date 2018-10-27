@@ -61,7 +61,6 @@ class Stu {
 	//Stu的内部类
 	class BagOfStu {
 		double price;
-		
 		BagOfStu() {
 		}
 	}
