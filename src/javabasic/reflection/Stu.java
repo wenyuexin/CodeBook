@@ -58,4 +58,11 @@ class Stu {
 		this.age = age;
 	}
 	
+	//Stu的内部类
+	class BagOfStu {
+		double price;
+		
+		BagOfStu() {
+		}
+	}
 }
