@@ -2,6 +2,7 @@ package javabasic.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 
 /**
  * Class类和Java反射
@@ -12,6 +13,17 @@ import java.lang.reflect.InvocationTargetException;
 public class TestReflection {
 	public static void main(String[] args) 
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Class<Stu> c = Stu.class;
+		String modifier = "";
+		try {
+			int mod = c.getDeclaredField("id").getModifiers();
+			modifier = Modifier.toString(mod);
+		} catch (Exception e) { 
+			e.printStackTrace();
+		}
+		System.out.println(modifier);
+		
+		System.out.println("==========");
 		Stu stu = new Stu();
 		stu.setId(1000);
 		stu.setName("Asdf Qew");
