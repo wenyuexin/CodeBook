@@ -24,17 +24,14 @@ public class CapacityOfArrayList {
     }
  
     public static int getArrayListCapacity(ArrayList<?> arrayList) {
-        @SuppressWarnings("rawtypes")
-		Class<ArrayList> arrayListClass = ArrayList.class;
+		@SuppressWarnings("rawtypes")
+		Class<? extends ArrayList> arrayListClass = arrayList.getClass();
         try {
             Field field = arrayListClass.getDeclaredField("elementData");
             field.setAccessible(true);
             Object[] objects = (Object[])field.get(arrayList);
             return objects.length;
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-            return -1;
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return -1;
         }

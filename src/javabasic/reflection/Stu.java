@@ -4,7 +4,7 @@ package javabasic.reflection;
  * 用于测试的学生类
  */
 class Stu {
-	private int id;
+	int id;
 	private String name;
 	private int age;
 	final public String school = "ABC High School";
@@ -31,6 +31,12 @@ class Stu {
 	
 	protected boolean isAdult() {
 		return id>=18;
+	}
+	
+	void readBooks(String bookName) throws MyExceptionInStu {
+		if(bookName.equals("")) {
+			throw new MyExceptionInStu("Invalid book name");
+		}
 	}
 	
 	@Override
@@ -64,5 +70,22 @@ class Stu {
 		
 		BagOfStu() {
 		}
+	}
+}
+
+//Stu对应的异常类
+class MyExceptionInStu extends Exception {
+	private static final long serialVersionUID = -940860812703681941L;
+	private String ErrorMsg;
+	
+	MyExceptionInStu() {
+	}
+	
+	MyExceptionInStu(String msg) {
+		ErrorMsg = msg;
+	}
+	
+	void printErrMsg() {
+		System.out.println(ErrorMsg);
 	}
 }
