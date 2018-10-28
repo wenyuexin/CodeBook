@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 /**
- * Class类和Java反射
+ * Class类和Java反射 - 测试构造器
  * @author Apollo4634
  */
 
@@ -69,7 +69,6 @@ public class TestConstructor {
 			}
 			System.out.println(")");
 		}
-		
 	}
 }
 
