@@ -19,7 +19,7 @@ public class TestMethod {
 		}
 		
 		System.out.println("===== 2 =====");
-		
+		System.out.println();
 		
 		
 	}
