@@ -1,5 +1,7 @@
 package javabasic.reflection;
 
+import java.util.ArrayList;
+
 /**
  * Class类和Java反射
  * get information with methods of Class
@@ -7,7 +9,7 @@ package javabasic.reflection;
  */
 
 public class InformationOfClass {
-	public static void main(String[] args) {
+	public static void main(String[] args, int String) {
 		//测试Class类的toString等相关方法
 		
 		Class<? extends String[]> class_strArr = args.getClass();
@@ -48,6 +50,9 @@ public class InformationOfClass {
 		System.out.println(String.class.toGenericString());
 		System.out.println(class_strArr.toGenericString());
 		System.out.println(class_bag.toGenericString());
+		
+		ArrayList<String> arr = new ArrayList<String> {};
+		System.out.println(new ArrayList<String>.getClass());
 		System.out.println();
 		
 		System.out.println("getPackageName():");
