@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class InformationOfClass {
-	public static void main(String[] args, int String) {
+	public static void main(String[] args) {
 		//测试Class类的toString等相关方法
 		
 		Class<? extends String[]> class_strArr = args.getClass();
@@ -22,7 +22,7 @@ public class InformationOfClass {
 		System.out.println(String.class.toString());
 		System.out.println(class_strArr.toString());
 		System.out.println(class_bag.toString());
-		//调用Object中的toString方法，返回getName()+hashcode
+		//调用Object中的toString方法，返回getName()+hashCode
 		System.out.println(args.toString()); 
 		System.out.println();
 		
@@ -50,9 +50,14 @@ public class InformationOfClass {
 		System.out.println(String.class.toGenericString());
 		System.out.println(class_strArr.toGenericString());
 		System.out.println(class_bag.toGenericString());
+		System.out.println();
 		
-		ArrayList<String> arr = new ArrayList<String> {};
-		System.out.println(new ArrayList<String>.getClass());
+		ArrayList<String> arr = new ArrayList<String>();
+		arr.add("asdf");
+		Class<?> class_arraylist = arr.getClass();
+		System.out.println(class_arraylist.getName());
+		System.out.println(class_arraylist.toString());
+		System.out.println(class_arraylist.toGenericString());
 		System.out.println();
 		
 		System.out.println("getPackageName():");
