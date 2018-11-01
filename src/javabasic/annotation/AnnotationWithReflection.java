@@ -9,17 +9,18 @@ import java.lang.annotation.Annotation;
  */
 public class AnnotationWithReflection {
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		@MyAnnotation
 		int a = 3;
 
 		@SuppressWarnings("all")
-		int b = a;
+		int b = 2;
 		
 		/**
 		 * 第1节功能：
 		 * - 通过反射获取TestMyAnnotation中的所有注解并打印
 		 * 结果：
-		 * - 空
+		 * - 控制台输出：空
 		 */
 		System.out.println("===== 1 =====");
 		AnnotationWithReflection myAnnotationTest = new AnnotationWithReflection();
@@ -33,7 +34,7 @@ public class AnnotationWithReflection {
 		 * 第2节功能：
 		 * - 通过反射获取UsingAnnotation中的所有注解并打印
 		 * 结果：
-		 * - UsingAnnotation
+		 * - 控制台输出 UsingAnnotation
 		 * 
 		 * 说明：
 		 * - TestMyAnnotation中也使用了注解，
@@ -45,8 +46,22 @@ public class AnnotationWithReflection {
 		Class<?> class_using = myAnnotation.getClass(); //反射获取Class类
 		Annotation[] annoArr2 = class_using.getAnnotations(); //获取注解
 		for(Annotation anno: annoArr2) {
-			System.out.println(anno);
+			System.out.println(anno.toString());
 		}
+		
+		
+		/**
+		 * 上面的理解好像有问题
+		 * getAnnotations() Returns annotations that are present on this element
+		 * 
+		 */
+		System.out.println("===== 3 =====");
+		Annotation[] annoArr3 = class_using.getAnnotations(); //获取注解
+		for(Annotation anno: annoArr3) {
+			System.out.println(anno.toString());
+		}
+		
+		
 		
 	}
 	
@@ -56,7 +71,6 @@ public class AnnotationWithReflection {
 		UsingAnnotation() {
 			System.out.println("UsingAnnotation");
 		}
-		
 		
 		void print() {
 			System.out.println("print");
