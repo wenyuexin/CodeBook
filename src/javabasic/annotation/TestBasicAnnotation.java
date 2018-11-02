@@ -8,9 +8,9 @@ package javabasic.annotation;
  * - 常见的注解有 Deprecated Override SuppressWarnings
  * - 此外java.lang中还有
  */
-public class TestAnnotation {
+public class TestBasicAnnotation {
 	public static void main(String[] args) {
-		TestAnnotation ta =  new TestAnnotation();
+		TestBasicAnnotation ta =  new TestBasicAnnotation();
 		
 		System.out.println(ta); //toString
 		ta.printSuperClass(); //打印超类	
