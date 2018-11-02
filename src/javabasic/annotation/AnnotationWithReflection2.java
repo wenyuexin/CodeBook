@@ -29,6 +29,7 @@ public class AnnotationWithReflection2 {
 		
 		
 		
+		
 	}
 	
 	@MyAnnotation //RetentionPolicy的取值为SOURCE，不能通过反射获取
