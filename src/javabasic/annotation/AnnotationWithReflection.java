@@ -9,6 +9,23 @@ import java.lang.annotation.Annotation;
  */
 @MyAnnotation4(msg="AnnotationWithReflection")
 public class AnnotationWithReflection {
+
+	@MyAnnotation //RetentionPolicy的取值为SOURCE，不能通过反射获取
+	@MyAnnotation2(msg="UsingAnnotation")
+	@MyAnnotation3
+	static class UsingAnnotation {
+		@MyAnnotation
+		UsingAnnotation() {
+			System.out.println("构造 UsingAnnotation");
+		}
+		
+		@MyAnnotation2
+		void print() {
+			System.out.println("print");
+		}
+	}
+
+	
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
 		@MyAnnotation
@@ -42,7 +59,6 @@ public class AnnotationWithReflection {
 			System.out.println(anno.toString());
 		}
 		
-		
 		/**
 		 * 上面的理解好像有问题
 		 * getAnnotations() Returns annotations that are present on this element
@@ -51,23 +67,6 @@ public class AnnotationWithReflection {
 		 * 但是不能获取该类内部所有字段、方法、构造器等的注解。
 		 * 不同内部元素的注解，需要通过各自相应的Class类的getAnnotations方法区获取
 		 */		
-		
-	}
-	
-	@MyAnnotation //RetentionPolicy的取值为SOURCE，不能通过反射获取
-	@MyAnnotation2(msg="UsingAnnotation")
-	@MyAnnotation3
-	static class UsingAnnotation {
-		@MyAnnotation
-		UsingAnnotation() {
-			System.out.println("构造 UsingAnnotation");
-		}
-		
-		@MyAnnotation2
-		void print() {
-			System.out.println("print");
-		}
-		
 	}
 }
 
