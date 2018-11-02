@@ -72,6 +72,5 @@ public class TestBasicAnnotation {
 		@SuppressWarnings("deprecation")
 		Integer num = new Integer(123); //@Deprecated(since="9")
 		System.out.println("Deprecated\t"+num.intValue());
-
 	}
 }
