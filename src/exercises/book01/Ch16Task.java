@@ -7,6 +7,7 @@ package exercises.book01;
  */
 public class Ch16Task {
 	
+	//打印数组
 	static void print(Object arr) {
 		if(arr.getClass().isArray()) {
 			Object[] arr2 = (Object[]) arr;
