@@ -6,9 +6,9 @@ import java.util.HashSet;
 
 public class Ch14Task {
 	/**
-	 ** Task1：
-	 ** 将1至100之间的正整数存放在List集合中，
-	 ** 并将集合中索引位置是10的对象从集合中移除
+	 * Task1：
+	 * 将1至100之间的正整数存放在List集合中，
+	 * 并将集合中索引位置是10的对象从集合中移除
 	 */
 	private static void task1() {
 		System.out.println("=== task1 ===");
