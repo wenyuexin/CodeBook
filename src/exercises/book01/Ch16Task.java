@@ -16,5 +16,6 @@ public class Ch16Task {
 		System.out.println(arr.length);
 		
 		
+		
 	}
 }
