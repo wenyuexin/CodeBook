@@ -33,7 +33,7 @@ public class Ch16Task {
         return  newArray;
     }
 
-	//我的尝试 - 没有使用反射，有待修改
+	//尝试 - 没有使用反射，有待修改
 	static Object[] changeArr(Object arr, int len) {
 		//Class<?> clazz = arr.getClass();
 		//Class<?> cl_component = clazz.getComponentType();
@@ -45,6 +45,7 @@ public class Ch16Task {
 		}
 		return newArr;
 	}
+	
 	
 	public static void main(String[] args) {
 		//定义数组
@@ -63,7 +64,7 @@ public class Ch16Task {
 				
 		//调用数组扩展方法
 		System.out.println("===== 3 =====");		
-		Object[] newArr2 = Ch16Task.changeArr(arr, 6);
+		Object[] newArr2 = Ch16Task.changeArr(arr, 7);
 		Ch16Task.print(newArr2);
 		System.out.println();
 		
