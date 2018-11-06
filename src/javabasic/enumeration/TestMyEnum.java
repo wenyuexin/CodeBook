@@ -24,6 +24,28 @@ public class TestMyEnum {
 		}
 	}
 	
+	enum MyEnum3 {
+		C1{
+			@Override
+			void print() {
+				System.out.println("print C1");
+			}
+		},
+		C2,
+		C3;
+		
+		abstract void print();
+		
+		final int e;
+		
+		MyEnum3() {
+		}
+		
+		MyEnum3(int e) {
+			this.e = e;
+		}
+	}
+	
 	public static void main(String[] args) {
 		/**
 		 * 枚举类的实现原理：

@@ -7,41 +7,40 @@ import java.math.RoundingMode;
  * @creation 2018/11/06
  */
 public class TestEnum {
-	enum Constants {
-		C1,
-		C2,
-		C3
-	}
-	
+
 	public static void main(String[] args) {
+		//以RoundingMode为例
+		
 		System.out.println("===== 1 =====");
-		System.out.println(Constants.C1);
-		System.out.println(Constants.C2.ordinal()); //返回枚举量的序数
-		System.out.println(Constants.C3 instanceof Constants);
+		System.out.println(RoundingMode.HALF_DOWN);
+		System.out.println(RoundingMode.HALF_EVEN.ordinal()); //返回枚举量的序数
+		System.out.println(RoundingMode.UP instanceof RoundingMode);
+		System.out.println(RoundingMode.UP instanceof Enum);
 		
 		System.out.println("===== 2 =====");
-		Constants constants = Constants.valueOf("C3"); //返回对应字符串的枚举实例
-		int num = constants.ordinal();
-		String name = constants.name(); //获取枚举量对应的名字
-		System.out.println(name+" -- "+num);
+		RoundingMode rm = RoundingMode.valueOf("DOWN"); //返回对应字符串的枚举实例
+		int num = rm.ordinal();
+		String name = rm.name(); //获取枚举量对应的名字
+		System.out.println(name+" - "+num);
+		System.out.println(rm.toString());
 		System.out.println();
 		
 		System.out.println("===== 3 =====");
-		Constants[] arr = Constants.values(); //返回包含所有枚举量的数组
-		for(Constants c: arr) {
-			System.out.println(c);
+		Enum<?>[] arr = RoundingMode.values(); //返回包含所有枚举量的数组
+		for(Enum<?> e: arr) {
+			System.out.println(e+" - "+e.ordinal());
 		}
 		
 		System.out.println("===== 4 =====");
-		Class<?> cl = constants.getDeclaringClass();
-		System.out.println(cl);
+		Class<?> cl_rm = rm.getDeclaringClass();
+		System.out.println(cl_rm+"\n");
 		
 		System.out.println("===== 5 =====");
-		RoundingMode rm = RoundingMode.valueOf(0);//RoundingMode自定义的方法
-		System.out.println(rm);
-		
-		RoundingMode rm2 = RoundingMode.valueOf("DOWN"); //来自Enum的方法
+		RoundingMode rm2 = RoundingMode.valueOf(0);//RoundingMode自定义的方法
 		System.out.println(rm2);
+		
+		RoundingMode rm3 = RoundingMode.valueOf("DOWN"); //来自Enum的方法
+		System.out.println(rm3);
 		
 		System.out.println("===== 6 =====");
 		System.out.println(rm.compareTo(rm2));
