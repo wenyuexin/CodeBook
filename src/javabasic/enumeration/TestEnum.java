@@ -42,6 +42,9 @@ public class TestEnum {
 		RoundingMode rm3 = RoundingMode.valueOf("DOWN"); //来自Enum的方法
 		System.out.println(rm3);
 		
+		RoundingMode rm4 = Enum.valueOf(RoundingMode.class,"UNNECESSARY"); //来自Enum的方法
+		System.out.println(rm4);
+		
 		System.out.println("===== 6 =====");
 		System.out.println(rm.compareTo(rm2));
 		System.out.println(rm.compareTo(rm));
