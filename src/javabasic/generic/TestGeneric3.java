@@ -39,7 +39,7 @@ public class TestGeneric3 {
 		 * 通过以下代码猜测，第1节的28行之所以可以运行，是因为
 		 * 实例化MyClass3过程中将参数ClassC向上转型为ClassB或者ClassB的超类
 		 * 
-		 * 那么现在的问题是如何判断某个实例存在向上转型
+		 * 那么现在的问题是，在使用泛型的条件下 如何判断某个实例存在向上转型
 		 */
 		ClassB cl = new ClassC();
 		System.out.println(cl.getClass().getName());
@@ -82,7 +82,7 @@ class MyClass4<T extends ClassB> {
 
 	void printClassInfo() {
 		System.out.println(obj.getClass().getName());
-		System.out.println(obj.getClass().getTypeName());
+		//System.out.println(obj.getClass().getTypeName());
 	}
 }
 
