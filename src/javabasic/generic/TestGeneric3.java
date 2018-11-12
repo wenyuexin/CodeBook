@@ -29,12 +29,14 @@ public class TestGeneric3 {
 		obj6.printClassInfo();
 		//MyClass3<? super ClassB> obj6_2 = new MyClass3<ClassC>(new ClassC()); //Error
 		
+		System.out.println("===== 2 =====");
 		//MyClass3<? extends ClassB> obj7 = new MyClass3<>(new String("asdf")); //Error
 		//obj7.print();
+		//MyClass3<? super ClassB> obj8 = new MyClass3<String>(new String("asdf")); //Error
 		MyClass3<? super ClassB> obj8 = new MyClass3<>(new String("asdf"));
 		obj8.printClassInfo();
 		
-		System.out.println("===== 2 =====");
+		System.out.println("===== 3 =====");
 		/**
 		 * 通过以下代码猜测，第1节的28行之所以可以运行，是因为
 		 * 实例化MyClass3过程中将参数ClassC向上转型为ClassB或者ClassB的超类
@@ -46,7 +48,15 @@ public class TestGeneric3 {
 		System.out.println(cl.getClass().getTypeName());
 		//cl.testC(); //向上转型后不能调用本类特有的方法
 		
-		System.out.println("===== 3 =====");
+		System.out.println(cl instanceof ClassB);
+		System.out.println(cl instanceof ClassC);
+		
+		ClassB cl2 = new ClassB();
+		System.out.println(cl2 instanceof ClassA);
+		System.out.println(cl2 instanceof ClassB);
+		System.out.println(cl2 instanceof ClassC);
+		
+		System.out.println("===== 4 =====");
 		/**
 		 * 测试发现实际上以下代码直接将
 		 */
