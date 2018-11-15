@@ -1,6 +1,7 @@
 package exercises.book01;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /** 
@@ -8,8 +9,12 @@ import java.util.List;
  * @creation 2018/11/15
  */
 public class Ch17Task02 {
+	
+	/**
+	 * 定义泛型类，使用extends限制该泛型类的类型为List，
+	 * 并分别创建两个泛型对象
+	 */
 	public static void main(String[] args) {
-		MyGeneric<ArrayList<?>> mg = new MyGeneric<>();
 		ArrayList<Integer> arrayList = new ArrayList<>();
 		arrayList.add(Integer.valueOf(10));
 		arrayList.add(Integer.valueOf(12));
@@ -17,10 +22,17 @@ public class Ch17Task02 {
 		arrayList.add(Integer.valueOf(16));		
 		System.out.println(arrayList);
 		
-		mg.setObj(new ArrayList<Integer>());
-		@SuppressWarnings("unchecked")
-		ArrayList<Integer> arrayList2 = (ArrayList<Integer>) mg.getObj();
-		System.out.println(arrayList2);
+		MyGeneric<ArrayList<Integer>> mg = new MyGeneric<>();
+		mg.setObj(arrayList);
+		System.out.println(mg.getObj());
+		
+		LinkedList<Double> linkedList = new LinkedList<>();
+		linkedList.add(Double.valueOf(1.0));
+		linkedList.add(Double.valueOf("2.0"));
+		linkedList.add(Double.parseDouble("3.14"));
+		//mg.setObj(linkedList); //Err
+		MyGeneric<LinkedList<Double>> mg2 = new MyGeneric<>(linkedList);
+		System.out.println(mg2.getObj());
 	}
 }
 
