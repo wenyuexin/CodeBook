@@ -13,23 +13,23 @@ public class Ch17Task01 {
 		
 		MyEnum enum1 = MyEnum.E3;
 		
-		switch (enum1.ordinal()) {
-		case 0:
+		switch (enum1) {
+		case E0:
 			System.out.println(0);
 			break;
-		case 1:
+		case E1:
 			System.out.println(1);
 			break;
-		case 2:
+		case E2:
 			System.out.println(2);
 			break;
-		case 3:
+		case E3:
 			System.out.println(3);
 			break;
-		case 4:
+		case E4:
 			System.out.println(4);
 			break;
-		case 5:
+		case E5:
 			System.out.println(5);
 			break;
 		default:
@@ -39,5 +39,5 @@ public class Ch17Task01 {
 }
 
 enum MyEnum {
-	E1, E2, E3, E4, E5, E6;
+	E0, E1, E2, E3, E4, E5, E6;
 }

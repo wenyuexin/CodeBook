@@ -63,7 +63,12 @@ public class TestGeneric3 {
 		MyClass4<? super ClassB> object1 = new MyClass4<>(new ClassC());
 		object1.printClassInfo();
 		
-		
+		System.out.println("===== 5 =====");
+		/**
+		 * 进一步学习发现，运行时的类型查询仅适用于原始类型，
+		 * 在本例中，并没有对MyClass3的泛型类型做限定，
+		 * 编译后的T将被Object替换，
+		 */
 	}
 }
 
