@@ -45,6 +45,7 @@ public class InformationOfClass {
 		
 		//Returns a string describing this Class, 
 		//including information about modifiers and type parameters
+		//包含修饰符和泛型信息
 		System.out.println("toGenericString():");
 		System.out.println(int.class.toGenericString());
 		System.out.println(String.class.toGenericString());

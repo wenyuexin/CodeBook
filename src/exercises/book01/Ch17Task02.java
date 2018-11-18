@@ -30,10 +30,14 @@ public class Ch17Task02 {
 		System.out.println(mg.getObj());
 		
 		LinkedList<Double> linkedList = new LinkedList<>();
-		linkedList.add(Double.valueOf(1.0));
-		linkedList.add(Double.valueOf("2.0"));
+		linkedList.add(Double.valueOf(1));
+		linkedList.add(Double.valueOf(2.56));
 		linkedList.add(Double.parseDouble("3.14"));
-		//mg.setObj(linkedList); //Err 因为在使用arrayList赋值后类型被擦除
+		
+		//下面这句将报错，因为实例化后编译器将自动插入LinkedList<Double>
+		//的强制类型转换
+		//mg.setObj(linkedList); //Error
+		
 		MyGeneric<LinkedList<Double>> mg2 = new MyGeneric<>(linkedList);
 		System.out.println(mg2.getObj());
 	}
