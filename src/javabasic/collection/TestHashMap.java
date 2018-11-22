@@ -16,6 +16,7 @@ class MyHashMap {
 		hashMap.put(Integer.valueOf(10),"aab");
 		hashMap.put(Integer.valueOf(20),"bbc");
 		hashMap.put(Integer.valueOf(40),"ccd");
+		hashMap.put(Integer.valueOf(40),"asd"); //key值具有唯一性
 		hashMap.put(Integer.valueOf(30),null);
 		System.out.println(hashMap);
 		
