@@ -4,18 +4,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class TestArrayList {
-	public static void main(String[] args) {
-		//����ArrayList
-		MyArrayList ta = new MyArrayList();//ArrayList extends AbstractList
-		//ta.test(); //����ArrayList����غ���
-		ta.test2();
-	}
-}
-
-class MyArrayList {
-	public void test() {
+	
+	public static void test() {
 		//ArrayList1
-		List<String> alist = new ArrayList<String>(); //����ת��		
+		List<String> alist = new ArrayList<String>();	
 		alist.add("a");
 		alist.add("b");
 		alist.add("c");
@@ -27,21 +19,21 @@ class MyArrayList {
 		alist2.add("d");
 		System.out.println("alist2: "+alist2);
 		
-		//�ж�ArrayList1�Ƿ����ArrayList2������Ԫ��
+		//containsAll
 		System.out.println(alist.containsAll(alist));
 		System.out.println(alist.containsAll(alist2));
 		
-		//����ArrayList1����������ArrayList2��Ԫ�أ��൱���󽻼�
+		//retainAll
 		alist.retainAll(alist2);
 		System.out.println(alist);
 		
-		//�Ƴ�ArrayList1����������ArrayList2��Ԫ�أ��൱����
+		//removeAll
 		alist.removeAll(alist2);
 		System.out.println(alist);
 	}
 	
-	/* ˳����������ת�ͺ�ĺ����������� */
-	public void test2() {
+
+	public static void test2() {
 		List<String> alist = new ArrayList<String>(10);
 		alist.add("a");
 		alist.add("bc");
@@ -57,16 +49,20 @@ class MyArrayList {
 		System.out.println(alist);
 		System.out.println(alist2);
 		
-		//alist.trimToSize();  //����ת�ͺ���û�еķ������ܵ���
+		//alist.trimToSize(); 
 		//System.out.println(alist);
 		
-		// ��ArrayListʵ����capacityֵ�޸�Ϊ��ǰ��sizeֵ
+		
 		alist2.trimToSize(); 
 		System.out.println("trimToSize: "+alist2);
-		//System.out.println(alist2.capacity); //��λ�ȡcapacity��
+		//System.out.println(alist2.capacity); 
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("=== test ===");
+		TestArrayList.test();
+		System.out.println("=== test2 ===");
+		TestArrayList.test2();
 	}
 }
-
-
-
 
