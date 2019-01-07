@@ -1,6 +1,9 @@
 package collection;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 测试HashSet
@@ -9,16 +12,9 @@ import java.util.HashSet;
  *  HashSet内部由HashMap实现，每个值都作为map的key
  */
 public class TestHashSet {
-	public static void main(String[] args) {
-		MyHashSet myHashSet = new MyHashSet();
-		myHashSet.test1();
-	}
-}
-
-class MyHashSet {
-	//元素修改、判断
-	public void test1() { 
-		System.out.println("=== test1 ===");
+	
+	private static void test1() { 
+		System.out.println("=== 1 ===");
 		HashSet<String> hset = new HashSet<>();
 		
 		//增加元素
@@ -59,6 +55,23 @@ class MyHashSet {
 		hset.add(null);
 		System.out.println(hset.size());
 		System.out.println(hset);
+	}
+	
+	private static void test2() {
+		System.out.println("=== 2 ===");
+		Integer[] arr = new Integer[10];
+		arr[0] = 1;
+		arr[1] = 2;
+		arr[2] = 3;
+		System.out.println(Arrays.toString(arr));
 		
+		List<Integer> list = Arrays.asList(arr);
+		Set<Integer> set = new HashSet<Integer>(list);
+		System.out.println(set);
+	}
+	
+	public static void main(String[] args) {
+		TestHashSet.test1();
+		TestHashSet.test2();
 	}
 }
