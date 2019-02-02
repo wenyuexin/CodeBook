@@ -1,4 +1,4 @@
-package book01; //DOS������ʱ��Ҫ������ע�͵����ο� https://bbs.csdn.net/topics/391934171
+package book01;
 
 public class Ch11Task02 {
 	static class B {
