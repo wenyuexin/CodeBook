@@ -1,28 +1,55 @@
 package sort;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
  * BubbleSort
- * @author apollo4634
+ * @author Apollo4634
+ * @date 2018/12/22
  */
+
 public class BubbleSort {
 	
-	private static void swap(int[] arr, int idx1, int idx2) {
-		int tmp = arr[idx1];
-		arr[idx1] = arr[idx2];
-		arr[idx2] = tmp;
+	public static <T extends Comparable<? super T>> 
+	void sort(T[] arr) {
+		int flag = 0;
+		int arrLen = arr.length;
+		while (flag!=arrLen-1) {
+			flag = 0;
+			for(int i=0; i<arrLen-1; i++) {
+				if(SortUtil.less(arr[i], arr[i+1])) {
+					SortUtil.swap(arr, i, i+1);
+				} else {
+					flag++;
+				}
+			}
+		}
 	}
 	
-	public void sort(int[] arr) {
+	public static void sort(int[] arr) {
 		int flag = 0;
-		int lenOfArr = arr.length;
-		
-		while (flag!=lenOfArr-1) {
+		int arrLen = arr.length;
+		while (flag!=arrLen-1) {
 			flag = 0;
-			for(int i=0; i<lenOfArr-1; i++) {
-				if(arr[i]>arr[i+1]) {
-					BubbleSort.swap(arr, i, i+1);
+			for(int i=0; i<arrLen-1; i++) {
+				if(arr[i]<arr[i+1]) {
+					SortUtil.swap(arr, i, i+1);
+				} else {
+					flag++;
+				}
+			}
+		}
+	}
+	
+	public static void sort(double[] arr) {
+		int flag = 0;
+		int arrLen = arr.length;
+		while (flag!=arrLen-1) {
+			flag = 0;
+			for(int i=0; i<arrLen-1; i++) {
+				if(arr[i]<arr[i+1]) {
+					SortUtil.swap(arr, i, i+1);
 				} else {
 					flag++;
 				}
@@ -32,28 +59,14 @@ public class BubbleSort {
 	
 	
 	public static void main(String[] args) {
-		//随机生成数组
 		Random random = new Random();
 		int[] arr = new int[10];
-		for(int i=0; i<arr.length; i++) {
+		for(int i=0; i<arr.length; i++) {//生成数组
 			arr[i] = random.nextInt(1000);
 		}
 		
-		//显示原数组
-		for(int val: arr) {
-			System.out.print(val+" ");
-		}
-		System.out.println();
-		
-		//排序
-		BubbleSort bs = new BubbleSort();
-		bs.sort(arr);
-		
-		//显示排序之后的数组
-		for(int val: arr) {
-			System.out.print(val+" ");
-		}
-		System.out.println();
-		
+		System.out.println(Arrays.toString(arr));//排序前
+		BubbleSort.sort(arr);//排序
+		System.out.println(Arrays.toString(arr));//排序后
 	}
 }
