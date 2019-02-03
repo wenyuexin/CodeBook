@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
  * 
  * @author Apollo4634 
  * @create 2019/01/17
+ * @see SortUtils
  */
 
 public class SelectionSort {
@@ -20,7 +21,7 @@ public class SelectionSort {
 		for (int i = 0; i < arrLen-1; i++) {
 			idx = i;
 			for (int j = idx+1; j < arrLen; j++) 
-				if(SortUtils.compare(arr[j], arr[idx])) idx = j;
+				if(SortUtils.less(arr[j], arr[idx])) idx = j;
 			SortUtils.swap(arr, i, idx);
 		}
 	}
@@ -31,7 +32,7 @@ public class SelectionSort {
 		for (int i = 0; i < arrLen-1; i++) {
 			idx = i;
 			for (int j = idx+1; j < arrLen; j++) 
-				if(SortUtils.compare(arr[j], arr[idx])) idx = j;
+				if(SortUtils.less(arr[j], arr[idx])) idx = j;
 			SortUtils.swap(arr, i, idx);
 		}
 	}
@@ -42,7 +43,7 @@ public class SelectionSort {
 		for (int i = 0; i < arrLen-1; i++) {
 			idx = i;
 			for (int j = idx+1; j < arrLen; j++) 
-				if(SortUtils.compare(arr[j], arr[idx])) idx = j;
+				if(SortUtils.less(arr[j], arr[idx])) idx = j;
 			SortUtils.swap(arr, i, idx);
 		}
 	}
