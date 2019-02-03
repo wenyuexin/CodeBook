@@ -13,12 +13,12 @@ public class SortTesting {
 	public static void testBubbleSort() {
 		System.out.println("===== BubbleSort =====");
 
-		double[] doubles = SortUtils.doubles(25);
+		double[] doubles = SortUtils.doubles(25,-100,100);
 		System.out.println(Arrays.toString(doubles));
 		BubbleSort.sort(doubles);
 		
 		//ints
-		int[] ints = SortUtils.ints(25);
+		int[] ints = SortUtils.ints(25,-100,100);
 		System.out.println(Arrays.toString(ints));
 		BubbleSort.sort(ints);
 		System.out.println(Arrays.toString(ints));
@@ -40,7 +40,7 @@ public class SortTesting {
 		System.out.println("===== SelectionSort =====");
 
 		//ints
-		int[] ints = SortUtils.ints(25);
+		int[] ints = SortUtils.ints(25,-100,100);
 		System.out.println(Arrays.toString(ints));
 		SelectionSort.sort(ints);
 		System.out.println(Arrays.toString(ints));
@@ -62,7 +62,7 @@ public class SortTesting {
 		System.out.println("===== InsertionSort =====");
 
 		//ints
-		int[] ints = SortUtils.ints(25);
+		int[] ints = SortUtils.ints(25,-100,100);
 		System.out.println(Arrays.toString(ints));
 		InsertionSort.sort(ints);
 		System.out.println(Arrays.toString(ints));
@@ -82,7 +82,7 @@ public class SortTesting {
 	public static void main(String[] args) {
 		//SortTesting.testBubbleSort();
 		//SortTesting.testSelectionSort();
-		SortTesting.testInsertionSort();
+		//SortTesting.testInsertionSort();
 		
 	}
 }

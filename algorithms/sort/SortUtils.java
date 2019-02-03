@@ -155,35 +155,67 @@ public class SortUtils {
 	 * @param size The size of numbers
 	 * @return A set of numbers
 	 */
-	public static int[] ints(int size) {
-		Random random = new Random();
-		int[] arr = new int[size];
-		for(int i=0; i<size; i++) //生成数组
-			arr[i] = random.nextInt(1000);
-		return arr;
+	/**
+	 * Generate a set of numbers for testing
+	 * 
+	 * @param size The size of numbers
+	 * @param origin The origin (inclusive) of each random value
+	 * @param bound The bound (exclusive) of each random value
+	 * @return A set of elements
+	 */
+
+	//integer
+	public static int[] ints(int size, int origin, int bound) {
+		Random r = new Random();
+		return r.ints(size, origin, bound).toArray();
 	}
 
 	public static 
 	Integer[] integerWrappers(int size, int origin, int bound) {
 		Random r = new Random();
 		Stream<Integer> ss = r.ints(size, origin, bound).boxed();
-		Integer[] arr = ss.toArray(Integer[]::new);
-		return arr;
+		return ss.toArray(Integer[]::new);
 	}
 
-	public static double[] doubles(int size) {
-		Random random = new Random();
-		double[] arr = new double[size];
-		for(int i=0; i<size; i++) //生成数组
-			arr[i] = random.nextInt(1000);
+	//long
+	public static long[] longs(int size, long origin, long bound) {
+		Random r = new Random();
+		return r.longs(size, origin, bound).toArray();
+	}
+
+	public static 
+	Long[] longWrappers(int size, long origin, long bound) {
+		Random r = new Random();
+		Stream<Long> ss = r.longs(size, origin, bound).boxed();
+		return ss.toArray(Long[]::new);
+	}
+	
+	//double
+	public static double[] doubles(int size, double origin, double bound) {
+		Random r = new Random();
+		return r.doubles(size, origin, bound).toArray();
+	}
+
+	public static 
+	Double[] doubleWrappers(int size, double origin, double bound) {
+		Random r = new Random();
+		Stream<Double> ss = r.doubles(size, -100, 100).boxed();
+		return ss.toArray(Double[]::new);
+	}
+	
+	//character
+	public static char[] chars(int size, char origin, char bound) {
+		Random r = new Random();
+		char[] arr =  new char[size];
+		for (int i = 0; i < size; i++) 
+			arr[i] = (char) (origin + r.nextInt(bound-origin));
 		return arr;
 	}
 
 	public static 
-	Double[] doubleWrappers(int size, int origin, int bound) {
+	Character[] characterWrappers(int size, char origin, char bound) {
 		Random r = new Random();
-		Stream<Double> ss = r.doubles(size, -100, 100).boxed();
-		Double[] arr = ss.toArray(Double[]::new);
-		return arr;
+		Stream<Character> ss = r.ints(size, origin, bound).mapToObj(c->(char)c);
+		return ss.toArray(Character[]::new);
 	}
 }
