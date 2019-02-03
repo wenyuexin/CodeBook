@@ -8,13 +8,17 @@ import java.util.Arrays;
  */
 
 public class SortTesting {
-
+	
 	//BubbleSort
 	public static void testBubbleSort() {
 		System.out.println("===== BubbleSort =====");
 
+		double[] doubles = SortUtils.doubles(25);
+		System.out.println(Arrays.toString(doubles));
+		BubbleSort.sort(doubles);
+		
 		//ints
-		int[] ints = SortUtils.generateInts(25);
+		int[] ints = SortUtils.ints(25);
 		System.out.println(Arrays.toString(ints));
 		BubbleSort.sort(ints);
 		System.out.println(Arrays.toString(ints));
@@ -22,7 +26,7 @@ public class SortTesting {
 		System.out.println(">> isSorted = "+SortUtils.isSorted(ints)+"\n");
 
 		//DoubleWrappers
-		Double[] wrappers = SortUtils.generateDoubleWrappers(20);
+		Double[] wrappers = SortUtils.doubleWrappers(20,-100,100);
 		System.out.println(Arrays.toString(wrappers));
 		BubbleSort.sort(wrappers);
 		System.out.println(Arrays.toString(wrappers));
@@ -36,7 +40,7 @@ public class SortTesting {
 		System.out.println("===== SelectionSort =====");
 
 		//ints
-		int[] ints = SortUtils.generateInts(25);
+		int[] ints = SortUtils.ints(25);
 		System.out.println(Arrays.toString(ints));
 		SelectionSort.sort(ints);
 		System.out.println(Arrays.toString(ints));
@@ -44,12 +48,12 @@ public class SortTesting {
 		System.out.println(">> isSorted = "+SortUtils.isSorted(ints)+"\n");
 
 		//DoubleWrappers
-		Double[] doubleWrappers = SortUtils.generateDoubleWrappers(20);
-		System.out.println(Arrays.toString(doubleWrappers));
-		SelectionSort.sort(doubleWrappers);
-		System.out.println(Arrays.toString(doubleWrappers));
-		System.out.println(">> nElements = "+doubleWrappers.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(doubleWrappers)+"\n");
+		Double[] wrappers = SortUtils.doubleWrappers(20,-100,100);
+		System.out.println(Arrays.toString(wrappers));
+		SelectionSort.sort(wrappers);
+		System.out.println(Arrays.toString(wrappers));
+		System.out.println(">> nElements = "+wrappers.length);
+		System.out.println(">> isSorted = "+SortUtils.isSorted(wrappers)+"\n");
 	}
 
 
@@ -58,7 +62,7 @@ public class SortTesting {
 		System.out.println("===== InsertionSort =====");
 
 		//ints
-		int[] ints = SortUtils.generateInts(25);
+		int[] ints = SortUtils.ints(25);
 		System.out.println(Arrays.toString(ints));
 		InsertionSort.sort(ints);
 		System.out.println(Arrays.toString(ints));
@@ -66,18 +70,19 @@ public class SortTesting {
 		System.out.println(">> isSorted = "+SortUtils.isSorted(ints)+"\n");
 
 		//DoubleWrappers
-		Double[] doubleWrappers = SortUtils.generateDoubleWrappers(20);
-		System.out.println(Arrays.toString(doubleWrappers));
-		InsertionSort.sort(doubleWrappers);
-		System.out.println(Arrays.toString(doubleWrappers));
-		System.out.println(">> nElements = "+doubleWrappers.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(doubleWrappers)+"\n");
+		Double[] wrappers = SortUtils.doubleWrappers(20,-100,100);
+		System.out.println(Arrays.toString(wrappers));
+		InsertionSort.sort(wrappers);
+		System.out.println(Arrays.toString(wrappers));
+		System.out.println(">> nElements = "+wrappers.length);
+		System.out.println(">> isSorted = "+SortUtils.isSorted(wrappers)+"\n");
 	}
 
 
 	public static void main(String[] args) {
-		SortTesting.testBubbleSort();
-		SortTesting.testSelectionSort();
+		//SortTesting.testBubbleSort();
+		//SortTesting.testSelectionSort();
 		SortTesting.testInsertionSort();
+		
 	}
 }

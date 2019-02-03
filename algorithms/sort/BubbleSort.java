@@ -40,49 +40,4 @@ public class BubbleSort {
 		}
 	}
 	
-	public static <T extends Comparable<? super T>> 
-	void sort2(T[] arr) {
-		int flag = 0;
-		int arrLen = arr.length;
-		while (flag<arrLen-1) {
-			flag = 0;
-			for(int i=0; i<arrLen-1; i++) {
-				if(SortUtils.less(arr[i], arr[i+1])) {
-					SortUtils.swap(arr, i, i+1);
-				} else {
-					flag++;
-				}
-			}
-		}
-	}
-	
-	public static void sort2(int[] arr) {
-		int flag = 0;
-		int arrLen = arr.length;
-		while (flag<arrLen-1) {
-			flag = 0;
-			for(int i=0; i<arrLen-1; i++) {
-				if(SortUtils.less(arr[i], arr[i+1])) {
-					SortUtils.swap(arr, i, i+1);
-				} else {
-					flag++;
-				}
-			}
-		}
-	}
-	
-	public static void sort2(double[] arr) {
-		int flag = 0;
-		int arrLen = arr.length;
-		while (flag<arrLen-1) {
-			flag = 0;
-			for(int i=0; i<arrLen-1; i++) {
-				if(SortUtils.less(arr[i], arr[i+1])) {
-					SortUtils.swap(arr, i, i+1);
-				} else {
-					flag++;
-				}
-			}
-		}
-	}
 }

@@ -77,37 +77,21 @@ public class SortUtils {
 	 * @return true if a less than b
 	 */
 	public static <T extends Comparable<? super T>> 
-	boolean less(T a, T b) {
-		return a.compareTo(b)<0;
-	}
+	boolean less(T a, T b) { return a.compareTo(b)<0; }
 
-	public static  boolean less(byte a, byte b) {
-		return a<b;
-	}
+	public static  boolean less(byte a, byte b) { return a<b; }
 
-	public static  boolean less(char a, char b) {
-		return a<b;
-	}
+	public static  boolean less(char a, char b) { return a<b; }
 
-	public static  boolean less(short a, short b) {
-		return a<b;
-	}
+	public static  boolean less(short a, short b) { return a<b; }
 
-	public static  boolean less(int a, int b) {
-		return a<b;
-	}
+	public static  boolean less(int a, int b) { return a<b; }
 
-	public static  boolean less(long a, long b) {
-		return a<b;
-	}
+	public static  boolean less(long a, long b) { return a<b; }
 
-	public static  boolean less(float a, float b) {
-		return a<b;
-	}
+	public static  boolean less(float a, float b) { return a<b; }
 
-	public static  boolean less(double a, double b) {
-		return a<b;
-	}
+	public static  boolean less(double a, double b) { return a<b; }
 
 	/**
 	 * Determines if the search results have been successfully sorted
@@ -171,7 +155,7 @@ public class SortUtils {
 	 * @param size The size of numbers
 	 * @return A set of numbers
 	 */
-	public static int[] generateInts(int size) {
+	public static int[] ints(int size) {
 		Random random = new Random();
 		int[] arr = new int[size];
 		for(int i=0; i<size; i++) //生成数组
@@ -179,14 +163,15 @@ public class SortUtils {
 		return arr;
 	}
 
-	public static Integer[] generateIntegerWrappers(int size) {
+	public static 
+	Integer[] integerWrappers(int size, int origin, int bound) {
 		Random r = new Random();
-		Stream<Integer> ss = r.ints(size, -100, 100).boxed();
+		Stream<Integer> ss = r.ints(size, origin, bound).boxed();
 		Integer[] arr = ss.toArray(Integer[]::new);
 		return arr;
 	}
 
-	public static double[] generateDoubles(int size) {
+	public static double[] doubles(int size) {
 		Random random = new Random();
 		double[] arr = new double[size];
 		for(int i=0; i<size; i++) //生成数组
@@ -194,7 +179,8 @@ public class SortUtils {
 		return arr;
 	}
 
-	public static Double[] generateDoubleWrappers(int size) {
+	public static 
+	Double[] doubleWrappers(int size, int origin, int bound) {
 		Random r = new Random();
 		Stream<Double> ss = r.doubles(size, -100, 100).boxed();
 		Double[] arr = ss.toArray(Double[]::new);
