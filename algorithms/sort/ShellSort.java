@@ -25,5 +25,48 @@ public class ShellSort {
 		}
 	}
 	
+	public static void sort(int[] arr) {
+		int arrLen = arr.length;
+		int h = 1;
+		while (h<arrLen/3) h = 3*h +1;//1,4,13,40,...
+		while (h>=1) {
+			for (int i = h; i < arrLen; i++) {
+				for (int j = i; j >= h; j -= h) {
+					if(!SortUtils.less(arr[j], arr[j-h])) break;
+					SortUtils.swap(arr, j, j-h);
+				}
+			}
+			h /= 3;
+		}
+	}
 	
+	public static void sort(long[] arr) {
+		int arrLen = arr.length;
+		int h = 1;
+		while (h<arrLen/3) h = 3*h +1;//1,4,13,40,...
+		while (h>=1) {
+			for (int i = h; i < arrLen; i++) {
+				for (int j = i; j >= h; j -= h) {
+					if(!SortUtils.less(arr[j], arr[j-h])) break;
+					SortUtils.swap(arr, j, j-h);
+				}
+			}
+			h /= 3;
+		}
+	}
+	
+	public static void sort(double[] arr) {
+		int arrLen = arr.length;
+		int h = 1;
+		while (h<arrLen/3) h = 3*h +1;//1,4,13,40,...
+		while (h>=1) {
+			for (int i = h; i < arrLen; i++) {
+				for (int j = i; j >= h; j -= h) {
+					if(!SortUtils.less(arr[j], arr[j-h])) break;
+					SortUtils.swap(arr, j, j-h);
+				}
+			}
+			h /= 3;
+		}
+	}
 }
