@@ -37,33 +37,34 @@ public class SortTesting {
 	}
 
 	public static void doSort2(ALG alg, int dataSize) {
-		double[] doubles = SortUtils.doubles(dataSize,-1,1);
-		System.out.println("Input:  "+Arrays.toString(doubles));
+		//double[] arr = SortUtils.doubles(dataSize,-1,1);
+		int[] arr = SortUtils.ints(dataSize,-1000,1000);
+		System.out.println("Input:  "+Arrays.toString(arr));
 
 		long t1 = System.nanoTime();
 		switch (alg) {
 		case BubbleSort:
-			BubbleSort.sort(doubles); break;
+			BubbleSort.sort(arr); break;
 		case SelectionSort:
-			SelectionSort.sort(doubles); break;
+			SelectionSort.sort(arr); break;
 		case InsertionSort:
-			InsertionSort.sort(doubles); break;
+			InsertionSort.sort(arr); break;
 		case ShellSort:
-			//ShellSort.sort(doubles); break;
+			ShellSort.sort(arr); break;
 		default:
 			break;
 		}
 		long t2 = System.nanoTime();
 		
-		System.out.println("Output: "+Arrays.toString(doubles));
-		System.out.println("nElements = "+doubles.length);
-		System.out.println("isSorted = "+SortUtils.isSorted(doubles));
+		System.out.println("Output: "+Arrays.toString(arr));
+		System.out.println("nElements = "+arr.length);
+		System.out.println("isSorted = "+SortUtils.isSorted(arr));
 		System.out.println("Rumtime = "+(t2-t1)/1.0E6+" ms\n");
 	}
 	
 
 	public static void main(String[] args) {
 		SortTesting.doSort(ALG.ShellSort, 20);
-		//SortTesting.doSort2(ALG.BubbleSort, 20);
+		SortTesting.doSort2(ALG.ShellSort, 20);
 	}
 }
