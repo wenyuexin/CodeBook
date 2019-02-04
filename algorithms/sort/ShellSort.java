@@ -1,6 +1,8 @@
 package sort;
 
 /**
+ * 使数组中任意间隔为h的元素都是有序的
+ * 
  * @author Apollo4634
  * @create 2019/02/04
  * @see SortUtils
