@@ -199,7 +199,7 @@ public class SortUtils {
 	public static 
 	Double[] doubleWrappers(int size, double origin, double bound) {
 		Random r = new Random();
-		Stream<Double> ss = r.doubles(size, -100, 100).boxed();
+		Stream<Double> ss = r.doubles(size, origin, bound).boxed();
 		return ss.toArray(Double[]::new);
 	}
 	
