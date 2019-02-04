@@ -8,81 +8,62 @@ import java.util.Arrays;
  */
 
 public class SortTesting {
+
+	enum ALG { BubbleSort, SelectionSort, InsertionSort, ShellSort }
 	
-	//BubbleSort
-	public static void testBubbleSort() {
-		System.out.println("===== BubbleSort =====");
+	public static void doSort(ALG alg, int dataSize) {
+		Double[] wrappers = SortUtils.doubleWrappers(dataSize,-1,1);
+		System.out.println("Input:  "+Arrays.toString(wrappers));
 
-		double[] doubles = SortUtils.doubles(25,-100,100);
-		System.out.println(Arrays.toString(doubles));
-		BubbleSort.sort(doubles);
+		long t1 = System.nanoTime();
+		switch (alg) {
+		case BubbleSort:
+			BubbleSort.sort(wrappers); break;
+		case SelectionSort:
+			SelectionSort.sort(wrappers); break;
+		case InsertionSort:
+			InsertionSort.sort(wrappers); break;
+		case ShellSort:
+			ShellSort.sort(wrappers); break;
+		default:
+			break;
+		}
+		long t2 = System.nanoTime();
 		
-		//ints
-		int[] ints = SortUtils.ints(25,-100,100);
-		System.out.println(Arrays.toString(ints));
-		BubbleSort.sort(ints);
-		System.out.println(Arrays.toString(ints));
-		System.out.println(">> nElements = "+ints.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(ints)+"\n");
-
-		//DoubleWrappers
-		Double[] wrappers = SortUtils.doubleWrappers(20,-100,100);
-		System.out.println(Arrays.toString(wrappers));
-		BubbleSort.sort(wrappers);
-		System.out.println(Arrays.toString(wrappers));
-		System.out.println(">> nElements = "+wrappers.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(wrappers)+"\n");
+		System.out.println("Output: "+Arrays.toString(wrappers));
+		System.out.println("nElements = "+wrappers.length);
+		System.out.println("isSorted = "+SortUtils.isSorted(wrappers));
+		System.out.println("Rumtime = "+(t2-t1)/1.0E6+" ms\n");
 	}
 
+	public static void doSort2(ALG alg, int dataSize) {
+		double[] doubles = SortUtils.doubles(dataSize,-1,1);
+		System.out.println("Input:  "+Arrays.toString(doubles));
 
-	//SelectionSort
-	public static void testSelectionSort() {
-		System.out.println("===== SelectionSort =====");
-
-		//ints
-		int[] ints = SortUtils.ints(25,-100,100);
-		System.out.println(Arrays.toString(ints));
-		SelectionSort.sort(ints);
-		System.out.println(Arrays.toString(ints));
-		System.out.println(">> nElements = "+ints.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(ints)+"\n");
-
-		//DoubleWrappers
-		Double[] wrappers = SortUtils.doubleWrappers(20,-100,100);
-		System.out.println(Arrays.toString(wrappers));
-		SelectionSort.sort(wrappers);
-		System.out.println(Arrays.toString(wrappers));
-		System.out.println(">> nElements = "+wrappers.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(wrappers)+"\n");
+		long t1 = System.nanoTime();
+		switch (alg) {
+		case BubbleSort:
+			BubbleSort.sort(doubles); break;
+		case SelectionSort:
+			SelectionSort.sort(doubles); break;
+		case InsertionSort:
+			InsertionSort.sort(doubles); break;
+		case ShellSort:
+			//ShellSort.sort(doubles); break;
+		default:
+			break;
+		}
+		long t2 = System.nanoTime();
+		
+		System.out.println("Output: "+Arrays.toString(doubles));
+		System.out.println("nElements = "+doubles.length);
+		System.out.println("isSorted = "+SortUtils.isSorted(doubles));
+		System.out.println("Rumtime = "+(t2-t1)/1.0E6+" ms\n");
 	}
-
-
-	//InsertionSort
-	public static void testInsertionSort() {
-		System.out.println("===== InsertionSort =====");
-
-		//ints
-		int[] ints = SortUtils.ints(25,-100,100);
-		System.out.println(Arrays.toString(ints));
-		InsertionSort.sort(ints);
-		System.out.println(Arrays.toString(ints));
-		System.out.println(">> nElements = "+ints.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(ints)+"\n");
-
-		//DoubleWrappers
-		Double[] wrappers = SortUtils.doubleWrappers(20,-100,100);
-		System.out.println(Arrays.toString(wrappers));
-		InsertionSort.sort(wrappers);
-		System.out.println(Arrays.toString(wrappers));
-		System.out.println(">> nElements = "+wrappers.length);
-		System.out.println(">> isSorted = "+SortUtils.isSorted(wrappers)+"\n");
-	}
-
+	
 
 	public static void main(String[] args) {
-		//SortTesting.testBubbleSort();
-		//SortTesting.testSelectionSort();
-		//SortTesting.testInsertionSort();
-		
+		SortTesting.doSort(ALG.ShellSort, 20);
+		//SortTesting.doSort2(ALG.BubbleSort, 20);
 	}
 }

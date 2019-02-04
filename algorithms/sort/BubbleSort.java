@@ -34,7 +34,7 @@ public class BubbleSort {
 		int arrLen = arr.length;
 		for (int i = arrLen-1; i > 0; i--) {
 			for(int j=0; j<i; j++) {
-				if(SortUtils.less(arr[j], arr[j+1])) 
+				if(SortUtils.less(arr[j+1], arr[j])) 
 					SortUtils.swap(arr, j, j+1);
 			}
 		}
