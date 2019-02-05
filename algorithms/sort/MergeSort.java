@@ -10,28 +10,20 @@ import java.util.Arrays;
 
 public class MergeSort {
 
+	//T[]
 	private static <T extends Comparable<? super T>> 
 	void merge(T[] arr, T[] aux, int left, int mid, int right) {
-		System.out.println(left+" "+mid+" "+right);
-		if(left==0 && mid==4 && right==9) {
-			System.out.println(Arrays.toString(arr));			
-		}
-		
-		for (int i = left; i <= right; i++) {
-			aux[i] = arr[i];
-		}
+		for (int i = left; i <= right; i++) aux[i] = arr[i];
 		
 		int i=left, j=mid+1, k=left;
 		while (i<=mid || j<=right) {
-			if (j>right || !SortUtils.less(arr[j], arr[i])) { 
-				arr[k] = aux[i]; i++; k++; 
-			} else if (i>mid || SortUtils.less(arr[j], arr[i])) {
-				arr[k] = aux[j]; j++; k++; 
-			}
+			if (i>mid) arr[k++] = aux[j++];
+			else if (j>right) arr[k++] = aux[i++];
+			else if (SortUtils.less(aux[j], aux[i])) arr[k++] = aux[j++];
+			else arr[k++] = aux[i++];
 		}
-		System.out.println(Arrays.toString(arr));
 	}
-
+	
 	public static <T extends Comparable<? super T>>
 	void subsort(T[] arr, T[] aux, int left, int right) {
 		if (left<right) {
@@ -49,7 +41,11 @@ public class MergeSort {
 		subsort(arr, aux, 0, arrLen-1);
 	}
 	
-
+	
+	//
+	
+	
+	
 	public static void main(String[] args) {
 		Integer[] arr = new Integer[] {
 			-59, -29, -49, -86, -15, 90, 31, -37, -45, -35,
