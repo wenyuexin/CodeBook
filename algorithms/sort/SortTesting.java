@@ -61,7 +61,7 @@ public class SortTesting {
 		case ShellSort:
 			ShellSort.sort(arr); break;
 		case MergeSort:
-			//MergeSort.sort(arr); break;
+			MergeSort.sort(arr); break;
 		default:
 			break;
 		}
@@ -76,6 +76,6 @@ public class SortTesting {
 
 	public static void main(String[] args) {
 		SortTesting.doSort(ALG.MergeSort, 20);
-		//SortTesting.doSort2(ALG.ShellSort, 20);
+		SortTesting.doSort2(ALG.ShellSort, 20);
 	}
 }
