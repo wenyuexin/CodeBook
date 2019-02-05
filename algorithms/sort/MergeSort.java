@@ -3,6 +3,8 @@ package sort;
 import java.util.Arrays;
 
 /**
+ * Top-down
+ * 
  * @author Apollo4634
  * @create 2019/02/04
  * @see SortUtils
@@ -127,4 +129,27 @@ public class MergeSort {
 		double[] aux = Arrays.copyOf(arr, arrLen);
 		subsort(arr, aux, 0, arrLen-1);
 	}
+	
+	/* An improved merge sort */
+	private static final int MERGE_THRESHOLD = 10;
+	
+	private static <T extends Comparable<? super T>>
+	void subsort2(T[] arr, T[] aux, int left, int right) {
+		if (right-left > MERGE_THRESHOLD) {
+			int mid = (left+right)/2;
+			subsort(arr, aux, left, mid);
+			subsort(arr, aux, mid+1, right);
+			merge(arr, aux, left, mid, right);
+		} else {
+			InsertionSort.sort(arr, left, right+1);
+		}
+	}
+	
+	public static <T extends Comparable<? super T>> 
+	void sort2(T[] arr) {
+		int arrLen = arr.length;
+		T[] aux = Arrays.copyOf(arr, arrLen);
+		subsort2(arr, aux, 0, arrLen-1);
+	}
+	
 }
