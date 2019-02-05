@@ -75,7 +75,7 @@ public class SortTesting {
 
 
 	public static void main(String[] args) {
-		SortTesting.doSort(ALG.MergeSort, 20);
-		SortTesting.doSort2(ALG.ShellSort, 20);
+		SortTesting.doSort(ALG.InsertionSort, 20);
+		//SortTesting.doSort2(ALG.MergeSort, 20);
 	}
 }

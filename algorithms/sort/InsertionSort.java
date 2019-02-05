@@ -7,37 +7,70 @@ package sort;
  */
 
 public class InsertionSort {
+
+	/**
+	 * @param arr
+	 * @param from inclusive
+	 * @param to exclusive
+	 */
+	
+	public static <T extends Comparable<? super T>>
+	void sort(T[] arr, int from, int to) {
+		for (int i = from+1; i < to; i++) {
+			for (int j = i; j > from; j--) {
+				if(!SortUtils.less(arr[j], arr[j-1])) break;
+				SortUtils.swap(arr, j, j-1);
+			}
+		}
+	}
 	
 	public static <T extends Comparable<? super T>>
 	void sort(T[] arr) {
-		int arrLen = arr.length;
-		for (int i = 1; i < arrLen; i++) {
-			for (int j = i; j > 0; j--) {
-				if(!SortUtils.less(arr[j], arr[j-1])) break;
-				SortUtils.swap(arr, j, j-1);
-			}
-		}
+		sort(arr, 0, arr.length);
 	}
+	
 
-
-	public static void sort(int[] arr) {
-		int arrLen = arr.length;
-		for (int i = 0; i < arrLen; i++) {
-			for (int j = i; j > 0; j--) {
+	//int
+	public static void sort(int[] arr, int from, int to) {
+		for (int i = from+1; i < to; i++) {
+			for (int j = i; j > from; j--) {
 				if(!SortUtils.less(arr[j], arr[j-1])) break;
 				SortUtils.swap(arr, j, j-1);
 			}
 		}
 	}
 	
+	public static void sort(int[] arr) {
+		sort(arr, 0, arr.length);
+	}
+	
+	
+	//long
+	public static void sort(long[] arr, int from, int to) {
+		for (int i = from+1; i < to; i++) {
+			for (int j = i; j > from; j--) {
+				if(!SortUtils.less(arr[j], arr[j-1])) break;
+				SortUtils.swap(arr, j, j-1);
+			}
+		}
+	}
+	
+	public static void sort(long[] arr) {
+		sort(arr, 0, arr.length);
+	}
+	
+	
+	//double
+	public static void sort(double[] arr, int from, int to) {
+		for (int i = from+1; i < to; i++) {
+			for (int j = i; j > from; j--) {
+				if(!SortUtils.less(arr[j], arr[j-1])) break;
+				SortUtils.swap(arr, j, j-1);
+			}
+		}
+	}
 	
 	public static void sort(double[] arr) {
-		int arrLen = arr.length;
-		for (int i = 0; i < arrLen; i++) {
-			for (int j = i; j > 0; j--) {
-				if(!SortUtils.less(arr[j], arr[j-1])) break;
-				SortUtils.swap(arr, j, j-1);
-			}
-		}
+		sort(arr, 0, arr.length);
 	}
 }
