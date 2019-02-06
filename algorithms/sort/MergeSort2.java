@@ -27,24 +27,56 @@ public class MergeSort2 {
 		}
 	}
 
-	
 	public static <T extends Comparable<? super T>> 
 	void sort(T[] arr) {
 		int arrLen = arr.length;
 		T[] aux = Arrays.copyOf(arr, arrLen);
-		
-		int sz = 1;
-		int SZ = (arrLen+1)/2;
-		while (sz<SZ) {
-			for (int i = 0; i < arrLen; i += 2*sz) {
-				int left = i;
-				int right = i+2*sz-1;
-				if(!(right<arrLen)) right=arrLen-1;
-				int mid = (left+right)/2;
-				merge(arr, aux, left, mid, right);
-			}
-			sz *= 2;
+		for (int sz = 1; sz < arrLen; sz *= 2)
+			for (int mid = sz-1; mid < arrLen; mid += 2*sz)
+				merge(arr, aux, mid-sz+1, mid, Math.min(mid+sz,arrLen-1));
+	}
+
+
+	//int[]
+	private static void merge(int[] arr, int[] aux, int left, int mid, int right) {
+		for (int i = left; i <= right; i++) aux[i] = arr[i];
+
+		int i=left, j=mid+1, k=left;
+		while (i<=mid || j<=right) {
+			if (i>mid) arr[k++] = aux[j++];
+			else if (j>right) arr[k++] = aux[i++];
+			else if (SortUtils.less(aux[j], aux[i])) arr[k++] = aux[j++];
+			else arr[k++] = aux[i++];
 		}
 	}
 
+	public static void sort(int[] arr) {
+		int arrLen = arr.length;
+		int[] aux = Arrays.copyOf(arr, arrLen);
+		for (int sz = 1; sz < arrLen; sz *= 2)
+			for (int mid = sz-1; mid < arrLen; mid += 2*sz)
+				merge(arr, aux, mid-sz+1, mid, Math.min(mid+sz,arrLen-1));
+	}
+
+
+	//long[]
+	private static void merge(long[] arr, long[] aux, int left, int mid, int right) {
+		for (int i = left; i <= right; i++) aux[i] = arr[i];
+
+		int i=left, j=mid+1, k=left;
+		while (i<=mid || j<=right) {
+			if (i>mid) arr[k++] = aux[j++];
+			else if (j>right) arr[k++] = aux[i++];
+			else if (SortUtils.less(aux[j], aux[i])) arr[k++] = aux[j++];
+			else arr[k++] = aux[i++];
+		}
+	}
+
+	public static void sort(long[] arr) {
+		int arrLen = arr.length;
+		long[] aux = Arrays.copyOf(arr, arrLen);
+		for (int sz = 1; sz < arrLen; sz *= 2)
+			for (int mid = sz-1; mid < arrLen; mid += 2*sz)
+				merge(arr, aux, mid-sz+1, mid, Math.min(mid+sz,arrLen-1));
+	}
 }
