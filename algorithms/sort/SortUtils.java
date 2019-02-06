@@ -170,8 +170,7 @@ public class SortUtils {
 		return r.ints(size, origin, bound).toArray();
 	}
 
-	public static 
-	Integer[] integerWrappers(int size, int origin, int bound) {
+	public static Integer[] integerWrappers(int size, int origin, int bound) {
 		Random r = new Random();
 		Stream<Integer> ss = r.ints(size, origin, bound).boxed();
 		return ss.toArray(Integer[]::new);
@@ -183,8 +182,7 @@ public class SortUtils {
 		return r.longs(size, origin, bound).toArray();
 	}
 
-	public static 
-	Long[] longWrappers(int size, long origin, long bound) {
+	public static Long[] longWrappers(int size, long origin, long bound) {
 		Random r = new Random();
 		Stream<Long> ss = r.longs(size, origin, bound).boxed();
 		return ss.toArray(Long[]::new);
@@ -196,8 +194,7 @@ public class SortUtils {
 		return r.doubles(size, origin, bound).toArray();
 	}
 
-	public static 
-	Double[] doubleWrappers(int size, double origin, double bound) {
+	public static Double[] doubleWrappers(int size, double origin, double bound) {
 		Random r = new Random();
 		Stream<Double> ss = r.doubles(size, origin, bound).boxed();
 		return ss.toArray(Double[]::new);
@@ -212,8 +209,7 @@ public class SortUtils {
 		return arr;
 	}
 
-	public static 
-	Character[] characterWrappers(int size, char origin, char bound) {
+	public static Character[] characterWrappers(int size, char origin, char bound) {
 		Random r = new Random();
 		Stream<Character> ss = r.ints(size, origin, bound).mapToObj(c->(char)c);
 		return ss.toArray(Character[]::new);
