@@ -5,6 +5,9 @@ import java.util.Arrays;
 /**
  * Bottom-up merge sort
  * 
+ * A version of bottom-up mergesort is the method of choice 
+ * for sorting data organized in a linked list
+ * 
  * @author Apollo4634
  * @create 2019/02/05
  * @see SortUtils
