@@ -12,9 +12,8 @@ public class QuickSort {
 	
 	private static <T extends Comparable<? super T>>
 	int partion(T[] arr, int left, int right) {
-		System.out.println(arr[left]+"("+left+")  "+arr[right]+"("+right+")");
-		
-		System.out.println(Arrays.toString(arr));
+		//System.out.println(arr[left]+"("+left+")  "+arr[right]+"("+right+")");
+		//System.out.println(Arrays.toString(arr));
 		
 		T v = arr[left];
 		int i=left+1, j=right;
@@ -22,13 +21,14 @@ public class QuickSort {
 			while (i<j && !SortUtils.less(v,arr[i])) i+=1;
 			while (i<j && !SortUtils.less(arr[j],v)) j-=1;
 			if (i<j) SortUtils.swap(arr, i, j);
-			System.out.print(Arrays.toString(arr)+" ");
-			System.out.println(arr[i]+"("+i+")"+" "+arr[j]+"("+j+")");
+			//System.out.print(Arrays.toString(arr)+" ");
+			//System.out.println(arr[i]+"("+i+")"+" "+arr[j]+"("+j+")");
 		}
-		SortUtils.swap(arr, left, i-1);
-		System.out.print(Arrays.toString(arr)+" ");
-		System.out.println(arr[i]+"("+i+")"+" "+arr[j]+"("+j+")\n");
-		return i-1;
+		int idx = (SortUtils.less(v, arr[i]))? i-1 : i;
+		SortUtils.swap(arr, left, idx);
+		//System.out.print(Arrays.toString(arr)+" ");
+		//System.out.println(arr[i]+"("+i+")"+" "+arr[j]+"("+j+")\n");
+		return idx;
 	}
 	
 	public static <T extends Comparable<? super T>>
@@ -48,6 +48,6 @@ public class QuickSort {
 	public static void main(String[] args) {
 		Integer[] arr = {527, -499, -715, 916, -795, -330, 722, -512, 369, -434, 13, 386, -287, 859, 969, 909, 907, -470};
 		QuickSort.sort(arr);
-		
+		System.out.println(SortUtils.isSorted(arr));
 	}
 }
