@@ -77,6 +77,7 @@ public class SortTesting {
 		}
 		long t2 = System.nanoTime();
 
+		System.out.println("");
 		if (doShow) System.out.println("Output: "+Arrays.toString(arr));
 		System.out.println("nElements = "+arr.length);
 		System.out.println("isSorted = "+SortUtils.isSorted(arr));
@@ -85,7 +86,20 @@ public class SortTesting {
 
 
 	public static void main(String[] args) {
-		SortTesting.doSort(ALG.QuickSort, 20, false);
+		SortTesting.doSort(ALG.BubbleSort, 10000, false);
+		SortTesting.doSort(ALG.SelectionSort, 10000, false);
+		SortTesting.doSort(ALG.InsertionSort, 10000, false);
+		SortTesting.doSort(ALG.ShellSort, 10000, false);
+		SortTesting.doSort(ALG.MergeSort, 10000, false);
+		SortTesting.doSort(ALG.MergeSort2, 10000, false);
+		SortTesting.doSort(ALG.QuickSort, 10000, false);
+		
+		//SortTesting.doSort2(ALG.BubbleSort, 3000, false);
+		//SortTesting.doSort2(ALG.SelectionSort, 3000, false);
+		//SortTesting.doSort2(ALG.InsertionSort, 3000, false);
+		//SortTesting.doSort2(ALG.ShellSort, 3000, false);
+		//SortTesting.doSort2(ALG.MergeSort, 3000, false);
+		//SortTesting.doSort2(ALG.MergeSort2, 3000, false);
 		//SortTesting.doSort2(ALG.QuickSort, 3000, false);
 	}
 }
