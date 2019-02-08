@@ -1,6 +1,6 @@
 package sort;
 
-import javax.sound.midi.MidiChannel;
+import java.util.Arrays;
 
 /**
  * @author Apollo4634
@@ -12,21 +12,23 @@ public class QuickSort {
 	
 	private static <T extends Comparable<? super T>>
 	int partion(T[] arr, int left, int right) {
-		T v = arr[left];
-		left += 1;
-		while (left<=right) {
-			while (SortUtils.less(arr[left], v)) break;
-			
-			
-			
-		}
+		System.out.println(arr[left]+"("+left+")  "+arr[right]+"("+right+")");
 		
-		for (int i = left; i <= right; i++) {
-			if (SortUtils.less(arr[i], arr[i])) {
-				
-			}
+		System.out.println(Arrays.toString(arr));
+		
+		T v = arr[left];
+		int i=left+1, j=right;
+		while (i<j) {
+			while (i<j && !SortUtils.less(v,arr[i])) i+=1;
+			while (i<j && !SortUtils.less(arr[j],v)) j-=1;
+			if (i<j) SortUtils.swap(arr, i, j);
+			System.out.print(Arrays.toString(arr)+" ");
+			System.out.println(arr[i]+"("+i+")"+" "+arr[j]+"("+j+")");
 		}
-		return left;
+		SortUtils.swap(arr, left, i-1);
+		System.out.print(Arrays.toString(arr)+" ");
+		System.out.println(arr[i]+"("+i+")"+" "+arr[j]+"("+j+")\n");
+		return i-1;
 	}
 	
 	public static <T extends Comparable<? super T>>
@@ -41,5 +43,11 @@ public class QuickSort {
 	public static <T extends Comparable<? super T>> 
 	void sort(T[] arr) {
 		sort(arr, 0, arr.length-1);
+	}
+	
+	public static void main(String[] args) {
+		Integer[] arr = {527, -499, -715, 916, -795, -330, 722, -512, 369, -434, 13, 386, -287, 859, 969, 909, 907, -470};
+		QuickSort.sort(arr);
+		
 	}
 }

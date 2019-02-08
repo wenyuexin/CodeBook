@@ -15,7 +15,8 @@ public class SortTesting {
 		InsertionSort, 
 		ShellSort,
 		MergeSort, //Top-down
-		MergeSort2 //Bottom-up
+		MergeSort2, //Bottom-up
+		QuickSort
 	}
 
 	public static void doSort(ALG alg, int dataSize, boolean doShow) {
@@ -37,6 +38,8 @@ public class SortTesting {
 			MergeSort.sort(arr); break;
 		case MergeSort2:
 			MergeSort2.sort(arr); break;
+		case QuickSort:
+			QuickSort.sort(arr); break;
 		default:
 			break;
 		}
@@ -67,6 +70,8 @@ public class SortTesting {
 			MergeSort.sort(arr); break;
 		case MergeSort2:
 			MergeSort2.sort(arr); break;
+		case QuickSort:
+			//QuickSort.sort(arr); break;
 		default:
 			break;
 		}
@@ -80,7 +85,7 @@ public class SortTesting {
 
 
 	public static void main(String[] args) {
-		SortTesting.doSort(ALG.MergeSort2, 3000, false);
-		SortTesting.doSort2(ALG.MergeSort, 3000, false);
+		SortTesting.doSort(ALG.QuickSort, 20, false);
+		//SortTesting.doSort2(ALG.QuickSort, 3000, false);
 	}
 }
