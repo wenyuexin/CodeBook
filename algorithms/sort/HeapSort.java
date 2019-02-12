@@ -9,6 +9,9 @@ package sort;
 public class HeapSort {
 	
 	private class MinPQ {
+		
+		private 
+		
 		MinPQ() {}
 		
 		public <T extends Comparable<? super T>> 
