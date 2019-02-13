@@ -8,11 +8,13 @@ package sort;
 
 public class HeapSort {
 	
-	private class MinPQ {
+	private static class MinPQ {
 		
-		private 
+		private T[] a;
 		
-		MinPQ() {}
+		MinPQ(T[] a) {
+		    this.a = a;
+		}
 		
 		public <T extends Comparable<? super T>> 
 		void swim(T[] arr, int i) {
