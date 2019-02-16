@@ -8,11 +8,11 @@ package sort;
 
 public class HeapSort {
 	
-	private static class MinPQ {
+	private static class MinPQ<T> {
 		
 		private T[] a;
 		
-		MinPQ(T[] a) {
+		MinPQ(T[] arr) {
 		    this.a = a;
 		}
 		
