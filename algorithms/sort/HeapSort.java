@@ -8,28 +8,34 @@ package sort;
 
 public class HeapSort {
 	
-	private static class MinPQ<T> {
+	private class MinPriorityQueue<T extends Comparable<? super T>> {
 		
 		private T[] a;
 		
-		MinPQ(T[] arr) {
-		    this.a = a;
+		MinPriorityQueue(T[] arr) {
+		    this.a = arr;
 		}
 		
-		public <T extends Comparable<? super T>> 
-		void swim(T[] arr, int i) {
+		public void swim(T[] arr, int i) {
 			
 		}
 		
-		public <T extends Comparable<? super T>> 
-		void sink(T[] arr, int i) {
+		public void sink(T[] arr, int i) {
 			
 		}
 		
-		public <T extends Comparable<? super T>> 
-		void insert(T[] arr, int i) {
+		public void insert(T[] arr, int i) {
 			
 		}
+		
+		//构造堆
+		
+		public void construct() {
+			
+		}
+		
+		//删除最小值
+		
 		
 	}
 	
@@ -37,8 +43,8 @@ public class HeapSort {
 	public static <T extends Comparable<? super T>> 
 	void sort(T[] arr) {
 		
-		MinPQ pq = new MinPQ();
+		MinPriorityQueue pq = new MinPriorityQueue(arr);
 		
-		
+		//java.util.PriorityQueue
 	}
 }
