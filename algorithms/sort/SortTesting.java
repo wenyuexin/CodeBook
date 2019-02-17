@@ -17,7 +17,8 @@ public class SortTesting {
 		ShellSort,
 		MergeSort, //Top-down
 		MergeSort2, //Bottom-up
-		QuickSort
+		QuickSort,
+		HeapSort
 	}
 
 	
@@ -42,6 +43,8 @@ public class SortTesting {
 			MergeSort2.sort(arr); break;
 		case QuickSort:
 			QuickSort.sort(arr); break;
+		case HeapSort:
+			HeapSort.sort(arr); break;
 		default:
 			break;
 		}
@@ -78,6 +81,8 @@ public class SortTesting {
 			MergeSort2.sort(arr); break;
 		case QuickSort:
 			//QuickSort.sort(arr); break;
+		case HeapSort:
+			//HeapSort.sort(arr); break;
 		default:
 			break;
 		}
@@ -114,8 +119,9 @@ public class SortTesting {
 				SortTesting.doSort(ALG.MergeSort2, arr.clone(), false, false);
 			//runtime[ALG.QuickSort.ordinal()] +=
 			//	SortTesting.doSort(ALG.QuickSort, arr.clone(), false, false);
+			//runtime[ALG.HeapSort.ordinal()] +=
+			//	SortTesting.doSort(ALG.HeapSort, arr.clone(), false, false);
 		}
-		
 		System.out.println();
 		for (int i = 0; i < runtime.length; i++)
 			System.out.println(ALG.values()[i]+"\t"+runtime[i]/nLoop+" ms");
@@ -124,17 +130,19 @@ public class SortTesting {
 	
 	public static void main(String[] args) {
 		
-		/* test */
-		Double[] wrappers = SortUtils.doubleWrappers(20000,-1,1);
-		//Integer[] wrappers = SortUtils.integerWrappers(20000,-1000,1000);
-		SortTesting.doSort(ALG.QuickSort, wrappers, false, true);
+		/*** test for array of wrappers ***/
+		//Double[] wrappers = SortUtils.doubleWrappers(20,-1,1);
+		Integer[] wrappers = SortUtils.integerWrappers(20,-100,100);
+		SortTesting.doSort(ALG.HeapSort, wrappers, false, true);
 		
+		
+		/*** test for array of primmitive data ***/
 		//double[] arr = SortUtils.doubles(dataSize,-1,1);
 		//int[] arr = SortUtils.ints(dataSize,-1000,1000);
 		//SortTesting.doSort2(ALG.QuickSort, 3000, false);
 		
 		
-		/* compare */
+		/*** compare ***/
 		//SortTesting.sortCompare(20000, 20);
 	}
 }
