@@ -14,10 +14,12 @@ public class HeapSort {
 
 	public static <T extends Comparable<? super T>>
 	void sink(T[] arr, int idx, int N) {
-		for (int i = idx; 2*i < N; i *= 2) {
-			int j = SortUtils.less(arr[2*(i+1)],arr[2*(i+1)])? 2*i : 2*i-1;
-			if (!SortUtils.less(arr[i],arr[j])) break;
-			else SortUtils.swap(arr, i, j);
+		System.out.println(Arrays.toString(arr));
+		
+		for (int i = idx+1; 2*i <= N; i *= 2) {
+			int j = SortUtils.less(arr[2*i-1],arr[2*i])? 2*i : 2*i-1;
+			if (!SortUtils.less(arr[i-1],arr[j])) break;
+			else SortUtils.swap(arr, i-1, j);
 		}
 	}
 
