@@ -1,6 +1,5 @@
 package sort;
 
-import java.util.Arrays;
 
 /**
  * @author Apollo4634
@@ -12,46 +11,95 @@ import java.util.Arrays;
 
 public class HeapSort {
 
-	public static <T extends Comparable<? super T>>
+	private static <T extends Comparable<? super T>>
 	void sink(T[] arr, int idx, int N) {
-		System.out.println(idx);
-		System.out.println(Arrays.toString(arr));
-		
-		if (idx<20)
-			System.out.println();
-		
-		for (int i = idx+1; 2*i+1 < N; i *= 2) {
-			int j = SortUtils.less(arr[2*i-1],arr[2*i])? 2*i : 2*i-1;
-			if (!SortUtils.less(arr[i-1],arr[j])) 
-				break;
-			else 
-				SortUtils.swap(arr, i-1, j);
-			System.out.println(Arrays.toString(arr));
+		int j;
+		for (int i = idx; 2*i+1 < N; i = j) {
+			if (2*i+2==N) j = N-1; 
+			else j = SortUtils.less(arr[2*i+1],arr[2*i+2])? 2*i+2 : 2*i+1;
+			if (!SortUtils.less(arr[i],arr[j])) break;
+			SortUtils.swap(arr, i, j);
 		}
-		System.out.println();
 	}
 
 	public static <T extends Comparable<? super T>> 
 	void sort(T[] arr) {
 		int N = arr.length;
-		System.out.println(Arrays.toString(arr) + "\n");
-		
-		for (int i = (N-1)/2; i >= 0; i--) { sink(arr, i, N); }
-		
-		System.out.println(Arrays.toString(arr)+ "\n");
-		
-		for (int i = N-1; i > 0; i++) {
-			SortUtils.swap(arr, 1, N);
+		for (int i = (N-1)/2; i >= 0; i--) 
+			sink(arr, i, N);
+		while (N>0) {
 			N -= 1;
-			sink(arr, 1, N);
-			System.out.println(Arrays.toString(arr));
+			SortUtils.swap(arr, 0, N);
+			sink(arr, 0, N);
 		}
 	}
-	
-	public static void main(String[] args) {
-		Integer[] arr = {
-			9, 12, 57, -58, -28, -20, 65, -19, -47, 13,
-			-91, 2, -29, 27, -16, -68, 55, 97, -83, -36 };
-		HeapSort.sort(arr);
+
+
+	//int
+	private static void sink(int[] arr, int idx, int N) {
+		int j;
+		for (int i = idx; 2*i+1 < N; i = j) {
+			if (2*i+2==N) j = N-1; 
+			else j = SortUtils.less(arr[2*i+1],arr[2*i+2])? 2*i+2 : 2*i+1;
+			if (!SortUtils.less(arr[i],arr[j])) break;
+			SortUtils.swap(arr, i, j);
+		}
+	}
+
+	public static void sort(int[] arr) {
+		int N = arr.length;
+		for (int i = (N-1)/2; i >= 0; i--) 
+			sink(arr, i, N);
+		while (N>0) {
+			N -= 1;
+			SortUtils.swap(arr, 0, N);
+			sink(arr, 0, N);
+		}
+	}
+
+
+	//long
+	private static void sink(long[] arr, int idx, int N) {
+		int j;
+		for (int i = idx; 2*i+1 < N; i = j) {
+			if (2*i+2==N) j = N-1; 
+			else j = SortUtils.less(arr[2*i+1],arr[2*i+2])? 2*i+2 : 2*i+1;
+			if (!SortUtils.less(arr[i],arr[j])) break;
+			SortUtils.swap(arr, i, j);
+		}
+	}
+
+	public static void sort(long[] arr) {
+		int N = arr.length;
+		for (int i = (N-1)/2; i >= 0; i--) 
+			sink(arr, i, N);
+		while (N>0) {
+			N -= 1;
+			SortUtils.swap(arr, 0, N);
+			sink(arr, 0, N);
+		}
+	}
+
+
+	//double
+	private static void sink(double[] arr, int idx, int N) {
+		int j;
+		for (int i = idx; 2*i+1 < N; i = j) {
+			if (2*i+2==N) j = N-1; 
+			else j = SortUtils.less(arr[2*i+1],arr[2*i+2])? 2*i+2 : 2*i+1;
+			if (!SortUtils.less(arr[i],arr[j])) break;
+			SortUtils.swap(arr, i, j);
+		}
+	}
+
+	public static void sort(double[] arr) {
+		int N = arr.length;
+		for (int i = (N-1)/2; i >= 0; i--) 
+			sink(arr, i, N);
+		while (N>0) {
+			N -= 1;
+			SortUtils.swap(arr, 0, N);
+			sink(arr, 0, N);
+		}
 	}
 }
