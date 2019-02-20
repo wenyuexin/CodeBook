@@ -98,15 +98,15 @@ public class SortTesting {
 	}
 
 	
-	public static void sortCompare(int dataSize, int nLoop) {
-		double runtime[] = new double[7];
+	public static void compare(int dataSize, int nLoop) {
+		double runtime[] = new double[8];
 		for (int iLoop = 0; iLoop<nLoop; iLoop++) {
 			System.out.println("loop: "+iLoop);
 			Double[] arr = SortUtils.doubleWrappers(dataSize,0,1);
 			//Integer[] arr = SortUtils.integerWrappers(20000,-1000,1000);
 
 			runtime[ALG.BubbleSort.ordinal()] += 
-				SortTesting.doSort(ALG.BubbleSort, arr.clone(), false, false );
+				SortTesting.doSort(ALG.BubbleSort, arr.clone(), false, false);
 			runtime[ALG.SelectionSort.ordinal()] += 
 				SortTesting.doSort(ALG.SelectionSort, arr.clone(), false, false);
 			runtime[ALG.InsertionSort.ordinal()] += 
@@ -117,10 +117,10 @@ public class SortTesting {
 				SortTesting.doSort(ALG.MergeSort, arr.clone(), false, false);
 			runtime[ALG.MergeSort2.ordinal()] += 
 				SortTesting.doSort(ALG.MergeSort2, arr.clone(), false, false);
-			//runtime[ALG.QuickSort.ordinal()] +=
-			//	SortTesting.doSort(ALG.QuickSort, arr.clone(), false, false);
-			//runtime[ALG.HeapSort.ordinal()] +=
-			//	SortTesting.doSort(ALG.HeapSort, arr.clone(), false, false);
+			runtime[ALG.QuickSort.ordinal()] +=
+				SortTesting.doSort(ALG.QuickSort, arr.clone(), false, false);
+			runtime[ALG.HeapSort.ordinal()] +=
+				SortTesting.doSort(ALG.HeapSort, arr.clone(), false, false);
 		}
 		System.out.println();
 		for (int i = 0; i < runtime.length; i++)
@@ -131,7 +131,7 @@ public class SortTesting {
 	public static void main(String[] args) {
 		/*** test for array of wrappers ***/
 		//Double[] wrappers = SortUtils.doubleWrappers(20,-1,1);
-		Integer[] wrappers = SortUtils.integerWrappers(20,-100,100);
+		Integer[] wrappers = SortUtils.integerWrappers(2000,-100,100);
 		SortTesting.doSort(ALG.HeapSort, wrappers, false, true);
 		
 		
@@ -142,6 +142,6 @@ public class SortTesting {
 		
 		
 		/*** compare ***/
-		//SortTesting.sortCompare(20000, 20);
+		//SortTesting.compare(20000, 20);
 	}
 }
