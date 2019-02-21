@@ -19,7 +19,7 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 		this.N = a.length;
 		construct();
 	}
-
+	
 	
 	public void swim(int idx) {
 		for (int i = idx; i>0 && SortUtils.less(arr[i-1],arr[i/2-1]); i /= 2)
@@ -27,7 +27,7 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 	}
 	
 	
-	private void sink(int idx) {
+	public void sink(int idx) {
 		int j;
 		for (int i = idx; 2*i+1 < N; i = j) {
 			if (2*i+2==N) j = N-1; 
@@ -46,12 +46,12 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 		for (int i = (N-1)/2; i >= 0; i--) sink(i);
 	}
 
-	//删除最小值
+	//delete the maxium element
 	public T deleteMax() {
 		T max = arr[0];
-
-
-
+		N -= 1;
+		SortUtils.swap(arr, 0, N);
+		sink(0);
 		return max;
 	}
 
