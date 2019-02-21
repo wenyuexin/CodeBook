@@ -13,21 +13,31 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 	private T[] arr;
 	private int N;
 
+	MaxPriorityQueue() {
+		this.N = 0;
+		this.arr = null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	MaxPriorityQueue(int capacity) {
+		this.N = capacity;
+		this.arr = (T[]) new Object[N];
+	}
 	
 	MaxPriorityQueue(T[] a) {
 		this.arr = a;
 		this.N = a.length;
-		construct();
+		heapfy();
 	}
 	
-	
-	public void swim(int idx) {
+	//上浮
+	private void swim(int idx) {
 		for (int i = idx; i>0 && SortUtils.less(arr[i-1],arr[i/2-1]); i /= 2)
 			SortUtils.swap(arr, i-1, i/2-1);
 	}
 	
-	
-	public void sink(int idx) {
+	//下沉
+	private void sink(int idx) {
 		int j;
 		for (int i = idx; 2*i+1 < N; i = j) {
 			if (2*i+2==N) j = N-1; 
@@ -37,15 +47,20 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 		}
 	}
 
+	//构造堆
+	private void heapfy() {
+		for (int i = (N-1)/2; i >= 0; i--) sink(i);
+	}
+	
+	
 	public void insert(int idx) {
 
 	}
 
-	//构造堆
-	public void construct() {
-		for (int i = (N-1)/2; i >= 0; i--) sink(i);
+	public T max() {
+		return (N>0)? arr[0] : null;
 	}
-
+	
 	//delete the maxium element
 	public T deleteMax() {
 		T max = arr[0];
@@ -55,8 +70,11 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 		return max;
 	}
 
-	public void sort() {
-
+	public boolean isEmpty() {
+		return N==0;
 	}
-
+	
+	public int size() {
+		return N;
+	}
 }
