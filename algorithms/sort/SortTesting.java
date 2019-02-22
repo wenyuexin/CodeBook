@@ -82,7 +82,7 @@ public class SortTesting {
 		case QuickSort:
 			//QuickSort.sort(arr); break;
 		case HeapSort:
-			//HeapSort.sort(arr); break;
+			HeapSort.sort(arr); break;
 		default:
 			break;
 		}
