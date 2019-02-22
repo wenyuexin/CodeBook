@@ -54,7 +54,7 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 	
 	
 	public void insert(int idx) {
-
+		
 	}
 
 	public T max() {
