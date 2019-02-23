@@ -1,4 +1,4 @@
-package grapg.union_find;
+package graph.union_find;
 
 /** 
  * @author Apollo4634 
