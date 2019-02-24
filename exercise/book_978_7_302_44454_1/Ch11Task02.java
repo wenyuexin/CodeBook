@@ -1,4 +1,4 @@
-package book_978_7_115_29380_0;
+package book_978_7_302_44454_1;
 
 public class Ch11Task02 {
 	static class B {
