@@ -14,12 +14,10 @@ public class WeightedQuickUnionUF implements UnionFind {
 		count = N;
 
 		id = new int[N];
-		for(int i = 0; i < N; i++)
-			id[i] = i;
+		for (int i = 0; i < N; i++) id[i] = i;
 
 		sz = new int[N];
-		for(int i = 0; i < N; i++)
-			sz[i] = 1;
+		for (int i = 0; i < N; i++) sz[i] = 1;
 	}
 
 	public int count() {
@@ -31,19 +29,18 @@ public class WeightedQuickUnionUF implements UnionFind {
 	}
 
 	public int find(int p) {		
-		while(p != id[p]) p = id[p];
+		while (p != id[p]) p = id[p];
 		return p;
 	}
 
 	public void union(int p, int q) {
-		int i = find(p);
-		int j = find(q);
-		if(i == j)	return;
+		int pId = find(p);
+		int qId = find(q);
+		if(pId == qId)	return;
 
-		if(sz[i] < sz[j])	{ id[i] = j; sz[j] += sz[i]; }  
-		else				{ id[j] = i; sz[i] += sz[j]; }
-
-		count--;
+		if (sz[pId] < sz[qId])	{ id[pId] = qId; sz[qId] += sz[pId]; }  
+		else				    { id[qId] = pId; sz[pId] += sz[qId]; }
+		count -= 1;
 	}	
 }
 

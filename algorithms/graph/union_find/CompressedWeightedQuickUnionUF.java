@@ -1,8 +1,11 @@
 package graph.union_find;
 
 /** 
+ * 在WeightedQuickUnionUF基础上进行改进，即
+ * 在find()中添加一个循环，将路径上所有的节点直接连接到根节点即可
+ * 
  * @author Apollo4634 
- * @creation 2019/01/17 19:01
+ * @creation 2019/01/17
  */
 
 public class CompressedWeightedQuickUnionUF implements UnionFind {
@@ -14,12 +17,10 @@ public class CompressedWeightedQuickUnionUF implements UnionFind {
 		count = N;
 
 		id = new int[N];
-		for(int i = 0; i < N; i++)
-			id[i] = i;
+		for(int i = 0; i < N; i++) id[i] = i;
 
 		sz = new int[N];
-		for(int i = 0; i < N; i++)
-			sz[i] = 1;
+		for(int i = 0; i < N; i++) sz[i] = 1;
 	}
 
 	public int count() {
@@ -32,11 +33,11 @@ public class CompressedWeightedQuickUnionUF implements UnionFind {
 
 	public int find(int p) {
 		int pCopy = p;
-		while(p != id[p]) p = id[p];
+		while (p != id[p]) p = id[p];
 
 		int pRoot = p;
 		p = pCopy;
-		while(p != id[p]) {
+		while (p != id[p]) {
 			pCopy = p;
 			p = id[p];
 			id[pCopy] = pRoot;
@@ -45,16 +46,15 @@ public class CompressedWeightedQuickUnionUF implements UnionFind {
 	}
 
 	public void union(int p, int q) {
-		int i = find(p);
-		int j = find(q);
-		if(i == j)	return;
+		int pId = find(p);
+		int qId = find(q);
+		if(pId == qId)	return;
 
-		if(sz[i] < sz[j]) { 
-			id[i] = j; sz[j] += sz[i]; 
+		if (sz[pId] < sz[qId]) { 
+			id[pId] = qId; sz[qId] += sz[pId]; 
 		} else {
-			id[j] = i; sz[i] += sz[j]; 
+			id[qId] = pId; sz[pId] += sz[qId]; 
 		}
-
-		count--;
+		count -= 1;
 	}
 }
