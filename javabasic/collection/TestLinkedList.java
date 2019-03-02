@@ -2,20 +2,10 @@ package collection;
 
 import java.util.LinkedList;
 
+
 public class TestLinkedList {
-	public static void main(String[] args) {
-		// 测试LinkedList
-		Mylist mylist = new Mylist();
-		
-		mylist.test1(); 
-		mylist.test2();
-		mylist.test3();
-	}
-}
-
-class Mylist {
-
-	public void test1() {
+	
+	public static void test1() {
 		/**
 		 * LinkedList extends AbstractSequentialList<E>
 		 * Constructors: 
@@ -25,26 +15,26 @@ class Mylist {
 		 * - ArrayList​(int initialCapacity)
 		 */
 		System.out.println("=== test1 ===");
-		LinkedList<String> llist = new LinkedList<String>(); 
+		LinkedList<String> list = new LinkedList<String>(); 
 		
 		// 增加和移除元素
-		llist.add("aaa");
-		llist.add("bbb");
-		System.out.println(llist);
+		list.add("aaa");
+		list.add("bbb");
+		System.out.println(list);
 		
-		llist.addFirst("first"); 
-		llist.addLast("last"); //和add()方法一样都是通过linkLast(e)实现
-		System.out.println(llist);
+		list.addFirst("first"); 
+		list.addLast("last"); //和add()方法一样都是通过linkLast(e)实现
+		System.out.println(list);
 		
-		llist.remove("bbb");
-		System.out.println(llist);
-		System.out.println(llist.remove("cc"));
+		list.remove("bbb");
+		System.out.println(list);
+		System.out.println(list.remove("cc"));
 		
-		llist.add(1, "ccc");
-		System.out.println(llist);
+		list.add(1, "ccc");
+		System.out.println(list);
 	}
 	
-	public void test2() {
+	public static void test2() {
 		/**
 		 ** 以下两种方法都能移除元素
 		 * - E remove​(int index)
@@ -53,32 +43,32 @@ class Mylist {
 		 */
 		System.out.println("=== test2 ===");
 		
-		//LinkedList<int> llist2 = new LinkedList<int>(); 
+		//LinkedList<int> list2 = new LinkedList<int>(); 
 		// 注意：这里不能使用基本数据类型
 	}
 	
-	public void test3() {
+	public static void test3() {
 		System.out.println("=== test3 ===");
 		
-		LinkedList<Integer> llist = new LinkedList<Integer>();
-		llist.offer(Integer.valueOf(11)); //作为Queue使用时的方法，对应的有offer/poll/take
-		llist.offer(Integer.valueOf(22));
-		llist.offer(Integer.valueOf(33));
-		llist.offer(Integer.valueOf(2));
-		llist.offer(Integer.valueOf(22)); //55
-		llist.offer(Integer.valueOf(44));
-		System.out.println(llist);
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		list.offer(Integer.valueOf(11)); //作为Queue使用时的方法，对应的有offer/poll/take
+		list.offer(Integer.valueOf(22));
+		list.offer(Integer.valueOf(33));
+		list.offer(Integer.valueOf(2));
+		list.offer(Integer.valueOf(22)); //55
+		list.offer(Integer.valueOf(44));
+		System.out.println(list);
 		
-		int index22 = llist.indexOf(Integer.valueOf("22"));
+		int index22 = list.indexOf(Integer.valueOf("22"));
 		System.out.println(index22);
-		System.out.println(llist.lastIndexOf(Integer.valueOf("22")));
+		System.out.println(list.lastIndexOf(Integer.valueOf("22")));
 		
-		llist.set(4, Integer.valueOf("55"));
-		System.out.println(llist);
+		list.set(4, Integer.valueOf("55"));
+		System.out.println(list);
 		
 		// 转为数组
 		//Integer[] intArr = llist.toArray(); //返回的是Object类
-		Object[] objArr = llist.toArray();
+		Object[] objArr = list.toArray();
 		System.out.println(objArr);
 		for(Object val: objArr) {
 			System.out.print(val+" ");
@@ -88,7 +78,17 @@ class Mylist {
 		//Integer[] intArr = (Integer[])objArr; //不能这样转
 		//System.out.println(intArr);
 	}
+	
+	
+	public static void main(String[] args) {
+		// 测试LinkedListMylist();
+		
+		TestLinkedList.test1(); 
+		TestLinkedList.test2();
+		TestLinkedList.test3();
+	}
 }
+
 
 
 
