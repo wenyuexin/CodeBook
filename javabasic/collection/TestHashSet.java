@@ -15,47 +15,48 @@ public class TestHashSet {
 	
 	private static void test1() { 
 		System.out.println("=== 1 ===");
-		HashSet<String> hset = new HashSet<>();
+		HashSet<String> set = new HashSet<>();
 		
 		//增加元素
-		hset.add("aaa");
-		hset.add("bbb");
-		System.out.println(hset);
-		System.out.println("size = "+hset.size());
+		set.add("aaa");
+		set.add("bbb");
+		System.out.println(set);
+		System.out.println("size = "+set.size());
 		
 		//set元素具有不可重复性
-		hset.addAll(hset);
-		System.out.println(hset);
+		set.addAll(set);
+		System.out.println(set);
 		
 		//set元素具有不可重复性
 		@SuppressWarnings("unchecked")
-		HashSet<String> hset2 = (HashSet<String>) hset.clone();
-		hset.addAll(hset2);
-		System.out.println(hset);
+		HashSet<String> set2 = (HashSet<String>) set.clone();
+		set.addAll(set2);
+		System.out.println(set);
 		
-		hset2.add("ccc");
-		System.out.println("hset :"+hset);
-		System.out.println("hset2:"+hset2);
-		hset.addAll(hset2);
-		System.out.println("hset:"+hset);
+		set2.add("ccc");
+		System.out.println("hset :"+set);
+		System.out.println("hset2:"+set2);
+		set.addAll(set2);
+		System.out.println("hset:"+set);
 		
 		//clone
 		//HashSet的clone方法是浅复制，返回的是Object类
 		
 		//元素包含关系
-		System.out.println(hset.contains("aa"));
-		System.out.println(hset.contains("aaa"));
+		System.out.println(set.contains("aa"));
+		System.out.println(set.contains("aaa"));
 		
 		//移除
-		hset.remove("bbb");
-		hset.add("eee");
-		System.out.println(hset);
+		set.remove("bbb");
+		set.add("eee");
+		System.out.println(set);
 		
 		//NULL
-		hset.add(null);
-		System.out.println(hset.size());
-		System.out.println(hset);
+		set.add(null);
+		System.out.println(set.size());
+		System.out.println(set);
 	}
+	
 	
 	private static void test2() {
 		System.out.println("=== 2 ===");
@@ -69,6 +70,7 @@ public class TestHashSet {
 		Set<Integer> set = new HashSet<Integer>(list);
 		System.out.println(set);
 	}
+	
 	
 	public static void main(String[] args) {
 		TestHashSet.test1();

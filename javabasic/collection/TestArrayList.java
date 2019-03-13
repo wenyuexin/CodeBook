@@ -6,62 +6,64 @@ import java.util.ArrayList;
 public class TestArrayList {
 	
 	public static void test() {
+		System.out.println("=== test ===");
+		
 		//ArrayList1
-		List<String> alist = new ArrayList<String>();	
-		alist.add("a");
-		alist.add("b");
-		alist.add("c");
-		System.out.println("alist: "+alist);
+		List<String> list = new ArrayList<String>();	
+		list.add("a");
+		list.add("b");
+		list.add("c");
+		System.out.println("list: "+list);
 		
 		//ArrayList2
-		List<String> alist2 = new ArrayList<String>();
-		alist2.add("a");
-		alist2.add("d");
-		System.out.println("alist2: "+alist2);
+		List<String> list2 = new ArrayList<String>();
+		list2.add("a");
+		list2.add("d");
+		System.out.println("list2: "+list2);
 		
 		//containsAll
-		System.out.println(alist.containsAll(alist));
-		System.out.println(alist.containsAll(alist2));
+		System.out.println(list.containsAll(list));
+		System.out.println(list.containsAll(list2));
 		
 		//retainAll
-		alist.retainAll(alist2);
-		System.out.println(alist);
+		list.retainAll(list2);
+		System.out.println(list);
 		
 		//removeAll
-		alist.removeAll(alist2);
-		System.out.println(alist);
+		list.removeAll(list2);
+		System.out.println(list);
 	}
 	
 
 	public static void test2() {
-		List<String> alist = new ArrayList<String>(10);
-		alist.add("a");
-		alist.add("bc");
-		alist.add("ccd");
+		System.out.println("=== test2 ===");
 		
-		System.out.println("size="+alist.size());
-		System.out.println(alist);
+		List<String> list = new ArrayList<String>(10);
+		list.add("a");
+		list.add("bc");
+		list.add("ccd");
 		
-		ArrayList<String> alist2 = (ArrayList<String>) alist;
-		System.out.println(alist2);
+		System.out.println("size = "+list.size());
+		System.out.println(list);
 		
-		alist.set(1, "asdf");
-		System.out.println(alist);
-		System.out.println(alist2);
+		ArrayList<String> list2 = (ArrayList<String>) list;
+		System.out.println(list2);
+		
+		list.set(1, "asdf");
+		System.out.println(list);
+		System.out.println(list2);
 		
 		//alist.trimToSize(); 
 		//System.out.println(alist);
 		
-		
-		alist2.trimToSize(); 
-		System.out.println("trimToSize: "+alist2);
+		list2.trimToSize(); 
+		System.out.println("trimToSize: "+list2);
 		//System.out.println(alist2.capacity); 
 	}
 	
+	
 	public static void main(String[] args) {
-		System.out.println("=== test ===");
 		TestArrayList.test();
-		System.out.println("=== test2 ===");
 		TestArrayList.test2();
 	}
 }
