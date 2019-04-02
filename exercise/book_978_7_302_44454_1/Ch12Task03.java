@@ -16,9 +16,9 @@ public class Ch12Task03 {
 }
 
 class MaxFactor {
-	int a = 0;
-	int b = 0;
-	int c = -1;
+	private int a = 0;
+	private int b = 0;
+	private int c = -1;
 	
 	MaxFactor(int a, int b) throws MyException2 {
 		if(a>0 && b>0) {
@@ -43,11 +43,9 @@ class MaxFactor {
 	}
 }
 
+/**
+ * 自定义的异常类
+ */
 class MyException2 extends Exception {
-	
-	private static final long serialVersionUID = 1L;
-
-	MyException2() {
-		super("����");
-	}
+	MyException2() {}
 }
