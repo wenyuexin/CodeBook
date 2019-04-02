@@ -15,6 +15,8 @@ public class IndexMinPQ<E> extends PriorityQueue<E> {
 
 	private PriorityQueue<E> pq;
 	
+	transient Object[] queue;
+	
 	public IndexMinPQ(int capacity) {
 		pq = new PriorityQueue<E>(capacity);
 	}
