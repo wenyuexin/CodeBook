@@ -42,6 +42,7 @@ public class MaxPriorityQueue<T extends Comparable<? super T>> {
 		for (int i = idx; 2*i+1 < N; i = j) {
 			if (2*i+2==N) j = N-1; 
 			else j = SortUtils.less(arr[2*i+1],arr[2*i+2])? 2*i+2 : 2*i+1;
+
 			if (!SortUtils.less(arr[i],arr[j])) break;
 			SortUtils.swap(arr, i, j);
 		}

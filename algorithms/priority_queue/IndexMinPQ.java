@@ -17,11 +17,11 @@ public class IndexMinPQ<E> extends PriorityQueue<E> {
 	transient Object[] queue;
 	
 	public IndexMinPQ(int capacity) {
-		pq = new PriorityQueue<E>(capacity);
+		pq = new PriorityQueue<>(capacity);
 	}
 	
 	public IndexMinPQ(int capacity, Comparator<? super E> comparator) {
-		pq = new PriorityQueue<E>(capacity, comparator);
+		pq = new PriorityQueue<>(capacity, comparator);
 	}
 	
 	public void change(int w, E e) {
