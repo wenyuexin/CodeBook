@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  * @author Apollo4634
- * @date 2019/02/03
+ * @create 2019/02/03
  */
 
 public class SortTesting {
@@ -92,56 +92,56 @@ public class SortTesting {
 		if (showResults) {
 			System.out.println("nElements = "+arr.length);
 			System.out.println("isSorted = "+SortUtils.isSorted(arr));
-			System.out.println("Rumtime = "+(t2-t1)/1.0E6+" ms\n");
+			System.out.println("Runtime = "+(t2-t1)/1.0E6+" ms\n");
 		}
 		return (t2-t1)/1.0E6;
 	}
 
 	
 	public static void compare(int dataSize, int nLoop) {
-		double runtime[] = new double[8];
+		double runTime[] = new double[8];
 		for (int iLoop = 0; iLoop<nLoop; iLoop++) {
 			System.out.println("loop: "+iLoop);
 			Double[] arr = SortUtils.doubleWrappers(dataSize,0,1);
 			//Integer[] arr = SortUtils.integerWrappers(20000,-1000,1000);
 
-			runtime[ALG.BubbleSort.ordinal()] += 
+			runTime[ALG.BubbleSort.ordinal()] +=
 				SortTesting.doSort(ALG.BubbleSort, arr.clone(), false, false);
-			runtime[ALG.SelectionSort.ordinal()] += 
+			runTime[ALG.SelectionSort.ordinal()] +=
 				SortTesting.doSort(ALG.SelectionSort, arr.clone(), false, false);
-			runtime[ALG.InsertionSort.ordinal()] += 
+			runTime[ALG.InsertionSort.ordinal()] +=
 				SortTesting.doSort(ALG.InsertionSort, arr.clone(), false, false);
-			runtime[ALG.ShellSort.ordinal()] += 
+			runTime[ALG.ShellSort.ordinal()] +=
 				SortTesting.doSort(ALG.ShellSort, arr.clone(), false, false);
-			runtime[ALG.MergeSort.ordinal()] += 
+			runTime[ALG.MergeSort.ordinal()] +=
 				SortTesting.doSort(ALG.MergeSort, arr.clone(), false, false);
-			runtime[ALG.MergeSort2.ordinal()] += 
+			runTime[ALG.MergeSort2.ordinal()] +=
 				SortTesting.doSort(ALG.MergeSort2, arr.clone(), false, false);
-			runtime[ALG.QuickSort.ordinal()] +=
+			runTime[ALG.QuickSort.ordinal()] +=
 				SortTesting.doSort(ALG.QuickSort, arr.clone(), false, false);
-			runtime[ALG.HeapSort.ordinal()] +=
+			runTime[ALG.HeapSort.ordinal()] +=
 				SortTesting.doSort(ALG.HeapSort, arr.clone(), false, false);
 		}
 		System.out.println();
-		for (int i = 0; i < runtime.length; i++)
-			System.out.println(ALG.values()[i]+"\t"+runtime[i]/nLoop+" ms");
+		for (int i = 0; i < runTime.length; i++)
+			System.out.println(ALG.values()[i]+"\t"+runTime[i]/nLoop+" ms");
 	}
 
 	
 	public static void main(String[] args) {
-		/*** test for array of wrappers ***/
+		/* test for array of wrappers */
 		//Double[] wrappers = SortUtils.doubleWrappers(20,-1,1);
 		Integer[] wrappers = SortUtils.integerWrappers(2000,-100,100);
 		SortTesting.doSort(ALG.HeapSort, wrappers, false, true);
 		
 		
-		/*** test for array of primmitive data ***/
+		/* test for array of primitive data */
 		//double[] arr = SortUtils.doubles(dataSize,-1,1);
 		//int[] arr = SortUtils.ints(dataSize,-1000,1000);
 		//SortTesting.doSort2(ALG.QuickSort, 3000, false);
 		
 		
-		/*** compare ***/
+		/* compare */
 		//SortTesting.compare(20000, 20);
 	}
 }
