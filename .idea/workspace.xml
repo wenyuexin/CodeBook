@@ -2,16 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/concurrent/basic/VolatileTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithms/algorithms.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/exercise.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacore/javacore.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LearnJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LearnJava.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/SortTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/sort/TestSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestScannerInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/javabasic/io/TestScannerInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/DirectedEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/DirectedEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/EdgeWeightedDiagraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/EdgeWeightedDiagraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/diagraph.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/diagraph.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/CompressedWeightedQuickUnionUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/CompressedWeightedQuickUnionUF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/UnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/UnionFind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/WeightedQuickFindUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/WeightedQuickFindUF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/WeightedQuickUnionUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/WeightedQuickUnionUF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/priority_queue/IndexMinPQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/priority_queue/IndexMinPQ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/priority_queue/MaxPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/priority_queue/MaxPriorityQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/BubbleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/HeapSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/InsertionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/MergeSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/MergeSort2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/MergeSort2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/QuickSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/SelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/SelectionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/ShellSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/ShellSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/SortUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/TestSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/TestSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/sort/sort.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/sort.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch03Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch03Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch04Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch04Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch06Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch06Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch11Task02.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch11Task02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch11Task03.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch11Task03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch12Task01.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch12Task01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch12Task03.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch12Task03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch14Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch14Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch15Task02.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch15Task02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch16Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch16Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch17Task01.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch17Task01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch17Task02.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch17Task02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/helloworld.txt" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/helloworld.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/annotation/AnnotationWithReflection.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/AnnotationWithReflection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/annotation/AnnotationWithReflection2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/AnnotationWithReflection2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/annotation/MyAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/MyAnnotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/annotation/TestBasicAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/TestBasicAnnotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/array/TestArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/array/TestArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestArrayList2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestArrayList2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestHashMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestHashSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestHashSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestPriorityQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestTreeSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestTreeSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/enumeration/TestEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/enumeration/TestEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/enumeration/TestMyEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/enumeration/TestMyEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/exception/MyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/exception/MyException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/exception/TestTryCatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/exception/TestTryCatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/generic/TestGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/generic/TestGeneric2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/generic/TestGeneric3.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/io/TestIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/io/TestIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/io/TestScannerInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/io/TestScannerInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/lambda/TestLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/lambda/TestLambda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/logging/TestJavaUtilLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/logging/TestJavaUtilLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/mytest/Test1004.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1004.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/mytest/Test1118.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1118.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/mytest/Test1124.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1124.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestHashCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/TestHashCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestHashCode2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/TestHashCode2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/TestInnerClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/CapacityOfArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/CapacityOfArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/GetInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/GetInnerClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/InformationOfClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/InformationOfClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/Stu.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/Stu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestField.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestReflection.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestReflection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/string/TestString.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/string/TestString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/swing/TestSwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/time/RunningTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/time/RunningTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabasic/time/TestDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/time/TestDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/algorithms/algorithms.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/note/algorithms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/javabasic/reflection.md" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/note/reflection.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -39,30 +115,12 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javabasic/array/TestArray.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/concurrent/basic/VolatileTest.java">
+        <entry file="file://$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javabasic/string/TestString.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="48">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -79,9 +137,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Rumtime</find>
+      <find>creation</find>
     </findStrings>
     <replaceStrings>
       <replace>Runtime</replace>
+      <replace>create</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -100,6 +160,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/algorithms/sort/TestSort.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/javabasic/src/array/TestArray.java" />
+        <option value="$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java" />
       </list>
     </option>
   </component>
@@ -141,13 +203,17 @@
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="concurrent" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="concurrent" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -172,11 +238,11 @@
       <recent name="https://github.com/Apollo4634/LeetCode.git" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Workspace\Java\LearnJava\javabasic\note" />
+      <recent name="D:\Workspace\Java\LearnJava\algorithms\note" />
+      <recent name="D:\Workspace\Java\LearnJava\javabasic\src" />
+      <recent name="D:\Workspace\Java\LearnJava\exercise\src" />
       <recent name="D:\Workspace\Java\LearnJava\javabasic\string" />
-      <recent name="D:\Workspace\Java\LearnJava\javabasic\io" />
-      <recent name="D:\Workspace\Java\LearnJava\javabasic\reflection" />
-      <recent name="D:\Workspace\Java\LearnJava" />
-      <recent name="D:\Workspace\Java\LearnJava\.idea" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -222,9 +288,7 @@
       <list>
         <item itemvalue="Application.TestSort" />
         <item itemvalue="Application.Ch03Task" />
-        <item itemvalue="Application.SortTesting" />
         <item itemvalue="Application.Ch03Task" />
-        <item itemvalue="Application.SortTesting" />
       </list>
     </recent_temporary>
   </component>
@@ -277,13 +341,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16187000" />
+    <option name="totallyTimeSpent" value="19171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13752665" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30063966" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -291,14 +354,14 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.2652174" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.26441786" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.27826086" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39934713" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.19782609" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.1969532" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32934782" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.34673914" />
@@ -342,6 +405,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0404-1005" />
@@ -354,7 +431,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/notebook/algorithms/algorithms.md">
+    <entry file="file://$PROJECT_DIR$/algorithms/note/algorithms.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -387,7 +464,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch03Task.java">
+    <entry file="file://$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch03Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
@@ -401,7 +478,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/algorithms/sort/TestSort.java">
+    <entry file="file://$PROJECT_DIR$/algorithms/src/sort/TestSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
@@ -418,38 +495,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javabasic/mytest/TestArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javabasic/string/TestString.java">
+    <entry file="file://$PROJECT_DIR$/javabasic/mytest/TestArray.java" />
+    <entry file="file://$PROJECT_DIR$/javacore/src/basic/string/TestString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javabasic/mytest/TestString.java">
+    <entry file="file://$PROJECT_DIR$/javabasic/mytest/TestString.java" />
+    <entry file="file://$PROJECT_DIR$/concurrent/basic/VolatileTest.java" />
+    <entry file="file://$PROJECT_DIR$/javacore/src/basic/array/TestArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="264">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javabasic/array/TestArray.java">
+    <entry file="file://$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/concurrent/basic/VolatileTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="48">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
