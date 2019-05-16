@@ -2,92 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/algorithms/algorithms.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercise/exercise.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javacore/javacore.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacore/src/advanced/concurrent/VolatileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LearnJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LearnJava.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/Dijkstra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/DirectedEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/DirectedEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/EdgeWeightedDiagraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/EdgeWeightedDiagraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/diagraph/diagraph.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/diagraph.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/CompressedWeightedQuickUnionUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/CompressedWeightedQuickUnionUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/UnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/UnionFind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/WeightedQuickFindUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/WeightedQuickFindUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/graph/union_find/WeightedQuickUnionUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/graph/union_find/WeightedQuickUnionUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/priority_queue/IndexMinPQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/priority_queue/IndexMinPQ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/priority_queue/MaxPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/priority_queue/MaxPriorityQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/BubbleSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/HeapSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/InsertionSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/MergeSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/MergeSort2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/MergeSort2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/QuickSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/SelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/SelectionSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/ShellSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/ShellSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/SortUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/TestSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/TestSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/sort.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/sort.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch03Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch03Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch04Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch04Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch06Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch06Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch11Task02.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch11Task02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch11Task03.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch11Task03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch12Task01.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch12Task01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch12Task03.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch12Task03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch14Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch14Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch15Task02.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch15Task02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch16Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch16Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch17Task01.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch17Task01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/Ch17Task02.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/Ch17Task02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/helloworld.txt" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/helloworld.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/book_978_7_302_44454_1/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_978_7_302_44454_1/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/annotation/AnnotationWithReflection.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/AnnotationWithReflection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/annotation/AnnotationWithReflection2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/AnnotationWithReflection2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/annotation/MyAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/MyAnnotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/annotation/TestBasicAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/annotation/TestBasicAnnotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/array/TestArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/array/TestArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestArrayList2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestArrayList2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestHashMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestHashSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestHashSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestPriorityQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/collection/TestTreeSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/collection/TestTreeSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/enumeration/TestEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/enumeration/TestEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/enumeration/TestMyEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/enumeration/TestMyEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/exception/MyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/exception/MyException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/exception/TestTryCatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/exception/TestTryCatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/generic/TestGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/generic/TestGeneric2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/generic/TestGeneric3.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/io/TestIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/io/TestIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/io/TestScannerInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/io/TestScannerInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/lambda/TestLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/lambda/TestLambda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/logging/TestJavaUtilLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/logging/TestJavaUtilLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/Test1004.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1004.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/Test1118.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1118.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/Test1124.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1124.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestHashCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/TestHashCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestHashCode2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/TestHashCode2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/mytest/TestInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/mytest/TestInnerClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/CapacityOfArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/CapacityOfArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/GetInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/GetInnerClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/InformationOfClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/InformationOfClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/Stu.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/Stu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestField.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/reflection/TestReflection.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/reflection/TestReflection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/string/TestString.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/string/TestString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/swing/TestSwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/time/RunningTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/time/RunningTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javabasic/time/TestDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/basic/time/TestDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/algorithms/algorithms.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/note/algorithms.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/javabasic/reflection.md" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/note/reflection.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -115,17 +32,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -162,6 +69,7 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/javabasic/src/array/TestArray.java" />
         <option value="$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java" />
+        <option value="$PROJECT_DIR$/javacore/src/advanced/concurrent/VolatileTest.java" />
       </list>
     </option>
   </component>
@@ -213,6 +121,13 @@
             </path>
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="advanced" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -231,7 +146,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -257,7 +172,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestSort">
+  <component name="RunManager" selected="Application.VolatileTest">
     <configuration name="Ch03Task" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="book_978_7_302_44454_1.Ch03Task" />
       <module name="LearnJava" />
@@ -284,8 +199,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VolatileTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="advanced.concurrent.VolatileTest" />
+      <module name="javacore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="advanced.concurrent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.VolatileTest" />
         <item itemvalue="Application.TestSort" />
         <item itemvalue="Application.Ch03Task" />
         <item itemvalue="Application.Ch03Task" />
@@ -337,16 +266,32 @@
       <option name="project" value="LOCAL" />
       <updated>1557243554607</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="0516-2318 调整结构">
+      <created>1558019975703</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1558019975704</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19171000" />
+    <option name="totallyTimeSpent" value="23149000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30063966" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24253732" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -355,15 +300,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.26441786" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27826086" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39934713" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3079434" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.3601741" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297062" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.1969532" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32934782" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32861805" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.34673914" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.20021763" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -424,7 +369,8 @@
     <MESSAGE value="0404-1005" />
     <MESSAGE value="0428-2116" />
     <MESSAGE value="0507-2338" />
-    <option name="LAST_COMMIT_MESSAGE" value="0507-2338" />
+    <MESSAGE value="0516-2318 调整结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="0516-2318 调整结构" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -507,8 +453,26 @@
     <entry file="file://$PROJECT_DIR$/concurrent/basic/VolatileTest.java" />
     <entry file="file://$PROJECT_DIR$/javacore/src/basic/array/TestArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="240">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/MyLab/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/MyLab/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="280" column="38" selection-start-line="280" selection-start-column="38" selection-end-line="280" selection-end-column="38" />
+          <folding>
+            <element signature="e#47450#47451#0" expanded="true" />
+            <element signature="e#47519#47520#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -516,6 +480,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javacore/src/advanced/concurrent/VolatileTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+          <folding>
+            <element signature="e#190#191#0" expanded="true" />
+            <element signature="e#209#210#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
