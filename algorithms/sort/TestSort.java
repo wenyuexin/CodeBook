@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @create 2019/02/03
  */
 
-public class SortTesting {
+public class TestSort {
 
 	private enum ALG { 
 		BubbleSort, 
@@ -21,11 +21,11 @@ public class SortTesting {
 		HeapSort
 	}
 
-	
-	public static <T extends Comparable<? super T>>
-	double doSort(ALG alg, T[] arr, boolean showDatas, boolean showResults) {
+
+	private static <T extends Comparable<? super T>>
+	double doSort(ALG alg, T[] arr, boolean showData, boolean showResults) {
 		if (showResults) System.out.println(alg.name());
-		if (showDatas) System.out.println("Input:  "+Arrays.toString(arr));
+		if (showData) System.out.println("Input:  "+Arrays.toString(arr));
 
 		long t1 = System.nanoTime();
 		switch (alg) {
@@ -50,20 +50,19 @@ public class SortTesting {
 		}
 		long t2 = System.nanoTime();
 
-		if (showDatas)  System.out.println("Output: "+Arrays.toString(arr));
+		if (showData)  System.out.println("Output: "+Arrays.toString(arr));
 		if (showResults) {
 			System.out.println("nElements = "+arr.length);
 			System.out.println("isSorted = "+SortUtils.isSorted(arr));
-			System.out.println("Rumtime = "+(t2-t1)/1.0E6+" ms\n");
+			System.out.println("Runtime = "+(t2-t1)/1.0E6+" ms\n");
 		}
 		return (t2-t1)/1.0E6;
 	}
 
 	
-	public static 
-	double doSort2(ALG alg, int[] arr, boolean showDatas, boolean showResults) {
+	public static double doSort2(ALG alg, int[] arr, boolean showData, boolean showResults) {
 		if (showResults) System.out.println(alg.name());
-		if (showDatas) System.out.println("Input:  "+Arrays.toString(arr));
+		if (showData) System.out.println("Input:  "+Arrays.toString(arr));
 
 		long t1 = System.nanoTime();
 		switch (alg) {
@@ -88,7 +87,7 @@ public class SortTesting {
 		}
 		long t2 = System.nanoTime();
 
-		if (showDatas) System.out.println("Output: "+Arrays.toString(arr));
+		if (showData) System.out.println("Output: "+Arrays.toString(arr));
 		if (showResults) {
 			System.out.println("nElements = "+arr.length);
 			System.out.println("isSorted = "+SortUtils.isSorted(arr));
@@ -99,28 +98,28 @@ public class SortTesting {
 
 	
 	public static void compare(int dataSize, int nLoop) {
-		double runTime[] = new double[8];
+		double[] runTime = new double[8];
 		for (int iLoop = 0; iLoop<nLoop; iLoop++) {
 			System.out.println("loop: "+iLoop);
 			Double[] arr = SortUtils.doubleWrappers(dataSize,0,1);
 			//Integer[] arr = SortUtils.integerWrappers(20000,-1000,1000);
 
 			runTime[ALG.BubbleSort.ordinal()] +=
-				SortTesting.doSort(ALG.BubbleSort, arr.clone(), false, false);
+				TestSort.doSort(ALG.BubbleSort, arr.clone(), false, false);
 			runTime[ALG.SelectionSort.ordinal()] +=
-				SortTesting.doSort(ALG.SelectionSort, arr.clone(), false, false);
+				TestSort.doSort(ALG.SelectionSort, arr.clone(), false, false);
 			runTime[ALG.InsertionSort.ordinal()] +=
-				SortTesting.doSort(ALG.InsertionSort, arr.clone(), false, false);
+				TestSort.doSort(ALG.InsertionSort, arr.clone(), false, false);
 			runTime[ALG.ShellSort.ordinal()] +=
-				SortTesting.doSort(ALG.ShellSort, arr.clone(), false, false);
+				TestSort.doSort(ALG.ShellSort, arr.clone(), false, false);
 			runTime[ALG.MergeSort.ordinal()] +=
-				SortTesting.doSort(ALG.MergeSort, arr.clone(), false, false);
+				TestSort.doSort(ALG.MergeSort, arr.clone(), false, false);
 			runTime[ALG.MergeSort2.ordinal()] +=
-				SortTesting.doSort(ALG.MergeSort2, arr.clone(), false, false);
+				TestSort.doSort(ALG.MergeSort2, arr.clone(), false, false);
 			runTime[ALG.QuickSort.ordinal()] +=
-				SortTesting.doSort(ALG.QuickSort, arr.clone(), false, false);
+				TestSort.doSort(ALG.QuickSort, arr.clone(), false, false);
 			runTime[ALG.HeapSort.ordinal()] +=
-				SortTesting.doSort(ALG.HeapSort, arr.clone(), false, false);
+				TestSort.doSort(ALG.HeapSort, arr.clone(), false, false);
 		}
 		System.out.println();
 		for (int i = 0; i < runTime.length; i++)
@@ -131,17 +130,17 @@ public class SortTesting {
 	public static void main(String[] args) {
 		/* test for array of wrappers */
 		//Double[] wrappers = SortUtils.doubleWrappers(20,-1,1);
-		Integer[] wrappers = SortUtils.integerWrappers(2000,-100,100);
-		SortTesting.doSort(ALG.HeapSort, wrappers, false, true);
+		//Integer[] wrappers = SortUtils.integerWrappers(2000,-100,100);
+		//TestSort.doSort(ALG.HeapSort, wrappers, false, true);
 		
 		
 		/* test for array of primitive data */
 		//double[] arr = SortUtils.doubles(dataSize,-1,1);
 		//int[] arr = SortUtils.ints(dataSize,-1000,1000);
-		//SortTesting.doSort2(ALG.QuickSort, 3000, false);
+		//TestSort.doSort2(ALG.QuickSort, 3000, false);
 		
 		
 		/* compare */
-		//SortTesting.compare(20000, 20);
+		//TestSort.compare(20000, 20);
 	}
 }
