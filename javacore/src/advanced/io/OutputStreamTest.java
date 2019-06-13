@@ -1,5 +1,6 @@
 package advanced.io;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -8,9 +9,9 @@ import java.io.OutputStream;
  * @create 2019/06/10
  */
 
-public class TestOutputStream {
+public class OutputStreamTest {
 
-    public static void generateChars(OutputStream out)
+    private static void generateChars(OutputStream out)
         throws IOException {
 
         int firstPrintableCharacter = 33;
@@ -18,13 +19,20 @@ public class TestOutputStream {
         int numberOfCharactersPerLine = 72;
 
         int start = firstPrintableCharacter;
-        while (true) {
+        int counter = 100;
+        while (counter>0) {
             for (int i = start; i < start+numberOfCharactersPerLine; i++) {
                 out.write(((i-firstPrintableCharacter)%numberOfPrintableCharacters)+firstPrintableCharacter);
             }
             out.write('\r');
             out.write('\n');
             start = ((start+1)-firstPrintableCharacter)%numberOfPrintableCharacters + firstPrintableCharacter;
+            counter -= 1;
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        OutputStream out = new FileOutputStream("D:/test.txt");
+        generateChars(out);
     }
 }
