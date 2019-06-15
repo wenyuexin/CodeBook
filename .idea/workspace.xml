@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javaweb/javaweb.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javaweb/src/internet/address/HostAliases.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javaweb/src/internet/address/NetworkInterfaceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javaweb/note/URI and URL.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javaweb/src/uri/URLComparison.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javaweb/src/uri/URLSplitting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/advanced/io/TestOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/advanced/io/OutputStreamTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -40,15 +36,61 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/javaweb/src/internet/address/NetworkInterfaceTest.java">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javaweb/src/uri/URLComparison.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+            <state relative-caret-position="264">
+              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javaweb/src/uri/URLSplitting.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="582">
+              <caret line="28" column="55" lean-forward="true" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/javaweb/note/URI and URL.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://D:/MyLab/Java/jdk-11.0.1/lib/src.zip!/java.base/java/net/URL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="1000" column="31" lean-forward="true" selection-start-line="1000" selection-start-column="31" selection-end-line="1000" selection-end-column="31" />
+              <folding>
+                <element signature="e#36843#36844#0" expanded="true" />
+                <element signature="e#36895#36896#0" expanded="true" />
+                <element signature="e#37920#37921#0" expanded="true" />
+                <element signature="e#37971#37972#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://D:/MyLab/Java/jdk-11.0.1/lib/src.zip!/java.base/java/net/URLStreamHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="483" column="30" lean-forward="true" selection-start-line="483" selection-start-column="30" selection-end-line="483" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -99,6 +141,8 @@
         <option value="$PROJECT_DIR$/javaweb/src/internet/address/HostAliases.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/javaweb/src/internet/address/NetworkInterfaceTest.java" />
+        <option value="$PROJECT_DIR$/javaweb/src/uri/URLComparison.java" />
+        <option value="$PROJECT_DIR$/javaweb/src/uri/URLSplitting.java" />
       </list>
     </option>
   </component>
@@ -119,6 +163,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -140,12 +185,24 @@
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
+              <item name="note" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
               <item name="javaweb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="javaweb" type="462c0819:PsiDirectoryNode" />
+              <item name="note" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
@@ -156,15 +213,16 @@
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javaweb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="address" type="462c0819:PsiDirectoryNode" />
+              <item name="jvm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -176,7 +234,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -202,14 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NetworkInterfaceTest">
-    <configuration name="ClassLoadingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ClassLoadingTest" />
-      <module name="jvm" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.URLSplitting">
     <configuration name="HostAliases" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="internet.address.HostAliases" />
       <module name="javaweb" />
@@ -249,12 +300,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadSafetyTestOfVector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="advanced.concurrent.ThreadSafetyTestOfVector" />
-      <module name="javacore" />
+    <configuration name="URLComparison" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uri.URLComparison" />
+      <module name="javaweb" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="advanced.concurrent.*" />
+          <option name="PATTERN" value="uri.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="URLSplitting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uri.URLSplitting" />
+      <module name="javaweb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uri.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -264,11 +328,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.URLSplitting" />
+        <item itemvalue="Application.URLComparison" />
         <item itemvalue="Application.NetworkInterfaceTest" />
         <item itemvalue="Application.HostAliases" />
         <item itemvalue="Application.OutputStreamTest" />
-        <item itemvalue="Application.ClassLoadingTest" />
-        <item itemvalue="Application.ThreadSafetyTestOfVector" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +416,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42678000" />
+    <option name="totallyTimeSpent" value="45673000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -367,7 +431,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23933902" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.114072494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -376,7 +440,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.26441786" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21304348" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28073993" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.425" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -713,6 +777,54 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javaweb/src/uri/URLComparison.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/MyLab/Java/jdk-11.0.1/lib/src.zip!/java.base/java/net/URL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="1000" column="31" lean-forward="true" selection-start-line="1000" selection-start-column="31" selection-end-line="1000" selection-end-column="31" />
+          <folding>
+            <element signature="e#36843#36844#0" expanded="true" />
+            <element signature="e#36895#36896#0" expanded="true" />
+            <element signature="e#37920#37921#0" expanded="true" />
+            <element signature="e#37971#37972#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/MyLab/Java/jdk-11.0.1/lib/src.zip!/java.base/java/net/URLStreamHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="483" column="30" lean-forward="true" selection-start-line="483" selection-start-column="30" selection-end-line="483" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javaweb/src/uri/URLSplitting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="28" column="55" lean-forward="true" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javaweb/note/URI and URL.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
