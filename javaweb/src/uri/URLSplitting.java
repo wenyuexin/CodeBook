@@ -26,6 +26,7 @@ public class URLSplitting {
             System.out.println("DefaultPort: "+url.getDefaultPort());
             System.out.println("Port: "+url.getPort());
 
+            System.out.println("File: "+url.getFile());
             System.out.println("Path: "+url.getPath());
             System.out.println("Query: "+url.getQuery());
             System.out.println("Fragment: "+url.getRef());
