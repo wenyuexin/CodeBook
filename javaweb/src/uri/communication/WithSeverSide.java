@@ -21,13 +21,13 @@ public class WithSeverSide {
             URL url = new URL(urlStr);
 
             try (BufferedInputStream in = new BufferedInputStream(url.openStream())) {
-                InputStreamReader reader = new InputStreamReader(in);
+                Reader reader = new InputStreamReader(in);
 
                 int c;
                 while ((c=in.read()) != -1) {
                     System.out.print((char) c);
                 }
-
+                reader.close();
             } catch (IOException ex) {
                 System.out.println(ex.toString());
             }
