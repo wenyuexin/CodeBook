@@ -1,8 +1,8 @@
 ﻿# LearnJava
 
-  个人为学习Java基础知识而创建的Project 
+  好好学习，天天向上
 
-## 1. 开发工具： 
+## 1. 开发工具：  
   IntelliJ IDEA
 
 ## 2. 参考书籍：  
@@ -19,9 +19,9 @@
 * 《算法（第4版）》 Robert Sedgewick, Kevin Wayne，人民邮电出版社
 
 ### 网络编程  
-
 * 《Java网络编程（第4版）》Elliotte Rusty Harold，中国电力出版社
 
 ### 并发  
+
 -
 
