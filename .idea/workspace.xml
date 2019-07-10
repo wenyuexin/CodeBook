@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="0704-2128">
-      <change afterPath="$PROJECT_DIR$/design-pattern/design-pattern.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design-pattern/note/设计模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/notes/设计模式.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/note/Java修饰符.md" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/notes/Java修饰符.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/note/advanced/concurrent.md" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/notes/advanced/concurrent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/note/reflection.md" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/notes/reflection.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/note/URI and URL.md" beforeDir="false" afterPath="$PROJECT_DIR$/javaweb/notes/URI and URL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/note/非阻塞IO/缓冲区.md" beforeDir="false" afterPath="$PROJECT_DIR$/javaweb/notes/非阻塞IO/缓冲区.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -298,7 +301,7 @@
       <workItem from="1562293530310" duration="1332000" />
       <workItem from="1562328489037" duration="686000" />
       <workItem from="1562660119419" duration="1831000" />
-      <workItem from="1562724676327" duration="3610000" />
+      <workItem from="1562724676327" duration="5109000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -405,11 +408,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562246932859</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="0710-1605 设计模式">
+      <created>1562745994308</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1562745994308</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100847000" />
+    <option name="totallyTimeSpent" value="102346000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,7 +555,8 @@
     <MESSAGE value="0703-1537 缓冲区.md" />
     <MESSAGE value="0703-2222" />
     <MESSAGE value="0704-2128" />
-    <option name="LAST_COMMIT_MESSAGE" value="0704-2128" />
+    <MESSAGE value="0710-1605 设计模式" />
+    <option name="LAST_COMMIT_MESSAGE" value="0710-1605 设计模式" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -647,7 +658,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javacore/note/advanced/concurrent.md">
+    <entry file="file://$PROJECT_DIR$/javacore/notes/advanced/concurrent.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="395">
@@ -745,7 +756,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javaweb/src/internet/address/NetworkInterfaceTest.java" />
-    <entry file="file://$PROJECT_DIR$/javaweb/note/URI and URL.md">
+    <entry file="file://$PROJECT_DIR$/javaweb/notes/URI and URL.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -879,7 +890,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javaweb/note/非阻塞IO/缓冲区.md">
+    <entry file="file://$PROJECT_DIR$/javaweb/notes/非阻塞IO/缓冲区.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="650">
@@ -899,7 +910,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javacore/note/Java修饰符.md">
+    <entry file="file://$PROJECT_DIR$/javacore/notes/Java修饰符.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="675">
