@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
+    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="0704-2128">
+      <change afterPath="$PROJECT_DIR$/design-pattern/design-pattern.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/note/Java修饰符.md" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/note/Java修饰符.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaweb/note/非阻塞IO/缓冲区.md" beforeDir="false" afterPath="$PROJECT_DIR$/javaweb/note/非阻塞IO/缓冲区.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -39,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javaweb/src/inetaddress/HostAliases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            <state relative-caret-position="695">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -106,6 +107,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/javaweb/note/非阻塞IO.md" />
         <option value="$PROJECT_DIR$/javaweb/src/uri/x_www_form_urlencoded/URLEncoderTest.java" />
+        <option value="$PROJECT_DIR$/javaweb/src/inetaddress/HostAliases.java" />
       </list>
     </option>
   </component>
@@ -126,7 +128,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -138,79 +150,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javacore" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javacore" type="462c0819:PsiDirectoryNode" />
-              <item name="note" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javacore" type="462c0819:PsiDirectoryNode" />
-              <item name="note" type="462c0819:PsiDirectoryNode" />
-              <item name="advanced" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javacore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javacore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javaweb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javaweb" type="462c0819:PsiDirectoryNode" />
-              <item name="note" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javaweb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javaweb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="inetaddress" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="javaweb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="uri" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,7 +158,7 @@
     <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LeetCode" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -354,6 +294,11 @@
       <workItem from="1561983188345" duration="1189000" />
       <workItem from="1562059366406" duration="10158000" />
       <workItem from="1562207767634" duration="1953000" />
+      <workItem from="1562246893870" duration="725000" />
+      <workItem from="1562293530310" duration="1332000" />
+      <workItem from="1562328489037" duration="686000" />
+      <workItem from="1562660119419" duration="1831000" />
+      <workItem from="1562724676327" duration="3610000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -453,11 +398,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562163760224</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="0704-2128">
+      <created>1562246932859</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1562246932859</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92663000" />
+    <option name="totallyTimeSpent" value="100847000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -469,10 +421,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21108742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -487,7 +438,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32826087" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.18369566" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.1724512" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32826087" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.17934783" />
@@ -593,7 +544,8 @@
     <MESSAGE value="0703-1511 缓冲区.md" />
     <MESSAGE value="0703-1537 缓冲区.md" />
     <MESSAGE value="0703-2222" />
-    <option name="LAST_COMMIT_MESSAGE" value="0703-2222" />
+    <MESSAGE value="0704-2128" />
+    <option name="LAST_COMMIT_MESSAGE" value="0704-2128" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -959,8 +911,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javaweb/src/inetaddress/HostAliases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        <state relative-caret-position="695">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
         </state>
       </provider>
     </entry>
