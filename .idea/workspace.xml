@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/exercise/src/InputUsingKeyboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacore/notes/反射.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacore/notes/集合类.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-pattern/notes/设计模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/notes/设计模式.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/notes/reflection.md" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -36,10 +39,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/javaweb/src/inetaddress/HostAliases.java">
+        <entry file="file://$PROJECT_DIR$/exercise/src/InputUsingKeyboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="695">
-              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            <state relative-caret-position="375">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -106,6 +109,7 @@
         <option value="$PROJECT_DIR$/javaweb/note/非阻塞IO.md" />
         <option value="$PROJECT_DIR$/javaweb/src/uri/x_www_form_urlencoded/URLEncoderTest.java" />
         <option value="$PROJECT_DIR$/javaweb/src/inetaddress/HostAliases.java" />
+        <option value="$PROJECT_DIR$/exercise/src/InputUsingKeyboard.java" />
       </list>
     </option>
   </component>
@@ -127,17 +131,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LearnJava" type="58d84e3e:PackageViewProjectNode" />
-              <item name="LearnJava" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,8 +146,48 @@
             <path>
               <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="design-pattern" type="462c0819:PsiDirectoryNode" />
+              <item name="exercise" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="netease" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
               <item name="notes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
+              <item name="javacore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LearnJava" type="58d84e3e:PackageViewProjectNode" />
+              <item name="LearnJava" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -167,7 +200,7 @@
     <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LeetCode" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -197,7 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PolymorphismTest">
+  <component name="RunManager" selected="Application.InputUsingKeyboard">
     <configuration name="AllHeaderFields" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uri.urlconnection.AllHeaderFields" />
       <module name="javaweb" />
@@ -220,6 +253,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputUsingKeyboard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="InputUsingKeyboard" />
+      <module name="exercise" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -250,26 +290,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WithSeverSide" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uri.communication.WithSeverSide" />
-      <module name="javaweb" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="uri.communication.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InputUsingKeyboard" />
         <item itemvalue="Application.PolymorphismTest" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.AllHeaderFields" />
         <item itemvalue="Application.HttpHeaderPrinter" />
-        <item itemvalue="Application.WithSeverSide" />
       </list>
     </recent_temporary>
   </component>
@@ -308,7 +335,8 @@
       <workItem from="1562328489037" duration="686000" />
       <workItem from="1562660119419" duration="1831000" />
       <workItem from="1562724676327" duration="5152000" />
-      <workItem from="1562847607111" duration="688000" />
+      <workItem from="1562847607111" duration="1048000" />
+      <workItem from="1562897858129" duration="7229000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -429,11 +457,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562766115749</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="0711-2200 设计模式">
+      <created>1562853670738</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1562853670738</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103077000" />
+    <option name="totallyTimeSpent" value="110666000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -446,8 +481,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21321961" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -456,7 +492,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.26413044" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18933624" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33152175" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.11847826" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -571,21 +607,14 @@
     <MESSAGE value="0704-2128" />
     <MESSAGE value="0710-1605 设计模式" />
     <MESSAGE value="0710-2141" />
-    <option name="LAST_COMMIT_MESSAGE" value="0710-2141" />
+    <MESSAGE value="0711-2200 设计模式" />
+    <option name="LAST_COMMIT_MESSAGE" value="0711-2200 设计模式" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/algorithms/note/algorithms.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="https://github.com/Apollo4634/LeetCode.git">
       <provider selected="true" editor-type-id="httpFileEditor" />
     </entry>
@@ -947,8 +976,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javaweb/src/inetaddress/HostAliases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        <state relative-caret-position="750">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javacore/notes/集合类.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise/src/InputUsingKeyboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
         </state>
       </provider>
     </entry>
