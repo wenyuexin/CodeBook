@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/design-pattern/notes/单例模式.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/design-pattern/notes/设计模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/notes/设计模式.md" afterDir="false" />
     </list>
@@ -35,7 +34,20 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/design-pattern/notes/设计模式.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="325">
+                <caret line="153" selection-start-line="153" selection-end-line="153" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -120,18 +132,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LearnJava" type="58d84e3e:PackageViewProjectNode" />
-              <item name="LearnJava" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,6 +184,18 @@
               <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
               <item name="javacore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LearnJava" type="58d84e3e:PackageViewProjectNode" />
+              <item name="LearnJava" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -334,6 +346,8 @@
       <workItem from="1562847607111" duration="1048000" />
       <workItem from="1562897858129" duration="7229000" />
       <workItem from="1563205904186" duration="1252000" />
+      <workItem from="1563330263468" duration="6043000" />
+      <workItem from="1564127108011" duration="237000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -468,11 +482,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563094903010</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="0716-2214 设计模式">
+      <created>1563286492116</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1563286492116</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121064000" />
+    <option name="totallyTimeSpent" value="127386000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -485,9 +506,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1748401" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -502,7 +522,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32826087" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.171926" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.17173913" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32826087" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.17934783" />
@@ -613,7 +633,8 @@
     <MESSAGE value="0710-2141" />
     <MESSAGE value="0711-2200 设计模式" />
     <MESSAGE value="0714-1701 设计模式" />
-    <option name="LAST_COMMIT_MESSAGE" value="0714-1701 设计模式" />
+    <MESSAGE value="0716-2214 设计模式" />
+    <option name="LAST_COMMIT_MESSAGE" value="0716-2214 设计模式" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -987,28 +1008,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/design-pattern/notes/单例模式的7种写法.md" />
+    <entry file="file://$PROJECT_DIR$/design-pattern/src/Singleten.java" />
     <entry file="file://$PROJECT_DIR$/design-pattern/notes/设计模式.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="400">
-            <caret line="156" column="8" lean-forward="true" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
+          <first_editor relative-caret-position="325">
+            <caret line="153" selection-start-line="153" selection-end-line="153" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/design-pattern/notes/单例模式的7种写法.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/design-pattern/src/Singleten.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
