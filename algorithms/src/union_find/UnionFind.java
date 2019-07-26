@@ -1,8 +1,8 @@
-package graph.union_find;
+package union_find;
 
 /** 
  * @author Apollo4634 
- * @create 2019/01/17 18:01
+ * @create 2019/01/17
  */
 
 public interface UnionFind {
