@@ -1,5 +1,3 @@
-package advanced.concurrent;
-
 import java.util.Vector;
 
 /**

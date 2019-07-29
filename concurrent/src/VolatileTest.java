@@ -1,6 +1,3 @@
-package advanced.concurrent;
-
-
 /**
  * 此代码修改自《深入理解Java虚拟机：JVM高级特性与最佳实践》中
  * P366的12.3.3节上的代码

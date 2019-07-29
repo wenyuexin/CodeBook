@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
+    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="0729-2146 并发">
+      <change afterPath="$PROJECT_DIR$/concurrent/concurrent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/src/ThreadTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/javacore/notes/朝花夕拾.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/jvm/notes/内存管理.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/src/ClassLoadingTest2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jvm/src/ClassLoadingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jvm/src/ClassLoadingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/notes/advanced/concurrent.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/并发.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/advanced/concurrent/ThreadSafetyTestOfVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/src/ThreadSafetyTestOfVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/advanced/concurrent/VolatileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/src/VolatileTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +99,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClassLoadingTest2">
+  <component name="RunManager" selected="Application.ThreadSafetyTestOfVector">
     <configuration name="ClassLoadingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClassLoadingTest" />
       <module name="jvm" />
@@ -106,26 +110,6 @@
     <configuration name="ClassLoadingTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClassLoadingTest2" />
       <module name="jvm" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InputUsingKeyboard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="InputUsingKeyboard" />
-      <module name="exercise" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PolymorphismTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="nowcoder.netease.PolymorphismTest" />
-      <module name="exercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nowcoder.netease.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,13 +127,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThreadSafetyTestOfVector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ThreadSafetyTestOfVector" />
+      <module name="concurrent" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ThreadTest" />
+      <module name="concurrent" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ThreadSafetyTestOfVector" />
+        <item itemvalue="Application.ThreadTest" />
         <item itemvalue="Application.ClassLoadingTest2" />
         <item itemvalue="Application.ClassLoadingTest" />
         <item itemvalue="Application.TestString" />
-        <item itemvalue="Application.InputUsingKeyboard" />
-        <item itemvalue="Application.PolymorphismTest" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +194,7 @@
       <workItem from="1564389209963" duration="171000" />
       <workItem from="1564389595300" duration="63000" />
       <workItem from="1564389680718" duration="643000" />
-      <workItem from="1564397666126" duration="4758000" />
+      <workItem from="1564397666126" duration="5721000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -352,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564130684388</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="0729-2132 类的加载顺序">
+      <created>1564407201446</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1564407201446</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -395,8 +400,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0516-2318 调整结构" />
-    <MESSAGE value="0521-1735 同步容器的线程安全性测试" />
     <MESSAGE value="0521-1737 同步容器的线程安全性测试" />
     <MESSAGE value="0610-1037" />
     <MESSAGE value="0610-2134" />
@@ -420,7 +423,9 @@
     <MESSAGE value="0726-1638 并查集" />
     <MESSAGE value="0726-1643 并查集" />
     <MESSAGE value="0726-1644 并查集" />
-    <option name="LAST_COMMIT_MESSAGE" value="0726-1644 并查集" />
+    <MESSAGE value="0729-2132 类的加载顺序" />
+    <MESSAGE value="0729-2146 并发" />
+    <option name="LAST_COMMIT_MESSAGE" value="0729-2146 并发" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
