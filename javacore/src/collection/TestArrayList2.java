@@ -1,4 +1,4 @@
-package basic.collection;
+package collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,7 +43,7 @@ public class TestArrayList2 {
 		
 		//ArrayList<Integer> list = (ArrayList<Integer>) Arrays.asList(1,2,3); //Error
 		
-		ArrayList<Integer> list4 = new ArrayList<Integer>(
+		ArrayList<Integer> list4 = new ArrayList<>(
 				Arrays.asList(1,2,3,5,9));
 		System.out.println(list4);
 	}

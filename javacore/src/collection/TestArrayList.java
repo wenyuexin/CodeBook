@@ -1,22 +1,22 @@
-package basic.collection;
+package collection;
 
 import java.util.List;
 import java.util.ArrayList;
 
 public class TestArrayList {
 	
-	public static void test() {
+	private static void test() {
 		System.out.println("=== test ===");
 		
 		//ArrayList1
-		List<String> list = new ArrayList<String>();	
+		List<String> list = new ArrayList<>();
 		list.add("a");
 		list.add("b");
 		list.add("c");
 		System.out.println("list: "+list);
 		
 		//ArrayList2
-		List<String> list2 = new ArrayList<String>();
+		List<String> list2 = new ArrayList<>();
 		list2.add("a");
 		list2.add("d");
 		System.out.println("list2: "+list2);
@@ -35,10 +35,10 @@ public class TestArrayList {
 	}
 	
 
-	public static void test2() {
+	private static void test2() {
 		System.out.println("=== test2 ===");
 		
-		List<String> list = new ArrayList<String>(10);
+		ArrayList<String> list = new ArrayList<>(10);
 		list.add("a");
 		list.add("bc");
 		list.add("ccd");
@@ -46,7 +46,7 @@ public class TestArrayList {
 		System.out.println("size = "+list.size());
 		System.out.println(list);
 		
-		ArrayList<String> list2 = (ArrayList<String>) list;
+		ArrayList<String> list2 = list;
 		System.out.println(list2);
 		
 		list.set(1, "asdf");
