@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/concurrent/notes/取消与关闭.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/concurrent/src/ThreadTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/src/ThreadTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/javaweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/network/network.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/notes/URI and URL.md" beforeDir="false" afterPath="$PROJECT_DIR$/network/notes/URI and URL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/notes/非阻塞IO/缓冲区.md" beforeDir="false" afterPath="$PROJECT_DIR$/network/notes/非阻塞IO/缓冲区.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/inetaddress/HostAliases.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/inetaddress/HostAliases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/inetaddress/NetworkInterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/inetaddress/NetworkInterfaceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/socket/CloseSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/socket/CloseSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/uri/communication/WithSeverSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/uri/communication/WithSeverSide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/uri/url/URLComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/uri/url/URLComparison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/uri/url/URLSplitting.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/uri/url/URLSplitting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/uri/urlconnection/AllHeaderFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/uri/urlconnection/AllHeaderFields.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/uri/x_www_form_urlencoded/URLDecoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/uri/x_www_form_urlencoded/URLDecoderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaweb/src/uri/x_www_form_urlencoded/URLEncoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/uri/x_www_form_urlencoded/URLEncoderTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
