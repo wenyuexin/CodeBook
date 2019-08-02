@@ -10,12 +10,7 @@
 
 public class ThreadTest {
     public static void main(String[] args) {
-        Runnable task = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("task");
-            }
-        };
+        Runnable task = () -> System.out.println("task");
 
         Thread thread = new Thread(task);
         thread.run();
