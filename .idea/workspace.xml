@@ -2,14 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/javacore/notes/lambda表达式.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/basic/collection/TestArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/collection/TestArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/basic/collection/TestArrayList2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/collection/TestArrayList2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/basic/collection/TestHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/collection/TestHashMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/basic/collection/TestHashSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/collection/TestHashSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/basic/collection/TestLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/collection/TestLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/basic/collection/TestPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/collection/TestPriorityQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacore/src/basic/collection/TestTreeSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/collection/TestTreeSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/SortUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/TestSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/TestSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/advanced/io/OutputStreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/io/OutputStreamTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/advanced/swing/TestSwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/swing/TestSwing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/annotation/AnnotationWithReflection.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/annotation/AnnotationWithReflection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/annotation/AnnotationWithReflection2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/annotation/AnnotationWithReflection2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/annotation/MyAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/annotation/MyAnnotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/annotation/TestBasicAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/annotation/TestBasicAnnotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/array/TestArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/array/TestArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/enumeration/TestEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/enumeration/TestEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/enumeration/TestMyEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/enumeration/TestMyEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/exception/MyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/exception/MyException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/exception/TestTryCatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/exception/TestTryCatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/generic/TestGeneric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/generic/TestGeneric2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/generic/TestGeneric3.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/generic/TestGeneric3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/io/TestIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/io/TestIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/io/TestScannerInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/io/TestScannerInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/lambda/TestLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/lambda/TestLambda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/logging/TestJavaUtilLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/logging/TestJavaUtilLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1004.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/mytest/Test1004.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1118.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/mytest/Test1118.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/mytest/Test1124.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/mytest/Test1124.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/mytest/TestHashCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/mytest/TestHashCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/mytest/TestHashCode2.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/mytest/TestHashCode2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/mytest/TestInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/mytest/TestInnerClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/CapacityOfArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/CapacityOfArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/GetInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/GetInnerClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/InformationOfClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/InformationOfClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/Stu.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/Stu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/TestConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/TestConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/TestField.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/TestField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/TestMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/TestMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/reflection/TestReflection.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/reflection/TestReflection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/string/TestString.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/string/TestString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/time/RunningTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/time/RunningTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacore/src/basic/time/TestDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacore/src/time/TestDate.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +99,7 @@
     <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LeetCode" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

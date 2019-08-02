@@ -128,13 +128,13 @@ public class TestSort {
 
 	
 	public static void main(String[] args) {
-		/* test for basic.array of wrappers */
+		/* test for array of wrappers */
 		//Double[] wrappers = SortUtils.doubleWrappers(20,-1,1);
 		//Integer[] wrappers = SortUtils.integerWrappers(2000,-100,100);
 		//TestSort.doSort(ALG.HeapSort, wrappers, false, true);
 		
 		
-		/* test for basic.array of primitive data */
+		/* test for array of primitive data */
 		//double[] arr = SortUtils.doubles(dataSize,-1,1);
 		//int[] arr = SortUtils.ints(dataSize,-1000,1000);
 		//TestSort.doSort2(ALG.QuickSort, 3000, false);

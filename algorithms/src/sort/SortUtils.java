@@ -15,9 +15,9 @@ public class SortUtils {
 	}
 
 	/**
-	 * Swaps the elements at the specified positions in the specified basic.array
+	 * Swaps the elements at the specified positions in the specified array
 	 * 
-	 * @param arr The basic.array in which to swap elements.
+	 * @param arr The array in which to swap elements.
 	 * @param i the index of one element to be swapped.
 	 * @param j the index of the other element to be swapped.
 	 */
@@ -96,8 +96,8 @@ public class SortUtils {
 	/**
 	 * Determines if the search results have been successfully sorted
 	 * 
-	 * @param arr The basic.array to be determined wether is sorted
-	 * @return true if the basic.array is sorted
+	 * @param arr The array to be determined wether is sorted
+	 * @return true if the array is sorted
 	 */
 	public static <T extends Comparable<? super T>> 
 	boolean isSorted(T[] arr) {
