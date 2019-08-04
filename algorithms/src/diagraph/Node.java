@@ -7,15 +7,21 @@ import java.util.List;
  * @create 2019/03/26
  */
 
-public class Node {
+public class Node implements Comparable<Node> {
 	public int id;
-	public int val;
+	public double val;
     public List<Node> neighbors;
 
     public Node() {}
 
-    public Node(int val,List<Node> neighbors) {
+    public Node(int id, double val, List<Node> neighbors) {
+        this.id = id;
         this.val = val;
         this.neighbors = neighbors;
+    }
+
+    @Override
+    public int compareTo(Node o) {
+        return (int) (this.val - o.val);
     }
 }

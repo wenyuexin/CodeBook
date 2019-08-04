@@ -11,10 +11,13 @@ public class EdgeWeightedDiagraph {
 
 	private int E;
 	private int V;
+	private Node[] nodes;
 	List<DirectedEdge>[] adj;
 			
 	EdgeWeightedDiagraph(int[][] prerequisites, double[] weight) {
-		
+		E = prerequisites.length;
+
+		nodes = new Node[V];
 	}
 	
 	public int E() {
@@ -26,6 +29,6 @@ public class EdgeWeightedDiagraph {
 	}
 	 
 	List<DirectedEdge> adj(Node v) {
-		return adj[v.val];
+		return adj[v.id];
 	}
 }
