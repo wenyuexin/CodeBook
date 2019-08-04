@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Apollo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/Dijkstra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/EdgeWeightedDiagraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/EdgeWeightedDiagraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/diagraph/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/Executor框架.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/Executor框架.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
