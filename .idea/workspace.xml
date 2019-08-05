@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/concurrent/notes/线程池的使用.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/concurrent/notes/取消与关闭.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/取消与关闭.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/线程池的使用.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/线程池的使用.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/src/ExecutorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/src/ExecutorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design-pattern/notes/设计模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/design-pattern/notes/设计模式.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +59,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -186,7 +188,8 @@
       <workItem from="1564893385281" duration="1505000" />
       <workItem from="1564898979161" duration="83000" />
       <workItem from="1564900176389" duration="5126000" />
-      <workItem from="1564989938415" duration="2706000" />
+      <workItem from="1564989938415" duration="2756000" />
+      <workItem from="1564998352214" duration="3279000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -377,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564814115798</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="0805-1647">
+      <created>1564994886750</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1564994886751</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +421,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0619-2204 URI and URL" />
     <MESSAGE value="0703-1511 modifier; nio" />
     <MESSAGE value="0703-1511 缓冲区.md" />
     <MESSAGE value="0703-1537 缓冲区.md" />
@@ -436,7 +445,8 @@
     <MESSAGE value="0802-2316" />
     <MESSAGE value="0803-1432" />
     <MESSAGE value="0803-1435" />
-    <option name="LAST_COMMIT_MESSAGE" value="0803-1435" />
+    <MESSAGE value="0805-1647" />
+    <option name="LAST_COMMIT_MESSAGE" value="0805-1647" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
