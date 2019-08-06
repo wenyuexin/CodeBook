@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/concurrent/notes/活跃性问题.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/1 线程安全与对象共享.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/10 原子变量与非阻塞同步.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/11 Java虚拟机.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/2 同步容器与并发容器.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/3 同步工具类.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/7 活跃性问题.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/8 可伸缩性.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/concurrent/notes/9 显示锁.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/Executor框架.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/4 Executor框架.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/取消与关闭.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/5 取消与关闭.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/并发.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/0 多线程与并发.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/活跃性问题.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/线程池的使用.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/6 线程池的使用.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +145,9 @@
         <item itemvalue="Application.ClassLoadingTest2" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
