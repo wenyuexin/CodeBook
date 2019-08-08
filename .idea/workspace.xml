@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/sort/BubbleSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/sort.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/note/排序.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concurrent/notes/Executor框架.md" beforeDir="false" afterPath="$PROJECT_DIR$/concurrent/notes/Executor框架.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,10 +63,10 @@
       <recent name="https://github.com/Apollo4634/LeetCode.git" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Workspace\Java\LearnJava\algorithms\note" />
       <recent name="D:\Workspace\Java\LearnJava\concurrent\notes" />
       <recent name="D:\Workspace\Java\LearnJava\javaweb\note\非阻塞IO" />
       <recent name="D:\Workspace\Java\LearnJava\javabasic\note" />
+      <recent name="D:\Workspace\Java\LearnJava\algorithms\note" />
       <recent name="D:\Workspace\Java\LearnJava\javabasic\src" />
     </key>
   </component>
@@ -186,7 +185,6 @@
       <workItem from="1564893385281" duration="1505000" />
       <workItem from="1564898979161" duration="83000" />
       <workItem from="1564900176389" duration="5126000" />
-      <workItem from="1565240864240" duration="1653000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -377,14 +375,7 @@
       <option name="project" value="LOCAL" />
       <updated>1564814115798</updated>
     </task>
-    <task id="LOCAL-00028" summary="0805-0109">
-      <created>1564938581826</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1564938581826</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,6 +409,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="0619-2204 URI and URL" />
     <MESSAGE value="0703-1511 modifier; nio" />
     <MESSAGE value="0703-1511 缓冲区.md" />
     <MESSAGE value="0703-1537 缓冲区.md" />
@@ -442,8 +434,7 @@
     <MESSAGE value="0802-2316" />
     <MESSAGE value="0803-1432" />
     <MESSAGE value="0803-1435" />
-    <MESSAGE value="0805-0109" />
-    <option name="LAST_COMMIT_MESSAGE" value="0805-0109" />
+    <option name="LAST_COMMIT_MESSAGE" value="0803-1435" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
