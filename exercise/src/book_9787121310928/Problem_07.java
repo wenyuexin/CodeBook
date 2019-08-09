@@ -2,7 +2,6 @@ package book_9787121310928;
 
 import book_9787121310928.utility.BinaryTreeNode;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -16,24 +15,36 @@ import java.util.Objects;
 public class Problem_07 {
 
     static class Solution {
+        private int index = 0;
+
         BinaryTreeNode buildTree(int[] inorder, int[] preorder) {
             Objects.requireNonNull(inorder);
             Objects.requireNonNull(preorder);
-            return build(inorder, 0, preorder, 0, inorder.length);
+            return build(inorder, preorder, 0, inorder.length-1);
         }
 
-        BinaryTreeNode build(int[] inorder, int idx, int[] preorder, int from, int to) {
-            if (from > to)
-                System.out.println("from "+from+"  to "+to);
-            BinaryTreeNode root = new BinaryTreeNode(inorder[idx]);
-            int pos = Arrays.binarySearch(preorder, from, to, inorder[idx]);
-            if (pos >= 0) {
-                root.left = build(inorder, pos, preorder, from, pos-1);
-                root.right = build(inorder, 0, preorder, from, pos-1);
+        BinaryTreeNode build(int[] inorder, int[] preorder, int from, int to) {
+            if (from > to) return null;
+            int value = inorder[index++];
+            BinaryTreeNode root = new BinaryTreeNode(value);
+
+            int pos = -1;
+            for (int i = from; i <= to; i++) {
+                if (preorder[i] == value) pos = i;
             }
 
-
+            if (pos >= 0) {
+                root.left = build(inorder, preorder, from, pos-1);
+                root.right = build(inorder, preorder, pos+1, to);
+            }
             return root;
         }
+    }
+
+
+    public static void main(String[] args) {
+        int[] inorder = new int[] { 1,2,4,7,3,5,6,8 };
+        int[] preorder = new int[] { 4,7,2,1,5,3,8,6 };
+        BinaryTreeNode treeNode = new Solution().buildTree(inorder, preorder);
     }
 }
