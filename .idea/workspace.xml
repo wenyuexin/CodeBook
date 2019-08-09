@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithms/src/tree/util/BinaryTreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_08.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_07.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_07.java" afterDir="false" />
     </list>
@@ -10,9 +14,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -56,11 +57,14 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/Apollo4634/LeetCode.git" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tree.util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Workspace\Java\LearnJava\concurrent\notes" />
@@ -82,13 +86,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Problem_07">
-    <configuration name="Problem_03" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="book_9787121310928.Problem_03" />
-      <module name="exercise" />
+  <component name="RunManager" selected="Application.BinaryTree">
+    <configuration name="BinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.BinaryTree" />
+      <module name="algorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="book_9787121310928.*" />
+          <option name="PATTERN" value="tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -150,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BinaryTree" />
         <item itemvalue="Application.Problem_07" />
         <item itemvalue="Application.Problem_06" />
         <item itemvalue="Application.Problem_05" />
         <item itemvalue="Application.Problem_04" />
-        <item itemvalue="Application.Problem_03" />
       </list>
     </recent_temporary>
   </component>
@@ -422,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565352875028</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="0809-1940 剑指offer 07">
+      <created>1565360385090</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1565360385090</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +467,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0703-1537 缓冲区.md" />
     <MESSAGE value="0703-2222" />
     <MESSAGE value="0704-2128" />
     <MESSAGE value="0710-1605 设计模式" />
@@ -481,7 +491,8 @@
     <MESSAGE value="0809-1937" />
     <MESSAGE value="0809-1940 剑指offer 05" />
     <MESSAGE value="0809-1940 剑指offer 06" />
-    <option name="LAST_COMMIT_MESSAGE" value="0809-1940 剑指offer 06" />
+    <MESSAGE value="0809-1940 剑指offer 07" />
+    <option name="LAST_COMMIT_MESSAGE" value="0809-1940 剑指offer 07" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -505,6 +516,21 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_04.java</url>
           <line>22</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java</url>
+          <line>144</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
