@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/src/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/InputUsingKeyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/unknown/InputUsingKeyboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_05.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_05.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/book_9787302444541/README.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -398,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564814115798</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="0809-1937">
+      <created>1565350669823</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1565350669823</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +436,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0619-2204 URI and URL" />
     <MESSAGE value="0703-1511 modifier; nio" />
     <MESSAGE value="0703-1511 缓冲区.md" />
     <MESSAGE value="0703-1537 缓冲区.md" />
@@ -457,7 +460,8 @@
     <MESSAGE value="0802-2316" />
     <MESSAGE value="0803-1432" />
     <MESSAGE value="0803-1435" />
-    <option name="LAST_COMMIT_MESSAGE" value="0803-1435" />
+    <MESSAGE value="0809-1937" />
+    <option name="LAST_COMMIT_MESSAGE" value="0809-1937" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -481,11 +485,6 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_04.java</url>
           <line>22</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_05.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

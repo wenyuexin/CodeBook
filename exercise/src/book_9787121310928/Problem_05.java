@@ -38,17 +38,14 @@ public class Problem_05 {
 
             StringBuilder sb = new StringBuilder(str.length() + 2*list.size());
             int from = 0;
-            int to;
             while (!list.isEmpty()) {
-                to = Objects.requireNonNullElse(list.pollLast(), strLen);
-                System.out.println(to);
-
+                int to = Objects.requireNonNullElse(list.pollLast(), strLen);
                 if (to > from) {
-                    sb.append(str.substring(from, to));
+                    sb.append(str, from, to);
                 }
                 sb.append("%20");
                 from = to + 1;
-                System.out.println(sb);
+                //System.out.println(sb);
             }
             return sb.toString();
         }
