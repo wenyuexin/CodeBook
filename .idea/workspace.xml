@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/utility/ListNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_07.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/utility/BinaryTreeNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/README.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -411,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565350856700</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="0809-1940 剑指offer 06">
+      <created>1565352875028</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1565352875028</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0703-1511 缓冲区.md" />
     <MESSAGE value="0703-1537 缓冲区.md" />
     <MESSAGE value="0703-2222" />
     <MESSAGE value="0704-2128" />
@@ -470,7 +475,8 @@
     <MESSAGE value="0803-1435" />
     <MESSAGE value="0809-1937" />
     <MESSAGE value="0809-1940 剑指offer 05" />
-    <option name="LAST_COMMIT_MESSAGE" value="0809-1940 剑指offer 05" />
+    <MESSAGE value="0809-1940 剑指offer 06" />
+    <option name="LAST_COMMIT_MESSAGE" value="0809-1940 剑指offer 06" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
