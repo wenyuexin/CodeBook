@@ -1,7 +1,7 @@
 package book_9787121310928;
 
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Objects;
 
 /**
  * 替换字符串中的空格
@@ -11,6 +11,7 @@ import java.util.List;
  */
 
 public class Problem_05 {
+
     static class Solution {
         String replace(String str) {
             String[] strs = str.split(" ");
@@ -22,27 +23,33 @@ public class Problem_05 {
         }
     }
 
+    /**
+     * 第一次遍历录空格的位置
+     * 第二次遍历复制不含空格的子字符串，并用%20替换空格
+     */
     static class Solution2 {
-        public String replace(String str) {
-            int blankCount = 0;
-            List<Integer> list = new LinkedList<>();
-            for (int i = str.length()-1; i >= 0; i--) {
-                if (str.charAt(i) == ' ') blankCount += 1;
-                list.add(i);
+        String replace(String str) {
+            int strLen = str.length();
+            LinkedList<Integer> list = new LinkedList<>();
+            for (int i = strLen-1; i >= 0; i--) {
+                if (str.charAt(i) == ' ') list.add(i);
             }
-            if (blankCount == 0) return str;
+            if (list.size() == 0) return str;
 
-            int left = list.remove(0);
-            StringBuilder sb = new StringBuilder(str.length()+2*blankCount);
-            if (left != 0) {
-                sb.append(str.substring(0, left));
-            } else {
-                for (int idx : list) {
+            StringBuilder sb = new StringBuilder(str.length() + 2*list.size());
+            int from = 0;
+            int to;
+            while (!list.isEmpty()) {
+                to = Objects.requireNonNullElse(list.pollLast(), strLen);
+                System.out.println(to);
 
+                if (to > from) {
+                    sb.append(str.substring(from, to));
                 }
-
+                sb.append("%20");
+                from = to + 1;
+                System.out.println(sb);
             }
-
             return sb.toString();
         }
     }
@@ -50,10 +57,10 @@ public class Problem_05 {
 
     public static void main(String[] args) {
         //String str = "asdfqqq";
-        String str = "  as df  qqq   ";
+        String str = "  AB CD  EFG   ";
         System.out.println(str);
 
-        String ret = new Solution().replace(str);
+        String ret = new Solution2().replace(str);
         System.out.println(ret);
     }
 }
