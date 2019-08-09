@@ -23,28 +23,29 @@ public class Problem_07 {
             return build(inorder, preorder, 0, inorder.length-1);
         }
 
-        BinaryTreeNode build(int[] inorder, int[] preorder, int from, int to) {
+        private BinaryTreeNode build(int[] inorder, int[] preorder, int from, int to) {
             if (from > to) return null;
-            int value = inorder[index++];
+            int value = preorder[index++];
             BinaryTreeNode root = new BinaryTreeNode(value);
 
             int pos = -1;
             for (int i = from; i <= to; i++) {
-                if (preorder[i] == value) pos = i;
+                if (inorder[i] == value) pos = i;
+            }
+            if (pos < 0) {
+                throw new RuntimeException("Invalid inorder or preorder");
             }
 
-            if (pos >= 0) {
-                root.left = build(inorder, preorder, from, pos-1);
-                root.right = build(inorder, preorder, pos+1, to);
-            }
+            root.left = build(inorder, preorder, from, pos-1);
+            root.right = build(inorder, preorder, pos+1, to);
             return root;
         }
     }
 
 
     public static void main(String[] args) {
-        int[] inorder = new int[] { 1,2,4,7,3,5,6,8 };
-        int[] preorder = new int[] { 4,7,2,1,5,3,8,6 };
+        int[] preorder = new int[] { 1,2,4,7,3,5,6,8 };
+        int[] inorder = new int[] { 4,7,2,1,5,3,8,6 };
         BinaryTreeNode treeNode = new Solution().buildTree(inorder, preorder);
     }
 }

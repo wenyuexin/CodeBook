@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algorithms/src/tree/util/BinaryTreeNode.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_08.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_07.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_07.java" afterDir="false" />
     </list>
@@ -86,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BinaryTree">
+  <component name="RunManager" selected="Application.Problem_07">
     <configuration name="BinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tree.BinaryTree" />
       <module name="algorithms" />
@@ -154,8 +151,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BinaryTree" />
         <item itemvalue="Application.Problem_07" />
+        <item itemvalue="Application.BinaryTree" />
         <item itemvalue="Application.Problem_06" />
         <item itemvalue="Application.Problem_05" />
         <item itemvalue="Application.Problem_04" />
@@ -433,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565360385090</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="0810-0038 二叉树的构建和搜索">
+      <created>1565368754749</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1565368754749</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +471,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0703-2222" />
     <MESSAGE value="0704-2128" />
     <MESSAGE value="0710-1605 设计模式" />
     <MESSAGE value="0710-2141" />
@@ -492,7 +495,8 @@
     <MESSAGE value="0809-1940 剑指offer 05" />
     <MESSAGE value="0809-1940 剑指offer 06" />
     <MESSAGE value="0809-1940 剑指offer 07" />
-    <option name="LAST_COMMIT_MESSAGE" value="0809-1940 剑指offer 07" />
+    <MESSAGE value="0810-0038 二叉树的构建和搜索" />
+    <option name="LAST_COMMIT_MESSAGE" value="0810-0038 二叉树的构建和搜索" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -516,21 +520,6 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_04.java</url>
           <line>22</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
