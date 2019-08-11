@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_08.java" afterDir="false" />
+    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="0811-1819">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithms/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/Spring.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/notes/spring.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_07.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_07.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/algorithms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/algorithms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/diagraph/Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/DirectedEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/diagraph/DirectedEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/EdgeWeightedDiagraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/diagraph/EdgeWeightedDiagraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/diagraph/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/diagraph/diagraph.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/diagraph/diagraph.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/priority_queue/IndexMinPQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/priority_queue/IndexMinPQ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/priority_queue/MaxPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/priority_queue/MaxPriorityQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/BubbleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/HeapSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/InsertionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/MergeSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/MergeSort2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/MergeSort2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/QuickSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/SelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/SelectionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/ShellSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/ShellSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/SortUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/sort/TestSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/sort/TestSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/tree/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/tree/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/tree/util/BinaryTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/tree/util/BinaryTreeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/union_find/AbstractUnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/union_find/AbstractUnionFind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/union_find/CompressedWeightedQuickUnion.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/union_find/CompressedWeightedQuickUnion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/union_find/QuickFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/union_find/QuickFind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/union_find/QuickUnion.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/union_find/QuickUnion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/union_find/UnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/union_find/UnionFind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/src/union_find/WeightedQuickUnion.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/src/main/java/union_find/WeightedQuickUnion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/README.md" afterDir="false" />
     </list>
+    <list id="6c665125-71c2-4830-8d75-4de6732efc4d" name="0810-0045 剑指offer 07 - solved" comment="0810-0045 剑指offer 08" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,25 +85,28 @@
     <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Solis" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/Apollo4634/LeetCode.git" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="tree.util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Workspace\Java\LearnJava\algorithms" />
+      <recent name="D:\Workspace\Java\LearnJava\exercise" />
       <recent name="D:\Workspace\Java\LearnJava\concurrent\notes" />
       <recent name="D:\Workspace\Java\LearnJava\javaweb\note\非阻塞IO" />
       <recent name="D:\Workspace\Java\LearnJava\javabasic\note" />
-      <recent name="D:\Workspace\Java\LearnJava\algorithms\note" />
-      <recent name="D:\Workspace\Java\LearnJava\javabasic\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,7 +124,7 @@
   <component name="RunManager" selected="Application.Problem_07">
     <configuration name="BinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tree.BinaryTree" />
-      <module name="algorithms" />
+      <module name="algorithms0" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tree.*" />
@@ -212,6 +250,12 @@
       <workItem from="1564900176389" duration="5126000" />
       <workItem from="1565268645723" duration="2860000" />
       <workItem from="1565320668048" duration="12850000" />
+      <workItem from="1565369681162" duration="430000" />
+      <workItem from="1565405023059" duration="1026000" />
+      <workItem from="1565415702602" duration="94000" />
+      <workItem from="1565415806638" duration="1461000" />
+      <workItem from="1565492745845" duration="19000" />
+      <workItem from="1565499231446" duration="3292000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -437,7 +481,28 @@
       <option name="project" value="LOCAL" />
       <updated>1565368754749</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="0810-0045 剑指offer 07 - solved">
+      <created>1565369134079</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1565369134079</updated>
+    </task>
+    <task id="LOCAL-00034" summary="0810-0048 剑指offer 07 - solved">
+      <created>1565369303747</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1565369303747</updated>
+    </task>
+    <task id="LOCAL-00035" summary="0810-0045 剑指offer 08">
+      <created>1565369478758</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1565369478758</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,10 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0704-2128" />
-    <MESSAGE value="0710-1605 设计模式" />
-    <MESSAGE value="0710-2141" />
-    <MESSAGE value="0711-2200 设计模式" />
     <MESSAGE value="0714-1701 设计模式" />
     <MESSAGE value="0716-2214 设计模式" />
     <MESSAGE value="0726-1549 设计模式" />
@@ -496,7 +557,11 @@
     <MESSAGE value="0809-1940 剑指offer 06" />
     <MESSAGE value="0809-1940 剑指offer 07" />
     <MESSAGE value="0810-0038 二叉树的构建和搜索" />
-    <option name="LAST_COMMIT_MESSAGE" value="0810-0038 二叉树的构建和搜索" />
+    <MESSAGE value="0810-0045 剑指offer 07 - solved" />
+    <MESSAGE value="0810-0048 剑指offer 07 - solved" />
+    <MESSAGE value="0810-0045 剑指offer 08" />
+    <MESSAGE value="0811-1819" />
+    <option name="LAST_COMMIT_MESSAGE" value="0811-1819" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
