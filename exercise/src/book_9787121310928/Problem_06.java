@@ -18,7 +18,7 @@ public class Problem_06 {
             LinkedList<Integer> list = new LinkedList<>();
             ListNode node = head;
             while (node != null) {
-                list.add(node.key);
+                list.add(node.value);
                 node = node.next;
             }
             while (!list.isEmpty()) {
