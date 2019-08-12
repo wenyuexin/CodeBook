@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_13.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_14.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="6c665125-71c2-4830-8d75-4de6732efc4d" name="0810-0045 剑指offer 07 - solved" comment="0810-0045 剑指offer 08" />
@@ -221,7 +221,7 @@
       <workItem from="1565415806638" duration="1461000" />
       <workItem from="1565492745845" duration="19000" />
       <workItem from="1565499231446" duration="14135000" />
-      <workItem from="1565576494206" duration="12970000" />
+      <workItem from="1565576494206" duration="14628000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -552,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565585056159</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="0812-1358 剑指offer 13 - solved">
+      <created>1565589542589</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1565589542589</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0802-2316" />
     <MESSAGE value="0803-1432" />
     <MESSAGE value="0803-1435" />
     <MESSAGE value="0809-1937" />
@@ -611,7 +617,8 @@
     <MESSAGE value="0812-1240 剑指offer 12 - solved" />
     <MESSAGE value="0812-1242 剑指offer 12 - solved" />
     <MESSAGE value="0812-1244 剑指offer 12 - solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="0812-1244 剑指offer 12 - solved" />
+    <MESSAGE value="0812-1358 剑指offer 13 - solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="0812-1358 剑指offer 13 - solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
