@@ -16,6 +16,19 @@ package book_9787121310928;
 public class Problem_14 {
 
     static class Solution {
+        int maxProduct(int n, int m) {
+            if (n < m)
+                throw new IllegalArgumentException("n < m");
 
+            int k = n/m;
+            int p = n - k*m;
+            int q = m - p;
+            return (int) Math.pow(k, q) * (int) Math.pow(k+1, p);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(new Solution().maxProduct(8, 3));
     }
 }
