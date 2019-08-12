@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_11.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_12.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="6c665125-71c2-4830-8d75-4de6732efc4d" name="0810-0045 剑指offer 07 - solved" comment="0810-0045 剑指offer 08" />
@@ -86,26 +86,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Problem_11">
+  <component name="RunManager" selected="Application.Problem_12">
     <configuration name="BinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tree.BinaryTree" />
       <module name="algorithms0" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tree.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Problem_06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="book_9787121310928.Problem_06" />
-      <module name="exercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="book_9787121310928.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -152,13 +139,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Problem_12" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="book_9787121310928.Problem_12" />
+      <module name="exercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="book_9787121310928.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Problem_12" />
         <item itemvalue="Application.Problem_11" />
         <item itemvalue="Application.Problem_10_1" />
         <item itemvalue="Application.Problem_07" />
         <item itemvalue="Application.BinaryTree" />
-        <item itemvalue="Application.Problem_06" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +221,7 @@
       <workItem from="1565415806638" duration="1461000" />
       <workItem from="1565492745845" duration="19000" />
       <workItem from="1565499231446" duration="14135000" />
-      <workItem from="1565576494206" duration="5364000" />
+      <workItem from="1565576494206" duration="8103000" />
     </task>
     <task id="LOCAL-00001" summary="0404-1005">
       <created>1554343565308</created>
@@ -524,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565577993462</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="0812-1151 剑指offer 11 - solved">
+      <created>1565581883401</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1565581883401</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0729-2132 类的加载顺序" />
     <MESSAGE value="0729-2146 并发" />
     <MESSAGE value="0729-2148 并发" />
     <MESSAGE value="0730-1304" />
@@ -583,7 +589,8 @@
     <MESSAGE value="0812-0032 spring" />
     <MESSAGE value="0812-1025 剑指offer 10-2 - solved" />
     <MESSAGE value="0812-1046 剑指offer 10-1 - solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="0812-1046 剑指offer 10-1 - solved" />
+    <MESSAGE value="0812-1151 剑指offer 11 - solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="0812-1151 剑指offer 11 - solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -607,6 +614,11 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_04.java</url>
           <line>22</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_12.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
