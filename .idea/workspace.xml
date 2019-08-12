@@ -4,7 +4,6 @@
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_15.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_14.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_14.java" afterDir="false" />
     </list>
     <list id="6c665125-71c2-4830-8d75-4de6732efc4d" name="0810-0045 剑指offer 07 - solved" comment="0810-0045 剑指offer 08" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,20 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Problem_14">
-    <configuration name="Problem_10_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="book_9787121310928.Problem_10_1" />
-      <module name="exercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="book_9787121310928.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Problem_15">
     <configuration name="Problem_11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="book_9787121310928.Problem_11" />
       <module name="exercise" />
@@ -153,13 +139,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Problem_15" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="book_9787121310928.Problem_15" />
+      <module name="exercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="book_9787121310928.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Problem_15" />
         <item itemvalue="Application.Problem_14" />
         <item itemvalue="Application.Problem_13" />
         <item itemvalue="Application.Problem_12" />
         <item itemvalue="Application.Problem_11" />
-        <item itemvalue="Application.Problem_10_1" />
       </list>
     </recent_temporary>
   </component>
@@ -222,14 +221,7 @@
       <workItem from="1565415806638" duration="1461000" />
       <workItem from="1565492745845" duration="19000" />
       <workItem from="1565499231446" duration="14135000" />
-      <workItem from="1565576494206" duration="15316000" />
-    </task>
-    <task id="LOCAL-00001" summary="0404-1005">
-      <created>1554343565308</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1554343565308</updated>
+      <workItem from="1565576494206" duration="17574000" />
     </task>
     <task id="LOCAL-00002" summary="0428-2116">
       <created>1556457429366</created>
@@ -567,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565591438582</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="0812-1441 剑指offer 14 - solved">
+      <created>1565592119160</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1565592119161</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +600,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0803-1435" />
     <MESSAGE value="0809-1937" />
     <MESSAGE value="0809-1940 剑指offer 05" />
     <MESSAGE value="0809-1940 剑指offer 06" />
@@ -626,7 +624,8 @@
     <MESSAGE value="0812-1244 剑指offer 12 - solved" />
     <MESSAGE value="0812-1358 剑指offer 13 - solved" />
     <MESSAGE value="0812-1430 剑指offer 14 - solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="0812-1430 剑指offer 14 - solved" />
+    <MESSAGE value="0812-1441 剑指offer 14 - solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="0812-1441 剑指offer 14 - solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -655,6 +654,11 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_14.java</url>
           <line>25</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_15.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
