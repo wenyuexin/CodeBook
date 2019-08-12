@@ -6,20 +6,20 @@ package book_9787121310928.utility;
  */
 
 public class ListNode {
-    public int key;
+    public int value;
     public ListNode next;
 
     public ListNode(int key) {
-        this.key = key;
+        this.value = key;
     }
 
-    public ListNode(int key, ListNode next) {
-        this.key = key;
+    public ListNode(int value, ListNode next) {
+        this.value = value;
         this.next = next;
     }
 
     @Override
     public String toString() {
-        return String.valueOf(key);
+        return String.valueOf(value);
     }
 }
