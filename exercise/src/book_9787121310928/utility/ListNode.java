@@ -22,4 +22,13 @@ public class ListNode {
     public String toString() {
         return String.valueOf(value);
     }
+
+    public void printList() {
+        ListNode node = this;
+        while (node != null) {
+            System.out.print(node.toString() + " -> ");
+            node = node.next;
+        }
+        System.out.println("null");
+    }
 }
