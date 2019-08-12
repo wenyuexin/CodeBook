@@ -7,6 +7,8 @@ import java.util.Objects;
  * 给定一个字符矩阵和一个字符串，
  * 判断矩阵中是否存在由字符串中字符构成的四邻域路径
  *
+ * 以下解法类似于DFS搜索图，如果不想用递归就得用栈
+ * 
  * @author Apollo4634
  * @create 2019/08/12
  */
@@ -42,7 +44,7 @@ public class Problem_12 {
                 if (search(matrix, row-1, col, chars, idx+1)) return true; //upper
                 if (search(matrix, row, col+1, chars, idx+1)) return true; //right
                 if (search(matrix, row+1, col, chars, idx+1)) return true; //lower
-                if (search(matrix, row, col-1, chars, idx+1)) return true;; //left
+                if (search(matrix, row, col-1, chars, idx+1)) return true; //left
                 marked[row][col] = false;
             }
             return false;
