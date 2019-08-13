@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_19.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javacore/notes/正则表达式.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_19.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_19.java" afterDir="false" />
     </list>
     <list id="6c665125-71c2-4830-8d75-4de6732efc4d" name="0810-0045 剑指offer 07 - solved" comment="0810-0045 剑指offer 08" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -223,20 +222,7 @@
       <workItem from="1565492745845" duration="19000" />
       <workItem from="1565499231446" duration="14135000" />
       <workItem from="1565576494206" duration="17574000" />
-    </task>
-    <task id="LOCAL-00007" summary="0610-1037">
-      <created>1560134254927</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1560134254927</updated>
-    </task>
-    <task id="LOCAL-00008" summary="0610-2134">
-      <created>1560173715718</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1560173715718</updated>
+      <workItem from="1565671818821" duration="1682000" />
     </task>
     <task id="LOCAL-00009" summary="0615-2304 URI and URL">
       <created>1560611108354</created>
@@ -567,7 +553,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565609791410</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="0813-0147 剑指offer 19">
+      <created>1565632084079</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1565632084079</updated>
+    </task>
+    <task id="LOCAL-00057" summary="0813-0148 正则表达式">
+      <created>1565632125689</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1565632125690</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,8 +601,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0810-0045 剑指offer 07 - solved" />
-    <MESSAGE value="0810-0048 剑指offer 07 - solved" />
     <MESSAGE value="0810-0045 剑指offer 08" />
     <MESSAGE value="0811-1819" />
     <MESSAGE value="0811-1826" />
@@ -626,7 +624,9 @@
     <MESSAGE value="0812-1907 剑指offer 06 - solved" />
     <MESSAGE value="0812-1909 剑指offer 18-1 - solved" />
     <MESSAGE value="0812-1909 剑指offer 18-2 - solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="0812-1909 剑指offer 18-2 - solved" />
+    <MESSAGE value="0813-0147 剑指offer 19" />
+    <MESSAGE value="0813-0148 正则表达式" />
+    <option name="LAST_COMMIT_MESSAGE" value="0813-0148 正则表达式" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -660,26 +660,6 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_18_2.java</url>
           <line>37</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_19.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_19.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_19.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_19.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -50,27 +50,33 @@ public class Problem_19 {
                 if (strIdx >= chars.length) break;
                 if (!mode[iPartten]) {
                     if (parttens[iPartten] == '.') {
-                        System.out.println(strIdx+" "+chars[strIdx]+" "+iPartten+" "+parttens[iPartten]+" *");
+                        //System.out.println(strIdx+" "+chars[strIdx]+" "+iPartten+" "+parttens[iPartten]+" *");
                         strIdx += 1;
                         continue;
                     }
                     if (chars[strIdx] != parttens[iPartten]) {
-                        System.out.println(strIdx+" "+chars[strIdx]+" "+iPartten+" "+parttens[iPartten]+" ");
+                        //System.out.println(strIdx+" "+chars[strIdx]+" "+iPartten+" "+parttens[iPartten]+" ");
                         break;
                     }
-                    System.out.println(strIdx+" "+chars[strIdx]+" "+iPartten+" "+parttens[iPartten]+" *");
+                    //System.out.println(strIdx+" "+chars[strIdx]+" "+iPartten+" "+parttens[iPartten]+" *");
                     strIdx += 1;
                 } else {
                     int cnt = 0;
                     while (strIdx+cnt < chars.length && (parttens[iPartten] == '.' || chars[strIdx+cnt] == parttens[iPartten])) {
-                        System.out.println(strIdx+" "+chars[strIdx+cnt]+" "+iPartten+" "+parttens[iPartten]+" *");
+                        //System.out.println(strIdx+" "+chars[strIdx+cnt]+" "+iPartten+" "+parttens[iPartten]+" *");
                         if (matchHepler(strIdx+cnt, iPartten+1)) return true;
                         cnt += 1;
                     }
                     strIdx += cnt;
                 }
             }
-            return (strIdx >= chars.length) && (iPartten >= nPattens);
+
+            if (strIdx < chars.length) return false;
+            boolean flag = true;
+            for (int i = iPartten; i < nPattens; i++) {
+                flag &= mode[i];
+            }
+            return flag;
         }
     }
 
@@ -78,8 +84,9 @@ public class Problem_19 {
     public static void main(String[] args) {
         //String str = "aaab";
         String str = "asdab";
+        String pattern = "asdabe*";
         //String pattern = ".*";
-        String pattern = ".*b";
+        //String pattern = ".*b";
         //String pattern = ".*c";
         //String pattern = "ab*.*ac*a.";
 
