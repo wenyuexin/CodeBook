@@ -3,6 +3,11 @@ package book_9787121310928;
 /**
  * 判断是否为表示数值的字符串（整数、小数、科学计数法）
  *
+ * 考虑是否为科学计数法表示的数字（以字符e或E为分解），
+ * 如果是，则分为前后两部分进行判断，区别在于前段可以带小数
+ * 后段必须为整数。
+ * 如果不是科学计数法，则一律按科学计数法的前段处理。
+ *
  * @author Apollo4634
  * @create 2019/08/13
  */
@@ -17,7 +22,7 @@ public class Problem_20 {
             int eIdx = lowerStr.indexOf('e');
             if (eIdx == str.length()-1) return false;
             char[] chars = lowerStr.toCharArray();
-            if (eIdx >= 0 && eIdx+1 < str.length()) {
+            if (eIdx >= 0) {
                 int ch = chars[eIdx+1];
                 int from = (ch == '+' || ch == '-')? eIdx+2 : eIdx+1;
                 for (int i = from; i < str.length(); i++) {

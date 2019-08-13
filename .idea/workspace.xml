@@ -222,14 +222,7 @@
       <workItem from="1565492745845" duration="19000" />
       <workItem from="1565499231446" duration="14135000" />
       <workItem from="1565576494206" duration="17574000" />
-      <workItem from="1565671818821" duration="10104000" />
-    </task>
-    <task id="LOCAL-00012" summary="0703-1511 modifier; nio">
-      <created>1562137964187</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1562137964187</updated>
+      <workItem from="1565671818821" duration="10605000" />
     </task>
     <task id="LOCAL-00013" summary="0703-1537 缓冲区.md">
       <created>1562139476965</created>
@@ -567,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565711977664</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="0814-0037 剑指offer 20 - solved">
+      <created>1565714229677</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1565714229677</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +601,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0811-2216 剑指offer 08 - solved" />
     <MESSAGE value="0811-2217 剑指offer 08 - solved" />
     <MESSAGE value="0811-2249 剑指offer 09 - solved" />
     <MESSAGE value="0812-0030 剑指offer 10-1 - solved" />
@@ -626,7 +625,8 @@
     <MESSAGE value="0813-1431 剑指offer 19 - solved" />
     <MESSAGE value="0813-2356 MySQL" />
     <MESSAGE value="0813-2359 剑指offer 20" />
-    <option name="LAST_COMMIT_MESSAGE" value="0813-2359 剑指offer 20" />
+    <MESSAGE value="0814-0037 剑指offer 20 - solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="0814-0037 剑指offer 20 - solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -660,16 +660,6 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_18_2.java</url>
           <line>37</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_20.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_20.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
