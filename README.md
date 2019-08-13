@@ -17,6 +17,7 @@
 **数据结构与算法**  
 
 * 《算法（第4版）》 Robert Sedgewick, Kevin Wayne，人民邮电出版社
+* 《算法导论（原书第3版）》Thomas H.Cormen，机械工业出版社
 
 **并发**  
 
@@ -31,9 +32,15 @@
 
 * 《Java网络编程（第4版）》Elliotte Rusty Harold，中国电力出版社
 
+**数据库**  
+
+* 《SQL基础教程（第2版）》 MICK，人民邮电出版社
+* 《MySQL必知必会》Ben Forta，人民邮电出版社
+
 **设计模式**  
 
 * 《Head First设计模式》Eric Freeman，ElElisabeth Freeman，中国电力出版社  
+
 <br>
 
 **网络资料**
