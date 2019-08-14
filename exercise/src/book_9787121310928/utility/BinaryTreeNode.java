@@ -35,4 +35,13 @@ public class BinaryTreeNode {
         this.right = right;
         this.parent = parent;
     }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", value=" + value +
+                '}';
+    }
 }
