@@ -9,8 +9,8 @@ public class ListNode {
     public int value;
     public ListNode next;
 
-    public ListNode(int key) {
-        this.value = key;
+    public ListNode(int value) {
+        this(value, null);
     }
 
     public ListNode(int value, ListNode next) {
