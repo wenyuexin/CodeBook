@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="0812-1713 剑指offer 17 - solved">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_23.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_23.java" afterDir="false" />
-    </list>
+    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,13 +221,6 @@
       <workItem from="1565576494206" duration="17574000" />
       <workItem from="1565671818821" duration="10791000" />
       <workItem from="1565752185096" duration="8539000" />
-    </task>
-    <task id="LOCAL-00017" summary="0710-2141">
-      <created>1562766115749</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1562766115749</updated>
     </task>
     <task id="LOCAL-00018" summary="0711-2200 设计模式">
       <created>1562853670738</created>
@@ -568,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565762438081</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="0812-1641 剑指offer 23 - solved">
+      <created>1565772083611</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1565772083611</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,7 +599,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0812-0032 spring" />
     <MESSAGE value="0812-1025 剑指offer 10-2 - solved" />
     <MESSAGE value="0812-1046 剑指offer 10-1 - solved" />
     <MESSAGE value="0812-1151 剑指offer 11 - solved" />
@@ -627,7 +623,8 @@
     <MESSAGE value="0814-1250 剑指offer 21 - solved" />
     <MESSAGE value="0814-1252 剑指offer 21 - solved" />
     <MESSAGE value="0814-1400 剑指offer 22 - solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="0814-1400 剑指offer 22 - solved" />
+    <MESSAGE value="0812-1641 剑指offer 23 - solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="0812-1641 剑指offer 23 - solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
