@@ -31,4 +31,13 @@ public class ListNode {
         }
         System.out.println("null");
     }
+
+    public static void printList(ListNode root) {
+        ListNode node = root;
+        while (node != null) {
+            System.out.print(node.toString() + " -> ");
+            node = node.next;
+        }
+        System.out.println("null");
+    }
 }
