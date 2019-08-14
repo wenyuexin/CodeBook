@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="0814-1251 剑指offer 21 - solved">
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_22.java" afterDir="false" />
+    <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_23.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="6c665125-71c2-4830-8d75-4de6732efc4d" name="0810-0045 剑指offer 07 - solved" comment="0810-0045 剑指offer 08" />
@@ -224,14 +224,7 @@
       <workItem from="1565499231446" duration="14135000" />
       <workItem from="1565576494206" duration="17574000" />
       <workItem from="1565671818821" duration="10791000" />
-      <workItem from="1565752185096" duration="7687000" />
-    </task>
-    <task id="LOCAL-00016" summary="0710-1605 设计模式">
-      <created>1562745994308</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1562745994308</updated>
+      <workItem from="1565752185096" duration="8539000" />
     </task>
     <task id="LOCAL-00017" summary="0710-2141">
       <created>1562766115749</created>
@@ -569,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565758338164</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="0814-1400 剑指offer 22 - solved">
+      <created>1565762438081</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1565762438081</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +603,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0812-0031 剑指offer 10-2" />
     <MESSAGE value="0812-0032 spring" />
     <MESSAGE value="0812-1025 剑指offer 10-2 - solved" />
     <MESSAGE value="0812-1046 剑指offer 10-1 - solved" />
@@ -628,7 +627,8 @@
     <MESSAGE value="0814-0043 剑指offer 20 - solved" />
     <MESSAGE value="0814-1250 剑指offer 21 - solved" />
     <MESSAGE value="0814-1252 剑指offer 21 - solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="0814-1252 剑指offer 21 - solved" />
+    <MESSAGE value="0814-1400 剑指offer 22 - solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="0814-1400 剑指offer 22 - solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -667,11 +667,6 @@
           <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_21.java</url>
           <line>48</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_22.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
