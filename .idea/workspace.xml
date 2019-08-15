@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc3a00d-9424-4479-87a6-3830a3c94b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_30.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_30.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/src/book_9787121310928/Problem_30.java" afterDir="false" />
     </list>
-    <list id="6c665125-71c2-4830-8d75-4de6732efc4d" name="0810-0045 剑指offer 07 - solved" comment="0810-0045 剑指offer 08" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
