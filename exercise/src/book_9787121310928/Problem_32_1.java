@@ -16,7 +16,7 @@ import java.util.Queue;
  * @create 2019/08/15
  */
 
-public class Problem_32 {
+public class Problem_32_1 {
 
     static class Solution {
         void print(BinaryTreeNode treeRoot) {
