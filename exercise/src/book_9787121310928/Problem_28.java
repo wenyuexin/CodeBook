@@ -43,7 +43,9 @@ public class Problem_28 {
                     nextLayerDeque.addLast(lastNode.left);
                     nextLayerDeque.addLast(lastNode.right);
                 }
+                Deque<BinaryTreeNode> tempDeque = currentDeque;
                 currentDeque = nextLayerDeque;
+                nextLayerDeque = tempDeque;
             }
             return true;
         }
@@ -51,18 +53,26 @@ public class Problem_28 {
 
 
     public static void main(String[] args) {
-        /*
-         *    7
-         *  5   6
-         * 1 2 3 4
+        /*          15
+         *    13         14
+         *  09   10    11   12
+         * 1 2  3 4   5 6  7 8
          */
-        BinaryTreeNode n1 = null;
-        BinaryTreeNode n2 = new BinaryTreeNode(2, 3);
-        BinaryTreeNode n3 = new BinaryTreeNode(3, 3);
-        BinaryTreeNode n4 = null;
-        BinaryTreeNode n5 = new BinaryTreeNode(5, 2, n1, n2);
-        BinaryTreeNode n6 = new BinaryTreeNode(6, 2, n3, n4);
-        BinaryTreeNode tree = new BinaryTreeNode(7, 28, n5, n6);
-        System.out.println(new Solution().isSymmetric(tree));
+        BinaryTreeNode n01 = new BinaryTreeNode(1, 4);
+        BinaryTreeNode n02 = new BinaryTreeNode(2, 5);
+        BinaryTreeNode n03 = new BinaryTreeNode(3, 6);
+        BinaryTreeNode n04 = new BinaryTreeNode(4, 7);
+        BinaryTreeNode n05 = new BinaryTreeNode(5, 7);
+        BinaryTreeNode n06 = new BinaryTreeNode(6, 6);
+        BinaryTreeNode n07 = new BinaryTreeNode(7, 5);
+        BinaryTreeNode n08 = new BinaryTreeNode(8, 4);
+        BinaryTreeNode n09 = new BinaryTreeNode(9, 3, n01, n02);
+        BinaryTreeNode n10 = new BinaryTreeNode(10, 33, n03, n04);
+        BinaryTreeNode n11 = new BinaryTreeNode(11, 33, n05, n06);
+        BinaryTreeNode n12 = new BinaryTreeNode(12, 3, n07, n08);
+        BinaryTreeNode n13 = new BinaryTreeNode(13, 2, n09, n10);
+        BinaryTreeNode n14 = new BinaryTreeNode(14, 2, n11, n12);
+        BinaryTreeNode n15 = new BinaryTreeNode(15, 28, n13, n14);
+        System.out.println(new Solution().isSymmetric(n15));
     }
 }
