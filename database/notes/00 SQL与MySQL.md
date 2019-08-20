@@ -24,3 +24,5 @@ SQL是结构化查询语言（Structured Query Language）的缩写，是一种�
 2. 《MySQL必知必会》Ben Forta，人民邮电出版社 
 3. [MySQL 教程 | 菜鸟教程](https://www.runoob.com/mysql/mysql-tutorial.html)
 
+4. 《MySQL技术内幕 InnoDB存储引擎（第二版）》姜承尧，机械工业出版社
+
