@@ -147,14 +147,18 @@ public class BinaryTree {
 
 
     public static void main(String[] args) {
-        int[] inorder = new int[] { 4,7,2,1,5,3,8,6 };
-        int[] preorder = new int[] { 1,2,4,7,3,5,6,8 };
-        int[] postorder = new int[] { 7,4,2,5,8,6,3,1 };
+        int[] inorder = new int[] { 'a','d','e','f','g','h','m','z' };
+        int[] preorder = new int[] { 'g','d','a','f','e','m','h','z' };
+        //int[] postorder = new int[] { 7,4,2,5,8,6,3,1 };
 
         BinaryTree tree = new BinaryTree(inorder, preorder, true);
         System.out.println(tree.postorder());
 
-        BinaryTree tree2 = new BinaryTree(inorder, postorder, false);
-        System.out.println(tree2.preorder());
+        for (Integer integer : tree.postorder()) {
+            System.out.print((char) integer.byteValue() +" ");
+        }
+
+//        BinaryTree tree2 = new BinaryTree(inorder, postorder, false);
+//        System.out.println(tree2.preorder());
     }
 }
