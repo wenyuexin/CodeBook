@@ -1,4 +1,4 @@
-package acmcoder.meituan;
+package interview.meituan;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,6 +8,8 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
+ * 火星文字典
+ *
  * @author Apollo4634
  * @create 2019/08/22
  */

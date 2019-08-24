@@ -1,10 +1,12 @@
-package acmcoder.meituan;
+package interview.meituan;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
+ * 美团骑手包裹区间分组
+ *
  * @author Apollo4634
  * @create 2019/08/22
  */

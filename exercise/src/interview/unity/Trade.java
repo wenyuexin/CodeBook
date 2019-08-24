@@ -1,4 +1,4 @@
-package acmcoder.unity;
+package interview.unity;
 
 import java.util.Scanner;
 

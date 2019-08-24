@@ -1,4 +1,4 @@
-package nowcoder.netease;
+package interview.netease;
 
 /**
  * https://www.nowcoder.com/questionTerminal/711badc732d84bd98e4ac684e09791b8

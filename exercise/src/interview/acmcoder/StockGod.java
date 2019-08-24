@@ -1,4 +1,4 @@
-package acmcoder.acmcoder;
+package interview.acmcoder;
 
 import java.util.Scanner;
 
