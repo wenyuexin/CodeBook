@@ -36,6 +36,10 @@
 * **设计模式**  
     * 《Head First设计模式》Eric Freeman，ElElisabeth Freeman，中国电力出版社    
 
+* **编程实践**
+    * 《剑指Offer 名企面试官精讲典型编程题（第2版）》何海涛，电子工业出版社
+    *  [LeetCode](https://leetcode.com/)
+
 <br>
 
 ---
