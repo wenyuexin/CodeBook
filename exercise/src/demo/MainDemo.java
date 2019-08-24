@@ -29,6 +29,10 @@ class MainDemo {
 
         //输入字符串
         String string = sc.nextLine().trim();
+
+        //输入字符串数组
+        String line = sc.nextLine();
+        String[] strs = line.split(" ");
     }
 
 
