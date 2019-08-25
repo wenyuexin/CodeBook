@@ -1,16 +1,29 @@
 package book_9787121310928;
 
-import java.io.Reader;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.Random;
 
 /**
  * 数据流中的中位数
  *
- * 设置一个数据集，每次插入两个数，然后删除最大值和最小值，
- * 直到数据流排空。然后计算中间两个数的平均值，或者中间数的数值
+ * 虽说是数据流，但和数据流关系不大。可以简单的理解成从整数数组中找中位数。
+ * 这里强调数据流，只不过是可以按数据到达的顺序将其插入某种数据结构中。
+ *
+ * 有一个问题，即是否可以在不知道数据总数的前提下，将数据插入自定义的结构中，
+ * 并且提前将部分数据删除。之所以有这个问题，是受到以下问题的影响：
+ * 从大量数据中找最小的k个数（该问题可以用最大堆实现，而不需要保存所有数据）。
+ * 实际上不能，假设已经接收了n个数的集合A1，那么后续可能收到m个数的集合A2，
+ * 有可能min(A2)>max(A1)，有可能max(A2)<min(A1)，也有可能是A1和A2的交集不为空，
+ * 那么已经收到的A1中的n个数都可以是中位数。因此，总体上需要保存所有收到的数。
+ *
+ * 至此，可知数据流相当于先对给定的数组循环一遍，最终仍然需要根据所有数据来计算。
+ * 这里追求的只是循环结束之后可以直接得到结果。
+ *
+ *
  *
  * @author Apollo4634
  * @create 2019/08/19
@@ -19,51 +32,42 @@ import java.util.Scanner;
 public class Problem_41 {
 
     static class Solution {
-
-        private int[] integerDeque = new int[] {
-                0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0
-        };
-
-        private void insert(int n1, int n2) {
-            integerDeque[0] = n1;
-            integerDeque[3] = n2;
-            Arrays.sort(integerDeque);
-        }
-
-        private int[] getNums() {
-            return new int[] { integerDeque[1], integerDeque[2] };
-        }
-
-        int findMedian(Reader reader) {
+        double findMedian(BufferedReader reader) throws IOException {
             int n1, n2;
+            String line;
+            while ((line = reader.readLine()) != null) {
+                n1 = Integer.parseInt(line);
 
-//            while (n1=reader.() != -1) {
-//
-//            }
-
+            }
             return 0;
         }
     }
 
 
     public static void main(String[] args) {
-//        int[] nn = new Random().ints(12, -100, 100).toArray();
-//        System.out.println(Arrays.toString(nn));
-
-//        int[] nnn = new int[] {92, 34, -32, 34, 55, 52, -62, -13, 5, 25, -12, 77};
-//        Arrays.sort(nnn);
-//        System.out.println(Arrays.toString(nnn));
-
-        Scanner sc = new Scanner(System.in);
-
-
-        List<Integer> nums = new LinkedList<>();
-        String[] strs = sc.nextLine().split(" ");
-        for (String str : strs) {
-            if ("".equals(str)) continue;
-            nums.add(Integer.parseInt(str));
+        int numsLen = 10;
+        int[] nums = new Random().ints(numsLen, -100, 100).toArray();
+        System.out.println(Arrays.toString(nums));
+        try (FileWriter fileWriter = new FileWriter("./data.txt")) {
+            for (int num : nums) {
+                fileWriter.write(num+"\n");
+                fileWriter.flush();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        System.out.println(nums);
+        Arrays.sort(nums);
+        System.out.println(Arrays.toString(nums));
+        double midVal = nums.length%2==0 ? (nums[numsLen/2-1]+nums[numsLen/2])/2.0 : nums[numsLen/2];
+        System.out.println(midVal);
+
+        try (FileReader fileReader = new FileReader("./data.txt");
+             BufferedReader reader = new BufferedReader(fileReader)) {
+            double ret = new Solution().findMedian(reader);
+            System.out.println(ret);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
