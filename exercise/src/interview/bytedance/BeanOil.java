@@ -11,6 +11,8 @@ import java.util.Scanner;
  * 用N*M的矩阵M存储互动次数，M[i][j]是用户i和用户j之间的互动次数。
  * 并设定自己和自己之间的互动次数为0。求豆油瓶的个数。
  *
+ * 可以使用并查集解题
+ *
  * @author Apollo4634
  * @create 2019/08/25
  */
@@ -57,7 +59,7 @@ public class BeanOil {
         }
     }
 
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
