@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @create 2019/02/03
  */
 
-public class TestSort {
+public class SortTest {
 
 	private enum ALG { 
 		BubbleSort, 
@@ -53,7 +53,7 @@ public class TestSort {
 		if (showData)  System.out.println("Output: "+Arrays.toString(arr));
 		if (showResults) {
 			System.out.println("nElements = "+arr.length);
-			System.out.println("isSorted = "+SortUtils.isSorted(arr));
+			System.out.println("isSorted = "+ SortUtils.isSorted(arr));
 			System.out.println("Runtime = "+(t2-t1)/1.0E6+" ms\n");
 		}
 		return (t2-t1)/1.0E6;
@@ -105,21 +105,21 @@ public class TestSort {
 			//Integer[] arr = SortUtils.integerWrappers(20000,-1000,1000);
 
 			runTime[ALG.BubbleSort.ordinal()] +=
-				TestSort.doSort(ALG.BubbleSort, arr.clone(), false, false);
+				SortTest.doSort(ALG.BubbleSort, arr.clone(), false, false);
 			runTime[ALG.SelectionSort.ordinal()] +=
-				TestSort.doSort(ALG.SelectionSort, arr.clone(), false, false);
+				SortTest.doSort(ALG.SelectionSort, arr.clone(), false, false);
 			runTime[ALG.InsertionSort.ordinal()] +=
-				TestSort.doSort(ALG.InsertionSort, arr.clone(), false, false);
+				SortTest.doSort(ALG.InsertionSort, arr.clone(), false, false);
 			runTime[ALG.ShellSort.ordinal()] +=
-				TestSort.doSort(ALG.ShellSort, arr.clone(), false, false);
+				SortTest.doSort(ALG.ShellSort, arr.clone(), false, false);
 			runTime[ALG.MergeSort.ordinal()] +=
-				TestSort.doSort(ALG.MergeSort, arr.clone(), false, false);
+				SortTest.doSort(ALG.MergeSort, arr.clone(), false, false);
 			runTime[ALG.MergeSort2.ordinal()] +=
-				TestSort.doSort(ALG.MergeSort2, arr.clone(), false, false);
+				SortTest.doSort(ALG.MergeSort2, arr.clone(), false, false);
 			runTime[ALG.QuickSort.ordinal()] +=
-				TestSort.doSort(ALG.QuickSort, arr.clone(), false, false);
+				SortTest.doSort(ALG.QuickSort, arr.clone(), false, false);
 			runTime[ALG.HeapSort.ordinal()] +=
-				TestSort.doSort(ALG.HeapSort, arr.clone(), false, false);
+				SortTest.doSort(ALG.HeapSort, arr.clone(), false, false);
 		}
 		System.out.println();
 		for (int i = 0; i < runTime.length; i++)

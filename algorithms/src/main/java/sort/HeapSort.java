@@ -2,6 +2,8 @@ package sort;
 
 
 /**
+ * 基于最大堆的排序算法
+ *
  * @author Apollo4634
  * @create 2019/02/10
  * @see SortUtils
