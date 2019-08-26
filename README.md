@@ -9,8 +9,8 @@
 
 * **Java基础**  
     * 《Java从入门到精通（第4版）》 清华大学出版社  
-    * 《Java核心技术 卷I 基础知识（原书第10版）》 Cay S. Horstmann，机械工业出版社   
-* 《Java编程思想（第4版）》Bruce Eckel，机械工业出版社
+    * 《Java核心技术 卷I 基础知识（原书第10版）》 Cay S. Horstmann，机械工业出版社  
+    * 《Java编程思想（第4版）》Bruce Eckel，机械工业出版社  
     
 * **Java虚拟机**  
     * 《深入理解Java虚拟机：JVM高级特性与最佳实践》 周志明，机械工业出版社  
@@ -43,9 +43,8 @@
 
 <br>
 
----
 
-**网络资料**
+## 网络资料
 
 * [GitHub - Snailclimb - JavaGuide](https://github.com/Snailclimb/JavaGuide)
 * [GitHub - CyC2018 - CS-Notes](https://github.com/CyC2018/CS-Notes)
