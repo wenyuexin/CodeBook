@@ -21,10 +21,12 @@
   
 * **并发**  
     * 《Java并发编程实战》Brian Goetz, 机械工业出版社  
+  * 《Java并发编程的艺术》方腾飞，魏鹏，程晓明，机械工业出版社
   
 * **计算机网络**  
     * 《TCP/IP详解 卷1 协议》KevinR.Fall，W.RichardStevens，机械工业出版社  
     * 《图解HTTP》日上宣，人民邮电出版社  
+  * 《计算机网络：自顶向下方法》JamesF．Kurose，机械工业出版社
   
 * **网络编程**  
     * 《Java网络编程（第4版）》Elliotte Rusty Harold，中国电力出版社  
@@ -39,7 +41,12 @@
 
 * **编程实践**
     * 《剑指Offer 名企面试官精讲典型编程题（第2版）》何海涛，电子工业出版社
-    *  [LeetCode](https://leetcode.com/)
+
+<br>
+
+**注**：以上都是个人多少看过相关内容的书籍，以下推荐的是一些没怎么看或没看过的书：
+
+《Effective Java》、《现代操作系统》、《计算机网络（第5版）》Andrew S. Tanenbaum、《SQL基础教程 第2版》、《高性能MySQL》、《设计模式：可复用面向对象软件的基础》、《Spring Boot编程思想（核心篇）》、《鸟哥的Linux私房菜》、《模式识别（第四版）》
 
 <br>
 
@@ -53,3 +60,5 @@
 * [Java SE 11 API Specification](https://docs.oracle.com/en/java/javase/11/docs/api/index.html)
 * [Java SE 8 API Specification](https://docs.oracle.com/javase/8/docs/api/index.html)
 * [MySQL官方文档](https://dev.mysql.com/doc/)
+* [LeetCode](https://leetcode.com/)
+
