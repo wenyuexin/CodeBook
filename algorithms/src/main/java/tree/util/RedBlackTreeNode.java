@@ -1,26 +1,32 @@
 package tree.util;
 
-
 /**
  * @author Apollo4634
- * @create 2019/08/09
+ * @create 2019/08/27
  */
 
-public class BinaryTreeNode implements TreeNode {
+
+public class RedBlackTreeNode implements TreeNode {
+    private static final boolean RED = true;
+    private static final boolean BLACK = false;
+
     public int id;
     public double value;
     public BinaryTreeNode left;
     public BinaryTreeNode right;
+    int N;
+    boolean color;
 
-    public BinaryTreeNode(int id) {
+
+    public RedBlackTreeNode(int id) {
         this(id, null, null, 0);
     }
 
-    public BinaryTreeNode(int id, BinaryTreeNode left, BinaryTreeNode right) {
+    public RedBlackTreeNode(int id, BinaryTreeNode left, BinaryTreeNode right) {
         this(id, left, right, 0);
     }
 
-    public BinaryTreeNode(int id, BinaryTreeNode left, BinaryTreeNode right, double value) {
+    public RedBlackTreeNode(int id, BinaryTreeNode left, BinaryTreeNode right, double value) {
         this.id = id;
         this.left = left;
         this.right = right;
