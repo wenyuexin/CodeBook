@@ -21,12 +21,12 @@
   
 * **并发**  
     * 《Java并发编程实战》Brian Goetz, 机械工业出版社  
-  * 《Java并发编程的艺术》方腾飞，魏鹏，程晓明，机械工业出版社
+    * 《Java并发编程的艺术》方腾飞，魏鹏，程晓明，机械工业出版社
   
 * **计算机网络**  
     * 《TCP/IP详解 卷1 协议》KevinR.Fall，W.RichardStevens，机械工业出版社  
     * 《图解HTTP》日上宣，人民邮电出版社  
-  * 《计算机网络：自顶向下方法》JamesF．Kurose，机械工业出版社
+    * 《计算机网络：自顶向下方法》JamesF．Kurose，机械工业出版社
   
 * **网络编程**  
     * 《Java网络编程（第4版）》Elliotte Rusty Harold，中国电力出版社  
