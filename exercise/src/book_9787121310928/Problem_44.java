@@ -1,4 +1,4 @@
-package book_9787121310928.utility;
+package book_9787121310928;
 
 /**
  * 数字序列中某一位的数字：
