@@ -8,11 +8,10 @@ import java.util.Queue;
  * @create 2019/03/25
  */
 
-public class TestPriorityQueue {
+public class PriorityQueueDemo {
 	
 	//默认情况下PriorityQueue是一个最小堆
-	public static void test1() {
-		System.out.println("===== test 1 =====");
+	private static void test() {
 		Queue<Integer> queue = new PriorityQueue<>(); //default initial capacity (11)
 		queue.add(15);
 		queue.add(1);
@@ -31,6 +30,6 @@ public class TestPriorityQueue {
 	
 	
 	public static void main(String[] args) {
-		TestPriorityQueue.test1();
+		PriorityQueueDemo.test();
 	}
 }
