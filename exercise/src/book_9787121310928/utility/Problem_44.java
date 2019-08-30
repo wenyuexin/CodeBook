@@ -19,21 +19,14 @@ public class Problem_44 {
             }
 
             int offset = (int) Math.ceil(1.0*(index-base) / (k+1)) - 1;
-            int num;
-            if (offset < 0) {
-                offset = 0; num = (int) Math.pow(10, k);
-            } else {
-                offset += 1; num = (int) Math.pow(10, k) + offset;
-            }
+            int num = (int) Math.pow(10, k) + offset;
 
             int idxAtNum = index - base - offset*(k+1);
-            idxAtNum = k - idxAtNum;
-
-            int temp = num;
+            idxAtNum = k - idxAtNum + 1;
             for (int i = 0; i < idxAtNum; i++) {
-                temp /= 10;
+                num /= 10;
             }
-            return temp%10;
+            return num%10;
         }
 
         private int calcBase(int k) {
@@ -43,18 +36,39 @@ public class Problem_44 {
 
 
     public static void main(String[] args) {
-//        System.out.println(new Solution().digitAtIndex(-2));
-//        System.out.println(new Solution().digitAtIndex(0));
-//        System.out.println(new Solution().digitAtIndex(1));
-//        System.out.println(new Solution().digitAtIndex(9));
+        System.out.println(new Solution().digitAtIndex(-2));
+        System.out.println(new Solution().digitAtIndex(0));
+        System.out.println(new Solution().digitAtIndex(1));
+        System.out.println(new Solution().digitAtIndex(9));
 
-        System.out.println(new Solution().digitAtIndex(10));
-//        System.out.println(new Solution().digitAtIndex(11));
+        System.out.print(new Solution().digitAtIndex(10));
+        System.out.println(new Solution().digitAtIndex(11)); //10
 
-//        System.out.println(new Solution().digitAtIndex(12));
-//        System.out.println(new Solution().digitAtIndex(13));
+        System.out.print(new Solution().digitAtIndex(12));
+        System.out.println(new Solution().digitAtIndex(13)); //11
 
-//        System.out.println(new Solution().digitAtIndex(18));
-//        System.out.println(new Solution().digitAtIndex(19));
+        System.out.print(new Solution().digitAtIndex(18));
+        System.out.println(new Solution().digitAtIndex(19)); //14
+
+        System.out.print(new Solution().digitAtIndex(190-2));
+        System.out.println(new Solution().digitAtIndex(190-1)); //99
+
+        System.out.print(new Solution().digitAtIndex(190));
+        System.out.print(new Solution().digitAtIndex(191));
+        System.out.println(new Solution().digitAtIndex(192)); //100
+
+        System.out.print(new Solution().digitAtIndex(2890-3));
+        System.out.print(new Solution().digitAtIndex(2890-2));
+        System.out.println(new Solution().digitAtIndex(2890-1)); //999
+
+        System.out.print(new Solution().digitAtIndex(2890));
+        System.out.print(new Solution().digitAtIndex(2891));
+        System.out.print(new Solution().digitAtIndex(2892));
+        System.out.println(new Solution().digitAtIndex(2893)); //1000
+
+        System.out.print(new Solution().digitAtIndex(2894));
+        System.out.print(new Solution().digitAtIndex(2895));
+        System.out.print(new Solution().digitAtIndex(2896));
+        System.out.println(new Solution().digitAtIndex(2897)); //1001
     }
 }
