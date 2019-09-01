@@ -18,14 +18,14 @@
 * **数据结构与算法**    
     * 《算法（第4版）》 Robert Sedgewick, Kevin Wayne，人民邮电出版社  
     * 《算法导论（原书第3版）》Thomas H.Cormen，机械工业出版社  
-    
-* **并发**  
-    * 《Java并发编程实战》Brian Goetz，机械工业出版社  
-    * 《Java并发编程的艺术》方腾飞，魏鹏，程晓明，机械工业出版社
 
 * **操作系统**
     * 《深入理解计算机系统（原书第3版）》Randal E. Bryant，机械工业出版社
     * 《现代操作系统》Anderw S. Tanenbaum，机械工业出版社
+
+* **并发编程**  
+    * 《Java并发编程实战》Brian Goetz，机械工业出版社  
+    * 《Java并发编程的艺术》方腾飞，魏鹏，程晓明，机械工业出版社  
     
 * **计算机网络**  
     * 《TCP/IP详解 卷1 协议》KevinR.Fall，W.RichardStevens，机械工业出版社  
