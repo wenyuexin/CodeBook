@@ -2,6 +2,8 @@ package book_9787121310928;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 把数组排成最小的数：
@@ -16,6 +18,8 @@ import java.util.Comparator;
 public class Problem_45 {
 
     static class Solution {
+        private String minVal;
+
         String minNumber(int[] nums) {
             if (nums == null || nums.length == 0) return "";
             if (nums.length == 1) return String.valueOf(nums[0]);
@@ -37,18 +41,29 @@ public class Problem_45 {
                 if (s1.length() == s2.length()) return 0;
                 return s1.length() < s2.length() ? -1 : 1;
             });
+            //System.out.println(Arrays.toString(strs));
 
-            System.out.println(Arrays.toString(strs));
-            //StringBuilder sb = new StringBuilder();
+            Stack<String> stack = new Stack<>();
+            concatenate(strs, 0, stack);
+            return minVal;
+        }
 
-            return null;
+        private void concatenate(String[] strs, int index, Stack<String> stack) {
+            stack.add(strs[index]);
+            if (index == strs.length-1) {
+                String min = String.valueOf(stack);
+                if (min.compareTo(minVal) < 0) minVal = min;
+            }
+            concatenate(strs, index+1, stack);
+            if (strs[index+1].startsWith(strs[index])) {
+                String s = stack.pop();
+                concatenate(strs, index, stack);
+            }
         }
     }
 
 
     public static void main(String[] args) {
-        //System.out.println("123".compareTo("12"));
-
         int[] nums = new int[] { 397, 86, 12, 124, 120, 2, 25 };
         new Solution().minNumber(nums);
 
