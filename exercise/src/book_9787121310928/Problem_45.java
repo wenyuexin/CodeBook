@@ -57,8 +57,15 @@ public class Problem_45 {
             concatenate(strs, index+1, stack);
             if (strs[index+1].startsWith(strs[index])) {
                 String s = stack.pop();
+                swap(strs, index, index+1);
                 concatenate(strs, index, stack);
             }
+        }
+
+        private void swap(String[] strs, int i, int j) {
+            String temp = strs[i];
+            strs[i] = strs[j];
+            strs[j] = temp;
         }
     }
 
