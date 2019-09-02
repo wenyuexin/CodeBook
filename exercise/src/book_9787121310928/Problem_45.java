@@ -23,6 +23,7 @@ public class Problem_45 {
         String minNumber(int[] nums) {
             if (nums == null || nums.length == 0) return "";
             if (nums.length == 1) return String.valueOf(nums[0]);
+            minVal = "0";
 
             String[] strs = new String[nums.length];
             for (int i = 0; i < nums.length; i++) {
@@ -49,12 +50,14 @@ public class Problem_45 {
         }
 
         private void concatenate(String[] strs, int index, Stack<String> stack) {
+            if (index >= strs.length-1) return;
             stack.add(strs[index]);
             if (index == strs.length-1) {
                 String min = String.valueOf(stack);
                 if (min.compareTo(minVal) < 0) minVal = min;
             }
             concatenate(strs, index+1, stack);
+
             if (strs[index+1].startsWith(strs[index])) {
                 String s = stack.pop();
                 swap(strs, index, index+1);
@@ -71,6 +74,7 @@ public class Problem_45 {
 
 
     public static void main(String[] args) {
+        //System.out.println("0000".compareTo("123"));
         int[] nums = new int[] { 397, 86, 12, 124, 120, 2, 25 };
         new Solution().minNumber(nums);
 
