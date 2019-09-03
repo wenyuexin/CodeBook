@@ -9,7 +9,7 @@ import java.util.Arrays;
  * 例如，数组{3,32,321}，可以得到最小数字321323。
  *
  * 注：使用lambda表达式会让运行速度慢很多
- * 
+ *
  * @author Apollo4634
  * @create 2019/08/31
  */
