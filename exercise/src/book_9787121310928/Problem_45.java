@@ -1,9 +1,6 @@
 package book_9787121310928;
 
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Stack;
 
 /**
  * 把数组排成最小的数：
@@ -11,6 +8,8 @@ import java.util.Stack;
  * 打印能够拼接处的所有数字中最小的一个数。
  * 例如，数组{3,32,321}，可以得到最小数字321323。
  *
+ * 注：使用lambda表达式会让运行速度慢很多
+ * 
  * @author Apollo4634
  * @create 2019/08/31
  */
@@ -68,6 +67,7 @@ public class Problem_45 {
 
             if (index == strs.length-1) return;
             if (strs[index+1].startsWith(strs[index]) && strs[index+1].length() > strs[index].length()) {
+                if (strs[index].charAt(0) < strs[index].charAt(strs[index].length())) return;
                 swap(strs, index, index+1);
                 sb.append(strs[index]);
                 concatenate(strs, index+1, sb);
