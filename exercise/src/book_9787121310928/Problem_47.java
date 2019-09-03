@@ -18,12 +18,11 @@ public class Problem_47 {
             if (matrix[0] == null || matrix[0].length == 0) return 0;
             int mm = matrix.length - 1;
             int nn = matrix[0].length - 1;
+            int step = mm + nn;
             int maxValue = matrix[0][0];
 
-            for (int r = 0; r < mm; r++) {
-                for (int c = 0; c < nn; c++) {
-
-                }
+            for (int i = 0; i < step; i++) {
+                
                 
             }
             return maxValue;
