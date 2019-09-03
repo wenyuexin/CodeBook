@@ -1,5 +1,7 @@
 package book_9787121310928;
 
+import java.util.Stack;
+
 /**
  * 礼物的最大价值：
  * 在一个 m*n 的棋盘中的每一个格都放一个礼物，每个礼物都有一定的价值（价值大于0）。
@@ -19,12 +21,27 @@ public class Problem_47 {
             int mm = matrix.length - 1;
             int nn = matrix[0].length - 1;
             int step = mm + nn;
-            int maxValue = matrix[0][0];
+            int maxValue = Integer.MIN_VALUE;
 
-            for (int i = 0; i < step; i++) {
-                
-                
+            //采用类似BSF的方法搜索
+            int mCount = 0;
+            int nCount = 0;
+            int value;
+            boolean flag = true;
+            Stack<Boolean> toLeft = new Stack<>();
+            while (flag) {
+                value = matrix[0][0];
+                for (int i = 0; i < mm; i++) {
+                    toLeft.add(true);
+                }
+                if (mCount == mm && nCount == nn) flag = false;
+                for (int i = 0; i < nn; i++) {
+
+
+                }
+                if (value > maxValue) maxValue = value;
             }
+
             return maxValue;
         }
     }
