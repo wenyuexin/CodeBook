@@ -20,7 +20,7 @@ public class Problem_47 {
             if (matrix[0] == null || matrix[0].length == 0) return 0;
             int mm = matrix.length - 1;
             int nn = matrix[0].length - 1;
-            int step = mm + nn;
+            if (mm == 0 && nn == 0) return matrix[0][0];
             int maxValue = Integer.MIN_VALUE;
 
             //采用类似BSF的方法搜索
@@ -29,8 +29,17 @@ public class Problem_47 {
             int value;
             boolean flag = true;
             Stack<Boolean> toLeft = new Stack<>();
-            while (flag) {
-                value = matrix[0][0];
+            toLeft.add(false);
+            toLeft.add(true);
+
+            value = matrix[0][0];
+            while (!toLeft.isEmpty()) {
+                boolean direction = toLeft.pop();
+                if (direction) {
+                    mCount += 1;
+
+                }
+
                 for (int i = 0; i < mm; i++) {
                     toLeft.add(true);
                 }
