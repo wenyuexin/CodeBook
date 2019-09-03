@@ -20,17 +20,23 @@ public class Problem_45 {
     static class Solution {
         private String minVal;
 
-        String minNumber(int[] nums) {
+        String PrintMinNumber(int [] nums) {
             if (nums == null || nums.length == 0) return "";
             if (nums.length == 1) return String.valueOf(nums[0]);
-            minVal = "0";
 
+            int charsNumber = 0;
             String[] strs = new String[nums.length];
             for (int i = 0; i < nums.length; i++) {
                 strs[i] = String.valueOf(nums[i]);
+                charsNumber += strs[i].length();
             }
 
-            Arrays.sort(strs, (String s1, String s2) -> {
+            StringBuilder stringBuilderForMinVal = new StringBuilder(charsNumber);
+            for (int i = 0; i < charsNumber; i++)
+                stringBuilderForMinVal.append("9");
+            minVal = stringBuilderForMinVal.toString();
+
+            Arrays.sort(strs, (s1, s2) -> {
                 if (s1.equals(s2)) return 0;
                 int size = Math.min(s1.length(), s2.length());
                 for (int i = 0; i < size; i++) {
@@ -44,24 +50,28 @@ public class Problem_45 {
             });
             //System.out.println(Arrays.toString(strs));
 
-            Stack<String> stack = new Stack<>();
-            concatenate(strs, 0, stack);
+            StringBuilder sb = new StringBuilder(charsNumber);
+            concatenate(strs, 0, sb);
             return minVal;
         }
 
-        private void concatenate(String[] strs, int index, Stack<String> stack) {
-            if (index >= strs.length-1) return;
-            stack.add(strs[index]);
+        private void concatenate(String[] strs, int index, StringBuilder sb) {
+            if (index > strs.length-1) return;
+
+            sb.append(strs[index]);
             if (index == strs.length-1) {
-                String min = String.valueOf(stack);
+                String min = sb.toString();
                 if (min.compareTo(minVal) < 0) minVal = min;
             }
-            concatenate(strs, index+1, stack);
+            concatenate(strs, index+1, sb);
+            sb.delete(sb.length()-strs[index].length(), sb.length());
 
-            if (strs[index+1].startsWith(strs[index])) {
-                String s = stack.pop();
+            if (index == strs.length-1) return;
+            if (strs[index+1].startsWith(strs[index]) && strs[index+1].length() > strs[index].length()) {
                 swap(strs, index, index+1);
-                concatenate(strs, index, stack);
+                sb.append(strs[index]);
+                concatenate(strs, index+1, sb);
+                sb.delete(sb.length()-strs[index].length(), sb.length());
             }
         }
 
@@ -76,7 +86,7 @@ public class Problem_45 {
     public static void main(String[] args) {
         //System.out.println("0000".compareTo("123"));
         int[] nums = new int[] { 397, 86, 12, 124, 120, 2, 25 };
-        new Solution().minNumber(nums);
-
+        String ret = new Solution().PrintMinNumber(nums);
+        System.out.println(ret);
     }
 }
