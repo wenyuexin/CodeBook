@@ -6,7 +6,8 @@ import java.math.RoundingMode;
  * @author Apollo4634 
  * @create 2018/11/06
  */
-public class TestEnum {
+
+public class EnumTest {
 
 	public static void main(String[] args) {
 		//以RoundingMode为例
