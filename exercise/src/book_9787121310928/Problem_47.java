@@ -15,43 +15,51 @@ import java.util.Stack;
 public class Problem_47 {
 
     static class Solution {
+        private int M, N, maxValue;
+
         int getMaxValue(int[][] matrix) {
-            if (matrix == null || matrix.length == 0 ) return 0;
+            if (matrix == null || matrix.length == 0) return 0;
             if (matrix[0] == null || matrix[0].length == 0) return 0;
-            int mm = matrix.length - 1;
-            int nn = matrix[0].length - 1;
-            if (mm == 0 && nn == 0) return matrix[0][0];
-            int maxValue = Integer.MIN_VALUE;
-
-            //采用类似BSF的方法搜索
-            int mCount = 0;
-            int nCount = 0;
-            int value;
-            boolean flag = true;
-            Stack<Boolean> toLeft = new Stack<>();
-            toLeft.add(false);
-            toLeft.add(true);
-
-            value = matrix[0][0];
-            while (!toLeft.isEmpty()) {
-                boolean direction = toLeft.pop();
-                if (direction) {
-                    mCount += 1;
-
-                }
-
-                for (int i = 0; i < mm; i++) {
-                    toLeft.add(true);
-                }
-                if (mCount == mm && nCount == nn) flag = false;
-                for (int i = 0; i < nn; i++) {
-
-
-                }
-                if (value > maxValue) maxValue = value;
-            }
-
+            M = matrix.length;
+            N = matrix[0].length;
+            if (M == 1 && N == 1) return matrix[0][0];
+            maxValue = Integer.MIN_VALUE;
+            update(matrix, 0, 0, 0);
             return maxValue;
         }
+
+        private void update(int[][] matrix, int value, int row, int col) {
+            value += matrix[row][col];
+            if (row == M - 1 && col == N - 1 && value > maxValue) maxValue = value;
+            if (row + 1 < M) update(matrix, value, row + 1, col);
+            if (col + 1 < N) update(matrix, value, row, col + 1);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[][] matrix = new int[][] {
+                { 1,10,3,8 },
+                { 12,2,9,6 },
+                { 5,7,4,11 },
+                { 3,7,16,5 }
+        };
+
+//        int[][] matrix = new int[][] {
+//                { 1,10,3,8 }
+//        };
+
+//        int[][] matrix = new int[][] {
+//                { 1 }, { 12 }, { 5 }, { 3 }
+//        };
+
+//        int[][] matrix = new int[][] {
+//                { 1 }
+//        };
+
+//        int[][] matrix = null;
+
+        int ret = new Solution().getMaxValue(matrix);
+        System.out.println(ret);
     }
 }
