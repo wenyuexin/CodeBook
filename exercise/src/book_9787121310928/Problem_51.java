@@ -14,6 +14,7 @@ import java.util.TreeSet;
 
 public class Problem_51 {
 
+    //这种方法运行速度慢，复杂度偏高
     static class Solution {
         int inversePairs(int[] nums) {
             if (nums == null || nums.length < 2) return 0;
@@ -22,7 +23,6 @@ public class Problem_51 {
 
             int count = 0;
             for (int i = 1; i < nums.length; i++) {
-                //SortedSet<Integer> integers = set.tailSet(nums[i]);
                 count += set.tailSet(nums[i]).size();
                 set.add(nums[i]);
             }
@@ -30,6 +30,21 @@ public class Problem_51 {
         }
     }
 
+
+    static class Solution2 {
+        int inversePairs(int[] nums) {
+            if (nums == null || nums.length < 2) return 0;
+            TreeSet<Integer> set = new TreeSet<>();
+            set.add(nums[0]);
+
+            int count = 0;
+            for (int i = 1; i < nums.length; i++) {
+                count += set.tailSet(nums[i]).size();
+                set.add(nums[i]);
+            }
+            return count%1000000007;
+        }
+    }
 
     public static void main(String[] args) {
         int[] nums = new int[] { 7,5,6,4 };
