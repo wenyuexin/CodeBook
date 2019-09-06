@@ -1,7 +1,8 @@
 package book_9787121310928;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 第一个只出现一次的字符
@@ -12,12 +13,31 @@ import java.util.Set;
 public class Problem_50 {
 
     static class Solution {
-        char findFirstNotRepeatChar(String str) {
+        char findFirstNotRepeatingChar(String str) {
             if (str == null || str.length() == 0) return '\0';
-            Set<Character> set = new HashSet<>(str.length());
+            char[] chars = str.toCharArray();
 
+            HashMap<Character, Integer> map = new LinkedHashMap<>();
+            for (char c : chars) {
+                map.put(c, map.getOrDefault(c, 0)+1);
+            }
 
+            for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+                if (entry.getValue() == 1) return entry.getKey();
+            }
             return '\0';
         }
+    }
+
+
+    public static void main(String[] args) {
+        String str = "abaccdeff";
+        System.out.println(new Solution().findFirstNotRepeatingChar(str));
+
+        System.out.println(new Solution().findFirstNotRepeatingChar(null));
+        System.out.println(new Solution().findFirstNotRepeatingChar(" "));
+        System.out.println(new Solution().findFirstNotRepeatingChar("a"));
+        System.out.println(new Solution().findFirstNotRepeatingChar("aaaa"));
+        System.out.println(new Solution().findFirstNotRepeatingChar("asdfgh"));
     }
 }
