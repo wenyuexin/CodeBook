@@ -5,12 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 第一个只出现一次的字符
+ * 第一个只出现一次的字符：
+ * 字符串中第一个只出现一次的字符：
+ * 在字符串中找出第一个只出现一次的字符，例如输入"abaccdeff"，输出'b'
+ *
  * @author Apollo4634
  * @create 2019/09/06
  */
 
-public class Problem_50 {
+public class Problem_50_1 {
 
     static class Solution {
         char findFirstNotRepeatingChar(String str) {
