@@ -59,6 +59,7 @@ public class Problem_51 {
                 } else {
                     copy[idx--] = nums[idx2--];
                     count += (mid - idx1);
+                    if (count > 1000000007) count %= 1000000007;
                 }
             }
             System.arraycopy(copy, from, nums, from, to-from+1);
