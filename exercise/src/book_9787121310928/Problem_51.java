@@ -48,11 +48,6 @@ public class Problem_51 {
 
         private int inverse(int[] nums, int from, int to) {
             if (from >= to) return 0;
-            if (from+1 == to) {
-                if (nums[from] <= nums[to]) return 0;
-                swap(nums, from, to); return 1;
-            }
-
             int mid = (from + to) / 2;
             int count = inverse(nums, from, mid);
             count += inverse(nums, mid+1, to);
@@ -68,12 +63,6 @@ public class Problem_51 {
             }
             System.arraycopy(copy, from, nums, from, to-from+1);
             return count;
-        }
-
-        private void swap(int[] nums, int i, int j) {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
         }
     }
 
