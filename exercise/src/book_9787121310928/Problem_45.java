@@ -67,7 +67,7 @@ public class Problem_45 {
 
             if (index == strs.length-1) return;
             if (strs[index+1].startsWith(strs[index]) && strs[index+1].length() > strs[index].length()) {
-                if (strs[index].charAt(0) < strs[index].charAt(strs[index].length())) return;
+                if (strs[index].charAt(0) < strs[index+1].charAt(strs[index].length())) return;
                 swap(strs, index, index+1);
                 sb.append(strs[index]);
                 concatenate(strs, index+1, sb);

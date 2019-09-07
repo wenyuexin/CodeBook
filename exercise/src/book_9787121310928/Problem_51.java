@@ -73,6 +73,6 @@ public class Problem_51 {
 
     public static void main(String[] args) {
         int[] nums = new int[] { 7,5,6,4 };
-        System.out.println(new Solution().inversePairs(nums));
+        System.out.println(new Solution2().inversePairs(nums));
     }
 }
