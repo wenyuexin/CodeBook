@@ -34,17 +34,42 @@ public class Problem_51 {
     static class Solution2 {
         int inversePairs(int[] nums) {
             if (nums == null || nums.length < 2) return 0;
-            TreeSet<Integer> set = new TreeSet<>();
-            set.add(nums[0]);
+            int[] copy = new int[nums.length];
+            return inverse(nums, copy, 0, 0);
+        }
 
-            int count = 0;
-            for (int i = 1; i < nums.length; i++) {
-                count += set.tailSet(nums[i]).size();
-                set.add(nums[i]);
+        private int inverse(int[] nums, int[] copy, int from, int to) {
+            if (from >= to) return 0;
+            if (from+1 == to) {
+                if (nums[from] <= nums[to]) return 0;
+                else { swap(nums, from, to); return 1; }
             }
-            return count%1000000007;
+
+            int mid = (from + to) / 2;
+            int count = inverse(nums, copy, from, mid);
+            count += inverse(nums, copy, mid+1, to);
+
+            int idx1 = mid;
+            int idx2 = to;
+            int idx = to;
+            while (idx1 >= 0 && idx2 >= 0) {
+                if (nums[idx1] > nums[idx2]) {
+                    copy[idx--] = nums[idx1--];
+                } else {
+                    copy[idx--] = nums[idx2--];
+                    count += (mid - idx1);
+                }
+            }
+            return count;
+        }
+
+        private void swap(int[] nums, int i, int j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
         }
     }
+
 
     public static void main(String[] args) {
         int[] nums = new int[] { 7,5,6,4 };
