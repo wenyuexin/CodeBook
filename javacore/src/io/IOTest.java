@@ -7,7 +7,7 @@ import java.io.IOException;
  * @author Apollo4634 
  * @create 2018/11/18
  */
-public class TestIO {
+public class IOTest {
 	
 	
 	public static void main(String[] args) throws IOException {
