@@ -50,10 +50,10 @@ Spring将JDBC的Connection、Hibernate的Session等访问数据库的连接或�
 | ------------------------- | ------------------------------------------------------------ |
 | PROPAGATION_REQUIRED      | 如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择。 |
 | PROPAGATION_SUPPORTS      | 支持当前事务，如果当前没有事务，就以非事务方式执行。         |
-| PROPAGATION_MANDATORY     | 使用当前的事务，如果当前没有事务，就抛出异常。               |
+| PROPAGATION_MANDATORY     | 使用当前的事务，如果当前没有事务，就抛出异常。（必须有事务） |
 | PROPAGATION_REQUIRES_NEW  | 新建事务，如果当前存在事务，把当前事务挂起。                 |
 | PROPAGATION_NOT_SUPPORTED | 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。   |
-| PROPAGATION_NEVER         | 以非事务方式执行，如果当前存在事务，则抛出异常。             |
+| PROPAGATION_NEVER         | 以非事务方式执行，如果当前存在事务，则抛出异常。（必须非事务） |
 | PROPAGATION_NESTED        | 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。 |
 
 <br>
@@ -92,7 +92,11 @@ Spring将JDBC的Connection、Hibernate的Session等访问数据库的连接或�
 
 ![img](https://img-blog.csdn.net/20170420212829825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29vbmZseQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-**说明**：
+（上图中第5项写错了，应该是PROPAGATION_REQUIRES_NEW）
+
+<br>
+
+**附加说明**：
 
 1）当业务方法被设置为**PROPAGATION_MANDATORY**时，它就不能被非事务的业务方法调用。
 如将ForumService#addTopic ()设置为PROPAGATION_MANDATORY，如果展现层的Action直接调用addTopic()方法，将引发一个异常。
@@ -120,6 +124,6 @@ JDO，Java Data Object，Java数据对象
 **参考资料**
 
 1. 《精通Spring 4.x 企业应用开发实战》陈雄化，电子工业出版社，第11章
-2.  [Spring事务SPI及配置介绍](http://blog.csdn.net/fouy_yun/article/details/45786689)
+2.  [Spring事务SPI及配置介绍 - Fouy_风度玉门 - CSDN博客](http://blog.csdn.net/fouy_yun/article/details/45786689)
 3.   [Spring事务传播机制 - 沧海一滴 - 博客园](https://www.cnblogs.com/softidea/p/5962612.html)
 4.  [看完就明白_spring事务的7种传播行为 - weixin_39625809的博客 - CSDN博客](https://blog.csdn.net/weixin_39625809/article/details/80707695)
