@@ -40,4 +40,9 @@ public class ListNode {
         }
         System.out.println("null");
     }
+
+    public static ListNode toList(int[] nums) {
+
+        return null;
+    }
 }
