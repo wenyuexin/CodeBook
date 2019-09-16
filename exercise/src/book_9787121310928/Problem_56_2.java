@@ -23,22 +23,24 @@ public class Problem_56_2 {
             int[] bitSum = new int[32];
             for (int num : nums) {
                 for (int j = 0, flag = 1; j < 32; j++, flag = flag << 1) {
-                    bitSum[j] += ((num&flag)>0 ? 1 : 0);
+                    bitSum[j] += ((num&flag)!=0 ? 1 : 0);
                 }
             }
 
-            StringBuilder sb = new StringBuilder(32);
-            for (int i = 0; i < bitSum.length; i++) {
-                sb.append(bitSum[i] % 3);
+            int ret = 0;
+            for(int i = 31; i >= 0; i--) {
+                ret = ret<<1;
+                ret += (bitSum[i]%3);
             }
-            int ret = Integer.parseInt(sb.reverse().toString(), 2);
-            //if (bitSum[31]%3 == 1) ret = -ret;
             return ret;
         }
     }
 
 
     public static void main(String[] args) {
+        //System.out.println(Integer.toBinaryString(-3));
+        //Integer i = Integer.parseInt(Integer.toBinaryString(-3)); //异常
+
         //int[] nums = new int[] { 1,1,1,2,2,2,3,4,4,4 };
         //int[] nums = new int[] { 1,1,1,2,2,2,0,4,4,4 };
         int[] nums = new int[] { 1,1,1,2,2,2,-3,4,4,4 };
