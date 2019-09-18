@@ -3,21 +3,32 @@ package interview.yuanfudao;
 import java.util.Scanner;
 
 /**
+ * 逆时针螺旋向里打印数组
+ *
+ * 这个写法没有处理好边界，需要debug
+ *
  * @author Apollo4634
  * @create 2019/09/16
  */
 
 public class P1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int M = sc.nextInt();
-        int[][] matrix = new int[N][M];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                matrix[i][j] = sc.nextInt();
-            }
-        }
+//        Scanner sc = new Scanner(System.in);
+//        int N = sc.nextInt();
+//        int M = sc.nextInt();
+//        int[][] matrix = new int[N][M];
+//        for (int i = 0; i < N; i++) {
+//            for (int j = 0; j < M; j++) {
+//                matrix[i][j] = sc.nextInt();
+//            }
+//        }
+
+        int N = 3, M = 4;
+        int[][] matrix = new int[][] {
+                {1,2,3,4},
+                {5,6,7,8},
+                {9,10,11,12}
+        };
 
         int nLayer = (int) Math.ceil(Math.min(N, M) / 2.0);
         for (int i = 0; i < nLayer; i++) {
