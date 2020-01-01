@@ -6,7 +6,7 @@ Docker是一个能把开发的应用程序自动部署到容器的开源引擎�
 
 Docker核心组件：客户端和服务器、Docker镜像、Register、Docker容器
 
-
+学习Docker之前需要对Linux场景命令有一定了解，如果了解Git相关知识则更好。
 
 
 
