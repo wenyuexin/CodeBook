@@ -4,7 +4,7 @@
 
 Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
 
-标记本地镜像，并将其归入某一仓库
+标记本地镜像，并将其归入某一仓库（默认归入官方仓库）
 
 ### Usage
 
@@ -56,3 +56,4 @@ To push an image to a private registry and not the central Docker registry you m
 ```
 $ docker tag 0e5574283393 myregistryhost:5000/fedora/httpd:version1.0
 ```
+
