@@ -12,12 +12,12 @@ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
 
 ### Options
 
-| Name, shorthand           | Default | Description                                                  |
-| ------------------------- | ------- | ------------------------------------------------------------ |
-| `--all-tags , -a`         |         | Download all tagged images in the repository                 |
+|      Name, shorthand      | Default | Description                                                  |
+| :-----------------------: | ------- | ------------------------------------------------------------ |
+|     `--all-tags , -a`     |         | Download all tagged images in the repository                 |
 | `--disable-content-trust` | `true`  | Skip image verification                                      |
-| `--platform`              |         | [**experimental (daemon)**](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file)[**API 1.32+**](https://docs.docker.com/engine/api/v1.32/) Set platform if server is multi-platform capable |
-| `--quiet , -q`            |         | Suppress verbose output                                      |
+|       `--platform`        |         | [**experimental (daemon)**](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) [**API 1.32+**](https://docs.docker.com/engine/api/v1.32/) Set platform if server is multi-platform capable |
+|      `--quiet , -q`       |         | Suppress verbose output                                      |
 
 
 ### Extended description
@@ -134,6 +134,12 @@ MAINTAINER some maintainer <maintainer@example.com>
 
 #### 3) Pull from a different registry
 
+默认情况下是从官方仓库中获取镜像，基本格式如下：
+
+```
+docker [iamge] pull <RegistryPath>/<namespace>/<repository>[:tag]
+```
+
 By default, `docker pull` pulls images from [Docker Hub](https://hub.docker.com/). It is also possible to manually specify the path of a registry to pull from. For example, if you have set up a local registry, you can specify its path to pull from it. A registry path is similar to a URL, but does not contain a protocol specifier (`https://`).
 
 The following command pulls the `testing/test-image` image from a local registry listening on port 5000 (`myregistry.local:5000`):
@@ -180,6 +186,8 @@ fedora       latest      105182bb5e8b    5 days ago   372.7 MB
 #### 5) Cancel a pull
 
 Killing the `docker pull` process, for example by pressing `CTRL-c` while it is running in a terminal, will terminate the pull operation.
+
+使用`Ctrl-c`快捷键即可停止
 
 ```
 $ docker pull fedora
