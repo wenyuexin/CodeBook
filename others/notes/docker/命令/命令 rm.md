@@ -4,6 +4,8 @@
 
 Remove one or more containers
 
+删除一个或多个容器。
+
 注：如果想删除镜像可以使用`docker rmi`或者`docker image rm`
 
 ### Usage
@@ -23,7 +25,7 @@ docker rm [OPTIONS] CONTAINER [CONTAINER...]
 
 ### Examples
 
-#### Remove a container
+#### 1) Remove a container
 
 This will remove the container referenced under the link `/redis`.
 
@@ -33,7 +35,7 @@ $ docker rm /redis
 /redis
 ```
 
-#### Remove a link specified with `--link` on the default bridge network
+#### 2) Remove a link specified with `--link` on the default bridge network
 
 This will remove the underlying link between `/webapp` and the `/redis` containers on the default bridge network, removing all network communication between the two containers. This does not apply when `--link` is used with user-specified networks.
 
@@ -43,7 +45,7 @@ $ docker rm --link /webapp/redis
 /webapp/redis
 ```
 
-#### Force-remove a running container
+#### 3) Force-remove a running container
 
 This command will force-remove a running container.
 
@@ -55,7 +57,7 @@ redis
 
 The main process inside the container referenced under the link `redis` will receive `SIGKILL`, then the container will be removed.
 
-#### Remove all stopped containers
+#### 4) Remove all stopped containers
 
 ```
 $ docker rm $(docker ps -a -q)
@@ -63,7 +65,7 @@ $ docker rm $(docker ps -a -q)
 
 This command will delete all stopped containers. The command `docker ps -a -q` will return all existing container IDs and pass them to the `rm` command which will delete them. Any running containers will not be deleted.
 
-#### Remove a container and its volumes
+#### 5) Remove a container and its volumes
 
 ```
 $ docker rm -v redis
@@ -72,7 +74,7 @@ redis
 
 This command will remove the container and any volumes associated with it. Note that if a volume was specified with a name, it will not be removed.
 
-#### Remove a container and selectively remove volumes
+#### 6) Remove a container and selectively remove volumes
 
 ```
 $ docker create -v awesome:/foo -v /bar --name hello redis

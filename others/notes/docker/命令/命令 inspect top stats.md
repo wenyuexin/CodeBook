@@ -1,6 +1,6 @@
 # 命令 inspect top stats
 
-inspect top stats这几个命令主要用于查看容器的相关信息
+inspect用于查看容器的具体信息，top查看容器内进程的信息，stats查看容器的统计信息
 
 <br>
 

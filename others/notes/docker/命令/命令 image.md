@@ -27,25 +27,12 @@ docker image COMMAND
 
 <br>
 
-## docker image prune
+**补充：**
 
-Remove unused images
+查询官网文档可知，上述命令都可以省了`image`，因为去除后的命令本身仍然是合法的docker命令。例如，`docker build`也可以使用，并且作用和`docker image build`相同。
 
-**[API 1.25+]**  The client and daemon API must both be at least 1.25 to use this command
+不过存在例外：
 
-#### Usage
+`docker image ls`并不能使用`docker ls`替代，而要使用`docker images`。
 
-```none
-docker image prune [OPTIONS]
-```
-
-#### Options
-
-| Name, shorthand | Default | Description                                      |
-| --------------- | ------- | ------------------------------------------------ |
-| `--all , -a`    |         | Remove all unused images, not just dangling ones |
-| `--filter`      |         | Provide filter values (e.g. ‘until=')            |
-| `--force , -f`  |         | Do not prompt for confirmation                   |
-
-#### Extended description
-Remove all dangling images. If -a is specified, will also remove all images not referenced by any container.
+`docker image rm`的作用是删除镜像，`docker rm`则用于删除容器，若要删除镜像还可以用`docker rmi`。
