@@ -1,8 +1,8 @@
-# Docker架构
+# Docker架构 
 
 Docker 包括三个基本概念:
 
-- **镜像（Image）**：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。
+- **镜像（Image）**：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:18.04 就包含了完整的一套 Ubuntu18.04 最小系统的 root 文件系统。
 - **容器（Container）**：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
 - **仓库（Repository）**：仓库可看着一个代码控制中心，用来保存镜像。
 
