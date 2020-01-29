@@ -39,7 +39,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 |      `--cpuset-cpus`      |           | CPUs in which to allow execution (0-3, 0,1)                  |
 |      `--cpuset-mems`      |           | MEMs in which to allow execution (0-3, 0,1)                  |
 |           **D**           |           |                                                              |
-|      `--detach , -d`      |           | Run container in background and print container ID<br>相当于以守护态（Daemonized）形式运行 |
+|      `--detach , -d`      |           | Run container in background and print container ID<br>后台运行容器，并返回容器ID；<br>相当于以守护态（Daemonized）形式运行 |
 |      `--detach-keys`      |           | Override the key sequence for detaching a container          |
 |        `--device`         |           | Add a host device to the container                           |
 |  `--device-cgroup-rule`   |           | Add a rule to the cgroup allowed devices list                |
@@ -83,7 +83,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 |           **L**           |           |                                                              |
 |      `--label , -l`       |           | Set meta data on a container                                 |
 |      `--label-file`       |           | Read in a line delimited file of labels                      |
-|         `--link`          |           | Add link to another container                                |
+|         `--link`          |           | Add link to another container<br>使新生成的容器链接到已在运行的容器 |
 |     `--link-local-ip`     |           | Container IPv4/IPv6 link-local addresses                     |
 |      `--log-driver`       |           | Logging driver for the container                             |
 |        `--log-opt`        |           | Log driver options                                           |
@@ -126,7 +126,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 |        `--sysctl`         |           | Sysctl options                                               |
 |           **T**           |           |                                                              |
 |         `--tmpfs`         |           | Mount a tmpfs directory                                      |
-|       `--tty , -t`        |           | Allocate a pseudo-TTY                                        |
+|       `--tty , -t`        |           | Allocate a pseudo-TTY<br>为容器重新分配一个伪输入终端，通常与 -i 同时使用 |
 |           **U**           |           |                                                              |
 |        `--ulimit`         |           | Ulimit options                                               |
 |       `--user , -u`       |           | Username or UID (format: <name\|uid>[:<group\|gid>])         |
