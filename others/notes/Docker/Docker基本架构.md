@@ -1,0 +1,70 @@
+# Docker基本架构 
+
+Docker 包括三个基本概念:
+
+- **镜像（Image）**：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:18.04 就包含了完整的一套 Ubuntu18.04 最小系统的 root 文件系统。
+- **容器（Container）**：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
+- **仓库（Repository）**：仓库可看着一个代码控制中心，用来保存镜像。
+
+Docker 使用**客户端-服务端** (C/S) 架构模式，客户端和服务端既可以运行在一个机器上，也可通过 socket 或者 RESTfulAPI 来进行通信。
+
+Docker 容器通过 Docker 镜像来创建。
+
+容器与镜像的关系类似于面向对象编程中的对象与类。
+
+ ![img](https://www.runoob.com/wp-content/uploads/2016/04/576507-docker1.png) 
+
+<br>
+
+|          概念          | 说明                                                         |
+| :--------------------: | :----------------------------------------------------------- |
+|  Docker 镜像(Images)   | Docker 镜像是用于创建 Docker 容器的模板，比如 Ubuntu 系统。  |
+| Docker 容器(Container) | 容器是独立运行的一个或一组应用，是镜像运行时的实体。         |
+| Docker 客户端(Client)  | Docker 客户端通过命令行或者其他工具使用 [Docker SDK](https://docs.docker.com/develop/sdk/) 与 Docker 的守护进程通信。 |
+|   Docker 主机(Host)    | 一个物理或者虚拟的机器用于执行 Docker 守护进程和容器。       |
+| Docker 仓库(Registry)  | Docker 仓库用来保存镜像，可以理解为代码控制中的代码仓库。<br>[Docker Hub](https://hub.docker.com/) 提供了庞大的镜像集合供使用。一个 Docker Registry 中可以包含多个仓库（Repository）；每个仓库可以包含多个标签（Tag）；每个标签对应一个镜像。通常，一个仓库会包含同一个软件不同版本的镜像，而标签就常用于对应该软件的各个版本。我们可以通过 **<仓库名>:<标签>** 的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以 **latest** 作为默认标签。 |
+|     Docker Machine     | Docker Machine是一个简化Docker安装的命令行工具，通过一个简单的命令行即可在相应的平台上安装Docker，比如VirtualBox、 Digital Ocean、Microsoft Azure。 |
+
+<br>
+
+### 服务端
+
+Docker 服务端一般在宿主主机后台运行， dockerd 作为服务端接受来自客户 的请求，并通过 containerd 具体处理与容器相关的请求，包括创建、运行、删除容器等。服务端主要包括四个组件：
+
+- **dockerd** ：为客户端提供 RESTful API ，响应来自客户端的请求，采用模块化的架构，通过专门的 Engine 模块来分发 理各个来自客户端的任务。可以单独升级。
+
+  dockerd 默认监听本地的`unix:///var/run/docker.sock` 套接字，只允许本地的 root 用户或docker 用户组成员访问。 可以通过 -H 选项来修改监昕的方式 
+
+- **docker-proxy** ：是 dockerd 的子进程。当需要进行容器端口映射时， docker-proxy 完成网络映射配置。
+
+  此组件只有当启动容器 并且使用端口映射时候才会执行，负责配置容器的端口映射规则。
+
+- **containerd** ：是 dockerd 的子进程，提供gRPC 接口从而响应来自 dockerd 的请求，对下管理 runC 镜像和 器环境。可以单独升级。
+
+- **containerd-shim** ：是 containerd 的子进程，为 runC 容器提供支持，同时作为容器内进程的根进程。
+
+runC 是从 Docker 公司开源的 libcontainer项目演化而来的，目前作为一种具体的开放容器标准实现加入 Open Containers Initiative（OCI）。
+
+### 客户端
+
+Docker 客户端为用户提供一系列可执行命令，使用这些命令可实现与 Docker 服务端交互。
+
+用户使用的 Docker 可执行命令即为客户端程序。 与Docker 服务端保持运行方式不同，客户端发送命令后，将等待服务端返回；一旦收到返回后，客户端立刻执行结束并退出。 用户执行新的命令，需要再次调用客户端命令。
+
+客户端默认通过本地的 `unix:///var/run/docker.sock` 套接字向服务端发送命令。 如果服务端没有在默认的地址监听，则需要客户端在执行命令的时候显式地指定服务端地址。例如：假定服务端监听在本地的 TCP 连接 1234 端口为 `tcp://127.0.0.1:1234` ，只有通过-H 参数指定了正确的地址信息才能连接到服务端：
+
+`$ docker -H tcp://127.0.0.1:1234 info `
+
+
+
+<br>
+
+---
+
+**参考资料**
+
+1. [Docker 教程 | 菜鸟教程]( https://www.runoob.com/docker/docker-tutorial.html )
+2. 《Docker技术入门与实战（第三版）》杨保华，机械工业出版社，第17章
+
+
+

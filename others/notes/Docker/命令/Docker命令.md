@@ -69,8 +69,6 @@ docker的命令时分层次的，存在父命令和子命令的概念。最顶�
 |  info   | 显示 Docker 系统信息，包括镜像和容器数<br>docker info [OPTIONS] |
 | version | 显示 Docker 版本信息。<br>docker version [OPTIONS]           |
 
-
-
 <br>
 
 ---
