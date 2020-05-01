@@ -4,4 +4,5 @@
 
 需要注意的是，注册服务器（Register）和仓库不同，注册服务器是存放仓库的具体服务器，一个注册服务器上可以有多个仓库，而每个仓库下可以存放多个镜像。
 
-有些命令可以完成与仓库相关的操作。例如，`docker login`用于登录仓库，`docker logout`用于登出仓库，`docker search`用于查找官方仓库中的镜像，`docker [image] pull`可以从官方仓库中下载镜像
+有些命令可以完成与仓库相关的操作。例如，`docker login`用于登录仓库，`docker logout`用于登出仓库，`docker search`用于查找官方仓库中的镜像，`docker [image] pull`可以从官方仓库中下载镜像。
+

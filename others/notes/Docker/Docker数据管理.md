@@ -18,3 +18,33 @@
 * 对数据卷内数据的修改会立马生效， 无论是容器内操作还是本地操作；
 * 对数据卷的更新不会影响镜像， 解耦开应用和数据；
 * 卷会一直存在， 直到没有容器使用， 可以安全地卸载它。
+
+## 2. 数据卷容器
+
+如果用户需要在多个容器之间共享一些持续更新的数据， 最简单的方式是使用数据卷容器。
+
+数据卷容器也是一个容器，但是它的目的是专门提供数据卷给其他容器挂载。
+
+具体使用时，可以先建立一个容器，即创建一个数据卷容器 `dbdata`, 并在其中创建一个数据卷挂载到 `/dbdata`：
+
+`$ docker run -it -v /dbdata --name dbdata ubuntu `
+
+然后，可以在其他容器中使用 `--volumes-from `来挂载 `dbdata `容器中的数据卷：
+
+```
+$ docker run -it --volumes-from dbdata --name dbl ubuntu
+$ docker run -it --volumes-from dbdata --name dbl ubuntu
+```
+
+此时，`dbdata, db1, db2`中任意一个容器修改数据卷中的内容，其他容器都能立刻观测到。
+
+可以多次使用 `--volumes-from `参数来从多个容器挂载多个数据卷，还可以从其他已经挂载了容器卷的容器来挂载数据卷：
+
+`$ docker run -d --name db3 --volumes-from dbl training/postgres `
+
+**注意**：
+
+使用 `--volumes-from `参数所挂载数据卷的容器自身并不需要保持在运行状态；
+
+如果删除了挂载的容器，数据卷并不会被自动删除，如果要删除一个数据卷，必须在删除最后一个还挂载着它的容器时显式使用 `docker rm -v`命令来指定同时删除关联的容器。
+
