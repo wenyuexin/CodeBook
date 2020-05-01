@@ -33,7 +33,7 @@
 
 ```
 $ docker run -it --volumes-from dbdata --name dbl ubuntu
-$ docker run -it --volumes-from dbdata --name dbl ubuntu
+$ docker run -it --volumes-from dbdata --name db2 ubuntu
 ```
 
 此时，`dbdata, db1, db2`中任意一个容器修改数据卷中的内容，其他容器都能立刻观测到。
@@ -48,3 +48,54 @@ $ docker run -it --volumes-from dbdata --name dbl ubuntu
 
 如果删除了挂载的容器，数据卷并不会被自动删除，如果要删除一个数据卷，必须在删除最后一个还挂载着它的容器时显式使用 `docker rm -v`命令来指定同时删除关联的容器。
 
+## 3. 利用数据卷容器迁移数据
+
+可以利用数据卷容器对其中的数据卷进行备份、恢复， 以实现数据的迁移。
+
+### 备份
+
+`$ docker run --volumes-from dbdata -v $(pwd):/backup --name worker ubuntu tar cvf /backup/backup.tar /dbdata `
+
+首先利用ubuntu镜像创建了一个容器worker。 使用`--volumes-from dbdata`参数来让worker容器挂载dbdata容器的数据卷（即dbdata数据卷）；使用`-v $(pwd):/backup `参数来挂载本地的当前目录到worker容器的`/backup`目录。worker容器启动后， 使用`tar cvf /backup/backup.tar /dbdata `命令将`/dbdata`
+下内容备份为容器内的`/backup/backup.tar`，即宿主主机当前目录下的`backup.tar`。
+
+### 恢复
+
+如果要恢复数据到一个容器， 可以按照下面的操作 。
+
+**例子1**：
+
+首先创建一个带有数据卷的容器`dbdata2`:
+`$ docker run -v /dbdata --name dbdata2 ubuntu /bin/bash `
+然后创建另一个新的容器， 挂载`dbdata2`的容器， 并使用`untar`解压备份文件到所挂载的容器卷中：
+`$ docker run --volumes-from dbdata2 -v $(pwd):/backup busybox tar xvf /backup/backup.tar `
+
+**例子2**：
+
+With the backup just created, you can restore it to the same container, or another that you made elsewhere.
+
+For example, create a new container named `dbstore2`:
+
+`$ docker run -v /dbdata --name dbstore2 ubuntu /bin/bash`
+
+Then un-tar the backup file in the new container`s data volume:
+
+`$ docker run --rm --volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf /backup/backup.tar --strip 1"`
+
+## 移除
+
+To automatically remove anonymous volumes, use the `--rm` option. For example, this command creates an anonymous `/foo` volume. When the container is removed, the Docker Engine removes the `/foo` volume but not the `awesome` volume.
+
+```
+$ docker run --rm -v /foo -v awesome:/bar busybox top
+```
+
+单纯查看`docker run --rm`命令，只是说退出的时候自动删除数据卷，官方文档里说可以删除匿名数据卷，，，额，不是很懂，也许和`-v`组合后就是这个效果。
+
+如果要移除所有数据卷，应该用下面这个命令：
+
+To remove all unused volumes and free up space:
+
+```
+$ docker volume prune
+```

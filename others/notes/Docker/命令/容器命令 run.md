@@ -592,6 +592,8 @@ $ docker run -d -u daemon --ulimit nproc=3 busybox top
 
 The 4th container fails and reports “[8] System error: resource temporarily unavailable” error. This fails because the caller set `nproc=3` resulting in the first three containers using up the three processes quota set for the `daemon` user.
 
+注：top是busybox中的一个命令，用来显示执行中的程序进程的相关信息，使用权限是所有用户。
+
 #### 20) Stop container with signal (--stop-signal)
 
 The `--stop-signal` flag sets the system call signal that will be sent to the container to exit. This signal can be a valid unsigned number that matches a position in the kernel’s syscall table, for instance 9, or a signal name in the format SIGNAME, for instance SIGKILL.
