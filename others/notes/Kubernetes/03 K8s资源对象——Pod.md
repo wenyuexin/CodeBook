@@ -36,11 +36,11 @@ metadata :
     name: redis-php 
 spec:
   containers:
-  - name: frontend （容器1）
+  - name: frontend  # 容器1
     image: kubeguide/guestbook-php-frontend:localredis
     ports:
     - containerPort: 80
-  - name: redis （容器2）
+  - name: redis     # 容器2
     image: kubeguide/ redis master
     ports :
     - containerPort: 6379
@@ -58,7 +58,7 @@ The kubelet automatically tries to create a [mirror Pod](https://kubernetes.io/d
 
 静态Pod是由kubelet进行管理的仅存在于特定Node上的Pod。它们不能通过API Server进行管理，无法与ReplicationController、Deployment或者DaemonSet进行关联，并且kubelet无法对它们进行健康检查。
 
-创建：
+### 创建
 
 You can configure a static Pod with either a [file system hosted configuration file](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/#configuration-files) or a [web hosted configuration file](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/#pods-created-via-http).
 
@@ -68,18 +68,22 @@ Manifests are standard Pod definitions in JSON or YAML format in a specific dire
 
 For example, this is how to start a simple web server as a static Pod:
 
-1. 先选Node：Choose a node where you want to run the static Pod. In this example, it’s `my-node1`. 
+1. 先选Node：
+
+   Choose a node where you want to run the static Pod. In this example, it’s `my-node1`. 
 
    ```shell
    ssh my-node1
    ```
 
-2. 选择目录，防止Pod配置文件：Choose a directory, say `/etc/kubelet.d` and place a web server Pod definition there, for example `/etc/kubelet.d/static-web.yaml`:
+2. 选择目录，放置Pod配置文件：
+
+   Choose a directory, say `/etc/kubelet.d` and place a web server Pod definition there, for example `/etc/kubelet.d/static-web.yaml`:
 
    ```shell
    # Run this command on the node where kubelet is running
    mkdir /etc/kubelet.d/
-   cat <<EOF >/etc/kubelet.d/static-web.yaml （cat命令用于查看文件内容）
+   cat <<EOF >/etc/kubelet.d/static-web.yaml  # cat命令用于查看文件内容
    apiVersion: v1
    kind: Pod
    metadata:
@@ -171,19 +175,19 @@ spec:
     - containerPort: 8080
     volumeMounts :
     - name: app-logs
-      mountPath: /usr/1ocal/tomcat/1ogs （tomcat容器的挂载点）
+      mountPath: /usr/1ocal/tomcat/1ogs  # tomcat容器的挂载点
   - name: busybox
     image: busybox 
     command: ["sh", "-c", "tail -f /1ogs/catalina* .1og"]
     volumeMounts :
     - name: app-logs
-      mountPath: /1ogs （busybox容器的挂载点）
-  volumes: (Pod的数据卷)
+      mountPath: /1ogs  # busybox容器的挂载点
+  volumes:              # Pod的数据卷
   - name: app-logs
     emptyDir: {}
 ```
 
-## 4 ConfigMap与配置管理
+## 4 ConfigMap及其在Pod中的配置管理
 
 A ConfigMap is an API object used to store non-confidential (非机密的, 非保密的) data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/).
 
@@ -194,7 +198,7 @@ ConfigMap供容器使用的典型用法如下。
 （2）设置容器启动命令的启动参数（需设置为环境变量）。
 （3）以Volume的形式挂载为容器内部的文件或目录。
 
-### 创建
+### 创建ConfigMap
 
 通过YAML配置文件或者直接使用kubectl create configmap命令行的方式来创建ConfigMap。
 
@@ -232,7 +236,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cm-appvars
-  data:  （有时候可将配置文件名作为key，将配置文件内容作为value，从而将配置写入ConfigMap）
+   # 有时候可将配置文件名作为key，将配置文件内容作为value，从而将配置写ConfigMap
+  data:
     app1og1evel: info
     appdatadir: /var/data
 ```
@@ -244,7 +249,7 @@ $kubectl create -f cm-appvars.yaml
 configmap "cm-appvars" created
 ```
 
-#### 通过**kubectl**命令行方式创建：
+#### 通过**kubectl**命令行方式创建
 
 不使用YAML文件，直接通过`kubectl create configmap`也可以创建ConfigMap，可以使用参数`--from-file`或`--from-literal`指定内容，并且可以在一行命令中指定多个参数。具体有以下方式：
 
@@ -270,3 +275,334 @@ configmap "cm-appvars" created
 例如 # kubectl create configmap cm-appenv --from-literal=1og1eve1=info --from-literal=appdatadir=/var/data
 ```
 
+### Pod中使用ConfigMap
+
+可以通过环境变量方式使用，或者通过`volumeMount`使用ConfigMap.
+
+- 通过环境变量使用
+
+以下面这个ConfigMap为例
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-appvars
+  data:  
+    app1og1evel: info
+    appdatadir: /var/data
+```
+
+然后，使用**valueFrom**将ConfigMap中的键值对导入Pod中：
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cm-test-pod 
+spec:
+  containers:
+  - name: cm-test
+    image: busybox 
+    # env命令：查询环境变量
+    # grep命令：查找文件里符合条件的字符串
+    command: [ "/bin/sh", "-c", "env | grep APP" ] 
+    env:
+    - name: APPLOGLEVEL
+      valueFrom:              # key “apploglevel"对应的值
+        configMapKeyRef:
+          name: cm-appvars    # 环境变量的值取自cm-appvars:
+          key: apploglevel    # key为apploglevel
+    - name: APPDATADIR
+      valueFrom:              # key "appdatadir"对应的值
+        configMapKeyRef:
+          name: cm-appvars   # 环境变量的值取自cm-appvars
+          key: appdatadir     # key为appdatadir
+   restartPolicy: Never  # Pod在执行完启动命令后将会退出，并且不会被系统自动重启
+```
+
+Kubernetes从1.6版本开始，引入了一个新的字段**envFrom**，实现了在Pod环境中将ConfigMap（也可用于Secret资源对象）中所有定义的`key=value`自动生成为环境变量：
+
+```
+apiVersion: v1
+kind: Pod
+metadata :
+  name: cm-test-pod
+spec:
+  containers:
+  - name: cm-test
+    image: busybox
+    command: [ "/bin/sh", "-c"， "env" ]
+    envFrom:
+    - configMapRef
+      name: cm-appvars  # 根据cm-appvars中的key=value自动生成环境变量
+  restartPolicy: Never
+```
+
+- 通过**volumeMount**使用ConfigMap
+
+假定文件`cm-appconfigfiles.yaml`在data中写入了两个配置文件，如下：
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-serverxml
+data:
+  key-serverxml: |
+    <?xml version='1.0' encoding='utf-8'?>
+    # 后续内容略过
+  key-loggingproperties: |
+    # 文件内容略过
+```
+
+然后将`cm-appconfigfiles`中的内容以文件的形式mount到容器内的`/configfiles`目录下。即
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cm-test-app
+spec:
+  containers:
+  - name: cm-test-app
+    image: kubeguide/tomcat-app:v1
+    ports:
+    - containerPort: 8080
+    volumeMounts : 
+    - name: serverxml           # 引用volume的名称
+      mountPath: /configfiles   # 挂载到容器内的目录
+  volumes:
+  - name: serverxml             # 定义Volume的名称
+    configMap:
+      name: cm-appconfigfiles   # 使用ConfigMap cm-appconfigfiles
+      items:
+      - key: key-serverxml      # key=key-serverxml
+        path: server.xml        # value将server.xml文件名进行挂载
+      - key: key-loggingproperties  # key=key-loggingproperties
+        path: logging.properties    # value将logging.properties文件名进行挂载
+```
+
+另一个例子：
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-demo-pod
+spec:
+  containers:
+    - name: demo
+      image: game.example/demo-game
+      env:
+        # Define the environment variable
+        - name: PLAYER_INITIAL_LIVES # Notice that the case is different here
+                                     # from the key name in the ConfigMap.
+          valueFrom:
+            configMapKeyRef:
+              name: game-demo           # The ConfigMap this value comes from.
+              key: player_initial_lives # The key to fetch.
+        - name: UI_PROPERTIES_FILE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: game-demo
+              key: ui_properties_file_name
+      volumeMounts:  # 将volume中的config挂载到本容器中的"/config"上
+      - name: config
+        mountPath: "/config"
+        readOnly: true
+  volumes:
+    # Set volumes at the Pod level, then mount them into containers inside that Pod
+    - name: config
+      configMap:
+        # Provide the name of the ConfigMap you want to mount.
+        name: game-demo  # ConfigMap的具体内容这里就不贴了
+```
+
+### 使用ConfigMap的限制条件
+
+- ConfigMap必须在Pod之前创建。
+
+- ConfigMap受Namespace限制，只有处于相同Namespace中的Pod才可以引用它。
+
+- ConfigMap中的配额管理还未能实现。
+
+- kubelet只支持可以被API Server管理的Pod使用ConfigMap。
+
+  kubelet在本Node上通过`--manifest-url`或`--config`自动创建的静态Pod将无法引用ConfigMap。
+
+- 在Pod对ConfigMap进行挂载（volumeMount）操作时，在容器内部只能挂载为“目录”，无法挂载为“文件”。在挂载到容器内部后，在目录下将包含ConfigMap定义的每个item.
+
+  如果在该目录原来还有其他文件，则容器内的该目录将被挂载的ConfigMap覆盖。如果应用程序需要保留原来的其他文件，则需要进行额外的处理：可以将ConfigMap挂载到容器内部的临时目录，再通过启动脚本将配置文件复制或者链接到（cp或link命令）应用所用的实际配置目录下。
+
+## 5 在容器内获取Pod的信息
+
+每个Pod在被成功创建出来之后，都会被系统分配唯一的名字、IP地址，并且处于某个Namespace中，这些与Pod相关的信息可以通过`Downward API`获取。
+
+具体有以下两种方式将Pod信息注入容器内部：
+
+- 环境变量：用于单个变量，可以将Pod信息和Container信息注入容器内部。
+- Volume挂载：将数组类信息生成为文件并挂载到容器内部。
+
+可以参考：
+
+[通过环境变量将Pod信息呈现给容器 - Kubernetes](https://kubernetes.io/zh/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
+
+[通过文件将Pod信息呈现给容器 - Kubernetes](https://kubernetes.io/zh/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/)
+
+例子：
+
+- 通过环境变量获取
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-envars-fieldref
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "sh", "-c"]
+      args:
+      - while true; do
+          echo -en '\n';
+          printenv MY_NODE_NAME MY_POD_NAME MY_POD_NAMESPACE;
+          printenv MY_POD_IP MY_POD_SERVICE_ACCOUNT;
+          sleep 10;
+        done;
+      env:
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: MY_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: MY_POD_SERVICE_ACCOUNT
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.serviceAccountName
+  restartPolicy: Never
+```
+
+在上面这个配置文件中，可以看到五个环境变量。`env`字段是一个EnvVars类型的数组。 数组中第一个元素指定`MY_NODE_NAME`这个环境变量从Pod的`spec.nodeName`字段获取变量值。同样，其它环境变量也是从Pod的字段获取它们的变量值。
+
+- 通过Volume获取
+
+在文件`02 基本概念.md`中有提过，K8s的Volume支持多种类型的卷，其中就包括`downwardAPI`
+
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-downwardapi-volume-example
+  labels:
+    zone: us-est-coast
+    cluster: test-cluster1
+    rack: rack-22
+  annotations:
+    build: two
+    builder: john-doe
+spec:
+  containers:
+    - name: client-container
+      image: k8s.gcr.io/busybox
+      command: ["sh", "-c"]
+      args:
+      - while true; do
+          if [[ -e /etc/podinfo/labels ]]; then
+            echo -en '\n\n'; cat /etc/podinfo/labels; fi;
+          if [[ -e /etc/podinfo/annotations ]]; then
+            echo -en '\n\n'; cat /etc/podinfo/annotations; fi;
+          sleep 5;
+        done;
+      volumeMounts:   # 容器将Pod的Volume挂载到自身某个目录下
+        - name: podinfo
+          mountPath: /etc/podinfo
+  volumes:            # 挂载downwardAPI类型的卷，其中记录了Pod的信息
+    - name: podinfo
+      downwardAPI:
+        items:
+          - path: "labels"
+            fieldRef:
+              fieldPath: metadata.labels       # Pod的标签
+          - path: "annotations"
+            fieldRef:
+              fieldPath: metadata.annotations  # Pod的注解
+```
+
+在配置文件中，你可以看到Pod有一个`downwardAPI`类型的Volume，并且挂载到容器中的`/etc`。
+
+查看`downwardAPI`下面的`items`数组。每个数组元素都是一个DownwardAPIVolumeFile。 第一个元素指示Pod的`metadata.labels`字段的值保存在名为`labels`的文件中。 第二个元素指示Pod的`annotations`字段的值保存在名为`annotations`的文件中。
+
+## 6 Pod的生命周期
+
+### Pod phase
+
+A Pod’s `status` field is a [PodStatus](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podstatus-v1-core) object, which has a `phase` field.
+
+The phase (运行阶段) of a Pod is a simple, **high-level summary of where the Pod is in its lifecycle**. The phase is not intended to be a comprehensive rollup of observations of Container or Pod state, nor is it intended to be a comprehensive state machine. 
+
+阶段并不是对容器或Pod的综合汇总，也不是为了做为综合状态机。
+
+The number and meanings of Pod phase values are tightly guarded. Other than what is documented here, nothing should be assumed about Pods that have a given `phase` value.
+
+Here are the possible values for `phase`:
+
+|      Value      | Description                                                  |
+| :-------------: | :----------------------------------------------------------- |
+| 挂起 `Pending`  | The Pod has been accepted by the Kubernetes system, but one or more of the Container images has not been created. This includes time before being scheduled as well as time spent downloading images over the network, which could take a while.<br>Pod 已被 Kubernetes 系统接受，但有一个或者多个容器镜像尚未创建 |
+| 运行中`Running` | The Pod has been bound to a node, and all of the Containers have been created. At least one Container is still running, or is in the process of starting or restarting.<br>该 Pod 已经绑定到了一个节点上，Pod 中所有的容器都已被创建。至少有一个容器正在运行，或者正处于启动或重启状态。 |
+| 成功`Succeeded` | All Containers in the Pod have terminated in success, and will not be restarted.<br>Pod 中的所有容器都被成功终止，并且不会再重启。 |
+|  失败 `Failed`  | All Containers in the Pod have terminated, and at least one Container has terminated in failure. That is, the Container either exited with non-zero status or was terminated by the system.<br>Pod 中的所有容器都已终止了，并且至少有一个容器是因为失败终止 |
+| 未知 `Unknown`  | For some reason the state of the Pod could not be obtained, typically due to an error in communicating with the host of the Pod.<br>因为某些原因无法取得 Pod 的状态，通常是因为与 Pod 所在主机通信失败 |
+
+### Pod conditions —— Pod状态
+
+Pod 有一个 PodStatus 对象，其中包含一个[PodConditions](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podcondition-v1-core)数组。
+
+PodCondition数组每个元素是以下6种字段之一：
+
+- The `lastProbeTime` field provides a timestamp for when the Pod condition was last probed.
+- The `lastTransitionTime` field provides a timestamp for when the Pod last transitioned from one status to another.
+- The `message` field is a human-readable message indicating details about the transition.
+- The `reason` field is a unique, one-word, CamelCase reason for the condition’s last transition.
+- The `status` field is a string, with possible values “`True`”, “`False`”, and “`Unknown`”.
+- The `type` field is a string with the following possible values:
+  - `PodScheduled`: the Pod has been scheduled to a node;
+  - `Ready`: the Pod is able to serve requests and should be added to the load balancing pools of all matching Services;
+  - `Initialized`: all [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers) have started successfully;
+  - `ContainersReady`: all containers in the Pod are ready.
+
+### Pod probes —— Pod探针
+
+探针是由 kubelet 对容器执行的定期诊断。要执行诊断，kubelet 需要调用由容器实现的 Handler。
+
+有三种类型的处理程序（Handler）：
+
+- [ExecAction](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#execaction-v1-core): Executes a specified command inside the Container. The diagnostic is considered successful if the command exits with a status code of 0.  在容器内执行指定命令。
+- [TCPSocketAction](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#tcpsocketaction-v1-core): Performs a TCP check against the Container’s IP address on a specified port. The diagnostic is considered successful if the port is open. 对指定端口上的容器IP地址进行 TCP 检查。
+- [HTTPGetAction](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core): Performs an HTTP Get request against the Container’s IP address on a specified port and path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.  对指定的端口和路径上的容器 IP 地址执行 HTTP Get 请求。
+
+每次探测都将获得以下三种结果之一：
+
+- Success: The Container passed the diagnostic. 通过诊断
+- Failure: The Container failed the diagnostic. 未通过诊断
+- Unknown: The diagnostic failed, so no action should be taken. 诊断失败
+
+The kubelet can optionally perform and react to three kinds of probes on running Containers:
+
+- `livenessProbe`: Indicates whether the Container is running. If the liveness probe fails, the kubelet kills the Container, and the Container is subjected to its [restart policy](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy). If a Container does not provide a liveness probe, the default state is `Success`.
+- `readinessProbe`: Indicates whether the Container is ready to service requests. If the readiness probe fails, the endpoints controller removes the Pod’s IP address from the endpoints of all Services that match the Pod. The default state of readiness before the initial delay is `Failure`. If a Container does not provide a readiness probe, the default state is `Success`.
+- `startupProbe`: Indicates whether the application within the Container is started. All other probes are disabled if a startup probe is provided, until it succeeds. If the startup probe fails, the kubelet kills the Container, and the Container is subjected to its [restart policy](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy). If a Container does not provide a startup probe, the default state is `Success`.
