@@ -36,11 +36,11 @@ metadata :
     name: redis-php 
 spec:
   containers:
-  - name: frontend  # 容器1
+  - name: frontend   # 容器1
     image: kubeguide/guestbook-php-frontend:localredis
     ports:
     - containerPort: 80
-  - name: redis     # 容器2
+  - name: redis      # 容器2
     image: kubeguide/ redis master
     ports :
     - containerPort: 6379
@@ -181,8 +181,8 @@ spec:
     command: ["sh", "-c", "tail -f /1ogs/catalina* .1og"]
     volumeMounts :
     - name: app-logs
-      mountPath: /1ogs  # busybox容器的挂载点
-  volumes:              # Pod的数据卷
+      mountPath: /1ogs    # busybox容器的挂载点
+  volumes:                # Pod的数据卷
   - name: app-logs
     emptyDir: {}
 ```
@@ -309,16 +309,16 @@ spec:
     command: [ "/bin/sh", "-c", "env | grep APP" ] 
     env:
     - name: APPLOGLEVEL
-      valueFrom:              # key “apploglevel"对应的值
+      valueFrom:               # key “apploglevel"对应的值
         configMapKeyRef:
-          name: cm-appvars    # 环境变量的值取自cm-appvars:
-          key: apploglevel    # key为apploglevel
+          name: cm-appvars     # 环境变量的值取自cm-appvars:
+          key: apploglevel     # key为apploglevel
     - name: APPDATADIR
-      valueFrom:              # key "appdatadir"对应的值
+      valueFrom:               # key "appdatadir"对应的值
         configMapKeyRef:
-          name: cm-appvars   # 环境变量的值取自cm-appvars
-          key: appdatadir     # key为appdatadir
-   restartPolicy: Never  # Pod在执行完启动命令后将会退出，并且不会被系统自动重启
+          name: cm-appvars     # 环境变量的值取自cm-appvars
+          key: appdatadir      # key为appdatadir
+   restartPolicy: Never        # Pod在执行完启动命令后将会退出，并且不会被系统自动重启
 ```
 
 Kubernetes从1.6版本开始，引入了一个新的字段**envFrom**，实现了在Pod环境中将ConfigMap（也可用于Secret资源对象）中所有定义的`key=value`自动生成为环境变量：
@@ -335,7 +335,7 @@ spec:
     command: [ "/bin/sh", "-c"， "env" ]
     envFrom:
     - configMapRef
-      name: cm-appvars  # 根据cm-appvars中的key=value自动生成环境变量
+      name: cm-appvars   # 根据cm-appvars中的key=value自动生成环境变量
   restartPolicy: Never
 ```
 
@@ -370,15 +370,15 @@ spec:
     ports:
     - containerPort: 8080
     volumeMounts : 
-    - name: serverxml           # 引用volume的名称
-      mountPath: /configfiles   # 挂载到容器内的目录
+    - name: serverxml               # 引用volume的名称
+      mountPath: /configfiles       # 挂载到容器内的目录
   volumes:
-  - name: serverxml             # 定义Volume的名称
+  - name: serverxml                 # 定义Volume的名称
     configMap:
-      name: cm-appconfigfiles   # 使用ConfigMap cm-appconfigfiles
+      name: cm-appconfigfiles       # 使用ConfigMap cm-appconfigfiles
       items:
-      - key: key-serverxml      # key=key-serverxml
-        path: server.xml        # value将server.xml文件名进行挂载
+      - key: key-serverxml          # key=key-serverxml
+        path: server.xml            # value将server.xml文件名进行挂载
       - key: key-loggingproperties  # key=key-loggingproperties
         path: logging.properties    # value将logging.properties文件名进行挂载
 ```
@@ -396,8 +396,8 @@ spec:
       image: game.example/demo-game
       env:
         # Define the environment variable
-        - name: PLAYER_INITIAL_LIVES # Notice that the case is different here
-                                     # from the key name in the ConfigMap.
+        - name: PLAYER_INITIAL_LIVES    # Notice that the case is different here
+                                        # from the key name in the ConfigMap.
           valueFrom:
             configMapKeyRef:
               name: game-demo           # The ConfigMap this value comes from.
@@ -407,7 +407,7 @@ spec:
             configMapKeyRef:
               name: game-demo
               key: ui_properties_file_name
-      volumeMounts:  # 将volume中的config挂载到本容器中的"/config"上
+      volumeMounts:           # 将volume中的config挂载到本容器中的"/config"上
       - name: config
         mountPath: "/config"
         readOnly: true
@@ -416,7 +416,7 @@ spec:
     - name: config
       configMap:
         # Provide the name of the ConfigMap you want to mount.
-        name: game-demo  # ConfigMap的具体内容这里就不贴了
+        name: game-demo       # ConfigMap的具体内容这里就不贴了
 ```
 
 ### 使用ConfigMap的限制条件
@@ -527,10 +527,10 @@ spec:
             echo -en '\n\n'; cat /etc/podinfo/annotations; fi;
           sleep 5;
         done;
-      volumeMounts:   # 容器将Pod的Volume挂载到自身某个目录下
+      volumeMounts:     # 容器将Pod的Volume挂载到自身某个目录下
         - name: podinfo
           mountPath: /etc/podinfo
-  volumes:            # 挂载downwardAPI类型的卷，其中记录了Pod的信息
+  volumes:              # 挂载downwardAPI类型的卷，其中记录了Pod的信息
     - name: podinfo
       downwardAPI:
         items:
@@ -603,6 +603,242 @@ PodCondition数组每个元素是以下6种字段之一：
 
 The kubelet can optionally perform and react to three kinds of probes on running Containers:
 
-- `livenessProbe`: Indicates whether the Container is running. If the liveness probe fails, the kubelet kills the Container, and the Container is subjected to its [restart policy](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy). If a Container does not provide a liveness probe, the default state is `Success`.
-- `readinessProbe`: Indicates whether the Container is ready to service requests. If the readiness probe fails, the endpoints controller removes the Pod’s IP address from the endpoints of all Services that match the Pod. The default state of readiness before the initial delay is `Failure`. If a Container does not provide a readiness probe, the default state is `Success`.
-- `startupProbe`: Indicates whether the application within the Container is started. All other probes are disabled if a startup probe is provided, until it succeeds. If the startup probe fails, the kubelet kills the Container, and the Container is subjected to its [restart policy](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy). If a Container does not provide a startup probe, the default state is `Success`.
+- `livenessProbe`: Indicates whether the Container is running. If the liveness probe fails, the kubelet kills the Container, and the Container is subjected to its `restart policy`. If a Container does not provide a liveness probe, the default state is `Success`. 指示容器是否正在运行。
+- `readinessProbe`: Indicates whether the Container is ready to service requests. If the readiness probe fails, the endpoints controller removes the Pod’s IP address from the endpoints of all Services that match the Pod. The default state of readiness before the initial delay is `Failure`. If a Container does not provide a readiness probe, the default state is `Success`. 指示容器是否准备好服务请求。
+- `startupProbe`: Indicates whether the application within the Container is started. All other probes are disabled if a startup probe is provided, until it succeeds. If the startup probe fails, the kubelet kills the Container, and the Container is subjected to its restart policy. If a Container does not provide a startup probe, the default state is `Success`. 指示容器中的应用是否已经启动。
+
+### 重启策略
+
+PodSpec 中有一个 `restartPolicy` 字段，可能的值为 **Always**（默认值）、**OnFailure** 和 **Never**。 `restartPolicy` 适用于 Pod 中的所有容器。`restartPolicy` 仅指通过同一节点上的 kubelet 重新启动容器。失败的容器由 kubelet 以五分钟为上限的指数退避延迟（10秒，20秒，40秒…）重新启动，并在成功执行十分钟后重置。如 [Pod 文档](https://kubernetes.io/docs/user-guide/pods/#durability-of-pods-or-lack-thereof) 中所述，一旦绑定到一个节点，Pod 将永远不会重新绑定到另一个节点。
+
+### Pod 的生命
+
+一般来说，Pod 不会消失，直到个人或控制器人为的销毁Pod。这个规则的唯一例外是成功或失败的 `phase` 超过一段时间（由 master 确定）的Pod将过期并被自动销毁。
+
+有三种可用的控制器（换句话说，Job RC Deployment等资源对象对应着不同生命周期的Pod）：
+
+- 使用 [Job](https://kubernetes.io/docs/concepts/jobs/run-to-completion-finite-workloads/) 运行预期会终止的 Pod，例如批量计算。Job 仅适用于重启策略为 `OnFailure` 或 `Never` 的 Pod。
+- 对预期不会终止的 Pod 使用 [ReplicationController](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)、[ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) 和 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) ，例如 Web 服务器。 ReplicationController 仅适用于具有 `restartPolicy` 为 Always 的 Pod。
+- 提供特定于机器的系统服务，使用 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 为每台机器运行一个 Pod 。
+
+所有这三种类型的控制器都包含一个 PodTemplate。建议创建适当的控制器，让它们来创建 Pod，而不是直接自己创建 Pod。这是因为单独的 Pod 在机器故障的情况下没有办法自动复原，而控制器却可以。
+
+如果节点死亡或与集群的其余部分断开连接，则 Kubernetes 将应用一个策略将丢失节点上的所有 Pod 的 `phase` 设置为 Failed。
+
+### 使用Probe的例子
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-http
+spec:
+  containers:
+  - args:
+    - /server
+    image: k8s.gcr.io/liveness
+    livenessProbe:
+      httpGet:
+        # 当没有定义 "host" 时，使用 "PodIP"
+        # host: my-host
+        # 当没有定义 "scheme" 时，使用 "HTTP" scheme 只允许 "HTTP" 和 "HTTPS"
+        # scheme: HTTPS
+        path: /healthz
+        port: 8080
+        httpHeaders:
+        - name: X-Custom-Header
+          value: Awesome
+      initialDelaySeconds: 15
+      timeoutSeconds: 1
+    name: liveness
+```
+
+- Pod 中只有一个容器并且正在运行。容器成功退出。
+
+  - 记录完成事件。
+  - 如果 `restartPolicy` 为：
+  - Always：重启容器；Pod `phase` 仍为 Running。
+  - OnFailure：Pod `phase` 变成 Succeeded。
+  - Never：Pod `phase` 变成 Succeeded。
+
+- Pod 中只有一个容器并且正在运行。容器退出失败。
+
+  - 记录失败事件。
+  - 如果 `restartPolicy` 为：
+  - Always：重启容器；Pod `phase` 仍为 Running。
+  - OnFailure：重启容器；Pod `phase` 仍为 Running。
+  - Never：Pod `phase` 变成 Failed。
+
+- Pod 中有两个容器并且正在运行。有一个容器退出失败。
+
+  - 记录失败事件。
+
+  - 如果 restartPolicy 为：
+
+  - Always：重启容器；Pod `phase` 仍为 Running。
+
+  - OnFailure：重启容器；Pod `phase` 仍为 Running。
+
+  - Never：不重启容器；Pod `phase` 仍为 Running。
+
+  - 如果有一个容器没有处于运行状态，并且两个容器退出：
+
+  - 记录失败事件。
+
+  - 如果`restartPolicy`为：
+
+    - Always：重启容器；Pod `phase` 仍为 Running。
+    - OnFailure：重启容器；Pod `phase` 仍为 Running。
+    - Never：Pod `phase` 变成 Failed。
+
+- Pod 中只有一个容器并处于运行状态。容器运行时内存超出限制：
+
+  - 容器以失败状态终止。
+  - 记录 OOM 事件。
+  - 如果 `restartPolicy` 为：
+  - Always：重启容器；Pod `phase` 仍为 Running。
+  - OnFailure：重启容器；Pod `phase` 仍为 Running。
+  - Never: 记录失败事件；Pod `phase` 仍为 Failed。
+
+- Pod 正在运行，磁盘故障：
+
+  - 杀掉所有容器。
+  - 记录适当事件。
+  - Pod `phase` 变成 Failed。
+  - 如果使用控制器来运行，Pod 将在别处重建。
+
+- Pod 正在运行，其节点被分段。
+
+  - 节点控制器等待直到超时。
+  - 节点控制器将 Pod `phase` 设置为 Failed。
+  - 如果是用控制器来运行，Pod 将在别处重建。
+
+## 7 Pod调度
+
+**滚动升级**
+
+早期版本中，只有一个Pod副本控制器RC，该控制器的实现方式是：RC独立于所控制的Pod，并通过Label标签这个松耦合关联关系控制目标Pod实例的创建和销毁。后来，RC升级为ReplicaSet，后者支持集合选择标签。另外，RC的作用实际正被Deployment替代，用于更加自动地完成Pod副本的部署、版本更新、回滚等功能。
+
+与RC不同，ReplicaSet被设计成能控制多个不同标签的Pod副本。K8s借此可以实现滚动升级。例如：
+
+```
+selector:
+  matchLabels:
+    version: v2
+  matchExpressions:
+  - {key: version, operator: In, values:[v1,v2]}   # 同时包含v1和v2版本的Pod
+```
+
+Deployment的滚动升级也是借助ReplicaSet实现的。实际应用中，应该使用Deployment。
+
+**在特定Node上运行**
+
+通常，只关心Pod副本被成功调度到集群中的任何一个可用节点，而不关心具体会调度到哪个节点。但有时候会希望某种Pod的副本全部在指定的一个或者一些节点上运行，例如将MySQL数据库调度到一个具有SSD磁盘的目标节点上。此时可以使用Pod模板中的NodeSelector属性。
+
+为此，需要先将对应的Node打上标签，然后再Pod模板中使用NodeSelector进行筛选。当然，在实际场景中需要面对非常多的问题。 
+
+相关内容点可以参考官方文档：[将 Pod 分配给节点 - Kubernetes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
+
+### Deployment自动调度
+
+例如
+
+```
+# nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata :
+  name: nginx-deployment
+spec:
+  replicas: 3   # 由Deployment自动创建3个副本
+  template:
+    metadata:
+    labels:
+      app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+```
+
+此时，Pod由系统全自动完成调度。它们各自最终运行在哪个节点上，完全由Master的Scheduler经过一系列算法计算得出，用户无法干预调度过程和结果。
+
+### **NodeSelector**：定向调度
+
+将Pod调度到指定的一些Node上，可以通过Node的标签（Label）和Pod的nodeSelector属性相匹配来实现。
+
+- 首先通过kubectl label命令给目标Node打上一些标签：
+
+```
+语法 kubectl label nodes <node-name> <1abel-key>=<label-value>
+例子 $ kubectl label nodes k8s-node-1 disktype=ssd
+```
+
+集群的节点名称可以执行 `kubectl get nodes` 命令获取。运行 `kubectl get nodes --show-labels` 并且查看节点当前具有了一个标签来验证它是否有效。也可以使用 `kubectl describe node "nodename"` 命令查看指定节点的标签完整列表。
+
+- 然后，在Pod的定义中加上nodeSelector的设置
+
+```
+# pods/pod-nginx.yaml 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  nodeSelector:     # Node筛选
+    disktype: ssd
+```
+
+如果我们给多个Node都定义了相同的标签，则scheduler会根据调度算法从这组Node中挑选一个可用的Node进行Pod调度。可以通过运行 `kubectl get pods -o wide` 并查看分配给 pod 的 “NODE” 来验证其是否有效。
+
+除了个人附加的标签外，K8s还给节点预设了一组标准标签。这些标签是
+
+- [kubernetes.io/arch](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#kubernetes-io-arch)
+- [kubernetes.io/os](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#kubernetes-io-os)
+- [beta.kubernetes.io/arch](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#beta-kubernetes-io-arch-deprecated) (deprecated)
+- [beta.kubernetes.io/os](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#beta-kubernetes-io-os-deprecated) (deprecated)
+- [kubernetes.io/hostname](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#kubernetes-io-hostname)
+- [beta.kubernetes.io/instance-type](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#beta-kubernetes-io-instance-type-deprecated) (deprecated)
+- [node.kubernetes.io/instance-type](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#nodekubernetesioinstance-type)
+- [failure-domain.beta.kubernetes.io/region](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#failure-domainbetakubernetesioregion) (deprecated)
+- [failure-domain.beta.kubernetes.io/zone](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#failure-domainbetakubernetesiozone) (deprecated)
+- [topology.kubernetes.io/region](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#topologykubernetesioregion)
+- [topology.kubernetes.io/zone](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#topologykubernetesiozone)
+
+ **注意：**这些标签的值是特定于云供应商的，因此不能保证可靠。例如，`kubernetes.io/hostname` 的值在某些环境中可能与节点名称相同，但在其他环境中可能是一个不同的值。
+
+### **NodeAffinity**：**Node**亲和性调度
+
+NodeAffinity意为Node亲和性的调度策略，是用于替换NodeSelector的全新调度策略。目前有两种节点亲和性表达。
+
+- `RequiredDuringSchedulingIgnoredDuringExecution`：必须满足指定的规则才可以调度Pod到Node上（功能与nodeSelector很像，但是使用的是不同的语法），相当于硬限制。
+-  `PreferredDuringSchedulingIgnoredDuringExecution`：强调优先满足指定规则，调度器会尝试调度Pod到Node上，但并不强求，相当于软限制。多个优先级规则还可以设置权重（weight）值，以定义执行的先后顺序。
+
+`IgnoredDuringExecution`的意思是：如果一个Pod所在的节点在Pod运行期间标签发生了变更，不再符合该Pod的节点亲和性需求，则系统将忽略Node上Label的变化，该Pod能继续在该节点运行。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
