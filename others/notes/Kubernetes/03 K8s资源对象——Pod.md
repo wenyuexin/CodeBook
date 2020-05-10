@@ -817,20 +817,137 @@ spec:
 
  **注意：**这些标签的值是特定于云供应商的，因此不能保证可靠。例如，`kubernetes.io/hostname` 的值在某些环境中可能与节点名称相同，但在其他环境中可能是一个不同的值。
 
-### **NodeAffinity**：**Node**亲和性调度
+### NodeAffinity：Node亲和调度
 
 NodeAffinity意为Node亲和性的调度策略，是用于替换NodeSelector的全新调度策略。目前有两种节点亲和性表达。
 
-- `RequiredDuringSchedulingIgnoredDuringExecution`：必须满足指定的规则才可以调度Pod到Node上（功能与nodeSelector很像，但是使用的是不同的语法），相当于硬限制。
--  `PreferredDuringSchedulingIgnoredDuringExecution`：强调优先满足指定规则，调度器会尝试调度Pod到Node上，但并不强求，相当于软限制。多个优先级规则还可以设置权重（weight）值，以定义执行的先后顺序。
+- RequiredDuringSchedulingIgnoredDuringExecution：必须满足指定的规则才可以调度Pod到Node上（*功能与nodeSelector很像，但是使用的是不同的语法*），相当于硬限制。
+-  PreferredDuringSchedulingIgnoredDuringExecution：强调优先满足指定规则，调度器会尝试调度Pod到Node上，但并不强求，相当于软限制。多个优先级规则还可以设置权重（weight）值，以定义执行的先后顺序。
 
 `IgnoredDuringExecution`的意思是：如果一个Pod所在的节点在Pod运行期间标签发生了变更，不再符合该Pod的节点亲和性需求，则系统将忽略Node上Label的变化，该Pod能继续在该节点运行。
 
+```yaml
+pods/pod-with-node-affinity.yaml 
 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: with-node-affinity
+spec:
+  affinity:
+    nodeAffinity:            # 使用nodeAffinity筛选节点
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:   # 此处只有一个nodeSelectorTerms与nodeAffinity关联
+        - matchExpressions:  # 此处只有一个matchExpressions与nodeSelectorTerms关联
+          - key: kubernetes.io/e2e-az-name
+            operator: In
+            values:
+            - e2e-az1
+            - e2e-az2
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1             # 用于设定优先级的权重值
+        preference:
+          matchExpressions:
+          - key: another-node-label-key
+            operator: In
+            values:
+            - another-node-label-value
+  containers:
+  - name: with-node-affinity
+    image: k8s.gcr.io/pause:2.0
+```
 
+如果同时指定了 `nodeSelector` 和 `nodeAffinity`，两者必须都要满足，才能将 pod 调度到候选节点上。
 
+如果你指定了多个与 `nodeAffinity` 类型关联的 `nodeSelectorTerms`，则**其中一个** `nodeSelectorTerms` 满足，就可以将pod调度到节点上。
 
+如果你指定了多个与 `nodeSelectorTerms` 关联的 `matchExpressions`，则**只有当所有** `matchExpressions` 满足，才会将pod调度到节点上。
 
+### **PodAffinity**：**Pod**亲和与互斥调度
+
+Node只有亲和的概念，但是Pod存在亲和与互斥（反亲和, anti-affinity）。
+
+这种规则可以描述为：如果在具有标签A的Node上运行了一个或者多个符合条件B的Pod，那么Pod应该（如果是互斥，那么就拒绝）在这个Node上运行。
+
+B 表示一个具有可选的关联命令空间列表的 LabelSelector；与节点不同，因为 pod 是命名空间限定的（因此 pod 上的标签也是命名空间限定的），所以作用于 pod 标签的标签选择器必须指定选择器应用在哪个命名空间。从概念上讲，A 是一个拓扑域，如节点，机架，云供应商地区，云供应商区域等。你可以使用 `topologyKey` 来表示它，`topologyKey` 是节点标签的键以便系统用来表示这样的拓扑域。
+
+可以参考上面`NodeSelector：定向调度`中列举的标签。
+
+**注意：**
+
+- Pod 间亲和与反亲和需要大量的处理，这可能会显著减慢大规模集群中的调度。不建议在超过数百个节点的集群中使用它们。
+- Pod 反亲和需要对节点进行一致的标记，即集群中的每个节点必须具有适当的标签能够匹配 `topologyKey`。如果某些或所有节点缺少指定的 `topologyKey` 标签，可能会导致意外行为。
+
+例子
+
+```yaml
+# pods/pod-with-pod-affinity.yaml 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: with-pod-affinity
+spec:
+  affinity:
+    podAffinity:         # Pod亲和
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:   # 使用labelSelector筛选节点
+          matchExpressions:
+          - key: security
+            operator: In
+            values:
+            - S1
+        # zone是地理区域意义上的，这里要求新的Pod与security=S1的Pod为同一个zone
+        topologyKey: failure-domain.beta.kubernetes.io/zone
+    podAntiAffinity:      # Pod互斥
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: security
+              operator: In
+              values:
+              - S2
+          # 这里希望新的Pod与security=S2的Pod处在不同的zone
+          topologyKey: failure-domain.beta.kubernetes.io/zone
+  containers:
+  - name: with-pod-affinity
+    image: k8s.gcr.io/pause:2.0
+```
+
+### Taints和Tolerations（污点和容忍）
+
+节点亲和性（NodeAffinity），是pod的一种属性（偏好或硬性要求），它使pod被吸引到一类特定的节点。Taint 则相反，它**使节点能够拒绝特定的pod**。
+
+Taint 和 toleration 相互配合，可以用来避免 pod 被分配到不合适的节点上。每个节点上都可以应用一个或多个 taint，这表示对于那些不能容忍这些 taint 的 pod，是不会被该节点接受的。如果将 toleration 应用于 pod 上，则表示这些 pod 可以（但不要求）被调度到具有匹配 taint 的节点上。
+
+可以使用命令 [kubectl taint](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint) 给节点增加一个 taint。例如
+
+```
+kubectl taint nodes node1 key=value:NoSchedule
+```
+
+给节点 `node1` 增加一个 taint，它的 key 是 `key`，value 是 `value`，effect 是 `NoSchedule`。这表示只有拥有和这个 taint 相匹配的 toleration 的 pod 才能够被分配到 `node1` 这个节点。您可以在 PodSpec 中定义 pod 的 toleration。下面两个 toleration 均与上面例子中使用 `kubectl taint` 命令创建的 taint 相匹配，因此如果一个 pod 拥有其中的任何一个 toleration 都能够被分配到 `node1` ：
+
+想删除上述命令添加的 taint ，可以运行：
+
+```
+kubectl taint nodes node1 key:NoSchedule-
+```
+
+您可以在 PodSpec 中为容器设定容忍标签。以下两个容忍标签都与上面的 `kubectl taint` 创建的污点“匹配”， 因此具有任一容忍标签的Pod都可以将其调度到 `node1` 上：
+
+```
+tolerations:
+- key: "key"
+  operator: "Equal"
+  value: "value"
+  effect: "NoSchedule"
+tolerations:
+- key: "key"
+  operator: "Exists"
+  effect: "NoSchedule"
+```
 
 
 
