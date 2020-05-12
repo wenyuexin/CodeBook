@@ -952,6 +952,209 @@ tolerations:
 
 
 
+The use of the `PreemptionPolicy` field requires the `NonPreemptingPriority` [feature gate](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/) to be enabled.
+
+An example use case is for data science workloads. A user may submit a job that they want to be prioritized above other workloads, but do not wish to discard existing work by preempting running pods. The high priority job with `PreemptionPolicy: Never` will be scheduled ahead of other queued pods, as soon as sufficient cluster resources “naturally” become free.
+
+例子
+
+```yaml
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: high-priority-nonpreempting
+value: 1000000
+preemptionPolicy: Never  # 此时Pod是Non-preempting
+globalDefault: false
+description: "This priority class will not cause other pods to be preempted."
+```
+
+### DaemonSet：在每个Node上都调度一个Pod
+
+官方文档：[DaemonSet - Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+
+DaemonSet是K8s 1.2版本新增的一种资源对象，用于管理在集群中每个Node上仅运行一份Pod的副本实例。
+
+*DaemonSet* 确保全部（或者某些）节点上运行一个 Pod 的副本。当有节点加入集群时， 也会为他们新增一个 Pod 。当有节点从集群移除时，这些 Pod 也会被回收。删除 DaemonSet 将会删除它创建的所有 Pod。
+
+DaemonSet 的一些典型用法：
+
+- 在每个节点上运行**集群存储** DaemonSet，例如 `glusterd`、`ceph`。
+- 在每个节点上运行**日志收集** DaemonSet，例如 `fluentd`、`logstash`。
+- 在每个节点上运行**监控** DaemonSet，例如 [Prometheus Node Exporter](https://github.com/prometheus/node_exporter)、[Flowmill](https://github.com/Flowmill/flowmill-k8s/)、[Sysdig 代理](https://docs.sysdig.com/)、`collectd`、[Dynatrace OneAgent](https://www.dynatrace.com/technologies/kubernetes-monitoring/)、[AppDynamics 代理](https://docs.appdynamics.com/display/CLOUD/Container+Visibility+with+Kubernetes)、[Datadog 代理](https://docs.datadoghq.com/agent/kubernetes/daemonset_setup/)、[New Relic 代理](https://docs.newrelic.com/docs/integrations/kubernetes-integration/installation/kubernetes-installation-configuration)、Ganglia `gmond` 或者 [Instana 代理](https://www.instana.com/supported-integrations/kubernetes-monitoring/)。
+
+一个简单的用法是在所有的节点上都启动一个 DaemonSet，将被作为每种类型的 daemon 使用。
+
+一个稍微复杂的用法是单独对每种 daemon 类型使用多个 DaemonSet，但具有不同的标志， 并且对不同硬件类型具有不同的内存、CPU 要求。
+
+DaemonSet的Pod调度策略与RC类似，除了使用系统内置的算法在每个Node上进行调度，也可以在Pod的定义中使用NodeSelector或NodeAffinity来指定满足条件的Node范围进行调度。
+
+#### 创建DaemonSet
+
+先在编写yaml文件，和其它所有 Kubernetes 配置一样，DaemonSet 需要 `apiVersion`、`kind` 和 `metadata` 字段。有关配置文件的基本信息，详见文档 [部署应用](https://kubernetes.io/docs/user-guide/deploying-applications/)、[配置容器](https://kubernetes.io/docs/tasks/) 和 [使用 kubectl 进行对象管理](https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/)。
+
+例子：
+
+```yaml
+# controllers/daemonset.yaml 
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd-elasticsearch
+  namespace: kube-system
+  labels:
+    k8s-app: fluentd-logging
+spec:
+  selector:
+    matchLabels:
+      name: fluentd-elasticsearch
+  template:
+    metadata:
+      labels:
+        name: fluentd-elasticsearch
+    spec:
+      tolerations:
+      # this toleration is to have the daemonset runnable on master nodes
+      # remove it if your masters can't run pods
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: fluentd-elasticsearch
+        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+        resources:
+          limits:           # 该资源的最小申请量，系统必须满足要求
+            memory: 200Mi
+          requests:         # 该资源最大允许使用的量，不能被突破
+            cpu: 100m
+            memory: 200Mi
+        volumeMounts:       # 将DaemonSet的数据卷挂载到容器中
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:               # 属于DaemonSet的数据卷
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+```
+
+然后，基于 YAML 文件创建 DaemonSet:
+
+```
+kubectl apply -f https://k8s.io/examples/controllers/daemonset.yaml
+```
+
+**Pod 模板**
+
+`.spec` 中唯一必需的字段是 `.spec.template`。
+
+`.spec.template` 是一个 [Pod 模板](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates)。除了它是嵌套的，并且不具有 `apiVersion` 或 `kind` 字段，它与 [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/) 具有相同的 schema。
+
+除了 Pod 必需字段外，在 DaemonSet 中的 Pod 模板必须指定合理的标签（查看 [Pod Selector](https://kubernetes.io/zh/docs/concepts/workloads/controllers/daemonset/#pod-selector)）。
+
+在 DaemonSet 中的 Pod 模板必须具有一个值为 `Always` 的 [`RestartPolicy`](https://kubernetes.io/docs/user-guide/pod-states)，或者未指定它的值，默认是 `Always`。
+
+**Pod Selector**
+
+`.spec.selector` 字段表示 Pod Selector，它与 [Job](https://kubernetes.io/docs/concepts/jobs/run-to-completion-finite-workloads/) 的 `.spec.selector` 的作用是相同的。
+
+从 K8s 1.8 开始，必须指定与 `.spec.template` 的标签匹配的 pod selector。当不配置时，pod selector 将不再有默认值。selector 默认与 `kubectl apply` 不兼容。 此外，一旦创建了 DaemonSet，它的 `.spec.selector` 就不能修改。修改 pod selector 可能导致 Pod 意外悬浮，并且这对用户来说是困惑的。
+
+`spec.selector` 表示一个对象，它由如下两个字段组成：
+
+- `matchLabels` - 与 [ReplicationController](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) 的 `.spec.selector` 的作用相同。
+- `matchExpressions` - 允许构建更加复杂的 Selector，可以通过指定 key、value 列表 ，以及与 key 和 value 列表相关的操作符。
+
+当上述两个字段都指定时，结果表示的是 AND 关系。
+
+如果指定了 `.spec.selector`，必须与 `.spec.template.metadata.labels` 相匹配。如果与它们配置的不匹配，则会被 API 拒绝。
+
+另外，通常不应直接通过另一个 DaemonSet 或另一个工作负载资源（例如 ReplicaSet）来创建其标签与该选择器匹配的任何 Pod。否则，DaemonSet [控制器](https://kubernetes.io/docs/admin/kube-controller-manager/)会认为这些 Pod 是由它创建的。Kubernetes 不会阻止你这样做。您可能要执行此操作的一种情况是，手动在节点上创建具有不同值的 Pod 进行测试。
+
+#### 如何调度 Daemon Pods
+
+DaemonSet 确保所有符合条件的节点都运行该 Pod 的一个副本。通常，运行 Pod 的节点由 Kubernetes 调度器抉择。不过，DaemonSet pods 由 DaemonSet 控制器创建和调度。这将引入以下问题：
+
+- Pod 行为的不一致性：等待调度的正常 Pod 已被创建并处于 `Pending` 状态，但 DaemonSet pods 未在 `Pending` 状态下创建。 这使用户感到困惑。
+- [Pod preemption](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)由默认 scheduler 处理。 启用抢占后，DaemonSet 控制器将在不考虑 pod 优先级和抢占的情况下制定调度决策。
+
+`ScheduleDaemonSetPods` 允许个人使用默认调度器，而不是 DaemonSet 控制器来调度 DaemonSets。方法是将 `NodeAffinity` 添加到 DaemonSet pods，而不是 `.spec.nodeName`。 然后使用默认调度器将 pod 绑定到目标主机。 如果 DaemonSet pod 的亲和节点已存在，则替换它。 DaemonSet 控制器仅在创建或修改 DaemonSet pods 时执行这些操作，并且不对 DaemonSet 的 `spec.template` 进行任何更改。例如：
+
+```yaml
+nodeAffinity:
+  requiredDuringSchedulingIgnoredDuringExecution:
+    nodeSelectorTerms:
+    - matchFields:
+      - key: metadata.name
+        operator: In
+        values:
+        - target-host-name
+```
+
+**污点和容忍度**
+
+尽管 Daemon Pods 遵循 [污点和容忍度](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration) 规则，根据相关特性，会自动将以下容忍度添加到 DaemonSet Pods 中。
+
+| 容忍度关键词                             | 影响       | 版本  | 描述                                                         |
+| :--------------------------------------- | :--------- | :---- | :----------------------------------------------------------- |
+| `node.kubernetes.io/not-ready`           | NoExecute  | 1.13+ | DaemonSet pods will not be evicted when there are node problems such as a network partition. |
+| `node.kubernetes.io/unreachable`         | NoExecute  | 1.13+ | DaemonSet pods will not be evicted when there are node problems such as a network partition. |
+| `node.kubernetes.io/disk-pressure`       | NoSchedule | 1.8+  |                                                              |
+| `node.kubernetes.io/memory-pressure`     | NoSchedule | 1.8+  |                                                              |
+| `node.kubernetes.io/unschedulable`       | NoSchedule | 1.12+ | DaemonSet pods tolerate unschedulable attributes by default scheduler. |
+| `node.kubernetes.io/network-unavailable` | NoSchedule | 1.12+ | DaemonSet pods, who uses host network, tolerate network-unavailable attributes by default scheduler. |
+
+#### 与 Daemon Pods 通信
+
+与 DaemonSet 中的 Pod 进行通信的几种可能模式如下：
+
+- **Push**：将 DaemonSet 中的 Pod 配置为将更新发送到另一个 Service，例如统计数据库。
+- **NodeIP 和已知端口**：DaemonSet 中的 Pod 可以使用 `hostPort`，从而可以通过节点 IP 访问到 Pod。客户端能通过某种方法获取节点 IP 列表，并且基于此也可以获取到相应的端口。
+- **DNS**：创建具有相同 Pod Selector 的 [Headless Service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)，然后通过使用 `endpoints` 资源或从 DNS 中检索到多个 A 记录来发现 DaemonSet。
+- **Service**：创建具有相同 Pod Selector 的 Service，并使用该 Service 随机访问到某个节点上的 daemon（没有办法访问到特定节点）。
+
+
+
+
+
+
+
+### Job：批处理调度
+
+
+
+
+
+### Cronjob：定时任务
+
+
+
+
+
+### 自定义调度器
+
+
+
+
+
+## 8 **Init Container** —— 初始化容器
+
+
+
+
+
+## 9 Pod的升级与回滚
+
+
+
+
+
+## 10 Pod的扩容与缩容
 
 
 
