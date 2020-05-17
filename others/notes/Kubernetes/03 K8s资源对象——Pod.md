@@ -1,6 +1,8 @@
 # K8s资源对象——Pod
 
-Pod的基本介绍在文件`基本概念.md`有所描述。
+Pod的基本介绍在文件`基本概念.md`有所描述。本文中，除了介绍Pod的创建、使用、生命周期等内容外，主要精力在于说明Pod的调度（也就是什么Pod放到什么Node上）。
+
+<br>
 
 Pod 是最小可部署的 Kubernetes 对象模型，是 Kubernetes 应用程序的基本执行单元；就像一个豌豆荚包含了多个豌豆，Pod是一组容器（例如 Docker 容器），封装了应用程序容器（某些情况下封装多个容器）、存储资源、唯一网络 IP 以及控制容器应该如何运行的选项。
 
@@ -27,13 +29,13 @@ spec包含非常多的具体项，这里就不展开了。
 
 Pod可以包含一个或者多个容器。对于多个容器的情况，例如：
 
-```
+```yaml
 apiVersion: v1 
 kind: Pod
 metadata :
-  name: redis-php
+  name: redis-php    # Pod的名称
   labels:
-    name: redis-php 
+    name: redis-php  # 定义标签
 spec:
   containers:
   - name: frontend   # 容器1
@@ -162,7 +164,7 @@ k8s中的Volume和docker中的Volume有所区别，前者属于Pod，Pod中的�
 
 例如：
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -208,7 +210,7 @@ Unlike most Kubernetes objects that have a `spec`, a ConfigMap has a **`data` se
 
 例1
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -231,7 +233,7 @@ data:
 例2
 
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -283,7 +285,7 @@ configmap "cm-appvars" created
 
 以下面这个ConfigMap为例
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -295,7 +297,7 @@ metadata:
 
 然后，使用**valueFrom**将ConfigMap中的键值对导入Pod中：
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -323,7 +325,7 @@ spec:
 
 Kubernetes从1.6版本开始，引入了一个新的字段**envFrom**，实现了在Pod环境中将ConfigMap（也可用于Secret资源对象）中所有定义的`key=value`自动生成为环境变量：
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata :
@@ -358,7 +360,7 @@ data:
 
 然后将`cm-appconfigfiles`中的内容以文件的形式mount到容器内的`/configfiles`目录下。即
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -369,7 +371,7 @@ spec:
     image: kubeguide/tomcat-app:v1
     ports:
     - containerPort: 8080
-    volumeMounts : 
+    volumeMounts: 
     - name: serverxml               # 引用volume的名称
       mountPath: /configfiles       # 挂载到容器内的目录
   volumes:
@@ -385,7 +387,7 @@ spec:
 
 另一个例子：
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -454,7 +456,7 @@ spec:
 
 - 通过环境变量获取
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -502,7 +504,7 @@ spec:
 在文件`02 基本概念.md`中有提过，K8s的Volume支持多种类型的卷，其中就包括`downwardAPI`
 
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -627,7 +629,7 @@ PodSpec 中有一个 `restartPolicy` 字段，可能的值为 **Always**（默�
 
 ### 使用Probe的例子
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -741,11 +743,11 @@ Deployment的滚动升级也是借助ReplicaSet实现的。实际应用中，应
 
 相关内容点可以参考官方文档：[将 Pod 分配给节点 - Kubernetes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
 
-### Deployment自动调度
+### Deployment 自动调度
 
 例如
 
-```
+```yaml
 # nginx-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -782,7 +784,7 @@ spec:
 
 - 然后，在Pod的定义中加上nodeSelector的设置
 
-```
+```yaml
 # pods/pod-nginx.yaml 
 apiVersion: v1
 kind: Pod
@@ -821,8 +823,8 @@ spec:
 
 NodeAffinity意为Node亲和性的调度策略，是用于替换NodeSelector的全新调度策略。目前有两种节点亲和性表达。
 
-- RequiredDuringSchedulingIgnoredDuringExecution：必须满足指定的规则才可以调度Pod到Node上（*功能与nodeSelector很像，但是使用的是不同的语法*），相当于硬限制。
--  PreferredDuringSchedulingIgnoredDuringExecution：强调优先满足指定规则，调度器会尝试调度Pod到Node上，但并不强求，相当于软限制。多个优先级规则还可以设置权重（weight）值，以定义执行的先后顺序。
+- **RequiredDuringSchedulingIgnoredDuringExecution**：必须满足指定的规则才可以调度Pod到Node上（*功能与nodeSelector很像，但是使用的是不同的语法*），相当于硬限制。
+-  **PreferredDuringSchedulingIgnoredDuringExecution**：强调优先满足指定规则，调度器会尝试调度Pod到Node上，但并不强求，相当于软限制。多个优先级规则还可以设置权重（weight）值，以定义执行的先后顺序。
 
 `IgnoredDuringExecution`的意思是：如果一个Pod所在的节点在Pod运行期间标签发生了变更，不再符合该Pod的节点亲和性需求，则系统将忽略Node上Label的变化，该Pod能继续在该节点运行。
 
@@ -915,42 +917,213 @@ spec:
     image: k8s.gcr.io/pause:2.0
 ```
 
-### Taints和Tolerations（污点和容忍）
+### Taints（污点）和 Tolerations（容忍）
+
+Taints [teɪnt] v. / n.
 
 节点亲和性（NodeAffinity），是pod的一种属性（偏好或硬性要求），它使pod被吸引到一类特定的节点。Taint 则相反，它**使节点能够拒绝特定的pod**。
 
-Taint 和 toleration 相互配合，可以用来避免 pod 被分配到不合适的节点上。每个节点上都可以应用一个或多个 taint，这表示对于那些不能容忍这些 taint 的 pod，是不会被该节点接受的。如果将 toleration 应用于 pod 上，则表示这些 pod 可以（但不要求）被调度到具有匹配 taint 的节点上。
+**Taint 和 toleration 相互配合，可以用来避免 pod 被分配到不合适的节点上**。每个节点上都可以应用一个或多个 taint，这表示对于那些不能容忍这些 taint 的 pod，是不会被该节点接受的。如果将 toleration 应用于 pod 上，则表示这些 pod 可以（但不要求）被调度到具有匹配 taint 的节点上。即，Taints应用于节点，Tolerations应用于Pod，只要Pod可以容忍节点上的Taints，就可以调度过去。
 
-可以使用命令 [kubectl taint](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint) 给节点增加一个 taint。例如
+个人认为，Taints、Tolerations的作用与NodeSelector、NodeAffinity类似，但是后两者是给节点定义了某种“正面”的标签，Pod根据标签定义的“亲近程度”进行判断，如果匹配则将Pod调度到相关Node上。而Taints、Tolerations相反，是给Node定义“反面”标签作为污点，Pod先确认是否可以容忍，只有Pod与Node相互匹配才可以完成Pod调度。
+
+#### 在具体使用
+
+可以使用命令 [kubectl taint](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint) 给节点增加一个 taint。例如：
 
 ```
-kubectl taint nodes node1 key=value:NoSchedule
+kubectl taint nodes node1 key1=value1:NoSchedule
 ```
 
-给节点 `node1` 增加一个 taint，它的 key 是 `key`，value 是 `value`，effect 是 `NoSchedule`。这表示只有拥有和这个 taint 相匹配的 toleration 的 pod 才能够被分配到 `node1` 这个节点。您可以在 PodSpec 中定义 pod 的 toleration。下面两个 toleration 均与上面例子中使用 `kubectl taint` 命令创建的 taint 相匹配，因此如果一个 pod 拥有其中的任何一个 toleration 都能够被分配到 `node1` ：
+给节点 `node1` 增加一个 taint，它的 key 是 `key1`，value 是 `value1`，effect 是 `NoSchedule`。这表示只有拥有和这个 taint 相匹配的 toleration 的 pod 才能够被分配到 `node1` 这个节点。可以在 PodSpec 中定义 pod 的 toleration。下面两个 toleration 均与上面例子中使用 `kubectl taint` 命令创建的 taint 相匹配，因此如果一个 pod 拥有其中的任何一个 toleration 都能够被分配到 `node1` ：
 
 想删除上述命令添加的 taint ，可以运行：
 
 ```
-kubectl taint nodes node1 key:NoSchedule-
+kubectl taint nodes node1 key1:NoSchedule-
 ```
 
-您可以在 PodSpec 中为容器设定容忍标签。以下两个容忍标签都与上面的 `kubectl taint` 创建的污点“匹配”， 因此具有任一容忍标签的Pod都可以将其调度到 `node1` 上：
+可以在 PodSpec 中为容器设定容忍标签。以下两个容忍标签都与上面的 `kubectl taint` 创建的污点“匹配”， 因此具有任一容忍标签的Pod都可以将其调度到 `node1` 上：
 
 ```
 tolerations:
-- key: "key"
-  operator: "Equal"
-  value: "value"
+- key: "key1"
+  operator: "Equal"  # 这里要求key value和effect都相同
+  value: "value1"
   effect: "NoSchedule"
+```
+
+```
 tolerations:
-- key: "key"
+- key: "key1"
+  operator: "Exists"  # 这里要求key和effect相同即可
+  effect: "NoSchedule"
+```
+
+一个 **toleration 和一个 taint 相匹配**是指它们有一样的 key 和 effect ，并且：
+
+- 如果 `operator` 是 `Exists` （此时 toleration 不能指定 `value`），或者
+- 如果 `operator` 是 `Equal` ，则它们的 `value` 应该相等
+
+注意：存在两种特殊情况：
+
+- 如果一个 toleration 的 `key` 为空且 operator 为 `Exists`，那么这个 toleration 与任意的 key 、value 和 effect 都匹配，即这个 toleration 能容忍任意 taint。
+
+  ```yaml
+  tolerations:
+  - operator: "Exists"
+  ```
+
+- An empty `effect` matches all effects with key `key`.
+
+  ```yaml
+  tolerations:
+  - key: "key"
   operator: "Exists"
-  effect: "NoSchedule"
+  ```
+
+#### 关于effect
+
+`effect` 的值可以是 `NoSchedule, PreferNoSchedule, NoExecute`。
+
+其中， `PreferNoSchedule`是“优化”或“软”版本的 `NoSchedule` ——系统会 *尽量* 避免将 pod 调度到存在其不能容忍 taint 的节点上，但这不是强制的。
+
+`effect` 的值还可以设置为 `NoExecute`，此时的判断方式如下：
+
+**一个节点可以添加多个 taint ，一个 pod 也可以添加多个 toleration**。Kubernetes 处理多个 taint 和 toleration 的过程就像一个过滤器：先遍历Node上的所有 taint ，忽略那些与 pod的toleration 相匹配的的 taint。余下未被忽略的 taint 的 effect 值决定了 pod 是否会被分配到该节点。特别是以下情况：
+
+- 如果未被过滤的 taint 中存在**一个以上** effect 值为 `NoSchedule` 的 taint，则 Kubernetes 不会将 pod 分配到该节点。
+- 如果未被过滤的 taint 中不存在 effect 值为 `NoSchedule` 的 taint，但是存在 effect 值为 `PreferNoSchedule` 的 taint，则 Kubernetes 会 *尝试* 将 pod 分配到该节点。
+- 如果未被过滤的 taint 中存在**一个以上** effect 值为 `NoExecute` 的 taint，则 Kubernetes 不会将 pod 分配到该节点（如果 pod 还未在节点上运行），或者将 pod 从该节点驱逐（如果 pod 已经在节点上运行）。
+
+总之，忽略调与toleration相匹配的taint ，对于剩下的taint ，取决于effect的值。
+
+例如，假设您给一个节点添加了如下的 taint
+
+```shell
+kubectl taint nodes node1 key1=value1:NoSchedule
+kubectl taint nodes node1 key1=value1:NoExecute
+kubectl taint nodes node1 key2=value2:NoSchedule
 ```
 
+然后存在一个 pod，它有两个 toleration：
 
+```yaml
+tolerations:
+- key: "key1"           # 与key1=value1:NoSchedule匹配
+  operator: "Equal"
+  value: "value1"
+  effect: "NoSchedule"
+- key: "key1"           # 与key1=value1:NoExecute匹配
+  operator: "Equal"
+  value: "value1"
+  effect: "NoExecute"
+```
 
+在这个例子中，上述 pod 不会被分配到上述节点，因为其没有 toleration 和第三个 taint 相匹配。但是如果在给节点添加上述 taint 之前，该 pod 已经在上述节点运行，那么它还可以继续运行在该节点上，因为第三个 taint 是三个 taint 中唯一不能被这个 pod 容忍的。
+
+#### 应用
+
+- **专用节点**：如果您想将某些节点专门分配给特定的一组用户使用，您可以给这些节点添加一个 taint（即， `kubectl taint nodes nodename dedicated=groupName:NoSchedule`），然后给这组用户的 pod 添加一个相对应的 toleration（通过编写一个自定义的 [admission controller](https://kubernetes.io/docs/admin/admission-controllers/)，很容易就能做到）。
+
+- **配备了特殊硬件的节点**：在部分节点配备了特殊硬件（比如 GPU）的集群中，我们希望不需要这类硬件的 pod 不要被分配到这些特殊节点，以便为后继需要这类硬件的 pod 保留资源。要达到这个目的，可以先给配备了特殊硬件的节点添加 taint（例如 `kubectl taint nodes nodename special=true:NoSchedule` or `kubectl taint nodes nodename special=true:PreferNoSchedule`)，然后给使用了这类特殊硬件的 pod 添加一个相匹配的 toleration。
+
+- **基于 taint 的驱逐**：这是在每个 pod 中配置的在节点出现问题时的驱逐行为，可以参考以下链接
+
+  [基于 taint 的驱逐](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/#%E5%9F%BA%E4%BA%8E-taint-%E7%9A%84%E9%A9%B1%E9%80%90) 
+
+- **基于节点状态添加 taint**：Node 生命周期控制器会自动创建与 Node 条件相对应的带有 `NoSchedule` 效应的污点。 同样，调度器不检查节点条件，而是检查节点污点。这确保了节点条件不会影响调度到节点上的内容。用户可以通过添加适当的 Pod 容忍度来选择忽略某些 Node 的问题(表示为 Node 的调度条件)。
+
+  自 K8s 1.8 起， DaemonSet 控制器自动为所有守护进程添加如下 `NoSchedule` toleration 以防 DaemonSet 崩溃：
+
+  - `node.kubernetes.io/memory-pressure`
+  - `node.kubernetes.io/disk-pressure`
+  - `node.kubernetes.io/out-of-disk` (*只适合 critical pod*)
+  - `node.kubernetes.io/unschedulable` (1.10 或更高版本)
+  - `node.kubernetes.io/network-unavailable` (*只适合 host network*)
+
+### Pod Priority Preemption：优先级抢占
+
+preemption [ˌpriːˈempʃn] 抢占; 先发制人; 先占; 先买权; 优先
+
+更多相关内容参见：[Pod Priority and Preemption - Kubernetes](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
+
+[Pods](https://kubernetes.io/docs/user-guide/pods) can have *priority*. **Priority indicates the importance of a Pod relative to other Pods**. If a Pod cannot be scheduled, the scheduler tries to preempt (evict) lower priority Pods to make scheduling of the pending Pod possible.
+
+注意: In a cluster where not all users are trusted, a malicious user could create Pods at the highest possible priorities, causing other Pods to be evicted/not get scheduled. An administrator can use `ResourceQuota` to prevent users from creating pods at high priorities. 【防止恶意用户创建高优先级的Pod】
+
+#### How to use priority and preemption
+
+1. Add one or more [PriorityClasses](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass).
+2. Create Pods with[`priorityClassName`](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#pod-priority) set to one of the added PriorityClasses. Of course you do not need to create the Pods directly; normally you would add `priorityClassName` to the Pod template of a collection object like a Deployment. 在Pod模板中添加`priorityClassName` 即可
+
+例子
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+  env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx 
+    imagePullPolicy: IfNotPresent
+  priorityClassName: high-priority
+```
+
+如果发生了需要抢占的调度，高优先级Pod就可能抢占节点N，并将其低优先级Pod驱逐出节点N，高优先级Pod的status信息中的nominatedNodeName字段会记录目标节点N的名称。
+
+其次，高优先级Pod仍然无法保证最终被调度到节点N上，在节点N上低优先级Pod被驱逐的过程中，如果有新的节点满足高优先级Pod的需求，就会把它调度到新的Node上。而如果在等待低优先级的Pod退出的过程中，又出现了优先级更高的Pod，调度器将会调度这个更高优先级的Pod到节点N上，并重新调度之前等待的高优先级Pod。【抢占过程中出现了更高级的Pod，则优先调度这个Pod】
+
+最后，使用优先级抢占的调度策略可能会导致某些Pod永远无法被成功调度。因此优先级调度不但增加了系统的复杂性，还可能带来额外不稳定的因素。因此，**一旦发生资源紧张的局面，应优先要考虑的是集群扩容，如果无法扩容，则再考虑有监管的优先级调度特性**，比如结合基于Namespace的资源配额限制来约束任意优先级抢占行为。
+
+#### How to disable preemption
+
+Preemption is controlled by a kube-scheduler flag `disablePreemption`, which is set to `false` by default. If you want to disable preemption despite the above note, you can set `disablePreemption` to `true`.
+
+This option is available in component configs only and is not available in old-style command line options. Below is a sample component config to disable preemption:
+
+```yaml
+apiVersion: kubescheduler.config.k8s.io/v1alpha1
+kind: KubeSchedulerConfiguration
+algorithmSource:
+  provider: DefaultProvider
+...
+disablePreemption: true  # 屏蔽preemption
+```
+
+#### PriorityClass
+
+A PriorityClass is a non-namespaced object that **defines a mapping from a priority class name to the integer value of the priority**【定义了priority class name到优先级整数之间的映射】. The name is specified in the `name` field of the PriorityClass object’s metadata. The value is specified in the required `value` field. The higher the value, the higher the priority. The name of a PriorityClass object must be a valid [DNS subdomain name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names#dns-subdomain-names), and it cannot be prefixed with `system-`.
+
+A PriorityClass object can have any 32-bit integer value smaller than or equal to 1 billion. Larger numbers are reserved for critical system Pods that should not normally be preempted or evicted. A cluster admin should create one PriorityClass object for each such mapping that they want.
+
+PriorityClass also has two optional fields: `globalDefault` and `description`. The `globalDefault` field indicates that the value of this PriorityClass should be used for Pods without a `priorityClassName`. **Only one PriorityClass with `globalDefault` set to true can exist in the system**. If there is no PriorityClass with `globalDefault` set, the priority of Pods with no `priorityClassName` is zero.
+
+The `description` field is an arbitrary string. It is meant to tell users of the cluster when they should use this PriorityClass. 【可选字段`description` 说明何时使用PriorityClass】
+
+例子
+
+```yaml
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: high-priority
+value: 1000000
+globalDefault: false 
+description: "This priority class should be used for XYZ service pods only."
+```
+
+#### Non-preempting PriorityClass
+
+Pods with `PreemptionPolicy: Never` will be placed in the scheduling queue ahead of lower-priority pods, but they cannot preempt other pods. A non-preempting pod waiting to be scheduled will stay in the scheduling queue, until sufficient resources are free, and it can be scheduled. Non-preempting pods, like other pods, are subject to scheduler back-off. This means that if the scheduler tries these pods and they cannot be scheduled, they will be retried with lower frequency, allowing other pods with lower priority to be scheduled before them. 【`PreemptionPolicy: Never`的Pod会在低优先级的Pod前，但不会抢占，而是在队列中等待资源充足时被调度】
+
+Non-preempting pods may still be preempted by other, high-priority pods. 【但仍然会被其他Pod抢占】
+
+`PreemptionPolicy` defaults to `PreemptLowerPriority`, which will allow pods of that PriorityClass to preempt lower-priority pods (as is existing default behavior). If `PreemptionPolicy` is set to `Never`, pods in that PriorityClass will be non-preempting. 【字段的默认值为`PreemptLowerPriority`】
 
 The use of the `PreemptionPolicy` field requires the `NonPreemptingPriority` [feature gate](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/) to be enabled.
 
@@ -1098,7 +1271,7 @@ nodeAffinity:
 
 **污点和容忍度**
 
-尽管 Daemon Pods 遵循 [污点和容忍度](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration) 规则，根据相关特性，会自动将以下容忍度添加到 DaemonSet Pods 中。
+尽管Daemon Pods遵循 [污点和容忍度](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration) 规则，根据相关特性，会自动将以下容忍度添加到 DaemonSet Pods 中。
 
 | 容忍度关键词                             | 影响       | 版本  | 描述                                                         |
 | :--------------------------------------- | :--------- | :---- | :----------------------------------------------------------- |
@@ -1118,17 +1291,99 @@ nodeAffinity:
 - **DNS**：创建具有相同 Pod Selector 的 [Headless Service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)，然后通过使用 `endpoints` 资源或从 DNS 中检索到多个 A 记录来发现 DaemonSet。
 - **Service**：创建具有相同 Pod Selector 的 Service，并使用该 Service 随机访问到某个节点上的 daemon（没有办法访问到特定节点）。
 
+#### 更新 DaemonSet
 
+如果修改了节点标签，DaemonSet 将立刻向新匹配上的节点添加 Pod，同时删除不能够匹配的节点上的 Pod。
 
+个人可以修改 DaemonSet 创建的 Pod，但是不允许对 Pod 的所有字段进行更新。并且当下次 节点（即使具有相同的名称）被创建时，DaemonSet Controller 将继续使用最初的模板。
 
+可以删除一个 DaemonSet。如果使用 `kubectl` 并指定 `--cascade=false` 选项，则 Pod 将被保留在节点上。然后可以创建具有不同模板的新 DaemonSet。具有不同模板的新 DaemonSet 将能够通过标签匹配并识别所有已经存在的 Pod。 如果有任何 Pod 需要替换，则 DaemonSet 根据它的 `updateStrategy` 来替换。
 
+#### DaemonSet 的可替代选择
 
+init 脚本、裸Pod、静态Pod、Deployments
 
 ### Job：批处理调度
 
+K8s从1.2版本开始支持批处理类型的应用。可以通过Kubernetes Job资源对象来定义并启动一个批处理任务。
 
+批处理任务通常并行（或者串行）启动多个计算进程去处理一批工作项（work item），处理完成后，整个批处理任务结束。按照批处理任务实现方式的不同，批处理任务可以分为以下几种模式（建议用后两种）：
 
+- `Job Template Expansion`模式：**一个Job对象对应一个待处理的Work item，有几个Work item就产生几个独立的Job**，通常适合Work item数量少、每个Work item要处理的数据量比较大的场景，比如有一个100GB的文件作为一个Work item，总共有10个文件需要处理。
 
+  由于在这种模式下每个Work item对应一个Job实例，所以这种模式首先定义一个Job模板，模板里的主要参数是Work item的标识，因为每个Job都处理不同的Work item。
+
+  例：
+
+  先定义模板
+
+  ```
+  # application/job/job-tmpl.yaml 
+  
+  apiVersion: batch/v1
+  kind: Job
+  metadata:
+    name: process-item-$ITEM   # The $ITEM syntax is not meaningful to K8s
+    labels:
+      jobgroup: jobexample
+  spec:
+    template:
+      metadata:
+        name: jobexample
+        labels:
+          jobgroup: jobexample
+      spec:
+        containers:
+        - name: c
+          image: busybox
+          command: ["sh", "-c", "echo Processing item $ITEM && sleep 5"]
+        restartPolicy: Never
+  ```
+
+  通过下面的操作，生成了3个对应的Job定义文件并创建Job
+
+  ```
+  # Expand the template into multiple files, one for each item to be processed.
+  mkdir ./jobs
+  for i in apple banana cherry
+  do
+    cat job-tmpl.yaml | sed "s/\$ITEM/$i/" > ./jobs/job-$i.yaml
+  done
+  ```
+
+  
+
+- `Queue with Pod Per Work Item`模式：**用一个任务队列存放Work item，一个Job对象作为消费者去完成这些Work item**，在这种模式下，**Job会启动N个Pod**，每个Pod都对应一个Work item。
+
+  在这种模式下需要一个任务队列存放Work item，比如RabbitMQ，客户端程序先把要处理的任务变成Work item放入任务队列，然后编写Worker程序、打包镜像并定义成为Job中的Work Pod。Worker程序的实现逻辑是从任务队列中拉取一个Work item并处理，在处理完成后即结束进程。
+
+- `Queue with Variable Pod Count`模式：**也是用一个任务队列存放Work item**，一个**Job对象作为消费者**去完成这些Work item，但与上面的模式不同，**Job启动的Pod数量是可变的**。
+
+  这种模式下，Worker程序需要知道队列中是否还有等待处理的Work item，如果有就取出来处理，否则就认为所有工作完成并结束进程，所以任务队列通常要采用Redis或者数据库来实现。
+
+还有一种被称为`Single Job with Static Work Assignment`的模式，也是一个Job产生多个Pod，但它采用程序静态方式分配任务项，而不是采用队列模式进行动态分配。
+
+|                           Pattern                            | Single Job object<br>是否是一个Job | Fewer pods than work items?<br>Pod数量是否小于Work items数量 | Use app unmodified?<br>用户程序是否需要修改 | Works in Kube 1.1? |
+| :----------------------------------------------------------: | :--------------------------------: | :----------------------------------------------------------: | :-----------------------------------------: | :----------------: |
+| [Job Template Expansion](https://kubernetes.io/docs/tasks/job/parallel-processing-expansion/) |                                    |                                                              |                      ✓                      |         ✓          |
+| [Queue with Pod Per Work Item](https://kubernetes.io/docs/tasks/job/coarse-parallel-processing-work-queue/) |                 ✓                  |                                                              |                  sometimes                  |         ✓          |
+| [Queue with Variable Pod Count](https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/) |                 ✓                  |                              ✓                               |                                             |         ✓          |
+|            Single Job with Static Work Assignment            |                 ✓                  |                                                              |                      ✓                      |                    |
+
+考虑到批处理的并行问题，Kubernetes将Job分以下几种类型：
+
+**a) Non-parallel Jobs**
+通常一个Job只启动一个Pod，除非Pod异常，才会重启该Pod，一旦此Pod正常结束，Job将结束。
+
+**b) Parallel Jobs with a fixed completion count**
+并行Job会启动多个Pod，此时需要设定Job的`.spec.completions`参数为一个正数，当正常结束的Pod数量达至此参数设定的值后，Job结束。此外，Job的`.spec.parallelism`参数用来控制并行度，即同时启动几个Job来处理Work Item。
+
+**c) Parallel Jobs with a work queue**
+任务队列方式的并行Job需要一个独立的Queue，Work item都在一个Queue中存放，不能设置Job的`.spec.completions`参数，此时Job有以下特性。
+◎ 每个Pod都能独立判断和决定是否还有任务项需要处理。
+◎ 如果某个Pod正常结束，则Job不会再启动新的Pod。
+◎ 如果一个Pod成功结束，则此时应该不存在其他Pod还在工作的情况，它们应该都处于即将结束、退出的状态。
+◎ 如果所有Pod都结束了，且至少有一个Pod成功结束，则整个Job成功结束
 
 ### Cronjob：定时任务
 
