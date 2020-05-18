@@ -1317,7 +1317,7 @@ K8s从1.2版本开始支持批处理类型的应用。可以通过Kubernetes Job
 
   先定义模板
 
-  ```
+  ```yaml
   # application/job/job-tmpl.yaml 
   
   apiVersion: batch/v1
@@ -1386,6 +1386,48 @@ K8s从1.2版本开始支持批处理类型的应用。可以通过Kubernetes Job
 ◎ 如果所有Pod都结束了，且至少有一个Pod成功结束，则整个Job成功结束
 
 ### Cronjob：定时任务
+
+**FEATURE STATE:** `Kubernetes v1.8 [beta]`
+
+*Cron Job* 创建基于时间调度的 [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)。
+
+定时任务Cron Job类似于Linux Cron（cron是一个linux下的定时执行工具，相当于windows下的scheduled task，可以在无需人工干预的情况下定时地运行任务task）
+
+一个 CronJob 对象就像 *crontab* (cron table) 文件中的一行。它用 [Cron](https://en.wikipedia.org/wiki/Cron) 格式进行编写，并周期性地在给定的调度时间执行 Job。
+
+**注意：** 所有 **CronJob** 的 `schedule:` 时间都使用 UTC 时间表示。
+
+When creating the manifest for a CronJob resource, make sure the name you provide is a valid [DNS subdomain name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names#dns-subdomain-names). **The name must be no longer than 52 characters**. This is because the CronJob controller will automatically append 11 characters to the job name provided and there is a constraint that the maximum length of a Job name is no more than 63 characters. 【名称程度不能超过52个字符】
+
+CronJobs are useful for creating periodic and recurring tasks, like running backups or sending emails. CronJobs can also schedule individual tasks for a specific time, such as scheduling a Job for when your cluster is likely to be idle (闲置的).
+
+例子
+
+```yaml
+# application/job/cronjob.yaml 
+# prints the current time and a hello message every minute
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+```
+
+
 
 
 

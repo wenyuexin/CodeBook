@@ -24,6 +24,7 @@ Kubernetes简称K8s，是由谷歌开源的Docker容器集群管理系统（其�
 2. [Kubernetes Documentation](https://kubernetes.io/docs/home/)
 3. 《Kubernetes权威指南：从Docker到Kubernetes实践全接触（第4版）》龚正，电子工业出版社
 4. 《Docker技术入门与实战（第3版）》杨保华，机械工业出版社
+5. 《Kubernetes Learning Path: 50 days from zero to hero with Kubernetes》
 
 资料说明
 
