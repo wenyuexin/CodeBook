@@ -21,6 +21,10 @@ Pod 是最小可部署的 Kubernetes 对象模型，是 Kubernetes 应用程序�
 
 spec包含非常多的具体项，这里就不展开了。
 
+**本文目录**
+
+[TOC]
+
 ## 1 基本用法
 
 使用Docker时，可以使用docker run命令创建并启动一个容器。而在Kubernetes系统中对长时间运行容器的要求是：其主程序需要一直在前台执行。
@@ -1412,7 +1416,7 @@ kind: CronJob
 metadata:
   name: hello
 spec:
-  schedule: "*/1 * * * *"
+  schedule: "*/1 * * * *"   # 调度方式
   jobTemplate:
     spec:
       template:
@@ -1427,25 +1431,279 @@ spec:
           restartPolicy: OnFailure
 ```
 
+上文`schedule`的基本格式为：
 
+```
+Minutes Hours DayofMonth Month DayofWeek Year
+```
 
+各个字段的说明：
 
+```
+Field name   | Mandatory? | Allowed values  | Allowed special characters
+----------   | ---------- | --------------  | --------------------------
+Seconds      | Yes        | 0-59            | * / , -
+Minutes      | Yes        | 0-59            | * / , -
+Hours        | Yes        | 0-23            | * / , -
+Day of month | Yes        | 1-31            | * / , - ?
+Month        | Yes        | 1-12 or JAN-DEC | * / , -
+Day of week  | Yes        | 0-6 or SUN-SAT  | * / , - ?
+```
 
+表达式中的特殊字符的含义如下：
+Asterisk `*`：表示匹配该域的任意值，假如在Minutes域使用`*`，则表示每分钟都会触发事件。
+Slash `/`：表示从起始时间开始触发，然后每隔固定时间触发一次，例如在Minutes域设置为5/20，则意味着第1次触发在第5min时，接下来每20min触发一次，将在第25min、第45min等时刻分别触发。
 
+Comma ` , `：Commas are used to separate items of a list. For example, using "MON,WED,FRI" in the 5th field (day of week) would mean Mondays, Wednesdays and Fridays. 表示items列表
+
+Hyphen `-`：Hyphens are used to define ranges. For example, 9-17 would indicate every hour between 9am and 5pm inclusive. 表示范围
+
+Question mark `?`：Question mark may be used instead of `*` for leaving either day-of-month or day-of-week blank. 表示留空不写
+
+补充内容
+
+[Cron expression format](https://pkg.go.dev/github.com/robfig/cron?tab=doc#hdr-CRON_Expression_Format) documents the format of CronJob `schedule` fields.
+
+For instructions on creating and working with cron jobs, and for an example of CronJob manifest, see [Running automated tasks with cron jobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs).
 
 ### 自定义调度器
 
+一般情况下，每个新Pod都会由默认的调度器进行调度。但是如果在Pod中提供了自定义的调度器名称，那么默认的调度器会忽略该Pod，转由指定的调度器完成Pod的调度。
 
+A scheduler is specified by supplying the scheduler name as a value to `spec.schedulerName`.
 
-
+参考资料：[Configure Multiple Schedulers](https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/)
 
 ## 8 **Init Container** —— 初始化容器
 
+官方文档：[Init Containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)
 
+init containers: specialized containers that run before app containers in a [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/). Init containers can contain utilities or setup scripts not present in an app image.
 
+init containers用于在启动应用容器（app container）之前启动一个或多个初始化容器，完成应用容器所需的预置条件。
 
+You can specify init containers in the Pod specification alongside the `containers` array (which describes app containers).
+
+### **理解**
+
+Pod 可以包含多个容器，应用运行在这些容器里面，同时 Pod 也可以有一个或多个先于应用容器启动的 Init 容器。
+
+如果 Pod 的 Init 容器失败，Kubernetes 会不断地重启该 Pod，直到 Init 容器成功为止。然而，如果 Pod 对应的 `restartPolicy` 值为 Never，它不会重新启动。
+
+指定容器为 Init 容器，需要在 Pod 的 spec 中添加 `initContainers` 字段， 该字段內以Container类型对象数组的形式组织，和应用的 `containers` 数组同级相邻。 Init 容器的状态在 `status.initContainerStatuses` 字段中以容器状态数组的格式返回（类似 `status.containerStatuses` 字段）。
+
+### 与普通容器的不同之处
+
+Init 容器支持应用容器的全部字段和特性，包括资源限制、数据卷和安全设置。 然而，Init 容器对资源请求和限制的处理稍有不同，在下面资源处有说明。
+
+Init 容器与普通的容器非常像，除了如下两点：它们总是运行到完成；每个都必须在下一个启动之前成功完成。
+
+同时 Init 容器不支持 Readiness Probe，因为它们必须在 Pod 就绪之前运行完成。
+
+如果为一个 Pod 指定了多个 Init 容器，这些容器会按顺序逐个运行。每个 Init 容器必须运行成功，下一个才能够运行。当所有的 Init 容器运行完成时，Kubernetes 才会为 Pod 初始化应用容器并像平常一样运行。
+
+### Init 容器能做什么
+
+因为 Init 容器具有与应用容器分离的单独镜像，其启动相关代码具有如下优势：
+
+- Init 容器可以包含一些安装过程中应用容器中不存在的实用工具或个性化代码。例如，没有必要仅为了在安装过程中使用类似 `sed`、 `awk`、 `python` 或 `dig` 这样的工具而去`FROM` 一个镜像来生成一个新的镜像。
+- Init 容器可以安全地运行这些工具，避免这些工具导致应用镜像的安全性降低。
+- 应用镜像的创建者和部署者可以各自独立工作，而没有必要联合构建一个单独的应用镜像。
+- Init 容器能以不同于Pod内应用容器的文件系统视图运行。因此，Init容器可具有访问 [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) 的权限，而应用容器不能够访问。
+- 由于 Init 容器必须在应用容器启动之前运行完成，因此 Init 容器提供了一种机制来阻塞或延迟应用容器的启动，直到满足了一组先决条件。一旦前置条件满足，Pod内的所有的应用容器会并行启动。
+
+### 使用
+
+下面的例子定义了一个具有 2 个 Init 容器的简单 Pod。 第一个等待 `myservice` 启动，第二个等待 `mydb` 启动。 一旦这两个 Init容器 都启动完成，Pod 将启动`spec`区域中的应用容器。
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox:1.28
+    command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+  initContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    command: ['sh', '-c', "until nslookup myservice.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
+  - name: init-mydb
+    image: busybox:1.28
+    command: ['sh', '-c', "until nslookup mydb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done"]
+```
+
+下面的 yaml 文件展示了 `mydb` 和 `myservice` 两个 Service：
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: myservice
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+```
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: mydb
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9377
+```
+
+一旦启动了 `mydb` 和 `myservice` 这两个 Service，我们能够看到 Init 容器完成，并且 `myapp-pod` 被创建。
+
+上面这个例子并不完整，并且涉及Service相关内容，如需深入了解可以看官方文档。
+
+### 具体行为
+
+在 Pod 启动过程中，每个Init 容器在网络和数据卷初始化之后会按顺序启动。每个 Init容器 成功退出后才会启动下一个 Init容器。 如果因为运行或退出时失败引发容器启动失败，它会根据 Pod 的 `restartPolicy` 策略进行重试。 然而，如果 Pod 的 `restartPolicy` 设置为 Always，Init 容器失败时会使用 `restartPolicy` 的 OnFailure 策略。
+
+在所有的 Init 容器没有成功之前，Pod 将不会变成 `Ready` 状态。 Init 容器的端口将不会在 Service 中进行聚集。 正在初始化中的 Pod 处于 `Pending` 状态，但会将条件 `Initializing` 设置为 true。
+
+如果 Pod 重启，所有 Init 容器必须重新执行。
+
+对 Init 容器 spec 的修改仅限于容器的 image 字段。 更改 Init 容器的 image 字段，等同于重启该 Pod。
+
+因为 Init 容器可能会被重启、重试或者重新执行，所以 Init 容器的代码应该是幂等的。 特别地，基于 `EmptyDirs` 写文件的代码，应该对输出文件可能已经存在做好准备。
+
+Init 容器具有应用容器的所有字段。 然而 Kubernetes 禁止使用 `readinessProbe`，因为 Init 容器不能定义不同于完成（completion）的就绪（readiness）。 这一点会在校验时强制执行。
+
+在 Pod 上使用 `activeDeadlineSeconds`和在容器上使用 `livenessProbe` 可以避免 Init 容器一直重复失败。 `activeDeadlineSeconds` 时间包含了 Init 容器启动的时间。
+
+在 Pod 中的每个应用容器和 Init 容器的名称必须唯一；与任何其它容器共享同一个名称，会在校验时抛出错误。
+
+**资源使用**
+
+给定Init 容器的执行顺序下，资源使用适用于如下规则：
+
+- 所有 Init 容器上定义的任何特定资源的 limit 或 request 的最大值，作为 Pod *有效初始 request/limit*
+- Pod 对资源的有效 limit/request 是如下两者的较大者：
+  - 所有应用容器对某个资源的 limit/request 之和
+  - 对某个资源的有效初始 limit/request
+- 基于有效 limit/request 完成调度，这意味着 Init 容器能够为初始化过程预留资源，这些资源在 Pod 生命周期过程中并没有被使用。
+- Pod 的 *有效 QoS 层* ，与 Init 容器和应用容器的一样。【注：QoS（Quality of Service），服务质量】
+
+配额和限制适用于有效 Pod的 limit/request。 Pod 级别的 cgroups 是基于有效 Pod 的 limit/request，和调度器相同。【注：Linux系统中经常有个需求就是希望能限制某个或者某些进程的分配资源。于是就出现了cgroups的概念，cgroup就是controller group，在这个group中，又分配好的特定比例的CPU时间，IO时间，可用内存大小等。cgroups是将任意进程进行分组化管理的Linux内核功能】
+
+**Pod 重启的原因**
+
+Pod重启导致 Init 容器重新执行，主要有如下几个原因：
+
+- 用户更新 Pod 的 Spec 导致 Init 容器镜像发生改变。Init 容器镜像的变更会引起 Pod 重启. 应用容器镜像的变更仅会重启应用容器。
+- Pod 的基础设施容器 (如 pause 容器) 被重启。 这种情况不多见，必须由具备 root 权限访问 Node 的人员来完成。
+- All containers in a Pod are terminated while `restartPolicy` is set to Always, forcing a restart, and the init container completion record has been lost due to garbage collection.
+
+补充内容：
+
+- Read about [creating a Pod that has an init container](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/#creating-a-pod-that-has-an-init-container)
+- Learn how to [debug init containers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-init-containers/)
 
 ## 9 Pod的升级与回滚
+
+官方文档：[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+
+### 升级
+
+当集群中的某个服务需要升级时，我们需要停止目前与该服务相关的所有Pod，然后下载新版本镜像并创建新的Pod。如果集群规模比较大，则这个工作变成了一个挑战，而且先全部停止然后逐步升级的方式会导致较长时间的服务不可用。Kubernetes提供了滚动升级功能来解决上述问题。
+
+如果Pod是通过Deployment创建的，则用户可以在运行时修改Deployment的Pod定义（spec.template）或镜像名称，并应用到Deployment对象上，系统即可完成Deployment的自动更新操作。
+
+例如
+
+```yaml
+# controllers/nginx-deployment.yaml 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3   # Pod的副本数量为3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+可以通过`kubectl set image`命令为Deployment设置新的镜像名称
+
+```shell
+kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.16.1
+```
+
+or simply use the following command:
+
+```shell
+kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1 --record
+```
+
+另一种方法是，使用`kubectl edit`命令修改Deployment的配置：
+
+```shell
+kubectl edit deployment.v1.apps/nginx-deployment
+```
+
+然后将`.spec.template.spec.containers[0].image` 从 `nginx:1.14.2` 改成 `nginx:1.16.1`即可。
+
+一旦镜像名（或Pod定义）发生了修改，则将触发系统完成Deployment所有运行Pod的滚动升级操作。也就是说滚动的具体操作其实是**自动完成**的。
+
+可以使用`kubectl rollout status`命令查看Deployment的更新过程。
+
+#### 更新的具体过程
+
+可以使用kubectl describe deployments/nginx-deployment命令仔细观察Deployment的更新过程。
+
+初始创建Deployment时，系统创建了一个ReplicaSet，并按用户的需求创建了3个Pod副本。当更新Deployment时，系统创建了一个新的ReplicaSet，并将其副本数量扩展到1，然后将旧的ReplicaSet缩减为2。之后，系统继续按照相同的更新策略对新旧两个ReplicaSet进行逐个调整。最后，新的ReplicaSet运行了3个新版本Pod副本，旧的ReplicaSet副本数量则缩减为0。【简单来说，就是创建了两个版本的ReplicaSet，并分别更新副本数，新的逐步增加而旧的逐步减少，进而实现替换。在这段话中每次增加或减少的量都是1】
+
+运行`kubectl get rs`命令，可以查看两个ReplicaSet的最终状态。
+
+Deployment 可确保在更新时仅关闭一定数量的 Pods，默认情况下，它确保至少 75%所需 Pods 运行（25%最大不可用 `maxUnavailable`）。
+
+Deployment 还限制了被创建的 Pods数，默认情况下，被创建的Pod数最大为期望Pods数的125%（即25%最大增量 `maxSurge`）。
+
+For example, if you look at the above Deployment closely, you will see that it first created a new Pod, then deleted some old Pods, and created new ones. **It does not kill old Pods until a sufficient number of new Pods have come up, and does not create new Pods until a sufficient number of old Pods have been killed.** It makes sure that at least 2 Pods are available and that at max 4 Pods in total are available. 【个人理解就是，先创建25%的新Pod，然后再杀掉25%的旧Pod，然后继续这个循环直到更新完毕】
+
+#### 更新策略
+
+在Deployment的定义中，可以通过`spec.strategy`指定Pod更新的策略，目前支持两种策略：Recreate（重建）和RollingUpdate（滚动更新），默认值为RollingUpdate。在前面的例子中使用的就是RollingUpdate策略。
+
+- Recreate：设置`spec.strategy.type=Recreate`，表示Deployment在更新Pod时，会先杀掉所有正在运行的Pod，然后创建新的Pod。
+
+- RollingUpdate：设置`spec.strategy.type=RollingUpdate`，表示Deployment会以滚动更新的方式来逐个更新Pod。同时，可以通过设置`spec.strategy.rollingUpdate`下的两个参数（maxUnavailable和maxSurge）来控制滚动更新的过程。
+
+  滚动更新时两个主要参数：最大不可用`spec.strategy.rollingUpdate.maxUnavailable`和最大增量`spec.strategy.rollingUpdate.maxSurge`
+
+#### Rollover —— 翻转（多 Deployment 动态更新）
+
+如果Deployment的上一次更新正在进行，此时用户再次发起Deployment的更新操作，那么Deployment会为每一次更新都创建一个ReplicaSet，而每次在新的ReplicaSet创建成功后，会逐个增加Pod副本数，同时将之前正在扩容的ReplicaSet停止扩容（更新），并将其加入旧版本ReplicaSet列表中，然后开始缩容至0的操作。
+
+例如，假设创建一个 Deployment，并且创建了 `nginx:1.7.9` 的 5 个副本，然后更新 Deployment 以创建 5 个 `nginx:1.9.1` 的副本。假设在这个创建Pod动作尚未完成时，又将Deployment进行更新，并且此时只有 3 个`nginx:1.7.9` 的副本已创建。在这种情况下， Deployment 会立即开始杀死3个 `nginx:1.7.9` Pods，并开始创建 `nginx:1.9.1` Pods。它不等待 `nginx:1.7.9` 的 5 个副本在改变任务之前完成创建。
+
+
 
 
 
