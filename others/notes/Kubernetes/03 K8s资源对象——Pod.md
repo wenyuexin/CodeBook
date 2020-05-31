@@ -1703,13 +1703,250 @@ For example, if you look at the above Deployment closely, you will see that it f
 
 例如，假设创建一个 Deployment，并且创建了 `nginx:1.7.9` 的 5 个副本，然后更新 Deployment 以创建 5 个 `nginx:1.9.1` 的副本。假设在这个创建Pod动作尚未完成时，又将Deployment进行更新，并且此时只有 3 个`nginx:1.7.9` 的副本已创建。在这种情况下， Deployment 会立即开始杀死3个 `nginx:1.7.9` Pods，并开始创建 `nginx:1.9.1` Pods。它不等待 `nginx:1.7.9` 的 5 个副本在改变任务之前完成创建。
 
+### 回滚
 
+在默认情况下，所有Deployment的发布历史记录都被保留在系统中，以便于我们随时进行回滚。
 
+首先，用`kubectl rollout history`命令检查这个Deployment部署的历史记录：
 
+```
+kubectl rollout history deployment/nginx-deployment
+```
 
+在创建Deployment时使用`--record`参数，就可以在`CHANGE-CAUSE`列看到每个版本使用的命令了。另外，Deployment的更新操作是在Deployment进行部署（Rollout）时被触发的，这意味着**当且仅当Deployment的Pod模板（即`spec.template`）被更改时才会创建新的修订版本**，例如更新模板标签或容器镜像。其他更新操作（如扩展副本数）将不会触发Deployment的更新操作，这也意味着我们将Deployment回滚到之前的版本时，只有Deployment的Pod模板部分会被修改。
 
+如果需要查看特定版本的详细信息，则可以加上`--revision=<N>`
+
+```
+$ kubectl rollout history deployment/nginx-deployment --revision=3
+```
+
+然后，通过以下命令回滚：
+
+```
+kubectl rollout undo deployment/nginx-deployment
+```
+
+或者使用`--to-revision`参数指定回滚到的部署版本号：
+
+```
+kubectl rollout undo deployment/nginx-deployment --to-revision=2
+```
+
+### 暂停和恢复**Deployment**的部署操作
+
+官方文档：[Deployments - Pausing and Resuming a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#pausing-and-resuming-a-deployment)
+
+对于一次复杂的Deployment配置修改，为了避免频繁触发Deployment的更新操作，可以先暂停Deployment的更新操作，然后进行配置修改，再恢复Deployment.
+
+先通过`kubectl rollout pause`命令暂停：
+
+```
+kubectl rollout pause deployment/nginx-deployment
+```
+
+修改完成后，恢复这个Deployment的部署操作
+
+```
+kubectl rollout resume deployment/nginx-deployment
+```
+
+此外，可以通过一些命令查看相关信息，例如：
+
+`kubectl get deploy`: Get the Deployment detail
+
+`kubectl get rs`: Get the rollout status
+
+`kubectl rollout history XXX`: View previous rollout revisions and configurations
+
+相关的kubectl 命令可以参考：[kubectl-commands - rollout](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#rollout)
 
 ## 10 Pod的扩容与缩容
+
+官方文档：[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 
+
+**调整Pod的数量**：通过`Deployment/RC`或者`Horizontal Pod Autoscaler (HPA)`实现
+
+Kubernetes对Pod的扩缩容操作提供了手动和自动两种模式，手动模式通过执行`kubectl scale`命令或通过`RESTful API`对一个`Deployment/RC`进行Pod副本数量的设置，即可一键完成。自动模式则需要用户根据某个性能指标或者自定义业务指标，并指定Pod副本数量的范围，系统将自动在这个范围内根据性能指标的变化进行调整。
+
+### 手动模式
+
+仍然以第9节的例子做示范
+
+```
+# controllers/nginx-deployment.yaml 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3   # Pod的副本数量为3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+可以通过命令进行修改：
+
+```
+kubectl scale deployment nginx-deployment --replicas 5
+```
+
+### 自动模式
+
+Horizontal Pod Autoscaler（HPA）这个控制器可以根据CPU或内容使用量动态调整Pod的数量。
+
+HPA基于Master的`kube-controller-manager`服务启动参数`--horizontal-pod-autoscaler-sync-period`定义的探测周期（默认值为15s），周期性地监测目标Pod的资源性能指标，并与HPA资源对象中的扩缩容条件进行对比，在满足条件时对Pod副本数量进行调整
+
+#### HPA的工作原理
+
+每个周期内，controller manager 根据每个 HorizontalPodAutoscaler 定义中指定的指标查询资源利用率。 controller manager 可以从 `resource metrics API`（每个pod 资源指标）和 `custom metrics API`（其他指标）获取指标。
+
+- 对于每个 pod 的资源指标（resource metrics）（如 CPU），控制器先使用 资源指标API 获取每一个 被HPA管理的pod上的指标，如果设置了目标使用率，控制器将获取每个 pod 中的容器资源使用情况，并计算资源使用率。 如果使用原始值，那么将直接使用原始数据（不再计算百分比）。 然后，控制器根据平均的资源使用率或原始值计算出缩放的比例，进而计算出目标副本数。
+
+需要注意的是，如果 pod 某些容器不支持资源采集，那么控制器将不会使用该 pod 的 CPU 使用率。 [算法细节](https://kubernetes.io/zh/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details)章节将会介绍详细的算法。
+
+- 如果 pod 使用自定义指标（custom metrics），那么控制器运行机制与使用资源指标的情况类似，区别在于自定义指标只使用原始值，而不是使用率。
+
+- 对于 pod 使用对象指标（object metrics）和外部指标（external metrics），将获取单个指标，该指标用以描述相关对象。 这个指标将直接跟据目标设定值相比较，并生成一个Pod的缩放比例。
+
+  在 `autoscaling/v2beta2` 版本API中， 这个指标也可以根据 pod 数量平分后再计算。
+
+通常情况下，控制器将从一系列的聚合 API（Aggregated APIs）中获取指标数据，例如`metrics.k8s.io`、`custom.metrics.k8s.io`和`external.metrics.k8s.io`。其中， `metrics.k8s.io` API 通常由 `metrics-server`（需要额外启动）提供。 可以从 [metrics-server](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server) 获取更多信息。 另外，控制器也可以直接从 Heapster 获取指标。
+
+注意：Fetching metrics from Heapster is deprecated as of Kubernetes 1.11.
+
+![img](https://d33wubrfki0l68.cloudfront.net/4fe1ef7265a93f5f564bd3fbb0269ebd10b73b4e/1775d/images/docs/horizontal-pod-autoscaler.svg)
+
+**算法细节**
+From the most basic perspective, the Horizontal Pod Autoscaler controller operates on the ratio between desired metric value and current metric value:
+
+```
+desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]
+```
+
+例如，当前指标为`200m`，目标设定值为`100m`,那么由于`200.0/100.0 = 2.0`， 副本数量将会翻倍。 如果当前指标为`50m`，副本数量将会减半。
+
+如果 HorizontalPodAutoscaler 指定的是`targetAverageValue` 或 `targetAverageUtilization`， 那么将会把指定pod的平均指标做为`currentMetricValue`。
+
+其他细节略过，详细内容看官方文档去。
+
+#### HPA配置
+
+HorizontalPodAutoscaler 是 Kubernetes `autoscaling` API 组的资源。 在当前稳定版本（`autoscaling/v1`）中只支持基于CPU指标的缩放。
+
+在 beta 版本（`autoscaling/v2beta2`），引入了基于内存和自定义指标的缩放。自定义指标包括基于资源使用率、Pod指标、其他指标等类型的指标数据。在`autoscaling/v2beta2`版本中新引入的字段在`autoscaling/v1`版本中基于 annotation 实现。
+
+更多有关 API 对象的信息，请查阅 [HorizontalPodAutoscaler Object](https://git.k8s.io/community/contributors/design-proposals/autoscaling/horizontal-pod-autoscaler.md#horizontalpodautoscaler-object)
+
+**主要参数**
+
+- `scaleTargetRef`：目标作用对象，可以是Deployment、ReplicationController或ReplicaSet。
+
+- `targetCPUUtilizationPercentage`：期望每个Pod的CPU使用率都为50%，该使用率基于Pod设置的CPU Request值进行计算，例如该值为200m，那么系统将维持Pod的实际CPU使用值为100m。
+
+- `minReplicas`和`maxReplicas`：Pod副本数量的最小值和最大值，系统将在这个范围内进行自动扩缩容操作，并维持每个Pod的CPU使用率为50%
+
+  为了使用autoscaling/v1版本的HorizontalPodAutoscaler，需要预先安装Heapster组件或Metrics Server，用于采集Pod的CPU使用率。前者被弃用，建议使用Metrics Server。
+
+在`autoscaling/v2beta2`版本后，除了上述参数，还有其他的可用：
+
+- `metrics`：目标指标值。在metrics中通过参数type定义指标的类型；通过参数target定义相应的指标目标值，系统将在指标数据达到目标值时（考虑容忍度的区间，见前面算法部分的说明）触发扩缩容操作。
+
+  可以将metrics中的type（指标类型）设置为以下三种，可以设置一个或多个组合：
+
+  - Resource：基于资源的指标值，可以设置的资源为CPU和内存。
+
+  - Pods：基于Pod的指标，系统将对全部Pod副本的指标值进行平均值计算。
+
+  - Object：基于某种资源对象（如Ingress）的指标或应用系统的任意自定义指标。
+
+  Pods类型和Object类型都属于自定义指标类型，指标的数据通常需要搭建自定义Metrics Server和监控工具进行采集和处理。
+
+例子
+
+```yaml
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: AverageUtilization
+        averageUtilization: 50
+  - type: Pods
+    pods:
+      metric:
+        name: packets-per-second
+      targetAverageValue: 1k
+  - type: Object
+    object:
+      metric:
+        name: requests-per-second
+      describedObject:
+        apiVersion: networking.k8s.io/v1beta1
+        kind: Ingress
+        name: main-route
+      target:
+        kind: Value
+        value: 10k
+status:
+  observedGeneration: 1
+  lastScaleTime: <some-time>
+  currentReplicas: 1
+  desiredReplicas: 1
+  currentMetrics:
+  - type: Resource
+    resource:
+      name: cpu
+    current:
+      averageUtilization: 0
+      averageValue: 0
+  - type: Object
+    object:
+      metric:
+        name: requests-per-second
+      describedObject:
+        apiVersion: networking.k8s.io/v1beta1
+        kind: Ingress
+        name: main-route
+      current:
+        value: 10k
+```
+
+
+补充资料：
+
+- 设计文档：[Horizontal Pod Autoscaling](https://git.k8s.io/community/contributors/design-proposals/autoscaling/horizontal-pod-autoscaler.md).
+- kubectl 自动缩放命令： [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands/#autoscale).
+- 使用示例：[Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/).
+
+
+
+
 
 
 
