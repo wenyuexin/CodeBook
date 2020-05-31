@@ -66,7 +66,9 @@
 《Spring Boot编程思想（核心篇）》
 《鸟哥的Linux私房菜》
 《模式识别（第四版）》
-《第一本Docker书》James Turnbull，人民邮电出版社
+《第一本Docker书》James Turnbull   
+《深入分析Java Web技术内幕（修订版）》许令波
+
 
 <br>
 
