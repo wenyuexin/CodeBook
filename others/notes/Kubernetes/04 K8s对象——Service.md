@@ -52,7 +52,7 @@ Kubernetes 为该服务分配一个 IP 地址（ClusterIP，集群IP），该 IP
 - 希望服务指向另一个命名空间中或其它集群中的服务。
 - 您正在将工作负载迁移到 Kubernetes。 在评估该方法时，您仅在 Kubernetes 中运行一部分后端。
 
-在任何这些场景中，都能够定义没有 selector 的 `Service`。 例:
+上述场景都能够定义没有 selector 的 `Service`。 例:
 
 ```yaml
 apiVersion: v1
@@ -84,6 +84,19 @@ subsets:
 
 #### Endpoint 切片
 
-Endpoint 切片是一种 API 资源，可以为 Endpoint 提供更可扩展的替代方案。 尽管从概念上讲与 Endpoint 非常相似，但 Endpoint 切片允许跨多个资源分布网络端点。 默认情况下，一旦到达100个 Endpoint，该 Endpoint 切片将被视为“已满”，届时将创建其他 Endpoint 切片来存储任何其他 Endpoint。
+EndpointSlices 是一种 API 资源，可以为 Endpoint 提供更可扩展的替代方案。 尽管从概念上讲与 Endpoint 非常相似，但 Endpoint 切片允许跨多个资源分布网络端点。 默认情况下，一旦到达100个 Endpoint，该 Endpoint 切片将被视为“已满”，届时将创建其他 Endpoint 切片来存储任何其他 Endpoint。
 
-Endpoint 切片提供了附加的属性和功能，这些属性和功能在 [Endpoint 切片](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/) 中进行了详细描述。
+Endpoint 切片提供了附加的属性和功能，这些属性和功能在 [EndpointSlices](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/) 中进行了详细描述。
+
+## Virtual IPs 和 Service 代理
+
+在 Kubernetes 集群中，每个 Node 运行一个 `kube-proxy` 进程。`kube-proxy` 负责为 `Service` 实现了一种 VIP（虚拟 IP）的形式，而不是 [`ExternalName`](https://kubernetes.io/zh/docs/concepts/services-networking/service/#externalname) 的形式。
+
+### 为什么不使用 DNS 轮询
+
+
+
+
+
+
+
