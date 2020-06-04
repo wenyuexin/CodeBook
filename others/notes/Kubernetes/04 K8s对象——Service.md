@@ -257,9 +257,120 @@ Kubernetes `ServiceTypes` 允许指定一个需要的类型的 Service，默认�
 - [`LoadBalancer`](https://kubernetes.io/zh/docs/concepts/services-networking/service/#loadbalancer)：使用云提供商的负载局衡器，可以向外部暴露服务。外部的负载均衡器可以路由到 `NodePort` 服务和 `ClusterIP` 服务。
 - [`ExternalName`](https://kubernetes.io/zh/docs/concepts/services-networking/service/#externalname)：通过返回 `CNAME` 和它的值，可以将服务映射到 `externalName` 字段的内容（例如， `foo.bar.example.com`）。 没有任何类型代理被创建。
 
-其他内容略过，详见：[Services - Publishing Services (ServiceTypes)](https://kubernetes.io/zh/docs/concepts/services-networking/service/#publishing-services-service-types)
+部分内容略过，详见：[Services - Publishing Services (ServiceTypes)](https://kubernetes.io/zh/docs/concepts/services-networking/service/#publishing-services-service-types)
 
-## 9 缺点与不足
+## 9 从集群外部访问Pod或Service
+
+【本节其实是承接上一节的】
+
+由于Pod和Service都是Kubernetes集群范围内的虚拟概念，所以集群外的客户端系统无法通过Pod的IP地址或者Service的虚拟IP地址和虚拟端口号访问它们。为了让外部客户端可以访问这些服务，可以**将Pod或Service的端口号映射到宿主机**，以使客户端应用能够通过物理机访问容器应用。
+
+### 将容器应用的端口号映射到物理机
+
+方法1：**容器级别的hostPort**
+
+通过设置容器级别的hostPort，将容器应用的端口号映射到物理机上：
+
+```yaml
+# pod--hostport.yaml
+
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: webapp
+  labels:
+    app: webapp
+spec:
+  containers:
+  - name: webapp
+    image: tomcat
+    ports:
+    - containerPort: 8080  # 容器端口
+      hostPort: 8081       # 宿主机端口
+```
+
+方法2：**Pod级别的hostNetwork**
+
+通过设置Pod级别的hostNetwork=true，该Pod中所有容器的端口号都将被直接映射到物理机上。在设置hostNetwork=true时需要注意，在容器的ports定义部分如果不指定hostPort，则默认hostPort等于containerPort，如果指定了hostPort，则hostPort必须等于containerPort的值：
+
+```yaml
+# pod--hostnetwork.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+  labels:
+    app: webapp
+spec:
+  hostNetwork: true
+  containers :
+  - name: webapp
+    image: tomcat
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 8080   # 默认hostPort等于containerPort
+```
+
+### 将Service的端口号映射到物理机
+
+方法1：**nodePort**
+
+通过设置nodePort映射到物理机，同时设置Service的类型为NodePort：
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080   # port被映射到targetPort上
+    nodePort: 8081     # 向集群外暴露的端口
+  selector:
+    app: webapp
+```
+
+方法2：**LoadBalancer**
+
+通过设置LoadBalancer映射到云服务商提供的`LoadBalancer`地址。这种用法仅用于在公有云服务提供商的云平台上设置Service的场景。在下面的例子中，`status.loadBalancer.ingress.ip`设置的`146.148.47.155`为云服务商提供的负载均衡器的IP地址。**对该Service的访问请求将会通过LoadBalancer转发到后端Pod上**，负载分发的实现方式则依赖于云服务商提供的LoadBalancer的实现机制：
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+  clusterIP: 10.0.171.239
+  loadBalancerIP: 78.11.24.19
+  type: LoadBalancer
+status:
+  loadBalancer:  # 负载均衡器是异步创建的，提供给负载均衡器的信息将会通过此字段发送出去
+    ingress:
+      - ip: 146.148.47.155
+```
+
+某些云提供商允许个人设置 `loadBalancerIP`，此时将根据用户设置的 `loadBalancerIP` 来创建负载均衡器。如果没有设置 `loadBalancerIP`，将会给负载均衡器指派一个 临时IP。 如果设置了 `loadBalancerIP`，但云提供商并不支持这种特性，那么设置的 `loadBalancerIP` 值将会被忽略掉。
+
+### port, nodePort, targetPort的区别
+
+port：service暴露在cluster ip上的端口，`<clusterIP>:port` 是提供给集群内部客户访问service的入口。
+
+nodePort：提供给集群外部客户端可访问集群内部Service的端口
+
+targetPort：是pod上的端口
+
+参考：[Kubernetes中的nodePort，targetPort，port的区别和意义 - 博客](https://www.cnblogs.com/devilwind/p/8881201.html)
+
+## 10 缺点与不足
 
 为 虚拟IP 使用 userspace 代理，将只适合小型到中型规模的集群，不能够扩展到上千 `Service` 的大型集群。 
 
