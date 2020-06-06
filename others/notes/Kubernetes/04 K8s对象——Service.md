@@ -114,7 +114,7 @@ Kubernetes v1.1添加了 iptables 模式代理，在 Kubernetes v1.2 中，kube-
 
 这种模式，kube-proxy 会监视 Kubernetes master 对 `Service` 对象和 `Endpoints` 对象的添加和移除。 对每个 `Service`，它会在本地 Node 上打开一个端口（随机选择）。 任何连接到“代理端口”的请求，都会被代理到 `Service` 的backend `Pods` 中的某个上面（就像通过 `Endpoints` 报告的一样）。 使用哪个 backend `Pod`，是 kube-proxy 基于 `SessionAffinity` 来确定的。【其他略，见官方文档】
 
-<img src="https://d33wubrfki0l68.cloudfront.net/e351b830334b8622a700a8da6568cb081c464a9b/13020/images/docs/services-userspace-overview.svg" alt="userspace" style="zoom:80%;" />
+<img src="https://d33wubrfki0l68.cloudfront.net/e351b830334b8622a700a8da6568cb081c464a9b/13020/images/docs/services-userspace-overview.svg" alt="userspace" style="zoom:60%;" />
 
 注：
 
@@ -132,7 +132,7 @@ Kubernetes API Server（kube-apiserver）：提供了HTTP Rest接口的关键服
 
 您可以使用 Pod [readiness 探测器](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) 验证后端 Pod 可以正常工作，以便 iptables 模式下的 kube-proxy 仅看到测试正常的后端。 这样做意味着您避免将流量通过 kube-proxy 发送到已知已失败的Pod。
 
-<img src="https://d33wubrfki0l68.cloudfront.net/27b2978647a8d7bdc2a96b213f0c0d3242ef9ce0/e8c9b/images/docs/services-iptables-overview.svg" alt="iptables" style="zoom:80%;" />
+<img src="https://d33wubrfki0l68.cloudfront.net/27b2978647a8d7bdc2a96b213f0c0d3242ef9ce0/e8c9b/images/docs/services-iptables-overview.svg" alt="iptables" style="zoom:60%;" />
 
 #### IPVS 代理模式
 
@@ -151,7 +151,7 @@ IPVS提供了更多选项来平衡后端Pod的流量：
 - `sed`: shortest expected delay
 - `nq`: never queue
 
-<img src="https://d33wubrfki0l68.cloudfront.net/2d3d2b521cf7f9ff83238218dac1c019c270b1ed/9ac5c/images/docs/services-ipvs-overview.svg" alt="ipvs " style="zoom:80%;" />
+<img src="https://d33wubrfki0l68.cloudfront.net/2d3d2b521cf7f9ff83238218dac1c019c270b1ed/9ac5c/images/docs/services-ipvs-overview.svg" alt="ipvs " style="zoom:60%;" />
 
 ## 4 多端口 Service
 
