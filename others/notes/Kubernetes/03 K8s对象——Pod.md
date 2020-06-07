@@ -255,7 +255,7 @@ $kubectl create -f cm-appvars.yaml
 configmap "cm-appvars" created
 ```
 
-#### 通过**kubectl**命令行方式创建
+#### 通过kubectl命令行方式创建
 
 不使用YAML文件，直接通过`kubectl create configmap`也可以创建ConfigMap，可以使用参数`--from-file`或`--from-literal`指定内容，并且可以在一行命令中指定多个参数。具体有以下方式：
 
@@ -554,6 +554,8 @@ spec:
 
 ## 6 Pod的生命周期
 
+**官方文档**：[Pod Lifecycle](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/)
+
 ### Pod phase
 
 A Pod’s `status` field is a [PodStatus](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podstatus-v1-core) object, which has a `phase` field.
@@ -603,15 +605,27 @@ PodCondition数组每个元素是以下6种字段之一：
 
 每次探测都将获得以下三种结果之一：
 
-- Success: The Container passed the diagnostic. 通过诊断
-- Failure: The Container failed the diagnostic. 未通过诊断
-- Unknown: The diagnostic failed, so no action should be taken. 诊断失败
+- `Success`: The Container passed the diagnostic. 通过诊断
+- `Failure`: The Container failed the diagnostic. 未通过诊断
+- `Unknown`: The diagnostic failed, so no action should be taken. 诊断失败
 
 The kubelet can optionally perform and react to three kinds of probes on running Containers:
 
 - `livenessProbe`: Indicates whether the Container is running. If the liveness probe fails, the kubelet kills the Container, and the Container is subjected to its `restart policy`. If a Container does not provide a liveness probe, the default state is `Success`. 指示容器是否正在运行。
 - `readinessProbe`: Indicates whether the Container is ready to service requests. If the readiness probe fails, the endpoints controller removes the Pod’s IP address from the endpoints of all Services that match the Pod. The default state of readiness before the initial delay is `Failure`. If a Container does not provide a readiness probe, the default state is `Success`. 指示容器是否准备好服务请求。
 - `startupProbe`: Indicates whether the application within the Container is started. All other probes are disabled if a startup probe is provided, until it succeeds. If the startup probe fails, the kubelet kills the Container, and the Container is subjected to its restart policy. If a Container does not provide a startup probe, the default state is `Success`. 指示容器中的应用是否已经启动。
+
+**相关参数**
+
+- initialDelaySeconds：容器启动后第一次执行探测是需要等待多少秒。
+
+- periodSeconds：执行探测的频率。默认是10秒，最小1秒。
+
+- timeoutSeconds：探测超时时间。默认1秒，最小1秒。
+
+- successThreshold：探测失败后，最少连续探测成功多少次才被认定为成功。默认是1。对于liveness必须是1。最小值是1。
+
+- failureThreshold：探测成功后，最少连续探测失败多少次才被认定为失败。默认是3。最小值是1。
 
 ### 重启策略
 
@@ -773,7 +787,7 @@ spec:
 
 此时，Pod由系统全自动完成调度。它们各自最终运行在哪个节点上，完全由Master的Scheduler经过一系列算法计算得出，用户无法干预调度过程和结果。
 
-### **NodeSelector**：定向调度
+### NodeSelector：定向调度
 
 将Pod调度到指定的一些Node上，可以通过Node的标签（Label）和Pod的nodeSelector属性相匹配来实现。
 
@@ -869,7 +883,7 @@ spec:
 
 如果你指定了多个与 `nodeSelectorTerms` 关联的 `matchExpressions`，则**只有当所有** `matchExpressions` 满足，才会将pod调度到节点上。
 
-### **PodAffinity**：**Pod**亲和与互斥调度
+### PodAffinity：Pod亲和与互斥调度
 
 Node只有亲和的概念，但是Pod存在亲和与互斥（反亲和, anti-affinity）。
 
@@ -1199,9 +1213,9 @@ spec:
       - name: fluentd-elasticsearch
         image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
         resources:
-          limits:           # 该资源的最小申请量，系统必须满足要求
+          limits:           # 该资源最大允许使用的量，不能被突破
             memory: 200Mi
-          requests:         # 该资源最大允许使用的量，不能被突破
+          requests:         # 该资源的最小申请量，系统必须满足要求
             cpu: 100m
             memory: 200Mi
         volumeMounts:       # 将DaemonSet的数据卷挂载到容器中
@@ -1474,7 +1488,7 @@ A scheduler is specified by supplying the scheduler name as a value to `spec.sch
 
 参考资料：[Configure Multiple Schedulers](https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/)
 
-## 8 **Init Container** —— 初始化容器
+## 8 Init Container —— 初始化容器
 
 官方文档：[Init Containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)
 
@@ -1484,7 +1498,7 @@ init containers用于在启动应用容器（app container）之前启动一个�
 
 You can specify init containers in the Pod specification alongside the `containers` array (which describes app containers).
 
-### **理解**
+### 理解
 
 Pod 可以包含多个容器，应用运行在这些容器里面，同时 Pod 也可以有一个或多个先于应用容器启动的 Init 容器。
 
@@ -1733,7 +1747,7 @@ kubectl rollout undo deployment/nginx-deployment
 kubectl rollout undo deployment/nginx-deployment --to-revision=2
 ```
 
-### 暂停和恢复**Deployment**的部署操作
+### 暂停和恢复Deployment的部署操作
 
 官方文档：[Deployments - Pausing and Resuming a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#pausing-and-resuming-a-deployment)
 

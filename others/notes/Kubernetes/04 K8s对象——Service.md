@@ -230,7 +230,7 @@ Kubernetes DNS 服务器是唯一的一种能够访问 `ExternalName` 类型的 
 
 ## 7 Headless Services
 
-有时不需要或不想要负载均衡，以及单独的 Service IP。 遇到这种情况，可以通过指定 Cluster IP（`spec.clusterIP`）的值为 `None` 来创建 `Headless` Service。
+有时不需要或不想要负载均衡，以及单独的 Service IP。此时，可以通过指定 Cluster IP（`spec.clusterIP`）的值为 `None` 来创建 `Headless` Service。
 
 可以使用 headless Service 与其他服务发现机制进行接口，而不必与 Kubernetes 的实现捆绑在一起。
 
