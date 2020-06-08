@@ -291,7 +291,7 @@ spec:
 
 方法2：**Pod级别的hostNetwork**
 
-通过设置Pod级别的hostNetwork=true，该Pod中所有容器的端口号都将被直接映射到物理机上。在设置hostNetwork=true时需要注意，在容器的ports定义部分如果不指定hostPort，则默认hostPort等于containerPort，如果指定了hostPort，则hostPort必须等于containerPort的值：
+通过设置Pod级别的`hostNetwork=true`，该Pod中所有容器的端口号都将被直接映射到物理机上。在设置`hostNetwork=true`时需要注意，在容器的ports定义部分如果不指定hostPort，则默认hostPort等于containerPort，如果指定了hostPort，则hostPort必须等于containerPort的值：
 
 ```yaml
 # pod--hostnetwork.yaml

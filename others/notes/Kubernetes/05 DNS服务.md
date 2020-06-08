@@ -18,6 +18,8 @@ DNS服务在Kubernetes的发展过程中经历了3个阶段：
 
 从K8s 1.11版本开始，集群的DNS服务由**CoreDNS**提供。CoreDNS是CNCF基金会的一个项目，是用Go语言实现的高性能、插件式、易扩展的DNS服务端。CoreDNS解决了KubeDNS的一些问题，例如dnsmasq的安全漏洞、externalName不能使用stubDomains设置，等等。CoreDNS支持自定义DNS记录及配置upstream DNS Server，可以统一管理Kubernetes基于服务的内部DNS和数据中心的物理DNS。CoreDNS没有使用多个容器的架构，只用一个容器便实现了KubeDNS内3个容器的全部功能。
 
+【说起来，CoreDNS和K8s其实是两个东西，前者是一个独立的工具，只不过内K8s内置，并作为默认的DNS服务组件。详细内容请点本文末尾的官网连接进行了解】
+
 ## K8s集群DNS服务的搭建过程
 
 1）在创建**DNS**服务之前修改每个Node上 kubelet 的启动参数
@@ -111,7 +113,7 @@ spec:
             cpu: 100m    # 容器申请资源的最低标准，必须满足
             memory: 70Mi
         args: [ "-conf", "/etc/coredns/Corefile" ]  # 容器运行参数
-        volumeMounts:    # 数据卷挂载
+        volumeMounts:    # 把Pod的存储卷挂载到本容器中
         - name: config-volume
           mountPath: /etc/coredns
           readOnly: true
@@ -134,7 +136,7 @@ spec:
           timeoutSeconds: 5         # 监测的超时时间，超过后认为监测失败
           successThreshold: 1       # 探测失败后，最少连续探测成功多少次才被认定为成功
           failureThreshold: 5       # 探测成功后，最少连续探测失败多少次才被认定为失败
-        securityContext:
+        securityContext:            # 安全上下文，用于定义Pod或Container的权限和访问控制设置
           allowPrivilegeEscalation: false 
           capabilities:
             add:
@@ -143,9 +145,9 @@ spec:
             - all
           readOnlyRootFilesystem: true
         dnsPolicy: Default
-      volumes :
-      - name: config-volume
-        configMap:
+      volumes:                       # Pod存储卷
+      - name: config-volume          # 存储卷的名称
+        configMap:                   # 存储卷的类型，configMap
           name: coredns
           items:
           - key: Corefile
@@ -183,6 +185,217 @@ metadata:
       port: 9153
       protocol: TCP
 ```
+
+最后通过`kubectl create`完成CoreDNS服务的创建：
+
+```
+# kubectl create -f coredns.yaml
+```
+
+然后可以通过命令行查看是否已启动。
+
+## CoreDNS配置说明
+
+CoreDNS的主要功能是通过**插件系统**实现的。CoreDNS实现了一种**链式插件结构**，将DNS的逻辑抽象成了一个个插件，能够灵活组合使
+用。常用的插件如下：
+
+- loadbalance：提供基于DNS的负载均衡功能。
+
+- loop：检测在DNS解析过程中出现的简单循环问题。
+- cache：提供前端缓存功能。
+- health：对Endpoint进行健康检查。
+- kubernetes：从Kubernetes中读取zone数据。
+- etcd：从etcd读取zone数据，可以用于自定义域名记录。
+- file：从RFC1035格式文件中读取zone数据。
+- hosts：使用/etc/hosts文件或者其他文件读取zone数据，可以用于自定义域名记录。
+- auto：从磁盘中自动加载区域文件。
+- reload：定时自动重新加载Corefile配置文件的内容。
+- forward：转发域名查询到上游DNS服务器。
+- proxy：转发特定的域名查询到多个其他DNS服务器，同时提供到多个DNS服务器的负载均衡功能。
+- prometheus：为Prometheus系统提供采集性能指标数据的URL。
+- pprof：在URL路径/debug/pprof下提供运行时的性能数据。
+- log：对DNS查询进行日志记录。
+- errors：对错误信息进行日志记录。
+
+例如，上文ConfigMap中的Corefile就对域名`cluster.local`设置了一系列插件。
+
+etcd和hosts插件可以用于用户自定义域名记录。例如，以`.com`结尾的域名记录配置为从etcd中获取，并将域名记录保存在`/skydns`路径下：
+
+```
+{
+  etcd com {
+    path /skydns
+    endpoint http://192.168.18.3:2379
+    upstream /etc/resolv.conf
+  }
+  cache 160 com
+  loadbalance
+  proxy . /etc/resolv.conf
+}
+```
+
+## **Pod**级别的**DNS**配置说明
+
+**官方文档**：[DNS for Services and Pods - Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pods)
+
+创建 Pod 后，它的主机名是该 Pod 的 `metadata.name` 值。
+
+PodSpec 有一个可选的 `hostname` 字段，可以用来指定 Pod 的主机名。当这个字段被设置时，它将优先于 Pod 的名字成为该 Pod 的主机名。举个例子，给定一个 `hostname` 设置为 `my-host`的 Pod，该 Pod 的主机名将被设置为 `my-host`。
+
+PodSpec 还有一个可选的 `subdomain` 字段，可以用来指定 Pod 的子域名。例如，一个 Pod 的 `hostname` 设置为 `my-hostname`，`subdomain` 设置为 `my-subdomain`，那么在 namespace `my-namespace`中对应的完全限定域名（FQDN）为 `my-hostname.my-subdomain.my-namespace.svc.cluster-domain.example`。
+
+例如：
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: default-subdomain
+spec:
+  selector:
+    name: busybox
+  clusterIP: None   # 设为None则为Headless Service，此时不会分配Cluster IP，不经过负载均衡
+  ports:
+  - name: foo       # Actually, no port is needed.
+    port: 1234
+    targetPort: 1234
+```
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox1
+  labels:
+    name: busybox
+spec:
+  hostname: busybox-1
+  subdomain: default-subdomain
+  containers:
+  - image: busybox:1.28
+    command:
+      - sleep
+      - "3600"
+    name: busybox
+```
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox2
+  labels:
+    name: busybox
+spec:
+  hostname: busybox-2
+  subdomain: default-subdomain
+  containers:
+  - image: busybox:1.28
+    command:
+      - sleep
+      - "3600"
+    name: busybox
+```
+
+如果 Headless Service 与 Pod 在同一个 Namespace 中，它们具有相同的子域名，集群的 KubeDNS 服务器也会为该 Pod 的完整合法主机名返回 A 记录。 例如，在同一个 Namespace 中，给定一个主机名为 `busybox-1` 的 Pod，子域名设置为 `default-subdomain`，名称为 `default-subdomain` 的 Headless Service ，Pod 将看到自己的 FQDN 为 `busybox-1.default-subdomain.my-namespace.svc.cluster.local`。 DNS 会为那个名字提供一个 A 记录，指向该 Pod 的 IP。 `busybox1` 和 `busybox2` 这两个 Pod 分别具有它们自己的 A 记录。
+
+【注：A记录，A or AAAA record。其中，A记录 (Address) 是用来指定主机名（或域名）对应的IPv4地址的DNS记录。AAAA记录(AAAA record)是用来将域名解析到IPv6地址的DNS记录。】
+
+注意： 因为没有为 Pod 名称创建A记录，所以要创建 Pod 的 A 记录需要 `hostname` 。 没有 `hostname` 但带有 `subdomain` 的 Pod 只会为指向Pod的IP地址的 headless 服务创建 A 记录（`default-subdomain.my-namespace.svc.cluster-domain.example`）。 另外，除非在服务上设置了 `publishNotReadyAddresses=True`，否则 Pod 需要准备好 A 记录。
+
+### `spec.dnsPolicy`字段
+
+除了使用集群范围的DNS服务（如CoreDNS），在Pod级别也能设置DNS的相关策略和配置。在Pod的配置文件中通过`spec.dnsPolicy`字段设置DNS策略，例如：
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  containers:
+  - image: busybox:1.28
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+  restartPolicy: Always
+  hostNetwork: true
+  dnsPolicy: ClusterFirstWithHostNet   # 此外还可设为Default, ClusterFirst, None
+```
+
+**字段取值**
+
+- `Default`：Pod从运行所在的节点继承名称解析配置。 
+- `ClusterFirst`：与配置的群集域后缀不匹配的任何 DNS查询(例如 `www.kubernetes.io` )都将转发到从节点继承的上游名称服务器。 群集管理员可能配置了额外的存根域和上游 DNS服务器。
+- `ClusterFirstWithHostNet`：对于与 hostNetwork 一起运行的 Pod，应显式设置其DNS策略为 `ClusterFirstWithHostNet`。
+- `None`：它允许 Pod 忽略 K8s 环境中的 DNS设置。 应该使用 Pod Spec 中的 `dnsConfig` 字段提供所有 DNS 设置。
+
+**注意**：`Default` 不是默认的 DNS 策略。 如果未明确指定 `dnsPolicy`，则使用 `ClusterFirst`。
+
+下面的例子中，Pod的 DNS策略设置为 `ClusterFirstWithHostNet`，因为它已将 `hostNetwork` 设置为 `true`。
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  containers:
+  - image: busybox:1.28
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+  restartPolicy: Always
+  hostNetwork: true   
+  dnsPolicy: ClusterFirstWithHostNet
+```
+
+【注：`hostNetwork`设为true时，Pod中所有容器的端口号都将被直接映射到物理机上。Pod中运行的应用程序可以直接看到宿主主机的网络接口，宿主主机所在的局域网上所有网络接口都可以访问到该应用程序。这部分内容可以参考`04 K8s对象——Service.md` 第9节，或者查看官方文档】
+
+### `spec.dnsConfig`字段
+
+自定义DNS配置可以通过`spec.dnsConfig`字段进行设置，可以设置下列内容：
+
+- `nameservers`：一组DNS服务器的列表，最多可以设置3个。当 Pod 的 `dnsPolicy` 设置为 `None` 时，列表必须至少包含一个IP地址，否则此属性是可选的。列出的服务器将合并到从指定的 DNS 策略生成的基本名称服务器，并删除重复的地址。
+- `searches`：用于在 Pod 中查找主机名的 DNS 搜索域的列表。此属性是可选的。指定后，提供的列表将合并到根据所选 DNS 策略生成的基本搜索域名中。 重复的域名将被删除。最多允许设置6个。
+- `options`：配置其他可选DNS参数，例如`ndots`、`timeout`等，以`name`或`name/value`对的形式表示
+
+`dnsConfig` 字段是可选的，它可以与任何 `dnsPolicy` 设置一起使用。 但是，当 Pod 的 `dnsPolicy` 设置为 “`None`” 时，必须指定 `dnsConfig` 字段。
+
+例如
+
+```yaml
+# service/networking/custom-dns.yaml 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: default
+  name: dns-example
+spec:
+  containers:
+    - name: test
+      image: nginx
+  dnsPolicy: "None"
+  dnsConfig:
+    nameservers:
+      - 1.2.3.4
+    searches:
+      - ns1.svc.cluster-domain.example
+      - my.dns.search.suffix
+    options:
+      - name: ndots
+        value: "2"
+      - name: edns0
+```
+
+
 
 
 

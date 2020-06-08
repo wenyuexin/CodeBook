@@ -164,7 +164,7 @@ To use this approach:
 
 同一个Pod中的多个容器能够共享Pod级别的存储卷Volume。【可以参考`02 基本概念.md`的相关内容】
 
-k8s中的Volume和docker中的Volume有所区别，前者属于Pod，Pod中的多个容器可以将之挂载到各自具体的目录下；k8s中Volume的生命周期和Pod相同，容器崩溃不影响数据卷中的内容。
+k8s中的Volume和docker中的Volume有所区别，前者属于Pod，Pod中的多个容器可以将之挂载到各自具体的目录下；k8s中Volume的生命周期和Pod相同，容器崩溃不影响存储卷中的内容。
 
 例如：
 
@@ -188,7 +188,7 @@ spec:
     volumeMounts :
     - name: app-logs
       mountPath: /1ogs    # busybox容器的挂载点
-  volumes:                # Pod的数据卷
+  volumes:                # Pod的存储卷
   - name: app-logs
     emptyDir: {}
 ```
