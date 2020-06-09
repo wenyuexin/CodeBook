@@ -8,6 +8,40 @@
 
 <br>
 
+## DNS、A记录、SRV记录
+
+Kubernetes DNS **schedules a DNS Pod and Service on the cluster**, and configures the **kubelets** to tell **individual containers** to use the DNS Service’s IP to resolve DNS names.
+
+在集群中定义的每个 Service（包括 DNS 服务器自身）都会被指派一个 DNS 名称。 By default, a client Pod’s DNS search list will include the Pod’s own namespace and the cluster’s default domain. 例如：
+
+Assume a Service named `foo` in the Kubernetes namespace `ns1`. A Pod running in namespace `bar` can look up this service by simply doing a DNS query for `foo`. A Pod running in namespace `ns2` can look up this service by doing a DNS query for `foo.ns1`.
+
+以下各节详细介绍了受支持的记录类型和支持的布局。其中，代码部分的布局、名称或查询命令均被视为实现细节，参见 [Kubernetes DNS-Based Service Discovery](https://github.com/kubernetes/dns/blob/master/docs/specification.md).
+
+### A记录
+
+“正常” Service（除了 Headless Service）会以 `my-svc.my-namespace.svc.cluster-domain.example` 这种名字的形式被指派一个 DNS A 记录。 这会解析成该 Service 的 Cluster IP。
+
+```
+格式 <service>.<ns>.svc.<zone>. <ttl> IN A <cluster-ip>
+示例 kubernetes.default.svc.cluster.local. 4 IN A 10.3.0.1
+```
+
+```
+格式 <service>.<ns>.svc.<zone>. <ttl> IN AAAA <cluster-ip>
+示例 kubernetes.default.svc.cluster.local. 4 IN AAAA 2001:db8::1
+```
+
+“Headless” Service（没有Cluster IP）也会以 `my-svc.my-namespace.svc.cluster-domain.example` 这种名字的形式被指派一个 DNS A 记录。 不像正常 Service，它会解析成该 Service 选择的一组 Pod 的 IP。 希望客户端能够使用这一组 IP，否则就使用标准的 round-robin 策略从这一组 IP 中进行选择。
+
+【A记录，A or AAAA record。其中，A记录 (Address) 是用来指定主机名（或域名）对应的IPv4地址的DNS记录。AAAA记录(AAAA record)是用来将域名解析到IPv6地址的DNS记录。】
+
+### SRV记录
+
+命名端口需要创建 SRV 记录，这些端口是正常 Service或 [Headless Services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services) 的一部分。 对每个命名端口，SRV 记录具有 `_my-port-name._my-port-protocol.my-svc.my-namespace.svc.cluster-domain.example` 这种形式。 对普通 Service，这会被解析成端口号和 CNAME：`my-svc.my-namespace.svc.cluster-domain.example`。 对 Headless Service，这会被解析成多个结果，Service 对应的每个 backend Pod 各一个， 包含 `auto-generated-name.my-svc.my-namespace.svc.cluster-domain.example` 这种形式 Pod 的端口号和 CNAME。
+
+## K8s中DNS服务的演进
+
 作为服务发现机制的基本功能，在集群内需要能够通过服务名对服务进行访问，这就需要一个**集群范围内的DNS服务来完成从服务名到ClusterIP的解析**。
 
 DNS服务在Kubernetes的发展过程中经历了3个阶段：
@@ -299,11 +333,9 @@ spec:
 
 如果 Headless Service 与 Pod 在同一个 Namespace 中，它们具有相同的子域名，集群的 KubeDNS 服务器也会为该 Pod 的完整合法主机名返回 A 记录。 例如，在同一个 Namespace 中，给定一个主机名为 `busybox-1` 的 Pod，子域名设置为 `default-subdomain`，名称为 `default-subdomain` 的 Headless Service ，Pod 将看到自己的 FQDN 为 `busybox-1.default-subdomain.my-namespace.svc.cluster.local`。 DNS 会为那个名字提供一个 A 记录，指向该 Pod 的 IP。 `busybox1` 和 `busybox2` 这两个 Pod 分别具有它们自己的 A 记录。
 
-【注：A记录，A or AAAA record。其中，A记录 (Address) 是用来指定主机名（或域名）对应的IPv4地址的DNS记录。AAAA记录(AAAA record)是用来将域名解析到IPv6地址的DNS记录。】
-
 注意： 因为没有为 Pod 名称创建A记录，所以要创建 Pod 的 A 记录需要 `hostname` 。 没有 `hostname` 但带有 `subdomain` 的 Pod 只会为指向Pod的IP地址的 headless 服务创建 A 记录（`default-subdomain.my-namespace.svc.cluster-domain.example`）。 另外，除非在服务上设置了 `publishNotReadyAddresses=True`，否则 Pod 需要准备好 A 记录。
 
-### `spec.dnsPolicy`字段
+### dnsPolicy字段
 
 除了使用集群范围的DNS服务（如CoreDNS），在Pod级别也能设置DNS的相关策略和配置。在Pod的配置文件中通过`spec.dnsPolicy`字段设置DNS策略，例如：
 
@@ -358,7 +390,7 @@ spec:
 
 【注：`hostNetwork`设为true时，Pod中所有容器的端口号都将被直接映射到物理机上。Pod中运行的应用程序可以直接看到宿主主机的网络接口，宿主主机所在的局域网上所有网络接口都可以访问到该应用程序。这部分内容可以参考`04 K8s对象——Service.md` 第9节，或者查看官方文档】
 
-### `spec.dnsConfig`字段
+### dnsConfig字段
 
 自定义DNS配置可以通过`spec.dnsConfig`字段进行设置，可以设置下列内容：
 
@@ -394,6 +426,12 @@ spec:
         value: "2"
       - name: edns0
 ```
+
+
+
+
+
+
 
 
 
