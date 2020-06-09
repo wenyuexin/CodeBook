@@ -12,7 +12,7 @@ YAML 的配置文件后缀为 `.yml`
 - 使用缩进表示层级关系
 - 缩进不允许使用tab，只允许空格
 - 缩进的空格数不重要，只要相同层级的元素左对齐即可
-- #符号表示注释
+- `#`符号表示注释
 
 ##  数据类型
 
@@ -218,4 +218,6 @@ test:
 
 参考资料
 
-[YAML 入门教程 | 菜鸟教程](https://www.runoob.com/w3cnote/yaml-intro.html)
+1. [The Official YAML Web Site](https://yaml.org/)
+
+2. [YAML 入门教程 | 菜鸟教程](https://www.runoob.com/w3cnote/yaml-intro.html)

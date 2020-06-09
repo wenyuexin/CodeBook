@@ -1,4 +1,4 @@
-# K8s对象——Service
+# K8s资源——Service
 
 **官方文档**：[Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
