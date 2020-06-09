@@ -58,23 +58,23 @@
 **附1**：补充几本书：
 
 《疯狂Java讲义（第4版）》李刚  
-《Effective Java》
-《计算机网络（第5版）》Andrew S. Tanenbaum
-《SQL基础教程 第2版》
-《高性能MySQL》
-《设计模式：可复用面向对象软件的基础》
-《Spring Boot编程思想（核心篇）》
-《鸟哥的Linux私房菜》
-《模式识别（第四版）》
+《Effective Java》  
+《计算机网络（第5版）》Andrew S. Tanenbaum  
+《SQL基础教程 第2版》  
+《高性能MySQL》  
+《设计模式：可复用面向对象软件的基础》  
+《Spring Boot编程思想（核心篇）》  
+《鸟哥的Linux私房菜》  
+《模式识别（第四版）》  
 《第一本Docker书》James Turnbull   
-《深入分析Java Web技术内幕（修订版）》许令波
+《深入分析Java Web技术内幕（修订版）》许令波  
 
 
 <br>
 
-**附2**：下面是一些知识拓展的书
+**附2**：知识拓展类的书
 
-《人月神话》Frederick P. Brooks. Jr.
+《人月神话》Frederick P. Brooks. Jr.  
 
 <br>
 
