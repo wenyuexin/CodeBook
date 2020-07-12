@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/concurrent/concurrent.iml" filepath="$PROJECT_DIR$/concurrent/concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/database/database.iml" filepath="$PROJECT_DIR$/database/database.iml" />
       <module fileurl="file://$PROJECT_DIR$/design-pattern/design-pattern.iml" filepath="$PROJECT_DIR$/design-pattern/design-pattern.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exercise/exercise.iml" filepath="$PROJECT_DIR$/exercise/exercise.iml" />
       <module fileurl="file://$PROJECT_DIR$/javacore/javacore.iml" filepath="$PROJECT_DIR$/javacore/javacore.iml" />
       <module fileurl="file://$PROJECT_DIR$/jvm/jvm.iml" filepath="$PROJECT_DIR$/jvm/jvm.iml" />
       <module fileurl="file://$PROJECT_DIR$/network/network.iml" filepath="$PROJECT_DIR$/network/network.iml" />
