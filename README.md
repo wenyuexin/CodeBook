@@ -42,15 +42,17 @@
 * **设计模式**  
     - 《Head First设计模式》Eric Freeman，ElElisabeth Freeman，中国电力出版社  
     
-* **系统开发**
+* **开发**
   - 《精通Spring 4.x 企业应用开发实战》陈雄化，电子工业出版社
   - 《深入分析Java Web技术内幕》许令波，电子工业出版社
+  - 《Spring Boot实战》Craig Walls，人民邮电出版社
+  - 《Spring 实战》Craig Walls，人民邮电出版社
   
-* **容器与集群**
+* **容器、集群、微服务**
   - 《Docker技术入门与实战（第3版）》杨保华，机械工业出版社
   - 《Kubernetes权威指南：从Docker到Kubernetes实践全接触（第4版）》龚正，电子工业出版社
   
-* **编程实践**
+* **实践**
   - 《剑指Offer 名企面试官精讲典型编程题（第2版）》何海涛，电子工业出版社  
 
 <br>
