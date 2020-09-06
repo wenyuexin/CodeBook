@@ -1,4 +1,4 @@
-﻿# LearnJava
+# LearnJava
 
 好好学习，天天向上
 
@@ -38,9 +38,11 @@
     - 《SQL基础教程（第2版）》 MICK，人民邮电出版社  
     - 《MySQL必知必会》Ben Forta，人民邮电出版社  
     - 《MySQL技术内幕 InnoDB存储引擎（第二版）》姜承尧，机械工业出版社  
+    - 《高性能MySQL》  
     
 * **设计模式**  
-    - 《Head First设计模式》Eric Freeman，ElElisabeth Freeman，中国电力出版社  
+    - 《Head First设计模式》Eric Freeman，ElElisabeth Freeman，中国电力出版社
+    - 《设计模式：可复用面向对象软件的基础》  
     
 * **开发**
   - 《精通Spring 4.x 企业应用开发实战》陈雄化，电子工业出版社
@@ -63,8 +65,6 @@
 《Effective Java》  
 《计算机网络（第5版）》Andrew S. Tanenbaum  
 《SQL基础教程 第2版》  
-《高性能MySQL》  
-《设计模式：可复用面向对象软件的基础》  
 《Spring Boot编程思想（核心篇）》  
 《鸟哥的Linux私房菜》  
 《模式识别（第四版）》  
