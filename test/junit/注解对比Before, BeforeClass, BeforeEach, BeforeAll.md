@@ -9,7 +9,7 @@
 
 
 
-![](/test/assets/order of exception.png)
+![](/LearnJava/test/assets/order of exception.png)
 
 
 
