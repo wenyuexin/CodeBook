@@ -1,3 +1,7 @@
+---
+typora-root-url: ../../../LearnJava
+---
+
 # 注解对比Before, BeforeClass, BeforeEach, BeforeAll
 
 | **特性**                                                     | **Junit 4**  | **Junit 5** |
@@ -9,7 +13,7 @@
 
 
 
-![](/test/assets/order of exception.png)
+![img](/test/assets/order_of_exception.png)
 
 
 
