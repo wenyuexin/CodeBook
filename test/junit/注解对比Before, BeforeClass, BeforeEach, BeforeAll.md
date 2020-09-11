@@ -9,7 +9,7 @@
 
 
 
-![](/order of exception.png)
+![](/assets/order of exception.png)
 
 
 
