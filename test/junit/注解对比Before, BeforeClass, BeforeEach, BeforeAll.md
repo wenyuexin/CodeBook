@@ -7,7 +7,7 @@
 | 在每个测试方法之前执行。注解在非静态方法上。可以重新初始化测试方法所需要使用的类的某些属性。 | @Before      | @BeforeEach |
 | 在每个测试方法之后执行。注解在非静态方法上。可以回滚测试方法引起的数据库修改。 | @After       | @AfterEach  |
 
-![](LearnJava/test/assets/order of exception.png)
+![](LearnJava/test/assets/order_of_exception.png)
 
 
 
