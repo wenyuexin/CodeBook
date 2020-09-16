@@ -3,7 +3,7 @@
 好好学习，天天向上
 
 
-## 参考教程  
+### 参考教程  
 
 * **Java基础**  
     - 《Java从入门到精通（第4版）》 清华大学出版社  
@@ -80,7 +80,7 @@
 
 <br>
 
-## 网络资料
+### 网络资料
 
 * [GitHub - Snailclimb - JavaGuide](https://github.com/Snailclimb/JavaGuide)
 * [GitHub - CyC2018 - CS-Notes](https://github.com/CyC2018/CS-Notes)
