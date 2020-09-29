@@ -1,5 +1,3 @@
-BooleanBuilder和Predicate
-
 Stream和parallelStream
 
 spring的拦截器
