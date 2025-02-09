@@ -12,8 +12,6 @@ redis是单线程服务器，基于**Event-Loop模式**来处理Client的请求�
 
 此外，还有数据结构（例如String、List、Set、SortedSet、Map）的问题。有剔除策略、负载均衡、在线扩容、数据持久化、数据同步等问题。
 
-
-
 ---
 
 参考资料
