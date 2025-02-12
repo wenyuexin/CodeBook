@@ -14,7 +14,7 @@
 
 * Java虚拟机  
   
-  - 《深入理解Java虚拟机：JVM高级特性与最佳实践》 周志明, 机械工业出版社  
+  - 《深入理解Java虚拟机：JVM高级特性与最佳实践》 周志明, 机械工业出版社 
 
 * 操作系统
   
@@ -81,7 +81,12 @@
 * 数据结构与基础算法   
   
   - 《算法（第4版）》 Robert Sedgewick, Kevin Wayne, 人民邮电出版社  
-  - 《算法导论（原书第3版）》 Thomas H.Cormen, 机械工业出版社    
+  - 《算法导论（原书第3版）》 Thomas H.Cormen, 机械工业出版社
+
+* Python
+  
+  - 《Python基础教程（第3版）》Magnus Lie Hetland, 人民邮电出版社
+  - 《Python编程：从入门到实践》Eric Matthes, 人民邮电出版社
 
 * 机器学习
   
