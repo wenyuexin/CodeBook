@@ -88,7 +88,7 @@
   - 《Python基础教程（第3版）》Magnus Lie Hetland, 人民邮电出版社
   - 《Python编程：从入门到实践》Eric Matthes, 人民邮电出版社
 
-* 机器学习
+* 机器学习/深度学习
   
   - 《模式识别（第四版）》 
   - 《深度学习》Ian Goodfellow, Yoshua Bengio, Aaron Courville, 人民邮电出版社
