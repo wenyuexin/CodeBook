@@ -92,6 +92,8 @@
   
   - 《模式识别（第四版）》 
   - 《深度学习》Ian Goodfellow, Yoshua Bengio, Aaron Courville, 人民邮电出版社
+  - 《GPT图解：大模型是怎样构建的》黄佳, 人民邮电出版社出版
+  - [《大模型基础》](https://github.com/ZJU-LLMs/Foundations-of-LLMs) 毛玉仁, 高云君
 
 * 实践
   
