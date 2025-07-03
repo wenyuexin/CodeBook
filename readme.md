@@ -1,6 +1,6 @@
 # CodeBook
 
-学习编程，记录知识。以java为主要语言，偶尔涉及python和c++。
+记录后端编程知识，以java为主要语言，偶尔涉及python和c++。
 
 ## 参考书籍
 
@@ -87,13 +87,6 @@
   
   - 《Python基础教程（第3版）》Magnus Lie Hetland, 人民邮电出版社
   - 《Python编程：从入门到实践》Eric Matthes, 人民邮电出版社
-
-* 机器学习/深度学习
-  
-  - 《模式识别（第四版）》 
-  - 《深度学习》Ian Goodfellow, Yoshua Bengio, Aaron Courville, 人民邮电出版社
-  - 《GPT图解：大模型是怎样构建的》黄佳, 人民邮电出版社出版
-  - [《大模型基础》](https://github.com/ZJU-LLMs/Foundations-of-LLMs) 毛玉仁, 高云君
 
 * 实践
   
