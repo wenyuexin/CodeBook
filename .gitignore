@@ -2,3 +2,4 @@
 /classes/
 .idea/workspace.xml
 /algorithms/target/
+.DS_Store
